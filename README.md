@@ -3,7 +3,7 @@
   
 ## Backlog do Sistema
 
-### 1. Gerenciamento de chamados:
+### 1. Gerenciamento de chamados
 
 <pre>1.a) Criação de chamado:
 Sistema deve permitir criar chamados.<br>
@@ -26,7 +26,7 @@ IA caso não solucione o problema, deve ser capaz de encaminhar para o suporte d
 Atualização das soluções que IA pode propor baseado em soluções resolvidas pelo suporte</pre>
 
 
-### 2. Gerenciamento de Usuário:
+### 2. Gerenciamento de Usuário
 <pre>2.a) Cadastro de usuário:
 Permitir o Adm que crie, edite e visualize novos usuários 
 
