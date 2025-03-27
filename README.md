@@ -1,6 +1,9 @@
-# Backlog do Sistema
+# Gerenciamento de chamados
 
-## 1. Gerenciamento de chamados:
+  
+## Backlog do Sistema
+
+### 1. Gerenciamento de chamados:
 
 <pre>1.a) Criação de chamado:
 Sistema deve permitir criar chamados.<br>
@@ -23,7 +26,7 @@ IA caso não solucione o problema, deve ser capaz de encaminhar para o suporte d
 Atualização das soluções que IA pode propor baseado em soluções resolvidas pelo suporte</pre>
 
 
-## 2. Gerenciamento de Usuário:
+### 2. Gerenciamento de Usuário:
 <pre>2.a) Cadastro de usuário:
 Permitir o Adm que crie, edite e visualize novos usuários 
 
@@ -33,7 +36,7 @@ Adm pode editar usuários já criados<br>
 Adm pode visualizar funcionarios cadastrados.
 Adm vai denominar qual as permissões que os usuários possuem</pre>
 
-## 3. Gerenciamento de Relatórios
+### 3. Gerenciamento de Relatórios
 
 <pre>3.a) Criação de relatórios:
 Criar relatórios mensais, diários dos chamados, seus status, prioridade e data de criação.<br>
@@ -43,3 +46,4 @@ Filtrar Relatórios por status, data, prioridade.<br>
 
 3.c)Visualizar relatórios:
 Admin pode visualizar os relatórios gerados.</pre>
+</pre>
