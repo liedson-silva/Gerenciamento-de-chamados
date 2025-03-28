@@ -47,3 +47,18 @@ Filtrar Relatórios por status, data, prioridade.<br>
 3.c)Visualizar relatórios:
 Admin pode visualizar os relatórios gerados.</pre>
 </pre>
+
+
+## Sprints
+
+### 1° Sprint Dia 10/03 - 17/03
+<pre>Reconhecimento do modelo de negocios, elicitação dos requisitos.
+</pre>
+### 2° Sprint Dia 17/03 - 24/03
+<pre>1.Requisitos funcionais e não funcionais definidos.
+  2.Montagem dos requisitos em modelos de caso de uso no Astah.
+</pre>
+### 3° Sprint 24/03 - 31/03
+<pre>
+  
+</pre>
