@@ -52,11 +52,11 @@ Admin pode visualizar os relatórios gerados.</pre>
 ## Sprints
 
 ### 1° Sprint Dia 10/03 - 17/03
-<pre>Reconhecimento do modelo de negocios, elicitação dos requisitos.
+<pre>1.Reconhecimento do modelo de negocios, elicitação dos requisitos.
 </pre>
 ### 2° Sprint Dia 17/03 - 24/03
 <pre>1.Requisitos funcionais e não funcionais definidos.
-  2.Montagem dos requisitos em modelos de caso de uso no Astah.
+2.Montagem dos requisitos em modelos de caso de uso no Astah.
 </pre>
 ### 3° Sprint 24/03 - 31/03
 <pre>
