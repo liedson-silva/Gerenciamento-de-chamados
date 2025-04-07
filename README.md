@@ -60,5 +60,5 @@ Admin pode visualizar os relatórios gerados.</pre>
 </pre>
 ### 3° Sprint 24/03 - 31/03
 <pre>
-  
+1. Revisão e modificação dos requisitos.
 </pre>
