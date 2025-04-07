@@ -62,3 +62,14 @@ Admin pode visualizar os relatórios gerados.</pre>
 <pre>
 1. Revisão e modificação dos requisitos.
 </pre>
+### 4° Sprint 07/04 - 14/04
+<pre>
+1. Criação de diagramas de classes referente ao diagrama de casos de uso.
+1.1 Criação de chamado e Visualizar chamado - Natália
+1.2 Triagem de chamados e Priorização de chamados - Allyssan
+1.3 Aplicar solução inteligente e Atualização de IA - Rodrigo
+1.4 Cadastro de usuário e Editar usuário - Gabriel
+1.5 Visualizar usuário e Criação de relatórios - Liedson
+1.6 Buscar relatório e Visualizar relatórios - Frederico
+</pre>
+
