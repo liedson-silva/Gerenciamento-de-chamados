@@ -5,49 +5,64 @@
 
 ### 1. Gerenciamento de chamados
 
-<pre>1.a) Criação de chamado:
-Sistema deve permitir criar chamados.<br>
-1.a.a) Checagem:
-Deve permitir que o usuário cheque o chamado antes de enviar <br>
+<pre>1.a) Criar chamado:
+O sistema deve permitir que o usuário crie um novo chamado, informando título, descrição, categoria e prioridade.
+O usuário deve poder revisar os dados preenchidos antes de confirmar o envio do chamado.
+O sistema deve permitir anexar um ou mais arquivos ao chamado antes do envio e também após o chamado ter sido criado (enquanto estiver em aberto).<br>
+1.a.a) Checar chamado:
+Antes de enviar o chamado, o sistema realiza uma primeira checagem para garantir que todos os campos obrigatórios estejam preenchidos. 
+Se o sistema identificar um campo em branco, o chamado não é enviado e o funcionário é informado para preencher os dados. 
+Caso a dupla checagem seja concluída com sucesso, o funcionário envia o chamado para a equipe de suporte.<br>
 1.a.b) Anexar mais arquivos:
-Anexar mais arquivos a determinado chamado <br>
-1.b) Visualizar Chamado:
-O usuario, de acordo com seu nivel de acesso, deve ser capaz de visualizar os chamados criados.<br>
-1.c) Triagem de chamados:
-Classificar os chamados de acordo com o tipo do chamado<br>
-1.d) Priorização de chamados:
-Permitir que a IA categorize o chamado em prioridades, alta, média e baixa e encaminhar pra determinada área de acordo
-Administrador pode alterar a prioridade do chamado.<br>
-1.e) Aplicar solução inteligente:
-IA deve ser capaz de interpreta e propor uma solução ao problema<br>
-1.e.a) Tratamento de problemas:
-IA caso não solucione o problema, deve ser capaz de encaminhar para o suporte de TI resolver<br>
-1.f) Atualização de IA:
-Atualização das soluções que IA pode propor baseado em soluções resolvidas pelo suporte</pre>
+Sistema permite anexar mais arquivos em um chamado já existente.<br>
+  
+1.b) Visualizar chamado:
+O sistema deve permitir que o usuário visualize os chamados criados, de acordo com o seu nível de acesso.<br>
 
 
 ### 2. Gerenciamento de Usuário
-<pre>2.a) Cadastro de usuário:
-Permitir o Adm que crie, edite e visualize novos usuários 
-
+<pre>2.a) Cadastrar usuário:
+Admin cadastra novo usuário.
+Sistema gera matrícula.
+Admin cadastra senha.<br>
+  
 2.b) Editar Usuario:
 Adm pode editar usuários já criados<br>
+  
 2.c)Visualizar usuários
 Adm pode visualizar funcionarios cadastrados.
 Adm vai denominar qual as permissões que os usuários possuem</pre>
 
 ### 3. Gerenciamento de Relatórios
 
-<pre>3.a) Criação de relatórios:
-Criar relatórios mensais, diários dos chamados, seus status, prioridade e data de criação.<br>
+<pre>3.a) Gerar relatórios:
+De acordo com o nível de acesso pode gerar relatórios anuais, mensais e semanais.
+Gerar relatórios baseado em prioridades.
+Gerar relatórios de acordo com o tipo de chamado mais requisitado.<br>
 
 3.b) Buscar relatórios:
-Filtrar Relatórios por status, data, prioridade.<br>
+Filtrar os relatórios de acordo com data, prioridade e tipo.<br>
 
-3.c)Visualizar relatórios:
+3.c) Visualizar relatórios:
 Admin pode visualizar os relatórios gerados.</pre>
 </pre>
 
+### 4. Gerenciamento de IA
+
+<pre>4.a) Priorizar e categorizar chamados:
+A IA deve classificar automaticamente os chamados em níveis de prioridade (alta, média, baixa) com base no conteúdo e na urgência relatada.
+A IA vai identificar o chamado e agrupar na sua respectiva categoria.
+A IA também deve encaminhar o chamado para o setor responsável com base na análise feita.
+O administrador poderá revisar e alterar a prioridade, se necessário.<br>
+  
+4.b) Aplicar solução inteligente:
+IA recebe o chamado.
+IA analisa palavras chaves do chamado.
+IA concede solução para setor responsável de TI de acordo com o sugerido pelas palavras chaves.<br>
+
+4.c)Atualizar aprendizado da IA:
+Admin fará atualização do banco de conhecimento da IA com base em chamados resolvidos pela equipe de suporte de TI, será feito somente em casos que a IA não encontrou uma solução por palavras chaves.</pre>
+</pre>
 
 ## Sprints
 
