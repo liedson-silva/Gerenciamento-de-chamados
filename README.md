@@ -17,8 +17,7 @@ Caso a dupla checagem seja concluída com sucesso, o funcionário envia o chamad
 Sistema permite anexar mais arquivos em um chamado já existente.<br>
   
 1.b) Visualizar chamado:
-O sistema deve permitir que o usuário visualize os chamados criados, de acordo com o seu nível de acesso.<br>
-
+O sistema deve permitir que o usuário visualize os chamados criados, de acordo com o seu nível de acesso.<br> </pre>
 
 ### 2. Gerenciamento de Usuário
 <pre>2.a) Cadastrar usuário:
