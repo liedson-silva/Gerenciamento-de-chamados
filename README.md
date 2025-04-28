@@ -63,18 +63,5 @@ IA concede solução para setor responsável de TI de acordo com o sugerido pela
 Admin fará atualização do banco de conhecimento da IA com base em chamados resolvidos pela equipe de suporte de TI, será feito somente em casos que a IA não encontrou uma solução por palavras chaves.</pre>
 </pre>
 
-## Sprints
-
-### 1° Sprint Dia 10/03 - 17/03
-<pre>1.Reconhecimento do modelo de negocios, elicitação dos requisitos.
-</pre>
-### 2° Sprint Dia 17/03 - 24/03
-<pre>1.Requisitos funcionais e não funcionais definidos.
-2.Montagem dos requisitos em modelos de caso de uso no Astah.
-</pre>
-### 3° Sprint 24/03 - 31/03
-<pre>
-1. Revisão e modificação dos requisitos.
-</pre>
 
 
