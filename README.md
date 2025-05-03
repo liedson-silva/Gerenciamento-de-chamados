@@ -85,4 +85,14 @@ IA concede solução para setor responsável de TI de acordo com o sugerido pela
 * Geração de relatórios mensais, semanais e anuais dos chamados
 * Criação de Usuario pelo Admin
 
-  
+
+## Sprints 
+![Sprint123](https://github.com/user-attachments/assets/dd97433a-f8aa-4c6b-99a1-0fea97d36438)
+
+![Sprint45](https://github.com/user-attachments/assets/1f549682-e81e-44bf-b57e-cef6747683bb)
+
+![Sprint67](https://github.com/user-attachments/assets/42025fbf-abd4-4d4a-b874-ad02d2e729fc)
+
+![Sprint89](https://github.com/user-attachments/assets/2b714eb9-d349-4e3d-89a8-a3a7738d89d6)
+
+
