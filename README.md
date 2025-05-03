@@ -96,3 +96,6 @@ IA concede solução para setor responsável de TI de acordo com o sugerido pela
 ![Sprint89](https://github.com/user-attachments/assets/2b714eb9-d349-4e3d-89a8-a3a7738d89d6)
 
 
+## Relatorio das Sprints
+
+- [Relatório Sprint 1](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint1.md)
