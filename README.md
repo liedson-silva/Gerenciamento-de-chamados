@@ -99,3 +99,20 @@ IA concede solução para setor responsável de TI de acordo com o sugerido pela
 ## Relatorio das Sprints
 
 - [Relatório Sprint 1](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint1.md)
+  
+- [Relatório Sprint 2](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint2.md)
+  
+- [Relatório Sprint 3](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint3.md)
+  
+- [Relatório Sprint 4](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint4.md)
+  
+- [Relatório Sprint 5](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint5.md)
+  
+- [Relatório Sprint 6](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint6.md)
+  
+- [Relatório Sprint 7](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint7.md)
+  
+- [Relatório Sprint 8](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint8.md)
+  
+- [Relatório Sprint 9](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint9.md)
+  
