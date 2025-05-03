@@ -1,7 +1,11 @@
 # Gerenciamento de chamados
 
+Esse trabalho é referente ao Projeto Integrado Multidisciplinar da Faculdade UNIP de São José dos Campos
   
 ## Backlog do Sistema
+Os requisitos do trabalho estão dividos em requisitos funcionais, descrevem funcionalidades do trabalho, e requisitos não funcionais descrevem requisitos como: tecnologia a ser utilizada, arquitetura, ambiente, etc. 
+
+## Requisitos Funcionais
 
 ### 1. Gerenciamento de chamados
 
@@ -59,9 +63,26 @@ IA recebe o chamado.
 IA analisa palavras chaves do chamado.
 IA concede solução para setor responsável de TI de acordo com o sugerido pelas palavras chaves.<br>
 
-4.c)Atualizar aprendizado da IA:
-Admin fará atualização do banco de conhecimento da IA com base em chamados resolvidos pela equipe de suporte de TI, será feito somente em casos que a IA não encontrou uma solução por palavras chaves.</pre>
+</pre>
 </pre>
 
+## Requisitos Não-Funcionais
+### 1. UML
 
+* Astah UML
 
+### 2. Banco de Dados Relacionais
+* Br Modelo (DER e MER)
+* SQL Server
+
+### 3. Documentação
+* Word
+* Excel
+
+## Solução Proposta
+* Priorização e Categorização de chamados por IA
+* Capacidade de IA propor soluções dos chamados para Equipe de TI
+* Geração de relatórios mensais, semanais e anuais dos chamados
+* Criação de Usuario pelo Admin
+
+  
