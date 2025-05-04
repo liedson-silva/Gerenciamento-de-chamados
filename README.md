@@ -1,7 +1,11 @@
 # Gerenciamento de chamados
 
+Esse trabalho é referente ao Projeto Integrado Multidisciplinar da Faculdade UNIP de São José dos Campos
   
 ## Backlog do Sistema
+Os requisitos do trabalho estão dividos em requisitos funcionais, descrevem funcionalidades do trabalho, e requisitos não funcionais descrevem requisitos como: tecnologia a ser utilizada, arquitetura, ambiente, etc. 
+
+## Requisitos Funcionais
 
 ### 1. Gerenciamento de chamados
 
@@ -59,9 +63,74 @@ IA recebe o chamado.
 IA analisa palavras chaves do chamado.
 IA concede solução para setor responsável de TI de acordo com o sugerido pelas palavras chaves.<br>
 
-4.c)Atualizar aprendizado da IA:
-Admin fará atualização do banco de conhecimento da IA com base em chamados resolvidos pela equipe de suporte de TI, será feito somente em casos que a IA não encontrou uma solução por palavras chaves.</pre>
+</pre>
 </pre>
 
+## Requisitos Não-Funcionais
+### 1. UML
+
+* Astah UML
+
+### 2. Banco de Dados Relacionais
+* Br Modelo (DER e MER)
+* SQL Server
+
+### 3. Documentação
+* Word
+* Excel
+
+## Solução Proposta
+* Priorização e Categorização de chamados por IA
+* Capacidade de IA propor soluções dos chamados para Equipe de TI
+* Geração de relatórios mensais, semanais e anuais dos chamados
+* Criação de Usuario pelo Admin
 
 
+## Sprints 
+![Sprint123](https://github.com/user-attachments/assets/dd97433a-f8aa-4c6b-99a1-0fea97d36438)
+
+![Sprint45](https://github.com/user-attachments/assets/1f549682-e81e-44bf-b57e-cef6747683bb)
+
+![Sprint67](https://github.com/user-attachments/assets/42025fbf-abd4-4d4a-b874-ad02d2e729fc)
+
+![Sprint89](https://github.com/user-attachments/assets/2b714eb9-d349-4e3d-89a8-a3a7738d89d6)
+
+
+## Relatorio das Sprints
+
+- [Relatório Sprint 1](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint1.md)
+  
+- [Relatório Sprint 2](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint2.md)
+  
+- [Relatório Sprint 3](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint3.md)
+  
+- [Relatório Sprint 4](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint4.md)
+  
+- [Relatório Sprint 5](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint5.md)
+  
+- [Relatório Sprint 6](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint6.md)
+  
+- [Relatório Sprint 7](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint7.md)
+  
+- [Relatório Sprint 8](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint8.md)
+  
+- [Relatório Sprint 9](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint9.md)
+
+
+## Tecnologias Utilizadas
+* [Figma](https://www.figma.com/)
+* [Astah](https://astah.net/)
+* [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
+* [Br Modelo](https://www.brmodeloweb.com/lang/pt-br/index.html)
+
+
+## Integrantes do grupo
+
+Nome | Github | Instagram
+------------ | ------------- | -----------
+Allyssan Marie Geraldo Castro| [Acessar Github](https://github.com/allyssanmarie) | [Acessar Instagram](https://www.instagram.com/marieallyyy?igsh=bnJ6NDk4bXB3Mmdr)
+Frederico Barreto Godoi Dellú| [Acessar Github](https://github.com/Fredeavatar) | [Acessar Instagram](https://www.instagram.com/fredericodellu_?igsh=MXcwa3d0djQzZzZ5MQ==)
+Gabriel Chiaramonte Gonçalves| [Acessar Github](https://github.com/Chiaramontee) | [Acessar Instagram](https://www.instagram.com/gabriel__chiaramonte?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
+Liedson de Oliveira Silva| [Acessar Github](https://github.com/liedson-silva) | [Acessar Instagram](https://www.instagram.com/liedsonprx?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
+Natália Chiaramonte Fernandes| [Acessar Github](https://github.com/NataliaChiaramonte) | [Acessar Instagram](https://www.instagram.com/nathy_chiaramonte/?utm_source=ig_web_button_share_sheet)
+Rodrigo de Oliveira Chaves| [Acessar Github](https://github.com/Rodrigo-Chaves96) | [Acessar Instagram](https://www.instagram.com/rochave.s?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
