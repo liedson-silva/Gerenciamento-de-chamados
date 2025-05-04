@@ -115,4 +115,22 @@ IA concede solução para setor responsável de TI de acordo com o sugerido pela
 - [Relatório Sprint 8](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint8.md)
   
 - [Relatório Sprint 9](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint9.md)
-  
+
+
+## Tecnologias Utilizadas
+* [Figma](https://www.figma.com/)
+* [Astah](https://astah.net/)
+* [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
+* [Br Modelo](https://www.brmodeloweb.com/lang/pt-br/index.html)
+
+
+## Integrantes do grupo
+
+Nome | Github | Instagram
+------------ | ------------- | -----------
+Allyssan Marie Geraldo Castro| [Acessar Github](https://github.com/allyssanmarie) | [Acessar Instagram](https://www.instagram.com/marieallyyy?igsh=bnJ6NDk4bXB3Mmdr)
+Frederico Barreto Godoi Dellú| [Acessar Github](https://github.com/Fredeavatar) | [Acessar Instagram](https://www.instagram.com/fredericodellu_?igsh=MXcwa3d0djQzZzZ5MQ==)
+Gabriel Chiaramonte Gonçalves| [Acessar Github](https://github.com/Chiaramontee) | [Acessar Instagram](https://www.instagram.com/gabriel__chiaramonte?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
+Liedson de Oliveira Silva| [Acessar Github](https://github.com/liedson-silva) | [Acessar Instagram](https://www.instagram.com/liedsonprx?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
+Natália Chiaramonte Fernandes| [Acessar Github](https://github.com/NataliaChiaramonte) | [Acessar Instagram](https://www.instagram.com/nathy_chiaramonte/?utm_source=ig_web_button_share_sheet)
+Rodrigo de Oliveira Chaves| [Acessar Github](https://github.com/Rodrigo-Chaves96) | [Acessar Instagram](https://www.instagram.com/rochave.s?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
