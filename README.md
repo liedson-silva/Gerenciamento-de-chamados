@@ -132,5 +132,5 @@ Allyssan Marie Geraldo Castro| [Acessar Github](https://github.com/allyssanmarie
 Frederico Barreto Godoi Dellú| [Acessar Github](https://github.com/Fredeavatar) | [Acessar Instagram](https://www.instagram.com/fredericodellu_?igsh=MXcwa3d0djQzZzZ5MQ==)
 Gabriel Chiaramonte Gonçalves| [Acessar Github](https://github.com/Chiaramontee) | [Acessar Instagram](https://www.instagram.com/gabriel__chiaramonte?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
 Liedson de Oliveira Silva| [Acessar Github](https://github.com/liedson-silva) | [Acessar Instagram](https://www.instagram.com/liedsonprx?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
-Natália Chiaramonte Fernandes| [Acessar Github](https://github.com/NataliaChiaramonte) | [Acessar Instagram]([https://www.instagram.com/nathy_chiaramonte/?utm_source=ig](https://www.instagram.com/natthyfernandes?igsh=MTRhOWtiaXM3eGM4Yg==_web_button_share_sheet)
+Natália Chiaramonte Fernandes| [Acessar Github](https://github.com/NataliaChiaramonte) | [Acessar Instagram](https://www.instagram.com/natthyfernandes?igsh=MTRhOWtiaXM3eGM4Yg==_web_button_share_sheet)
 Rodrigo de Oliveira Chaves| [Acessar Github](https://github.com/Rodrigo-Chaves96) | [Acessar Instagram](https://www.instagram.com/rochave.s?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
