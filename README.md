@@ -3,7 +3,7 @@
 Esse trabalho é referente ao Projeto Integrado Multidisciplinar da Faculdade UNIP de São José dos Campos
   
 ## Backlog do Sistema
-Os requisitos do trabalho estão dividos em requisitos funcionais, descrevem funcionalidades do trabalho, e requisitos não funcionais descrevem requisitos como: tecnologia a ser utilizada, arquitetura, ambiente, etc. 
+Os requisitos do trabalho estão dividos em requisitos funcionais que descrevem funcionalidades do trabalho, e requisitos não funcionais descrevem requisitos como: tecnologia a ser utilizada, arquitetura, ambiente, etc. 
 
 ## Requisitos Funcionais
 
@@ -33,8 +33,8 @@ Admin cadastra senha.<br>
 Adm pode editar usuários já criados<br>
   
 2.c)Visualizar usuários
-Adm pode visualizar funcionarios cadastrados.
-Adm vai denominar qual as permissões que os usuários possuem</pre>
+Adm pode visualizar funcionários cadastrados.
+Adm vai denominar quais permissões os usuários possuem</pre>
 
 ### 3. Gerenciamento de Relatórios
 
