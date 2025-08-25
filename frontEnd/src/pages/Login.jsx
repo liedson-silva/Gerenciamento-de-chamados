@@ -29,7 +29,7 @@ const Login = () => {
 
   const handleLogin = () => {
     const userFound = users.find(
-      (user) => user.name == name && user.password == password)
+      (user) => user.name === name && user.password === password)
 
     if (userFound) {
       navigate("/home", { state: { user: userFound } })
