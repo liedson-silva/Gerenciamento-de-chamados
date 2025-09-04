@@ -1,0 +1,81 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Liedson\\OneDrive\\\u00C1rea de Trabalho\\FrontEnd\\ProjetoChamados\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7BDB2C9F-1324-4358-878A-C936EF883A18}|ProjetoChamados\\ProjetoChamados.csproj|c:\\users\\liedson\\onedrive\\\u00E1rea de trabalho\\frontend\\projetochamados\\projetochamados\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7BDB2C9F-1324-4358-878A-C936EF883A18}|ProjetoChamados\\ProjetoChamados.csproj|solutionrelative:projetochamados\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BDB2C9F-1324-4358-878A-C936EF883A18}|ProjetoChamados\\ProjetoChamados.csproj|c:\\users\\liedson\\onedrive\\\u00E1rea de trabalho\\frontend\\projetochamados\\projetochamados\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BDB2C9F-1324-4358-878A-C936EF883A18}|ProjetoChamados\\ProjetoChamados.csproj|solutionrelative:projetochamados\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BDB2C9F-1324-4358-878A-C936EF883A18}|ProjetoChamados\\ProjetoChamados.csproj|c:\\users\\liedson\\onedrive\\\u00E1rea de trabalho\\frontend\\projetochamados\\projetochamados\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BDB2C9F-1324-4358-878A-C936EF883A18}|ProjetoChamados\\ProjetoChamados.csproj|solutionrelative:projetochamados\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Liedson\\OneDrive\\\u00C1rea de Trabalho\\FrontEnd\\ProjetoChamados\\ProjetoChamados\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "ProjetoChamados\\Views\\Login\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Liedson\\OneDrive\\\u00C1rea de Trabalho\\FrontEnd\\ProjetoChamados\\ProjetoChamados\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "ProjetoChamados\\Views\\Login\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T19:28:35.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Liedson\\OneDrive\\\u00C1rea de Trabalho\\FrontEnd\\ProjetoChamados\\ProjetoChamados\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ProjetoChamados\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Liedson\\OneDrive\\\u00C1rea de Trabalho\\FrontEnd\\ProjetoChamados\\ProjetoChamados\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ProjetoChamados\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T19:18:23.813Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Style.css",
+              "DocumentMoniker": "C:\\Users\\Liedson\\OneDrive\\\u00C1rea de Trabalho\\FrontEnd\\ProjetoChamados\\ProjetoChamados\\wwwroot\\css\\Style.css",
+              "RelativeDocumentMoniker": "ProjetoChamados\\wwwroot\\css\\Style.css",
+              "ToolTip": "C:\\Users\\Liedson\\OneDrive\\\u00C1rea de Trabalho\\FrontEnd\\ProjetoChamados\\ProjetoChamados\\wwwroot\\css\\Style.css",
+              "RelativeToolTip": "ProjetoChamados\\wwwroot\\css\\Style.css",
+              "ViewState": "AgIAABMBAAAAAAAAAAAAAEIBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-09-04T18:22:55.376Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
