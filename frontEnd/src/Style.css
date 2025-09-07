@@ -400,8 +400,7 @@ h1 {
 .box-continuar-ticket {
     display: flex;
     justify-content: end;
-    width: 900px;
-    margin-top: 10px;
+    margin-right: 40px;
 }
 
 .button-continuar-ticket {
@@ -486,5 +485,53 @@ h1 {
 }
 
 .button-vizualizar-chamado:hover {
+    opacity: 0.7;
+}
+
+/* View Ticket Form */
+
+.view-ticket-form {
+    padding: 20px;
+}
+
+.form-data {
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 5px;
+    width: 700px;
+    height: 500px;
+    border: solid 1px;
+    background-color: #caf7bd;
+}
+
+.form-info {
+    margin-left: 40px;
+    margin-right: 40px;
+    color: #03672D;
+}
+
+.form-info-data {
+    color: #43AE70;
+}
+
+.box-pagina-inicia {
+    display: flex;
+    justify-content: end;
+    margin-right: 40px;
+}
+
+.button-pagina-inicia {
+    cursor: pointer;
+    background: linear-gradient(to right, white, grey);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 10px;
+    width: 180px;
+    opacity: 1;
+}
+
+.button-pagina-inicia:hover {
     opacity: 0.7;
 }
