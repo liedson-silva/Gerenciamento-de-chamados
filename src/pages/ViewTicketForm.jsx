@@ -1,4 +1,4 @@
-import { useLocation,useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 const ViewTicketForm = () => {
   const location = useLocation()
@@ -6,8 +6,8 @@ const ViewTicketForm = () => {
   const navigate = useNavigate()
 
   const handleHome = () => {
-    navigate("/home", { state: { user }} )
-  } 
+    navigate("/home", { state: { user } })
+  }
 
   return (
     <section className="view-ticket-form">
@@ -25,8 +25,8 @@ const ViewTicketForm = () => {
       </div>
 
       <div className='box-pagina-inicia'>
-                <button className='button-pagina-inicia' onClick={handleHome}>Página inicial</button>
-            </div>
+        <button className='button-pagina-inicia' onClick={handleHome}>Página inicial</button>
+      </div>
 
     </section>
   )

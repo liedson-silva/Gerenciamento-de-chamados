@@ -535,3 +535,42 @@ h1 {
 .button-pagina-inicia:hover {
     opacity: 0.7;
 }
+
+/* Pending Ticket */
+
+.pending-ticket{
+    padding: 15px;
+}
+
+.box-pending-ticket{
+    background-color: #ccc;
+    padding: 15px;
+}
+
+.info-pending-ticket{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-items: center;
+}
+
+.info-pending-ticket li {
+  overflow: hidden;       /* esconde o excesso */
+  white-space: nowrap;    /* quebra linha */
+  text-overflow: ellipsis; /* mostra ... no final */
+}
+
+.circle-green {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: lime;
+  border-radius: 50%;
+}
+
+.circle-orange {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: orange;
+  border-radius: 50%;
+}
