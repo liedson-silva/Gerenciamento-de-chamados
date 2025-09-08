@@ -23,6 +23,10 @@ const Home = () => {
     navigate("/user-configuration", { state: { user } })
   }
 
+  const handlePendingTicket = () => {
+    navigate("/pending-ticket", { state: { user } })
+  }
+
   return (
     <section className="home">
       <div className="nav-bar">
@@ -31,7 +35,7 @@ const Home = () => {
         </button>
         <ul>
           <li className="utils"><AiFillCustomerService className="icons-home" /> Servicos</li>
-          <li className="utils"><BsList className="icons-home" /> Meus Chamados</li>
+          <li className="utils" onClick={handlePendingTicket}><BsList className="icons-home" /> Meus Chamados</li>
           <li className="utils"><LuMessageCircleQuestion className="icons-home" /> FAQ</li>
         </ul>
       </div>
@@ -42,19 +46,19 @@ const Home = () => {
           <div className="user">
             <p className="name">{user?.name}</p>
             <div className="dropdown" tabIndex={0}>
-            <button className="button-user"><FaRegUserCircle /></button>
-            <div className="dropdown-menu">
-              <ul>
-                <li onClick={handleUserConfig} className="menu">Minha Conta</li>
-                <li onClick={handleLogin} className="menu">Sair</li>
-              </ul>
-            </div>
+              <button className="button-user"><FaRegUserCircle /></button>
+              <div className="dropdown-menu">
+                <ul>
+                  <li onClick={handleUserConfig} className="menu">Minha Conta</li>
+                  <li onClick={handleLogin} className="menu">Sair</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="content">
-            <Outlet />
+          <Outlet />
         </div>
       </div>
     </section>
