@@ -18,13 +18,13 @@ const Login = () => {
       password: "123"
     },
     {
-      name: "Neymar Junior",
-      password: "123"
-    },
-    {
-      name: "1",
+      name: "Jessica Santos",
       password: "1"
     },
+    {
+      name: "Neymar Junior",
+      password: "123"
+    }
   ]
 
   const handleLogin = () => {
