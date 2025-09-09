@@ -15,7 +15,7 @@ const SuccesTicket = () => {
 
             <div className="success-ticket">
                 <h1 className="success-title">Chamado enviado com sucesso!</h1>
-                <p>Seu chamado foi registrado e está sendo analisado</p>
+                <p>Seu chamado foi registrado e será analisado em breve</p>
                 <figure>
                     <img src={correct} className="success-img" alt="correct" />
                 </figure>
