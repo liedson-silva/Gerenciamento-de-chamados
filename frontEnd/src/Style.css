@@ -577,17 +577,21 @@ h1 {
     border-radius: 8px;
     margin-top: 5px;
     width: 100%;
-    max-width: 700px;
-    min-height: 100%;
-    max-height: 700px;
+    max-width: 1200px;
+    max-height: 690px;
     border: solid 1px;
     background-color: #caf7bd;
+}
+
+.form-title{
+    color: #03672D;
 }
 
 .form-info {
     margin-left: 40px;
     margin-right: 40px;
     color: #03672D;
+    font-size: 1.1rem;
 }
 
 .form-info-data {
@@ -616,24 +620,25 @@ h1 {
     opacity: 0.7;
 }
 
-/* Pending Ticket */
+/* Tickets, Pending Ticket, Ticket In Progress, Ticket Resolved*/
 
-.pending-ticket {
+.ticket {
     padding: 15px;
 }
 
-.box-pending-ticket {
+.box-ticket {
     background-color: #ccc;
+    cursor: pointer;
     padding: 15px;
 }
 
-.info-pending-ticket {
+.info-ticket {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     align-items: center;
 }
 
-.info-pending-ticket li {
+.info-ticket li {
     overflow: hidden;
     /* esconde o excesso */
     white-space: nowrap;
@@ -643,7 +648,6 @@ h1 {
 }
 
 .circle-green {
-    display: inline-block;
     width: 20px;
     height: 20px;
     background-color: lime;
@@ -651,9 +655,25 @@ h1 {
 }
 
 .circle-orange {
-    display: inline-block;
     width: 20px;
     height: 20px;
     background-color: orange;
     border-radius: 50%;
+}
+
+.circle-yellow{
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .view-desktop {
+        display: none;
+    }
+
+    .info-ticket {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

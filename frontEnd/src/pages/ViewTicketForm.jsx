@@ -13,7 +13,7 @@ const ViewTicketForm = () => {
     <section className="view-ticket-form">
 
       <div className="form-data">
-        <h1 className="form-info">Dados do formulário</h1>
+        <h1 className="form-title">Dados do formulário</h1>
         <p className="form-info">Criado em: <span className="form-info-data">2 horas atrás por {user?.name}</span></p>
         <p className="form-info">Título: <span className="form-info-data">Impressora não liga</span></p>
         <p className="form-info">Categoria: <span className="form-info-data">Hardware</span></p>

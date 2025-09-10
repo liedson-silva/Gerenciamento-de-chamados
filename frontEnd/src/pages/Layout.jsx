@@ -24,7 +24,7 @@ const Home = () => {
   }
 
   const handlePendingTicket = () => {
-    navigate("/pending-ticket", { state: { user } })
+    navigate("/tickets", { state: { user } })
   }
 
   return (
