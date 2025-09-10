@@ -21,8 +21,13 @@ namespace Appparalogin
 
         private void btnCadastroAdd_Click(object sender, EventArgs e)
         {
-            //Definimos a string de conexão com o banco de dados
-            SqlConnection conn = new SqlConnection("Data Source=FREDERICO_DELLU\\SQLEXPRESS;Initial Catalog=GERENCIAMENTO_CHAMADOS;Integrated Security=True;Encrypt=False");
+            // Plano detalhado (pseudocódigo):
+            // 1. Verificar se a string de conexão contém "User Id" e "Password" para autenticação SQL Server.
+            // 2. Corrigir a string de conexão removendo "Trusted Connection" e adicionando "User Id" e "Password".
+            // 3. Testar a conexão para garantir que o erro de usuário não ocorre mais.
+
+            // Substitua a linha da string de conexão por esta versão corrigida:
+            SqlConnection conn = new SqlConnection("Data Source=fatalsystemsrv1.database.windows.net;Initial Catalog=DbaFatal-System;User Id=frederico;Password=Fred11376@;Encrypt=True");
 
             //Cria string de inserção SQL
             string sql = "INSERT INTO CADASTRO(Nome, Email, Telefone, SenhaHash) VALUES(@Nome, @Email, @Telefone, @SenhaHash)";
@@ -36,7 +41,7 @@ namespace Appparalogin
                 c.Parameters.Add(new SqlParameter("@Nome", this.txtCadastroNome.Text));
                 c.Parameters.Add(new SqlParameter("@Email", this.txtCadastroEmail.Text));
                 c.Parameters.Add(new SqlParameter("@Telefone", this.txtCadastroTel.Text));
-                c.Parameters.Add(new SqlParameter("@SenhaHash", this.txtCadastroSenha.Text));
+                c.Parameters.Add(new SqlParameter("@SenhaHash", Encoding.UTF8.GetBytes(this.txtCadastroSenha.Text)));
 
                 //Abrimos conexao com banco de dados
                 conn.Open();
