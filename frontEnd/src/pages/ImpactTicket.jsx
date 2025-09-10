@@ -43,7 +43,7 @@ const ImpactTicket = () => {
             </div>
 
             <div className='create-ticket'>
-                <p>*Esta seção está sendo preenchida com apoio da inteligência artificial*</p>
+                <p className="info-impact">*Esta seção está sendo preenchida com apoio da inteligência artificial*</p>
             </div>
 
             <div className='box-enviar-ticket'>
