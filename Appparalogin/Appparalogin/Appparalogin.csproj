@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Appparalogin</RootNamespace>
     <AssemblyName>Appparalogin</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -92,6 +93,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -105,6 +107,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imagem do WhatsApp de 2025-09-09 à%28s%29 21.56.18_5730b37d - Editado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imagem do WhatsApp de 2025-09-09 à%28s%29 21.56.18_5730b37d.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_11908251.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_4204600.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unknown_5695541.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
