@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|c:\\users\\gabriel\\desktop\\faculdade\\pim\\appparalogin\\appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|c:\\users\\gabriel\\desktop\\faculdade\\pim\\appparalogin\\appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\menurestrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\cadastro_de_usuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\cadastro_de_usuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\appparalogin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,20 +58,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Cadastro_de_Usuarios.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
-              "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T01:30:09.24Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Form1.cs",
               "RelativeDocumentMoniker": "Appparalogin\\Form1.cs",
@@ -83,20 +70,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Cadastro_de_Usuarios.cs",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs",
               "RelativeDocumentMoniker": "Appparalogin\\Cadastro_de_Usuarios.cs",
               "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs",
               "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAqwFcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAIwFcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-03T10:04:28.369Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Cadastro_de_Usuarios.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs",
               "RelativeDocumentMoniker": "Appparalogin\\Cadastro_de_Usuarios.cs",
@@ -108,20 +95,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Login.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Login.Designer.cs",
               "RelativeDocumentMoniker": "Appparalogin\\Login.Designer.cs",
               "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Login.Designer.cs",
               "RelativeToolTip": "Appparalogin\\Login.Designer.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAwwJcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-01T08:45:51.762Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Login.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Login.cs",
               "RelativeDocumentMoniker": "Appparalogin\\Login.cs",
@@ -139,14 +126,40 @@
               "RelativeDocumentMoniker": "Appparalogin\\Login.cs",
               "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Login.cs",
               "RelativeToolTip": "Appparalogin\\Login.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAswCEAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwCEAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-31T06:04:07.315Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Program.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\Program.cs",
+              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Program.cs",
+              "RelativeToolTip": "Appparalogin\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T07:02:27.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Cadastro_de_Usuarios.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
+              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
+              "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T01:30:09.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "MenuRestrito.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\MenuRestrito.cs",
               "RelativeDocumentMoniker": "Appparalogin\\MenuRestrito.cs",
@@ -157,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MenuRestrito.cs",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\MenuRestrito.cs",
               "RelativeDocumentMoniker": "Appparalogin\\MenuRestrito.cs",
@@ -166,18 +179,6 @@
               "ViewState": "AgIAAAYAAAAAAAAAAAASwBUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-31T07:01:07.565Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Program.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Program.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\Appparalogin\\Appparalogin\\Program.cs",
-              "RelativeToolTip": "Appparalogin\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-31T07:02:27.198Z"
             }
           ]
         }
