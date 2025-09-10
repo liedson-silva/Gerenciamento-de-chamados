@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+
 namespace Appparalogin
 {
     public partial class Login : Form
@@ -22,40 +23,72 @@ namespace Appparalogin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            string usuario = txtUsuario.Text.Trim();
+            string senhaDigitada = txtSenha.Text.Trim();
+
+            //Usuario admin padrão
+
+            const string adminLogin = "admin";
+            const string adminSenha = "admin1234";
+
+            if (usuario == adminLogin && senhaDigitada == adminSenha)
             {
-                if (txtUsuario.Text == "admin" && txtSenha.Text == "123")
-                {
-                    var menu = new MenuRestrito();
-
-                    menu.Show();
-
-
-                    this.Visible = false;
-                    //this.Dispose();
-                    
-
-                }
-                else
-                {
-                    MessageBox.Show("Usuário ou senha inválidos",
-                                    "Atenção!!",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-
-                    txtUsuario.Focus();
-                    txtSenha.Text = "";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro: " + ex.Message,
-                                "Atenção!!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-
+                MessageBox.Show("✅ Login de administrador realizado com sucesso!");
+                // Abrir menu restrito
+                var menu = new MenuRestrito();
+                menu.Show();
+                this.Hide(); // Oculta o form de login
+                return;
             }
 
+            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=frederico;Password=Fred11376@;";
+
+            using (SqlConnection conexao = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conexao.Open();
+
+                    // Busca o hash da senha pelo login
+                    string sql = "SELECT Senha FROM Usuario WHERE Login = @usuario";
+                    using (SqlCommand cmd = new SqlCommand(sql, conexao))
+                    {
+                        cmd.Parameters.AddWithValue("@usuario", usuario);
+
+                        object resultado = cmd.ExecuteScalar();
+
+                        if (resultado != null)
+                        {
+                            string hashSalvo = resultado.ToString();
+
+                            // Valida a senha usando o hash
+                            if (SenhaHelper.ValidarSenha(senhaDigitada, hashSalvo))
+                            {
+                                MessageBox.Show("✅ Login realizado com sucesso!");
+
+                                // Abrir menu restrito
+                                var menu = new MenuRestrito();
+                                menu.Show();
+                                this.Hide(); // Oculta o form de login
+                            }
+                            else
+                            {
+                                MessageBox.Show("❌ Senha incorreta!");
+                                txtSenha.Focus();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("❌ Usuário não encontrado!");
+                            txtUsuario.Focus();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro de conexão: " + ex.Message);
+                }
+            }
         }
 
         private void txtUsuario_Enter(object sender, EventArgs e)

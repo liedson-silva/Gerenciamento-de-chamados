@@ -21,51 +21,35 @@ namespace Appparalogin
 
         private void btnCadastroAdd_Click(object sender, EventArgs e)
         {
-            // Plano detalhado (pseudocódigo):
-            // 1. Verificar se a string de conexão contém "User Id" e "Password" para autenticação SQL Server.
-            // 2. Corrigir a string de conexão removendo "Trusted Connection" e adicionando "User Id" e "Password".
-            // 3. Testar a conexão para garantir que o erro de usuário não ocorre mais.
 
-            // Substitua a linha da string de conexão por esta versão corrigida:
-            SqlConnection conn = new SqlConnection("Data Source=fatalsystemsrv1.database.windows.net;Initial Catalog=DbaFatal-System;User Id=frederico;Password=Fred11376@;Encrypt=True");
+            string usuario = txtCadastroNome.Text.Trim();
+            string email = txtCadastroEmail.Text.Trim();
+            string senhaDigitada = txtCadastroSenha.Text.Trim();
+            string hashSenha = SenhaHelper.GerarHashSenha(senhaDigitada);
 
-            //Cria string de inserção SQL
-            string sql = "INSERT INTO CADASTRO(Nome, Email, Telefone, SenhaHash) VALUES(@Nome, @Email, @Telefone, @SenhaHash)";
+            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=frederico;Password=Fred11376@;";
 
-            try
+            using (SqlConnection conexao = new SqlConnection(connectionString))
             {
-                //cria um objeto do tipo comando passando como parametro a string sql e conn
-                SqlCommand c = new SqlCommand(sql, conn);
+                try
+                {
+                    conexao.Open();
+                    string sql = "INSERT INTO Usuario (Login, Senha, Email) VALUES (@login, @senha, @email)";
+                    using (SqlCommand cmd = new SqlCommand(sql, conexao))
+                    {
+                        cmd.Parameters.AddWithValue("@login", usuario);
+                        cmd.Parameters.AddWithValue("@senha", hashSenha);
+                        cmd.Parameters.AddWithValue("@email", email);
 
-                //Insere os dados da textBox no comando sql
-                c.Parameters.Add(new SqlParameter("@Nome", this.txtCadastroNome.Text));
-                c.Parameters.Add(new SqlParameter("@Email", this.txtCadastroEmail.Text));
-                c.Parameters.Add(new SqlParameter("@Telefone", this.txtCadastroTel.Text));
-                c.Parameters.Add(new SqlParameter("@SenhaHash", Encoding.UTF8.GetBytes(this.txtCadastroSenha.Text)));
-
-                //Abrimos conexao com banco de dados
-                conn.Open();
-
-
-                //Executa o comando sql no banco de dados
-                c.ExecuteNonQuery();
-
-
-                //Fechamos a conexão
-                conn.Close();
-
-
-                MessageBox.Show("Dados inseridos com sucesso!");
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Usuário cadastrado com sucesso!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao cadastrar: " + ex.Message);
+                }
             }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Erro de banco de dados: " + ex.Message);
-            }
-        }
-
-        private void txtCadastroNome_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

@@ -31,12 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro_de_Usuarios));
             this.lblNome = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblCadastroTel = new System.Windows.Forms.Label();
             this.lblCadastroSenha = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCadastroCancel = new System.Windows.Forms.Button();
             this.btnCadastroAdd = new System.Windows.Forms.Button();
-            this.txtCadastroTel = new System.Windows.Forms.TextBox();
             this.txtCadastroSenha = new System.Windows.Forms.TextBox();
             this.txtCadastroEmail = new System.Windows.Forms.TextBox();
             this.txtCadastroNome = new System.Windows.Forms.TextBox();
@@ -75,6 +73,7 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Email:";
             // 
+<<<<<<< HEAD
             // lblCadastroTel
             // 
             this.lblCadastroTel.AutoSize = true;
@@ -93,6 +92,13 @@
             this.lblCadastroSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCadastroSenha.Location = new System.Drawing.Point(8, 393);
             this.lblCadastroSenha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            // lblCadastroSenha
+            // 
+            this.lblCadastroSenha.AutoSize = true;
+            this.lblCadastroSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCadastroSenha.Location = new System.Drawing.Point(6, 210);
+>>>>>>> 5944d81 (Subido bd correto kk)
             this.lblCadastroSenha.Name = "lblCadastroSenha";
             this.lblCadastroSenha.Size = new System.Drawing.Size(117, 36);
             this.lblCadastroSenha.TabIndex = 3;
@@ -104,12 +110,10 @@
             this.groupBox1.BackColor = System.Drawing.Color.LightGray;
             this.groupBox1.Controls.Add(this.btnCadastroCancel);
             this.groupBox1.Controls.Add(this.btnCadastroAdd);
-            this.groupBox1.Controls.Add(this.txtCadastroTel);
             this.groupBox1.Controls.Add(this.txtCadastroSenha);
             this.groupBox1.Controls.Add(this.txtCadastroEmail);
             this.groupBox1.Controls.Add(this.txtCadastroNome);
             this.groupBox1.Controls.Add(this.lblCadastroSenha);
-            this.groupBox1.Controls.Add(this.lblCadastroTel);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblNome);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,6 +151,7 @@
             this.btnCadastroAdd.UseVisualStyleBackColor = false;
             this.btnCadastroAdd.Click += new System.EventHandler(this.btnCadastroAdd_Click);
             // 
+<<<<<<< HEAD
             // txtCadastroTel
             // 
             this.txtCadastroTel.Location = new System.Drawing.Point(197, 296);
@@ -159,6 +164,11 @@
             // 
             this.txtCadastroSenha.Location = new System.Drawing.Point(197, 393);
             this.txtCadastroSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            // txtCadastroSenha
+            // 
+            this.txtCadastroSenha.Location = new System.Drawing.Point(6, 233);
+>>>>>>> 5944d81 (Subido bd correto kk)
             this.txtCadastroSenha.Name = "txtCadastroSenha";
             this.txtCadastroSenha.Size = new System.Drawing.Size(515, 46);
             this.txtCadastroSenha.TabIndex = 6;
@@ -271,10 +281,8 @@
 
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblCadastroTel;
         private System.Windows.Forms.Label lblCadastroSenha;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtCadastroTel;
         private System.Windows.Forms.TextBox txtCadastroSenha;
         private System.Windows.Forms.TextBox txtCadastroEmail;
         private System.Windows.Forms.TextBox txtCadastroNome;
