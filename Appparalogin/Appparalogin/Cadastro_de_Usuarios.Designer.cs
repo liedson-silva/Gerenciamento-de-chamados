@@ -151,7 +151,6 @@
             this.txtCadastroNome.Name = "txtCadastroNome";
             this.txtCadastroNome.Size = new System.Drawing.Size(387, 38);
             this.txtCadastroNome.TabIndex = 4;
-            this.txtCadastroNome.TextChanged += new System.EventHandler(this.txtCadastroNome_TextChanged);
             // 
             // Cadastro_de_Usuarios
             // 
