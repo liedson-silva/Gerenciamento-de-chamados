@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom"
 
-const PendingTicket = () => {
+const Tickets = () => {
     const location = useLocation()
     const user = location.state?.user
     const navigate = useNavigate()
@@ -8,8 +8,8 @@ const PendingTicket = () => {
         navigate("/view-ticket-form", { state: { user } })
     }
 
-  return (
-    <section>
+    return (
+        <section>
 
             <div className="ticket">
                 <ul className="info-ticket">
@@ -36,7 +36,7 @@ const PendingTicket = () => {
             </div>
 
         </section>
-  )
+    )
 }
 
-export default PendingTicket
+export default Tickets

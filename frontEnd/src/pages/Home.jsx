@@ -9,7 +9,19 @@ const Home = () => {
   const navigate = useNavigate()
 
   const handleCreateTicket = () => {
-    navigate ("/create-ticket", { state: { user } })
+    navigate("/create-ticket", { state: { user } })
+  }
+
+  const handlePendingTicket = () => {
+    navigate("/pending-ticket", { state: { user } })
+  }
+
+  const handleTicketInProgress = () => {
+    navigate("/ticket-in-progress", { state: { user } })
+  }
+
+  const handleTicketResolved = () => {
+    navigate("/ticket-resolved", { state: { user } })
   }
 
   return (
@@ -21,11 +33,11 @@ const Home = () => {
         </div>
 
         <div className="chamados">
-          <button className="button-chamados"><img src={folder} />
+          <button className="button-chamados" onClick={handlePendingTicket}><img src={folder} />
             Chamados Pendentes</button>
-          <button className="button-chamados"><img src={hourglass} />
+          <button className="button-chamados" onClick={handleTicketInProgress}><img src={hourglass} />
             Chamados em Andamentos</button>
-          <button className="button-chamados"><img src={correct} />
+          <button className="button-chamados" onClick={handleTicketResolved}><img src={correct} />
             Chamados Solucionados</button>
         </div>
       </div>

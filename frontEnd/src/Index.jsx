@@ -7,7 +7,10 @@ import CreateTicket from "./pages/CreateTicket";
 import ImpactTicket from "./pages/ImpactTicket";
 import SuccesTicket from "./pages/SuccesTicket";
 import ViewTicketForm from "./pages/ViewTicketForm";
+import Tickets from "./pages/Tickets";
 import PendingTicket from "./pages/PendingTicket";
+import TicketInProgress from "./pages/TicketInProgress";
+import TicketResolved from "./pages/TicketResolved";
 
 function App() {
   return (
@@ -21,7 +24,10 @@ function App() {
           <Route path="/create-ticket/impact" element={<ImpactTicket />} />
           <Route path="/create-ticket/impact/success" element={<SuccesTicket />} />
           <Route path="/view-ticket-form" element={<ViewTicketForm />} />
+          <Route path="/tickets" element={<Tickets />} />
           <Route path="/pending-ticket" element={<PendingTicket />} />
+          <Route path="/ticket-in-progress" element={<TicketInProgress />} />
+          <Route path="/ticket-resolved" element={<TicketResolved />} />
         </Route>
       </Routes>
     </Router>
