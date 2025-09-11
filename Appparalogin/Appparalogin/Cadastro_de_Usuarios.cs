@@ -71,5 +71,15 @@ namespace Appparalogin
         {
 
         }
+
+        private void txtCadastroEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
