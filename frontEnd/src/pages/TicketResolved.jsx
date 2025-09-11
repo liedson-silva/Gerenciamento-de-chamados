@@ -27,7 +27,7 @@ const TicketResolved = () => {
                 <ul className="info-ticket">
                     <li className="view-desktop">4856</li>
                     <li>Impressora não liga</li>
-                    <li> <span className="circle-green">ㅤ</span> Pendente</li>
+                    <li> <span className="circle-green">ㅤ</span> Solucionado</li>
                     <li className="view-desktop">05/07/2004</li>
                     <li className="view-desktop"> <span className="circle-green">ㅤ</span> Baixa</li>
                     <li className="view-desktop">Hardware</li>
