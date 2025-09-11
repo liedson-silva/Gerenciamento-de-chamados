@@ -30,7 +30,6 @@ C:\Users\Gabriel\Desktop\Faculdade\pim\Appparalogin\Appparalogin\bin\Debug\Apppa
 C:\Users\Gabriel\Desktop\Faculdade\pim\Appparalogin\Appparalogin\obj\Debug\Appparalogin.csproj.AssemblyReference.cache
 C:\Users\Gabriel\Desktop\Faculdade\pim\Appparalogin\Appparalogin\obj\Debug\Appparalogin.exe.config
 C:\Users\Gabriel\Desktop\Faculdade\pim\Appparalogin\Appparalogin\obj\Debug\Appparalogin.Cadastro_de_Usuarios.resources
-C:\Users\Gabriel\Desktop\Faculdade\pim\Appparalogin\Appparalogin\obj\Debug\Appparalogin.Form1.resources
 C:\Users\Gabriel\Desktop\Faculdade\pim\Appparalogin\Appparalogin\obj\Debug\Appparalogin.Login.resources
 C:\Users\Gabriel\Desktop\Faculdade\pim\Appparalogin\Appparalogin\obj\Debug\Appparalogin.MenuRestrito.resources
 C:\Users\Gabriel\Desktop\Faculdade\pim\Appparalogin\Appparalogin\obj\Debug\Appparalogin.Properties.Resources.resources

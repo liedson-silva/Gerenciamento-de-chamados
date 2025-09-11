@@ -63,6 +63,76 @@ namespace Appparalogin.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48 {
+            get {
+                object obj = ResourceManager.GetObject("account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_ {
+            get {
+                object obj = ResourceManager.GetObject("account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_12615770 {
+            get {
+                object obj = ResourceManager.GetObject("home_12615770", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24 {
+            get {
+                object obj = ResourceManager.GetObject("home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_51dp_000000_FILL0_wght400_GRAD0_opsz48 {
+            get {
+                object obj = ResourceManager.GetObject("home_51dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_ {
+            get {
+                object obj = ResourceManager.GetObject("home_51dp_000000_FILL0_wght400_GRAD0_opsz48 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_5616506 {
+            get {
+                object obj = ResourceManager.GetObject("home_5616506", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d {
             get {
                 object obj = ResourceManager.GetObject("Imagem do WhatsApp de 2025-09-09 à(s) 21.56.18_5730b37d", resourceCulture);
@@ -86,6 +156,16 @@ namespace Appparalogin.Properties {
         internal static System.Drawing.Bitmap menu_4204600 {
             get {
                 object obj = ResourceManager.GetObject("menu_4204600", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profile_7310896 {
+            get {
+                object obj = ResourceManager.GetObject("profile_7310896", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

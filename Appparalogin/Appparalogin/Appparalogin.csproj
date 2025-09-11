@@ -116,5 +116,29 @@
   <ItemGroup>
     <None Include="Resources\unknown_5695541.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile_7310896.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_5616506.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_12615770.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_51dp_000000_FILL0_wght400_GRAD0_opsz48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_51dp_000000_FILL0_wght400_GRAD0_opsz48 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
