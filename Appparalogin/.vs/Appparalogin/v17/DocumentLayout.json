@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\pastagit1\\Appparalogin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\pastagit1\\Appparalogin\\appparalogin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\pastagit1\\appparalogin\\appparalogin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\pastagit1\\appparalogin\\appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\pastagit1\\Appparalogin\\appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -72,8 +72,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\tmp3B4E.tmp.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAApwB4AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:55:18.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-10T23:55:18.449Z"
             },
             {
               "$type": "Document",
@@ -85,8 +84,7 @@
               "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-10T23:10:21.32Z"
             },
             {
               "$type": "Document",
@@ -97,8 +95,7 @@
               "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\pastagit1\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs [Design]",
               "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.324Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-10T23:10:21.324Z"
             },
             {
               "$type": "Document",
@@ -110,8 +107,7 @@
               "RelativeToolTip": "Appparalogin\\Login.Designer.cs",
               "ViewState": "AgIAAHUAAAAAAAAAAAAowBsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.325Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-10T23:10:21.325Z"
             },
             {
               "$type": "Document",
@@ -122,8 +118,7 @@
               "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\pastagit1\\Appparalogin\\Appparalogin\\Login.cs [Design]",
               "RelativeToolTip": "Appparalogin\\Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.386Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-10T23:10:21.386Z"
             },
             {
               "$type": "Document",
@@ -135,8 +130,7 @@
               "RelativeToolTip": "Appparalogin\\Login.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAmwCEAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-10T23:10:21.426Z"
             },
             {
               "$type": "Document",
@@ -146,7 +140,7 @@
               "RelativeDocumentMoniker": "Appparalogin\\Program.cs",
               "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\pastagit1\\Appparalogin\\Appparalogin\\Program.cs",
               "RelativeToolTip": "Appparalogin\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-10T23:10:21.427Z",
               "EditorCaption": ""
@@ -161,8 +155,7 @@
               "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
               "ViewState": "AgIAAHIAAAAAAAAAAAAkwH4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-10T23:10:21.428Z"
             },
             {
               "$type": "Document",
