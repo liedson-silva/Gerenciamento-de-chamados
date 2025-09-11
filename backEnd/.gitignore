@@ -1,0 +1,21 @@
+# Ignorar node_modules
+node_modules/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build e cache
+bin/
+obj/
+dist/
+out/
+
+# Logs
+*.log
+
+# Variáveis de ambiente
+.env
