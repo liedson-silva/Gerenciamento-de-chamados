@@ -21,10 +21,16 @@ namespace Appparalogin
 
         private void btnCadastroAdd_Click(object sender, EventArgs e)
         {
-
-            string usuario = txtCadastroNome.Text.Trim();
+            string rg = txtCadastroRG.Text.Trim();
+            string cpf = txtCadastroCpf.Text.Trim();
+            string nome = txtCadastroNome.Text.Trim();
+            string usuario = txtCadastroLogin.Text.Trim();
             string email = txtCadastroEmail.Text.Trim();
             string senhaDigitada = txtCadastroSenha.Text.Trim();
+            string funcaoUsuario = txtCadastroFuncao.Text.Trim();
+            string sexo = comboBoxCadastroSexo.Text;
+            string setor = txtCadastroSetor.Text.Trim();
+            DateTime dataDeNascimento = dateTimePickerCadastroDataNascimento.Value;
             string hashSenha = SenhaHelper.GerarHashSenha(senhaDigitada);
 
             string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=frederico;Password=Fred11376@;";
@@ -34,9 +40,17 @@ namespace Appparalogin
                 try
                 {
                     conexao.Open();
-                    string sql = "INSERT INTO Usuario (Login, Senha, Email) VALUES (@login, @senha, @email)";
+                    string sql = "INSERT INTO Usuario (Login, Nome, CPF, RG, FuncaoUsuario, Sexo, Setor, DataDeNascimento, Senha, Email)" +
+                        " VALUES (@login, @Nome, @CPF, @RG, @FuncaoUsuario, @Sexo, @Setor, @DataDeNascimento, @senha, @email)";
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
                     {
+                        cmd.Parameters.AddWithValue("@Nome", nome);
+                        cmd.Parameters.AddWithValue("@CPF", cpf);
+                        cmd.Parameters.AddWithValue("@RG", rg);
+                        cmd.Parameters.AddWithValue("@FuncaoUsuario", funcaoUsuario);
+                        cmd.Parameters.AddWithValue("@Sexo", sexo);
+                        cmd.Parameters.AddWithValue("@Setor", setor);
+                        cmd.Parameters.AddWithValue("@DataDeNascimento", dataDeNascimento);
                         cmd.Parameters.AddWithValue("@login", usuario);
                         cmd.Parameters.AddWithValue("@senha", hashSenha);
                         cmd.Parameters.AddWithValue("@email", email);
