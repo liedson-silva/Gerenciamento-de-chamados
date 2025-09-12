@@ -41,7 +41,7 @@ namespace Appparalogin
                 return;
             }
 
-            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=frederico;Password=Fred11376@;";
+            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
 
             using (SqlConnection conexao = new SqlConnection(connectionString))
             {

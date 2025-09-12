@@ -21,19 +21,19 @@ namespace Appparalogin
 
         private void btnCadastroAdd_Click(object sender, EventArgs e)
         {
-            string rg = txtCadastroRG.Text.Trim();
-            string cpf = txtCadastroCpf.Text.Trim();
-            string nome = txtCadastroNome.Text.Trim();
-            string usuario = txtCadastroLogin.Text.Trim();
-            string email = txtCadastroEmail.Text.Trim();
-            string senhaDigitada = txtCadastroSenha.Text.Trim();
-            string funcaoUsuario = txtCadastroFuncao.Text.Trim();
-            string sexo = comboBoxCadastroSexo.Text;
-            string setor = txtCadastroSetor.Text.Trim();
-            DateTime dataDeNascimento = dateTimePickerCadastroDataNascimento.Value;
-            string hashSenha = SenhaHelper.GerarHashSenha(senhaDigitada);
+            string CadastroRg = txtCadastroRG.Text.Trim();
+            string CadastroCPF = txtCadastroCpf.Text.Trim();
+            string CadastroNome = txtCadastroNome.Text.Trim();
+            string CadastroUsuario = txtCadastroLogin.Text.Trim();
+            string CadastroEmail = txtCadastroEmail.Text.Trim();
+            string CadastroSenhaDigitada = txtCadastroSenha.Text.Trim();
+            string CadastroFuncaoUsuario = txtCadastroFuncao.Text.Trim();
+            string CadastroSexo = comboBoxCadastroSexo.Text;
+            string CadastroSetor = cBoxCadSetor.Text;
+            DateTime CadastroDataDeNascimento = dtpCadDN.Value;
+            string hashSenha = SenhaHelper.GerarHashSenha(CadastroSenhaDigitada);
 
-            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=frederico;Password=Fred11376@;";
+            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
 
             using (SqlConnection conexao = new SqlConnection(connectionString))
             {
@@ -44,16 +44,16 @@ namespace Appparalogin
                         " VALUES (@login, @Nome, @CPF, @RG, @FuncaoUsuario, @Sexo, @Setor, @DataDeNascimento, @senha, @email)";
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
                     {
-                        cmd.Parameters.AddWithValue("@Nome", nome);
-                        cmd.Parameters.AddWithValue("@CPF", cpf);
-                        cmd.Parameters.AddWithValue("@RG", rg);
-                        cmd.Parameters.AddWithValue("@FuncaoUsuario", funcaoUsuario);
-                        cmd.Parameters.AddWithValue("@Sexo", sexo);
-                        cmd.Parameters.AddWithValue("@Setor", setor);
-                        cmd.Parameters.AddWithValue("@DataDeNascimento", dataDeNascimento);
-                        cmd.Parameters.AddWithValue("@login", usuario);
+                        cmd.Parameters.AddWithValue("@Nome", CadastroNome);
+                        cmd.Parameters.AddWithValue("@CPF", CadastroCPF);
+                        cmd.Parameters.AddWithValue("@RG", CadastroRg);
+                        cmd.Parameters.AddWithValue("@FuncaoUsuario", CadastroFuncaoUsuario);
+                        cmd.Parameters.AddWithValue("@Sexo", CadastroSexo);
+                        cmd.Parameters.AddWithValue("@Setor", CadastroSetor);
+                        cmd.Parameters.AddWithValue("@DataDeNascimento", CadastroDataDeNascimento);
+                        cmd.Parameters.AddWithValue("@login", CadastroUsuario);
                         cmd.Parameters.AddWithValue("@senha", hashSenha);
-                        cmd.Parameters.AddWithValue("@email", email);
+                        cmd.Parameters.AddWithValue("@email", CadastroEmail);
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Usuário cadastrado com sucesso!");
@@ -66,34 +66,8 @@ namespace Appparalogin
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
-        }
 
-        private void lblCadastroSenha_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCadastroTel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCadastroEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

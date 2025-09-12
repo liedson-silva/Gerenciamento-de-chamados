@@ -63,3 +63,17 @@ C:\Users\Liedson\OneDrive\Documentos\Unip\pim\Gerenciamento-de-chamados\SistemaD
 C:\Users\Liedson\OneDrive\Documentos\Unip\pim\Gerenciamento-de-chamados\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.csproj.CoreCompileInputs.cache
 C:\Users\Liedson\OneDrive\Documentos\Unip\pim\Gerenciamento-de-chamados\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.exe
 C:\Users\Liedson\OneDrive\Documentos\Unip\pim\Gerenciamento-de-chamados\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.pdb
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\bin\Debug\Appparalogin.exe.config
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\bin\Debug\Appparalogin.exe
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\bin\Debug\Appparalogin.pdb
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.csproj.AssemblyReference.cache
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.exe.config
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.Cadastro_de_Usuarios.resources
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.Login.resources
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.MenuRestrito.resources
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.Properties.Resources.resources
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.csproj.GenerateResource.cache
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.exe
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.pdb
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.Home.resources
