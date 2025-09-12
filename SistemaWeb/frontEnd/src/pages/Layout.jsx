@@ -1,5 +1,4 @@
 import logo from "../assets/logo.png"
-import { AiFillCustomerService } from "react-icons/ai";
 import { BsList } from "react-icons/bs";
 import { LuMessageCircleQuestion } from "react-icons/lu";
 import { FaHouse } from "react-icons/fa6";
@@ -34,7 +33,6 @@ const Home = () => {
           <img src={logo} className="logo-home" alt="logo" />
         </button>
         <ul>
-          <li className="utils"><AiFillCustomerService className="icons-home" /> Servicos</li>
           <li className="utils" onClick={handlePendingTicket}><BsList className="icons-home" /> Chamados</li>
           <li className="utils"><LuMessageCircleQuestion className="icons-home" /> FAQ</li>
         </ul>

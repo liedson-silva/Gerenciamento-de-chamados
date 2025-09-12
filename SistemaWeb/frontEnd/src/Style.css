@@ -387,6 +387,12 @@ h1 {
     align-items: center;
 }
 
+@media (max-width:768px) {
+    .user-config-data {
+    gap: 2rem;
+}
+}
+
 /* Create Ticket */
 
 .create-ticket {

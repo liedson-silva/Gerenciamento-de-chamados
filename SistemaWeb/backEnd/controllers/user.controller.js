@@ -1,43 +1,54 @@
-const crypto = require("crypto")
+import crypto from "crypto"
 
-function validarSenha(senha, hashSalvo) {
-    const hashBytes = Buffer.from(hashSalvo, "base64");
-    const salt = hashBytes.slice(0, 16)
-    const hashOriginal = hashBytes.slice(16, 36)
-
-    const hash = crypto.pbkdf2Sync(senha, salt, 10000, 20, "sha1")
-    return hash.equals(hashOriginal)
-}
-
-async function LoginController(req, res, pool, sql) {
-    const { name, password } = req.body
-
-    if (!name || !password) {
-        return res.status(400).json({ success: false, message: "Nome e senha obrigatórios" });
+export class LoginController {
+    constructor(pool, sql) {
+        this.pool = pool
+        this.sql = sql
     }
 
-    try {
-        const result = await pool.request()
-            .input("name", sql.VarChar, name)
-            .query("SELECT Nome, Senha, Email FROM Usuario WHERE Nome = @name")
+    validarSenha(senha, hashSalvo) {
+        const hashBytes = Buffer.from(hashSalvo, "base64");
+        const salt = hashBytes.slice(0, 16)
+        const hashOriginal = hashBytes.slice(16, 36)
 
-        if (result.recordset.length === 0) {
-            return res.status(401).json({ success: false, message: "Usuário não encontrado" });
+        const hash = crypto.pbkdf2Sync(senha, salt, 10000, 20, "sha1")
+        return hash.equals(hashOriginal)
+    }
+
+    async login(req, res) {
+        const { login, password } = req.body
+
+        if (!login || !password) {
+            return res.status(400).json({ success: false, message: "Login e senha obrigatórios" })
         }
 
-        const user = result.recordset[0];
+        try {
+            const result = await this.pool.request()
+                .input("login", this.sql.VarChar, login)
+                .query("SELECT * FROM Usuario WHERE Login = @login")
 
-        const validPassword = validarSenha(password, user.Senha)
+            if (result.recordset.length === 0) {
+                return res.status(401).json({ success: false, message: "Usuário não encontrado" });
+            }
 
-        if (!validPassword) {
-            return res.status(401).json({ success: false, message: "Senha incorreta" });
+            const user = result.recordset[0];
+            const validPassword = this.validarSenha(password, user.Senha)
+
+            if (!validPassword) {
+                return res.status(401).json({ success: false, message: "Senha incorreta" })
+            }
+
+            res.json({
+                success: true, user: {
+                    Login: user.Login, Email: user.Email,
+                    Nome: user.Nome
+                }
+            })
+
+        } catch (err) {
+            console.error("Erro no login:", err);
+            res.status(500).json({ success: false, message: "Erro no servidor" })
         }
-
-        res.json({ success: true, user: { Nome: user.Nome, Email: user.Email } });
-    } catch (err) {
-        console.error("Erro no login:", err);
-        res.status(500).json({ success: false, message: "Erro no servidor" });
     }
 }
 
-module.exports = LoginController

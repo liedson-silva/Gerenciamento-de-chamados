@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../services/api.js"
 
 const Login = () => {
-  const [name, setName] = useState("");
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [forgetPassword, setForgetPassword] = useState("")
@@ -15,14 +15,14 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await api.post("/login", { name, password })
+      const response = await api.post("/login", { login, password })
 
       if (response.data.success) {
         navigate("/home", { state: { user: response.data.user } })
       }
     } catch (err) {
       setError("Usuário ou senha inválidos!");
-      setName("");
+      setLogin("");
       setPassword("");
       setTimeout(() => setError(""), 2000);
     }
@@ -44,8 +44,8 @@ const Login = () => {
 
           <div className='inputs'>
             <FaRegUser className='icons' />
-            <input className='input-login' name='name' type="text" placeholder='Usuário'
-              value={name} onChange={(e) => setName(e.target.value)} />
+            <input className='input-login' name='login' type="text" placeholder='Usuário'
+              value={login} onChange={(e) => setLogin(e.target.value)} />
           </div>
 
           <div className='inputs'>
