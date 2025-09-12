@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../Style.css'
 import logo from '../assets/logo.png'
 import { FaRegUser } from "react-icons/fa";
 import { TbLockPassword } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
+import api from "../services/api.js"
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -12,42 +13,24 @@ const Login = () => {
   const [forgetPassword, setForgetPassword] = useState("")
   const navigate = useNavigate()
 
-  const users = [
-    {
-      name: "Tirulipa",
-      password: "123"
-    },
-    {
-      name: "Jessica Santos",
-      password: "1"
-    },
-    {
-      name: "Neymar Junior",
-      password: "123"
-    }
-  ]
+  const handleLogin = async () => {
+    try {
+      const response = await api.post("/login", { name, password })
 
-  const handleLogin = () => {
-    const userFound = users.find(
-      (user) => user.name === name && user.password === password)
-
-    if (userFound) {
-      navigate("/home", { state: { user: userFound } })
-    } else {
+      if (response.data.success) {
+        navigate("/home", { state: { user: response.data.user } })
+      }
+    } catch (err) {
       setError("Usuário ou senha inválidos!");
-      setName("")
-      setPassword("")
-      setTimeout(() => {
-        setError("");
-      }, 2000);
+      setName("");
+      setPassword("");
+      setTimeout(() => setError(""), 2000);
     }
   }
 
   const textForgetPassword = () => {
     setForgetPassword("Entre em contato com o administrador para recuperar a senha")
-    setTimeout(() => {
-      setForgetPassword("");
-    }, 2000);
+    setTimeout(() => setForgetPassword(""), 2000);
   }
 
   return (
@@ -58,7 +41,7 @@ const Login = () => {
       <div className="box-login">
         <h1 className='text-login'>Login</h1>
         <div className='form'>
-          
+
           <div className='inputs'>
             <FaRegUser className='icons' />
             <input className='input-login' name='name' type="text" placeholder='Usuário'

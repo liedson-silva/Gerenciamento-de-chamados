@@ -1,22 +1,18 @@
-const express = require("express")
 const { connectDB, sql } = require("./config/connectDB")
-const app = express()
+const express = require("express")
+const cors = require("cors")
+const crypto = require("crypto")
+const LoginController = require("./controllers/user.controller.js")
 
+const app = express()
 let pool;
 connectDB().then(p => pool = p)
 
 app.use(express.json())
+app.use(cors())
 const port = 3000
 
-app.get("/", async (req, res) => {
-    try {
-        const result = await pool.request().query("SELECT Nome FROM Usuario")
-        res.json(result.recordset)
-    } catch (err) {
-        console.error("Erro ao consultar:", err)
-        res.status(500).json({ error: "Erro ao buscar usuários" })
-    }
-})
+app.post("/login", (req, res) => LoginController(req, res, pool, sql))
 
 app.listen(port, () => {
     console.log("Servidor rodando na porta " + port)

@@ -61,7 +61,7 @@ const Home = () => {
           </div>
 
           <div className="user">
-            <p className="name">{user?.name}</p>
+            <p className="name">{user?.Nome}</p>
             <div className="dropdown" tabIndex={0}>
               <button className="button-user"><FaRegUserCircle /></button>
               <div className="dropdown-menu">
