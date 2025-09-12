@@ -8,7 +8,7 @@ const UserConfig = () => {
             <h1>Minhas Configurações</h1>
             <div className='user-config-data'>
                 <div>
-                    <p className='user-config'>Usuário:</p>
+                    <p className='user-config'>Nome:</p>
                     <p className='user-config'>Email:</p>
                 </div>
                 <div>
