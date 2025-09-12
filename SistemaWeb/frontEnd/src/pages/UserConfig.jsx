@@ -9,11 +9,11 @@ const UserConfig = () => {
             <div className='user-config-data'>
                 <div>
                     <p className='user-config'>Usuário:</p>
-                    <p className='user-config'>Senha:</p>
+                    <p className='user-config'>Email:</p>
                 </div>
                 <div>
-                    <div className='user-data'>{user?.name}</div>
-                    <div className='user-data'>{"*".repeat(user?.password?.length || 0)}</div>
+                    <div className='user-data'>{user?.Nome}</div>
+                    <div className='user-data'>{user?.Email}</div>
                 </div>
             </div>
         </section>

@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <section>
-      <h1>Bem-vindo, {user?.name}!</h1>
+      <h1>Bem-vindo, {user?.Nome}!</h1>
       <div className="box-buttons">
         <div className="box-button-chamado">
           <button className="button-criar-chamado" onClick={handleCreateTicket}>Criar chamado</button>
