@@ -1,24 +1,38 @@
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useState } from 'react'
 
 const CreateTicket = () => {
+    const [title, setTitle] = useState("")
+    const [category, setCategory] = useState("")
+    const [description, setDescription] = useState("")
     const location = useLocation()
     const user = location.state?.user
     const navigate = useNavigate()
 
     const handleImpact = () => {
-        navigate("/create-ticket/Impact", { state: { user } } )
+        navigate("/create-ticket/Impact", { state: { user, title, description } })
     }
     return (
         <section>
 
             <div className='create-ticket'>
                 <p className='form-ticket'>Título <span className='asterisk'>*</span></p>
-                <input className='input-create-ticket' type="text" name='text' />
+                <input
+                    className='input-create-ticket'
+                    type="text"
+                    name='text'
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                />
             </div>
 
             <div className='create-ticket'>
                 <p className='form-ticket'>Categoria <span className='asterisk'>*</span></p>
-                <select className="select-dropdown">
+                <select
+                    className="select-dropdown"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                >
                     <option value="">Selecione</option>
                     <option value="Hardware">Hardware</option>
                     <option value="Segurança">Segurança</option>
@@ -30,7 +44,12 @@ const CreateTicket = () => {
 
             <div className='create-ticket'>
                 <p className='form-ticket'>Descrição do problema <span className='asterisk'>*</span></p>
-                <textarea className='textarea-create-ticket' name="text"/>
+                <textarea
+                    className='textarea-create-ticket'
+                    name="text"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
             </div>
 
             <div className='add-file'>
