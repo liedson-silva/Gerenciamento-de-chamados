@@ -3,12 +3,14 @@ import { useNavigate, useLocation } from "react-router-dom"
 
 const SuccesTicket = () => {
     const location = useLocation()
-    const user = location.state?.user
+    const { user, ticket, affectedPeople, stopWork, happenedBefore } = location.state || {}
     const navigate = useNavigate()
 
     const handleViewTicketForm = () => {
-        navigate("/view-ticket-form", { state: { user }} )
+        navigate("/view-ticket-form", { state: { user, ticket, affectedPeople, stopWork, happenedBefore } })
     }
+
+    const data = new Date(ticket.DataChamado);
 
     return (
         <section>
@@ -22,15 +24,13 @@ const SuccesTicket = () => {
             </div>
 
             <div className="success-details">
-                <p>ID do chamado: XXXXX</p>
-                <p>Data: XX/XX/XX</p>
-                <p>Hora: XX:XX</p>
+                <p>ID do chamado: {ticket.IdChamado}</p>
             </div>
 
             <div className='box-vizualizar-chamado'>
                 <button className='button-vizualizar-chamado' onClick={handleViewTicketForm}>Vizualizar chamado</button>
             </div>
-            
+
         </section>
     )
 }

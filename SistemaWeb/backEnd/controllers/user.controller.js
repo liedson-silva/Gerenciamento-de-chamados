@@ -41,7 +41,7 @@ export class LoginController {
             res.json({
                 success: true, user: {
                     Login: user.Login, Email: user.Email,
-                    Nome: user.Nome
+                    Nome: user.Nome, Id: user.IdUsuario,
                 }
             })
 
@@ -59,25 +59,24 @@ export class TicketsController {
     }
 
     async createTicket(req, res) {
-        const { title, priority, description, ticketDate,
-            ticketStatus, category, userId } = req.body
+        const { title, description, category, userId } = req.body
 
-        if (!userId || !title || !description) {
+        if (!title || !description || !category || !userId) {
             return res.status(400).json({ success: false, message: "Campos obrigatórios faltando" })
         }
 
         try {
             const result = await this.pool.request()
                 .input("title", this.sql.VarChar(30), title)
-                .input("priority", this.sql.VarChar(7), priority)
+                .input("priority", this.sql.VarChar(7), "análise")
                 .input("description", this.sql.VarChar(500), description)
-                .input("ticketDate", this.sql.Date, ticketDate)
-                .input("ticketStatus", this.sql.VarChar(12), ticketStatus)                
+                .input("ticketDate", this.sql.Date, new Date())
+                .input("ticketStatus", this.sql.VarChar(12), "Aberto")
                 .input("category", this.sql.VarChar(16), category)
                 .input("userId", this.sql.Int, userId)
-                .query("INSERT INTO Chamado (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario) VALUES (@title, @priority, @description, @ticketDate, @ticketStatus, @category, @userId)")
+                .query("INSERT INTO Chamado (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario) OUTPUT INSERTED.* VALUES (@title, @priority, @description, @ticketDate, @ticketStatus, @category, @userId)")
 
-            res.json({ success: true, message: "Chamado criado e salvo no BD com sucesso" })
+            res.json({ success: true, ticket: result.recordset[0] })
         } catch (err) {
             console.error(err)
             res.status(500).json({ success: false, message: "Erro ao criar chamado" })
