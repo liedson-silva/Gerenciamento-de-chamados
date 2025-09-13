@@ -52,3 +52,54 @@ export class LoginController {
     }
 }
 
+export class TicketsController {
+    constructor(pool, sql) {
+        this.pool = pool
+        this.sql = sql
+    }
+
+    async createTicket(req, res) {
+        const { title, priority, description, ticketDate,
+            ticketStatus, category, userId } = req.body
+
+        if (!userId || !title || !description) {
+            return res.status(400).json({ success: false, message: "Campos obrigatórios faltando" })
+        }
+
+        try {
+            const result = await this.pool.request()
+                .input("title", this.sql.VarChar(30), title)
+                .input("priority", this.sql.VarChar(7), priority)
+                .input("description", this.sql.VarChar(500), description)
+                .input("ticketDate", this.sql.Date, ticketDate)
+                .input("ticketStatus", this.sql.VarChar(12), ticketStatus)                
+                .input("category", this.sql.VarChar(16), category)
+                .input("userId", this.sql.Int, userId)
+                .query("INSERT INTO Chamado (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario) VALUES (@title, @priority, @description, @ticketDate, @ticketStatus, @category, @userId)")
+
+            res.json({ success: true, message: "Chamado criado e salvo no BD com sucesso" })
+        } catch (err) {
+            console.error(err)
+            res.status(500).json({ success: false, message: "Erro ao criar chamado" })
+        }
+    }
+
+    async getTicket(req, res) {
+        const { userId } = req.params
+
+        try {
+            const result = await this.pool.request()
+                .input("userId", this.sql.int, userId)
+                .query("SELECT * FROM Chamado WHERE FK_idUsuario = @userId")
+
+            if (result.recordset.length === 0) {
+                return res.status(401).json({ success: false, message: "Nenhum chamado encontrado" })
+            }
+
+            res.json({ success: true, Tickets: result.recordset })
+        } catch (err) {
+            console.error(err)
+            res.status(500).json({ success: false, message: "Erro ao buscar chamado" })
+        }
+    }
+}

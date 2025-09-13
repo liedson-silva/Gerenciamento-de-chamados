@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../Style.css'
 import logo from '../assets/logo.png'
 import { FaRegUser } from "react-icons/fa";
