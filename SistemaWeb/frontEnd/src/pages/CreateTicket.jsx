@@ -10,7 +10,7 @@ const CreateTicket = () => {
     const navigate = useNavigate()
 
     const handleImpact = () => {
-        navigate("/create-ticket/Impact", { state: { user, title, description } })
+        navigate("/create-ticket/Impact", { state: { user, title, category, description } })
     }
     return (
         <section>

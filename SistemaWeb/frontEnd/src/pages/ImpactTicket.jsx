@@ -1,16 +1,25 @@
 import { useNavigate, useLocation } from "react-router-dom"
 import { useState } from "react"
+import api from "../services/api"
 
 const ImpactTicket = () => {
     const [affectedPeople, setAffectedPeople] = useState("")
     const [stopWork, setStopWork] = useState("")
     const [happenedBefore, setHappenedBefore] = useState("")
     const location = useLocation()
-    const {user, title, description } = location.state || {}
+    const { user, title, category, description } = location.state || {}
     const navigate = useNavigate()
 
-    const handleSuccessTicket = () => {
-        navigate("/create-ticket/impact/success", { state: { user, title, description} })
+    const handleSuccessTicket = async () => {
+        try {
+            const { data } = await api.post("/create-ticket", { title, description, category, userId: user?.Id })
+
+            if (data.success) {
+                navigate("/create-ticket/impact/success", { state: { user, affectedPeople, stopWork, happenedBefore, ticket: data.ticket } })
+            }
+        } catch (err) {
+            alert("Erro ao enviar chamado")
+        }
     }
 
     return (
