@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace Appparalogin
 {
-    public partial class Home: Form
+    public partial class CriarChamado : Form
     {
-        public Home()
+        public CriarChamado()
         {
             InitializeComponent();
         }
 
-        private void btnGerChamado_Click(object sender, EventArgs e)
+        private void btnContinuar_Click(object sender, EventArgs e)
         {
-            var gerchamado = new GerenciarChamado();
-            gerchamado.Show();
+
         }
     }
 }

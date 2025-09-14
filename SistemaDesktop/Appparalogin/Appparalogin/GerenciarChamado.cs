@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace Appparalogin
 {
-    public partial class Home: Form
+    public partial class GerenciarChamado : Form
     {
-        public Home()
+        public GerenciarChamado()
         {
             InitializeComponent();
         }
 
-        private void btnGerChamado_Click(object sender, EventArgs e)
+        private void btnCriarChamado_Click(object sender, EventArgs e)
         {
-            var gerchamado = new GerenciarChamado();
-            gerchamado.Show();
+            var criarchamado = new CriarChamado();
+            criarchamado.Show();
+            this.Hide(); // Oculta o form atual
         }
     }
 }
