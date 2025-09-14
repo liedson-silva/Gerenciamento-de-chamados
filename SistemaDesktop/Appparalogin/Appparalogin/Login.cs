@@ -35,8 +35,8 @@ namespace Appparalogin
             {
                 MessageBox.Show("✅ Login de administrador realizado com sucesso!");
                 // Abrir menu restrito
-                var menu = new MenuRestrito();
-                menu.Show();
+                var home = new Home();
+                home.Show();
                 this.Hide(); // Oculta o form de login
                 return;
             }
@@ -67,8 +67,8 @@ namespace Appparalogin
                                 MessageBox.Show("✅ Login realizado com sucesso!");
 
                                 // Abrir menu restrito
-                                var menu = new MenuRestrito();
-                                menu.Show();
+                                var home = new Home();
+                                home.Show();
                                 this.Hide(); // Oculta o form de login
                             }
                             else

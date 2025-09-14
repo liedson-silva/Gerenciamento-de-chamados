@@ -53,7 +53,19 @@
     <Compile Include="Cadastro_de_Usuarios.Designer.cs">
       <DependentUpon>Cadastro_de_Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="CriarChamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CriarChamado.Designer.cs">
+      <DependentUpon>CriarChamado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funcoes.cs" />
+    <Compile Include="GerenciarChamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerenciarChamado.Designer.cs">
+      <DependentUpon>GerenciarChamado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,12 @@
     <Compile Include="SenhaHelper.cs" />
     <EmbeddedResource Include="Cadastro_de_Usuarios.resx">
       <DependentUpon>Cadastro_de_Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriarChamado.resx">
+      <DependentUpon>CriarChamado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerenciarChamado.resx">
+      <DependentUpon>GerenciarChamado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
