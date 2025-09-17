@@ -83,6 +83,46 @@ namespace Appparalogin.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_44dp_000000_FILL0_wght400_GRAD0_opsz48 {
+            get {
+                object obj = ResourceManager.GetObject("add_44dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add_44dp_F3F3F3_FILL0_wght400_GRAD0_opsz48 {
+            get {
+                object obj = ResourceManager.GetObject("add_44dp_F3F3F3_FILL0_wght400_GRAD0_opsz48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_44dp_000000_FILL0_wght400_GRAD0_opsz48 {
+            get {
+                object obj = ResourceManager.GetObject("delete_44dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_44dp_000000_FILL0_wght400_GRAD0_opsz48 {
+            get {
+                object obj = ResourceManager.GetObject("edit_44dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap home_12615770 {
             get {
                 object obj = ResourceManager.GetObject("home_12615770", resourceCulture);
