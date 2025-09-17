@@ -365,7 +365,7 @@
             "Feminino",
             "Masculino",
             "Outros"});
-            this.comboBoxCadastroSexo.Location = new System.Drawing.Point(251, 561);
+            this.comboBoxCadastroSexo.Location = new System.Drawing.Point(244, 561);
             this.comboBoxCadastroSexo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxCadastroSexo.Name = "comboBoxCadastroSexo";
             this.comboBoxCadastroSexo.Size = new System.Drawing.Size(264, 44);
