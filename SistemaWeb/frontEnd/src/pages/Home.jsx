@@ -1,7 +1,10 @@
+import React from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+
 import folder from "../assets/folder.svg"
 import hourglass from "../assets/hourglass.svg"
 import correct from "../assets/correct.svg"
-import { useLocation, useNavigate } from "react-router-dom"
+import StageCharts from '../components/StageCharts'
 
 const Home = () => {
   const location = useLocation()
@@ -27,19 +30,35 @@ const Home = () => {
   return (
     <section>
       <h1>Bem-vindo, {user?.Nome}!</h1>
+
       <div className="box-buttons">
         <div className="box-button-chamado">
-          <button className="button-criar-chamado" onClick={handleCreateTicket}>Criar chamado</button>
+          <button className="button-criar-chamado" onClick={handleCreateTicket}>
+            Criar chamado
+          </button>
         </div>
 
         <div className="chamados">
-          <button className="button-chamados" onClick={handlePendingTicket}><img src={folder} />
-            Chamados Pendentes</button>
-          <button className="button-chamados" onClick={handleTicketInProgress}><img src={hourglass} />
-            Chamados em Andamentos</button>
-          <button className="button-chamados" onClick={handleTicketResolved}><img src={correct} />
-            Chamados Solucionados</button>
+          <button className="button-chamados" onClick={handlePendingTicket}>
+            <img src={folder} alt="Pendentes" />
+            Chamados Pendentes
+          </button>
+
+          <button className="button-chamados" onClick={handleTicketInProgress}>
+            <img src={hourglass} alt="Em andamento" />
+            Chamados em Andamento
+          </button>
+
+          <button className="button-chamados" onClick={handleTicketResolved}>
+            <img src={correct} alt="Solucionados" />
+            Chamados Solucionados
+          </button>
         </div>
+      </div>
+
+      {/* GRÁFICO */}
+      <div className="chart-container">
+        <StageCharts />
       </div>
     </section>
   )
