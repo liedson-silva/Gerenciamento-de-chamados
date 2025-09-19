@@ -93,3 +93,6 @@ C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciam
 C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciamento-de-chamados\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.pdb
 C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciamento-de-chamados\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.CriarChamado.resources
 C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciamento-de-chamados\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.GerenciarChamado.resources
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.AberturaChamados.resources
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.ContinuaçaoAbertura.resources
+C:\Users\Gabriel\Desktop\Faculdade\pim\SistemaDesktop\Appparalogin\Appparalogin\obj\Debug\Appparalogin.GerenciarChamado.resources

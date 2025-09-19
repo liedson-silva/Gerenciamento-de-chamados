@@ -19,7 +19,7 @@ namespace Appparalogin
 
         private void btnCriarChamado_Click(object sender, EventArgs e)
         {
-            var criarchamado = new CriarChamado();
+            var criarchamado = new AberturaChamados();
             criarchamado.Show();
             this.Hide(); // Oculta o form atual
         }

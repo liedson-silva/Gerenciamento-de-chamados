@@ -21,6 +21,7 @@ namespace Appparalogin
         {
             var gerchamado = new GerenciarChamado();
             gerchamado.Show();
+            this.Hide(); // Oculta o form atual
         }
     }
 }
