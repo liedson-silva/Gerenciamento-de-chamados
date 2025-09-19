@@ -5,6 +5,7 @@ import folder from "../assets/folder.svg"
 import hourglass from "../assets/hourglass.svg"
 import correct from "../assets/correct.svg"
 import StageCharts from '../components/StageCharts'
+import StageCharts2 from '../components/StageCharts2'
 
 const Home = () => {
   const location = useLocation()
@@ -56,9 +57,16 @@ const Home = () => {
         </div>
       </div>
 
-      {/* GRÁFICO */}
-      <div className="chart-container">
-        <StageCharts />
+      <div className="dashboard-charts">
+        {/* Gráfico de Barras */}
+        <div className="chart-wrapper">
+          <StageCharts />
+        </div>
+
+        {/* Gráfico de Setor */}
+        <section className="analytics-section" aria-labelledby="chart-heading">
+          <StageCharts2 />
+        </section>
       </div>
     </section>
   )
