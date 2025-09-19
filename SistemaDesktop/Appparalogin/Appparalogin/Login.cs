@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Appparalogin
         public Login()
         {
             InitializeComponent();
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -136,7 +138,7 @@ namespace Appparalogin
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             int tecla = (int)e.KeyChar;
-            
+
             if (!char.IsLetterOrDigit(e.KeyChar) && tecla != 08)
             {
                 e.Handled = true;
@@ -151,5 +153,32 @@ namespace Appparalogin
                 txtUsuario.Focus();
             }
         }
+
+        
+
+        private void Login_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            // Define as cores de início e fim do gradiente
+            Color corInicio = Color.White;
+            Color corFim = ColorTranslator.FromHtml("#232325");
+
+            // Cria o pincel de gradiente linear
+            // LinearGradientMode.Vertical define a direção do gradiente de cima para baixo
+            LinearGradientBrush gradiente = new LinearGradientBrush(
+                this.ClientRectangle, // A área onde o gradiente será desenhado (o formulário inteiro)
+                corInicio,
+                corFim,
+                LinearGradientMode.Horizontal); // Define a direção do gradiente
+
+            // Pinta o fundo do formulário com o gradiente
+             g.FillRectangle(gradiente, this.ClientRectangle);
+        }
+
+          
+        }
     }
-}
+
+    
+

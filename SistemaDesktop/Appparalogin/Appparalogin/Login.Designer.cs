@@ -44,7 +44,7 @@
             this.btnEntrar.Location = new System.Drawing.Point(1087, 392);
             this.btnEntrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(104, 50);
+            this.btnEntrar.Size = new System.Drawing.Size(118, 50);
             this.btnEntrar.TabIndex = 4;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
@@ -136,6 +136,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Login_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

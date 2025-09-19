@@ -386,7 +386,7 @@
             // 
             this.txtCadastroLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtCadastroLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCadastroLogin.Location = new System.Drawing.Point(753, 468);
+            this.txtCadastroLogin.Location = new System.Drawing.Point(749, 468);
             this.txtCadastroLogin.Margin = new System.Windows.Forms.Padding(4);
             this.txtCadastroLogin.Name = "txtCadastroLogin";
             this.txtCadastroLogin.Size = new System.Drawing.Size(417, 41);
@@ -435,7 +435,7 @@
             "Financeiro",
             "Administrativo",
             "Operador"});
-            this.cBoxCadSetor.Location = new System.Drawing.Point(758, 182);
+            this.cBoxCadSetor.Location = new System.Drawing.Point(749, 182);
             this.cBoxCadSetor.Name = "cBoxCadSetor";
             this.cBoxCadSetor.Size = new System.Drawing.Size(264, 44);
             this.cBoxCadSetor.TabIndex = 27;
