@@ -25,13 +25,13 @@ const Tickets = () => {
 
             <div className="box-ticket" onClick={handleViewTicketForm}>
                 <ul className="info-ticket">
-                    <li className="view-desktop">4856</li>
-                    <li>Impressora não liga</li>
-                    <li> <span className="circle-orange">ㅤ</span> Pendente</li>
-                    <li className="view-desktop">05/07/2004</li>
-                    <li className="view-desktop"> <span className="circle-green">ㅤ</span> Baixa</li>
-                    <li className="view-desktop">Hardware</li>
-                    <li className="view-desktop">A impressora está ligada e corretamente conectada ao computador/rede, porém não esta realizando impressões. Os documentos estão em fila.</li>
+                    <li className="view-desktop">{}</li>
+                    <li>{}</li>
+                    <li> <span className="circle-orange">ㅤ</span> {}</li>
+                    <li className="view-desktop">{}</li>
+                    <li className="view-desktop"> <span className="circle-green">ㅤ</span> {}</li>
+                    <li className="view-desktop">{}</li>
+                    <li className="view-desktop">{}</li>
                 </ul>
             </div>
 

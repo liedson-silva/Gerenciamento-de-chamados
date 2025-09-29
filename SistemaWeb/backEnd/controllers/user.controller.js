@@ -39,11 +39,7 @@ export class LoginController {
             }
 
             res.json({
-                success: true, user: {
-                    Login: user.Login, Email: user.Email,
-                    Nome: user.Nome, Id: user.IdUsuario,
-                }
-            })
+                success: true, user: user })
 
         } catch (err) {
             console.error("Erro no login:", err);
@@ -88,7 +84,7 @@ export class TicketsController {
 
         try {
             const result = await this.pool.request()
-                .input("userId", this.sql.int, userId)
+                .input("userId", this.sql.Int, userId)
                 .query("SELECT * FROM Chamado WHERE FK_idUsuario = @userId")
 
             if (result.recordset.length === 0) {
@@ -101,4 +97,4 @@ export class TicketsController {
             res.status(500).json({ success: false, message: "Erro ao buscar chamado" })
         }
     }
-}
+} 
