@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Appparalogin.Properties {
+namespace Gerenciamento_De_Chamados.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -19,9 +19,28 @@ namespace Appparalogin
 
         private void btnCriarChamado_Click(object sender, EventArgs e)
         {
-            var criarchamado = new AberturaChamados();
-            criarchamado.Show();
-            this.Hide(); // Oculta o form atual
+            if (!Funcoes.SessaoUsuario.UsuarioIdentificado())
+            {
+                MessageBox.Show(
+                    "Usuário não identificado! Faça login novamente.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            AbrirTelaAberturaChamado();
+        }
+
+        /// <summary>
+        /// Abre o formulário de abertura de chamados e oculta o formulário atual.
+        /// </summary>
+        private void AbrirTelaAberturaChamado()
+        {
+            var aberturaChamadosForm = new AberturaChamados();
+            aberturaChamadosForm.Show();
+            this.Hide();
         }
     }
 }

@@ -31,6 +31,21 @@ namespace Appparalogin
             string CadastroSexo = comboBoxCadastroSexo.Text;
             string CadastroSetor = cBoxCadSetor.Text;
             DateTime CadastroDataDeNascimento = dtpCadDN.Value;
+
+            // 🔎 Validação básica
+            if (string.IsNullOrWhiteSpace(CadastroUsuario) ||
+                CadastroUsuario == "Digite seu usuário, apenas letras ou números.")
+            {
+                MessageBox.Show("⚠️ Login inválido. Digite um login válido.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(CadastroSenhaDigitada))
+            {
+                MessageBox.Show("⚠️ Senha é obrigatória.");
+                return;
+            }
+
             string hashSenha = SenhaHelper.GerarHashSenha(CadastroSenhaDigitada);
 
             string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
@@ -40,8 +55,25 @@ namespace Appparalogin
                 try
                 {
                     conexao.Open();
-                    string sql = "INSERT INTO Usuario (Login, Nome, CPF, RG, FuncaoUsuario, Sexo, Setor, DataDeNascimento, Senha, Email)" +
-                        " VALUES (@login, @Nome, @CPF, @RG, @FuncaoUsuario, @Sexo, @Setor, @DataDeNascimento, @senha, @email)";
+
+                    // 🔎 Verifica se já existe login igual
+                    string checkSql = "SELECT COUNT(*) FROM Usuario WHERE Login = @login";
+                    using (SqlCommand checkCmd = new SqlCommand(checkSql, conexao))
+                    {
+                        checkCmd.Parameters.AddWithValue("@login", CadastroUsuario);
+                        int count = (int)checkCmd.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("⚠️ Já existe um usuário com esse login. Escolha outro.");
+                            return;
+                        }
+                    }
+
+                    // ✅ Insere novo usuário
+                    string sql = @"INSERT INTO Usuario 
+                                   (Login, Nome, CPF, RG, FuncaoUsuario, Sexo, Setor, DataDeNascimento, Senha, Email)
+                                   VALUES (@login, @Nome, @CPF, @RG, @FuncaoUsuario, @Sexo, @Setor, @DataDeNascimento, @senha, @Email)";
+
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
                     {
                         cmd.Parameters.AddWithValue("@Nome", CadastroNome);
@@ -53,21 +85,18 @@ namespace Appparalogin
                         cmd.Parameters.AddWithValue("@DataDeNascimento", CadastroDataDeNascimento);
                         cmd.Parameters.AddWithValue("@login", CadastroUsuario);
                         cmd.Parameters.AddWithValue("@senha", hashSenha);
-                        cmd.Parameters.AddWithValue("@email", CadastroEmail);
+                        cmd.Parameters.AddWithValue("@Email", CadastroEmail);
 
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Usuário cadastrado com sucesso!");
+                        MessageBox.Show("✅ Usuário cadastrado com sucesso!");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao cadastrar: " + ex.Message);
+                    MessageBox.Show("❌ Erro ao cadastrar: " + ex.Message);
                 }
             }
         }
-
-
-
 
     }
 }
