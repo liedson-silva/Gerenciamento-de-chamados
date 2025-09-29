@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
 
 namespace Appparalogin
 {
@@ -28,18 +19,16 @@ namespace Appparalogin
             string usuario = txtUsuario.Text.Trim();
             string senhaDigitada = txtSenha.Text.Trim();
 
-            //Usuario admin padrão
-
+            // Usuário admin padrão
             const string adminLogin = "admin";
             const string adminSenha = "admin1234";
 
             if (usuario == adminLogin && senhaDigitada == adminSenha)
             {
                 MessageBox.Show("✅ Login de administrador realizado com sucesso!");
-                // Abrir menu restrito
                 var home = new Home();
                 home.Show();
-                this.Hide(); // Oculta o form de login
+                this.Hide();
                 return;
             }
 
@@ -51,7 +40,9 @@ namespace Appparalogin
                 {
                     conexao.Open();
 
-                    // Busca o hash da senha pelo login
+                    // Mostra qual login está sendo buscado
+                    MessageBox.Show("🔎 Tentando logar com: " + usuario);
+
                     string sql = "SELECT Senha FROM Usuario WHERE Login = @usuario";
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
                     {
@@ -59,30 +50,49 @@ namespace Appparalogin
 
                         object resultado = cmd.ExecuteScalar();
 
-                        if (resultado != null)
+                        if (resultado == null)
                         {
-                            string hashSalvo = resultado.ToString();
+                            MessageBox.Show($"❌ Usuário '{usuario}' não encontrado no banco.");
+                            return;
+                        }
 
-                            // Valida a senha usando o hash
-                            if (SenhaHelper.ValidarSenha(senhaDigitada, hashSalvo))
+                        string hashSalvo = resultado.ToString();
+
+                        // Mostra o hash encontrado no banco
+                        MessageBox.Show("🔑 Hash salvo no banco: " + hashSalvo);
+
+                        // Valida a senha usando o hash
+                        if (SenhaHelper.ValidarSenha(senhaDigitada, hashSalvo))
+                        {
+                            try
                             {
-                                MessageBox.Show("✅ Login realizado com sucesso!");
+                                // Preenche sessão com dados do usuário
+                                Funcoes.SessaoUsuario.Login = usuario; 
+                                Funcoes.SessaoUsuario.Nome = Funcoes.ObterNomeDoUsuario(usuario, conexao);
+                                Funcoes.SessaoUsuario.IdUsuario = Funcoes.ObterIdDoUsuario(usuario, conexao);
 
-                                // Abrir menu restrito
+                                if (string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome) || Funcoes.SessaoUsuario.IdUsuario == 0)
+                                {
+                                    MessageBox.Show("Usuário não identificado corretamente. Verifique os dados do usuário no banco.");
+                                    return;
+                                }
+
+                                MessageBox.Show("✅ Login realizado com sucesso!\nBem-vindo, " + Funcoes.SessaoUsuario.Nome);
+
+                                // Abre a tela Home já com o usuário logado
                                 var home = new Home();
                                 home.Show();
-                                this.Hide(); // Oculta o form de login
+                                this.Hide();
                             }
-                            else
+                            catch (Exception exSessao)
                             {
-                                MessageBox.Show("❌ Senha incorreta!");
-                                txtSenha.Focus();
+                                MessageBox.Show("Erro ao carregar dados do usuário: " + exSessao.Message);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("❌ Usuário não encontrado!");
-                            txtUsuario.Focus();
+                            MessageBox.Show("❌ Senha incorreta!");
+                            txtSenha.Focus();
                         }
                     }
                 }
@@ -154,31 +164,20 @@ namespace Appparalogin
             }
         }
 
-        
-
         private void Login_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
 
-            // Define as cores de início e fim do gradiente
             Color corInicio = Color.White;
             Color corFim = ColorTranslator.FromHtml("#232325");
 
-            // Cria o pincel de gradiente linear
-            // LinearGradientMode.Vertical define a direção do gradiente de cima para baixo
             LinearGradientBrush gradiente = new LinearGradientBrush(
-                this.ClientRectangle, // A área onde o gradiente será desenhado (o formulário inteiro)
+                this.ClientRectangle,
                 corInicio,
                 corFim,
-                LinearGradientMode.Horizontal); // Define a direção do gradiente
+                LinearGradientMode.Horizontal);
 
-            // Pinta o fundo do formulário com o gradiente
-             g.FillRectangle(gradiente, this.ClientRectangle);
-        }
-
-          
+            g.FillRectangle(gradiente, this.ClientRectangle);
         }
     }
-
-    
-
+}

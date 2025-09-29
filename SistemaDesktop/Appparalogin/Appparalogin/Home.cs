@@ -12,6 +12,7 @@ namespace Appparalogin
 {
     public partial class Home: Form
     {
+
         public Home()
         {
             InitializeComponent();
@@ -22,6 +23,13 @@ namespace Appparalogin
             var gerchamado = new GerenciarChamado();
             gerchamado.Show();
             this.Hide(); // Oculta o form atual
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var gerusuario = new Cadastro_de_Usuarios();
+            gerusuario.Show(); 
+            this.Hide(); 
         }
     }
 }

@@ -88,7 +88,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Appparalogin.Properties.Resources.unknown_5695541;
+            this.pictureBox2.Image = global::Gerenciamento_De_Chamados.Properties.Resources.unknown_5695541;
             this.pictureBox2.Location = new System.Drawing.Point(12, 309);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
@@ -99,7 +99,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Appparalogin.Properties.Resources.menu_4204600;
+            this.pictureBox3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_4204600;
             this.pictureBox3.Location = new System.Drawing.Point(12, 246);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
@@ -256,7 +256,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Appparalogin.Properties.Resources.home_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
+            this.pictureBox5.Image = global::Gerenciamento_De_Chamados.Properties.Resources.home_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
             this.pictureBox5.Location = new System.Drawing.Point(21, 22);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
@@ -268,7 +268,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::Appparalogin.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
+            this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
             this.pictureBox4.Location = new System.Drawing.Point(987, 12);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";

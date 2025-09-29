@@ -1,77 +1,54 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\",
+  "WorkspaceRootPath": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|c:\\users\\gabriel\\desktop\\faculdade\\pim\\sistemadesktop\\appparalogin\\appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\gerenciarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\gerenciarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\gerenciarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\gerenciarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\aberturachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\aberturachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\aberturachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\aberturachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\menurestrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\menurestrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\menurestrito.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\menurestrito.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\gerenciarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\gerenciarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\gerenciarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\gerenciarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\cadastro_de_usuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\cadastro_de_usuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\senhahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\senhahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\menurestrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\menurestrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\frede\\AppData\\Local\\Temp\\tmp3B4E.tmp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\appparalogin\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Appparalogin.csproj|solutionrelative:appparalogin\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -81,220 +58,166 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Cadastro_de_Usuarios.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Cadastro_de_Usuarios.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs [Design]",
-              "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.324Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AberturaChamados.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\AberturaChamados.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\AberturaChamados.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\AberturaChamados.cs [Design]",
-              "RelativeToolTip": "Appparalogin\\AberturaChamados.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T14:46:07.31Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Login.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Login.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Login.cs",
-              "RelativeToolTip": "Appparalogin\\Login.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAgwKkAAABmAAAAAAAAAA==",
+              "Title": "GerenciarChamado.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\GerenciarChamado.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\GerenciarChamado.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\GerenciarChamado.cs",
+              "RelativeToolTip": "Appparalogin\\GerenciarChamado.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.426Z",
+              "WhenOpened": "2025-09-29T03:50:13.721Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AberturaChamados.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\AberturaChamados.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\AberturaChamados.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\AberturaChamados.cs",
-              "RelativeToolTip": "Appparalogin\\AberturaChamados.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAvAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "MenuRestrito.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\MenuRestrito.Designer.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\MenuRestrito.Designer.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\MenuRestrito.Designer.cs",
+              "RelativeToolTip": "Appparalogin\\MenuRestrito.Designer.cs",
+              "ViewState": "AgIAADQBAAAAAAAAAAAhwEcBAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T03:04:38.067Z"
+              "WhenOpened": "2025-09-29T03:02:43.656Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Home.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Home.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Home.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Home.cs [Design]",
-              "RelativeToolTip": "Appparalogin\\Home.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "Funcoes.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Funcoes.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\Funcoes.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Funcoes.cs",
+              "RelativeToolTip": "Appparalogin\\Funcoes.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAwwEMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T03:01:16.363Z"
+              "WhenOpened": "2025-09-29T02:31:37.758Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Login.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Login.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Login.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Login.cs [Design]",
-              "RelativeToolTip": "Appparalogin\\Login.cs [Design]",
+              "Title": "GerenciarChamado.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\GerenciarChamado.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\GerenciarChamado.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\GerenciarChamado.cs [Design]",
+              "RelativeToolTip": "Appparalogin\\GerenciarChamado.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MenuRestrito.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\MenuRestrito.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\MenuRestrito.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\MenuRestrito.cs [Design]",
-              "RelativeToolTip": "Appparalogin\\MenuRestrito.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.429Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Continua\u00E7aoAbertura.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Continua\u00E7aoAbertura.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Continua\u00E7aoAbertura.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Continua\u00E7aoAbertura.cs [Design]",
-              "RelativeToolTip": "Appparalogin\\Continua\u00E7aoAbertura.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T14:56:07.834Z"
+              "WhenOpened": "2025-09-29T02:24:40.34Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "GerenciarChamado.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\GerenciarChamado.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\GerenciarChamado.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\GerenciarChamado.cs [Design]",
-              "RelativeToolTip": "Appparalogin\\GerenciarChamado.cs [Design]",
+              "Title": "Home.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Home.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\Home.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Home.cs [Design]",
+              "RelativeToolTip": "Appparalogin\\Home.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T02:39:36.735Z"
+              "WhenOpened": "2025-09-29T02:20:40.111Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "GerenciarChamado.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\GerenciarChamado.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\GerenciarChamado.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\GerenciarChamado.cs",
-              "RelativeToolTip": "Appparalogin\\GerenciarChamado.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAABcAAAAvAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Cadastro_de_Usuarios.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\Cadastro_de_Usuarios.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs",
+              "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T02:47:19.778Z"
+              "WhenOpened": "2025-09-29T02:13:22.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Login.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\Login.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Login.cs",
+              "RelativeToolTip": "Appparalogin\\Login.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowE0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T02:11:57.482Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "Cadastro_de_Usuarios.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
-              "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
+              "Title": "Login.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Login.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\Login.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Login.cs [Design]",
+              "RelativeToolTip": "Appparalogin\\Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.428Z"
+              "WhenOpened": "2025-09-29T02:11:55.679Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Continua\u00E7aoAbertura.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Continua\u00E7aoAbertura.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\Continua\u00E7aoAbertura.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Continua\u00E7aoAbertura.cs",
+              "RelativeToolTip": "Appparalogin\\Continua\u00E7aoAbertura.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowCYAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T02:10:38.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Home.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Home.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\Home.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Home.cs",
+              "RelativeToolTip": "Appparalogin\\Home.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T02:20:59.272Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "Home.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Home.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Home.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Home.cs",
-              "RelativeToolTip": "Appparalogin\\Home.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAuwBcAAAAvAAAAAAAAAA==",
+              "Title": "Continua\u00E7aoAbertura.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Continua\u00E7aoAbertura.cs",
+              "RelativeDocumentMoniker": "Appparalogin\\Continua\u00E7aoAbertura.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Continua\u00E7aoAbertura.cs [Design]",
+              "RelativeToolTip": "Appparalogin\\Continua\u00E7aoAbertura.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T03:01:18.457Z"
+              "WhenOpened": "2025-09-29T02:10:34.781Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "SenhaHelper.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\SenhaHelper.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\SenhaHelper.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\SenhaHelper.cs",
-              "RelativeToolTip": "Appparalogin\\SenhaHelper.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T21:04:38.049Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Cadastro_de_Usuarios.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs",
+              "DocumentIndex": 9,
+              "Title": "Cadastro_de_Usuarios.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs",
               "RelativeDocumentMoniker": "Appparalogin\\Cadastro_de_Usuarios.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs",
-              "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAwCoAAABVAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\Cadastro_de_Usuarios.cs [Design]",
+              "RelativeToolTip": "Appparalogin\\Cadastro_de_Usuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.32Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "MenuRestrito.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\MenuRestrito.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\MenuRestrito.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\MenuRestrito.cs",
-              "RelativeToolTip": "Appparalogin\\MenuRestrito.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.429Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Program.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Program.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Program.cs",
-              "RelativeToolTip": "Appparalogin\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.427Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "tmp3B4E.tmp.cs",
-              "DocumentMoniker": "C:\\Users\\frede\\AppData\\Local\\Temp\\tmp3B4E.tmp.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\frede\\AppData\\Local\\Temp\\tmp3B4E.tmp.cs",
-              "ToolTip": "C:\\Users\\frede\\AppData\\Local\\Temp\\tmp3B4E.tmp.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\frede\\AppData\\Local\\Temp\\tmp3B4E.tmp.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:55:18.449Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Login.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Login.Designer.cs",
-              "RelativeDocumentMoniker": "Appparalogin\\Login.Designer.cs",
-              "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\pim\\SistemaDesktop\\Appparalogin\\Appparalogin\\Login.Designer.cs",
-              "RelativeToolTip": "Appparalogin\\Login.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T23:10:21.325Z"
+              "WhenOpened": "2025-09-29T02:07:31.172Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

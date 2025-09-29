@@ -76,7 +76,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Appparalogin.Properties.Resources.unknown_5695541;
+            this.pictureBox2.Image = global::Gerenciamento_De_Chamados.Properties.Resources.unknown_5695541;
             this.pictureBox2.Location = new System.Drawing.Point(12, 309);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
@@ -87,7 +87,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Appparalogin.Properties.Resources.menu_4204600;
+            this.pictureBox3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_4204600;
             this.pictureBox3.Location = new System.Drawing.Point(12, 246);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
@@ -118,7 +118,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Appparalogin.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
+            this.pictureBox1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
             this.pictureBox1.Location = new System.Drawing.Point(-35, -51);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(295, 242);
@@ -150,7 +150,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Appparalogin.Properties.Resources.home_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
+            this.pictureBox5.Image = global::Gerenciamento_De_Chamados.Properties.Resources.home_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
             this.pictureBox5.Location = new System.Drawing.Point(16, 27);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
@@ -162,7 +162,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::Appparalogin.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
+            this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
             this.pictureBox4.Location = new System.Drawing.Point(985, 13);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
@@ -253,7 +253,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::Appparalogin.Properties.Resources.edit_44dp_000000_FILL0_wght400_GRAD0_opsz48;
+            this.button1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.edit_44dp_000000_FILL0_wght400_GRAD0_opsz48;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(506, 664);
             this.button1.Name = "button1";
@@ -265,7 +265,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Image = global::Appparalogin.Properties.Resources.delete_44dp_000000_FILL0_wght400_GRAD0_opsz48;
+            this.btnExcluir.Image = global::Gerenciamento_De_Chamados.Properties.Resources.delete_44dp_000000_FILL0_wght400_GRAD0_opsz48;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExcluir.Location = new System.Drawing.Point(709, 664);
             this.btnExcluir.Name = "btnExcluir";
@@ -281,7 +281,7 @@
             this.btnCadastroUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastroUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastroUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCadastroUser.Image = global::Appparalogin.Properties.Resources.add_44dp_F3F3F3_FILL0_wght400_GRAD0_opsz48;
+            this.btnCadastroUser.Image = global::Gerenciamento_De_Chamados.Properties.Resources.add_44dp_F3F3F3_FILL0_wght400_GRAD0_opsz48;
             this.btnCadastroUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastroUser.Location = new System.Drawing.Point(273, 664);
             this.btnCadastroUser.Name = "btnCadastroUser";
