@@ -22,8 +22,7 @@ namespace Appparalogin
         Funcoes funcoes = new Funcoes();
         public void btnContinuar_Click(object sender, EventArgs e)
         { 
-
-            var continuaçaoabertura = new ContinuaçaoAbertura();
+            var continuaçaoabertura = new ContinuaçaoAbertura(this);
             continuaçaoabertura.Show();
             this.Hide(); // Oculta o form atual
         }
@@ -61,5 +60,3 @@ namespace Appparalogin
 }
 
     
-
-

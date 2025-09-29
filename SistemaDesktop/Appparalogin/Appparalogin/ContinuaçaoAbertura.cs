@@ -52,7 +52,7 @@ namespace Appparalogin
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
                     {
                         cmd.Parameters.AddWithValue("@Titulo", TituloChamado);
-                        cmd.Parameters.AddWithValue("@PrioridadeChamado", "A definir");
+                        cmd.Parameters.AddWithValue("@PrioridadeChamado", "análise");
                         cmd.Parameters.AddWithValue("@Descricao", DescricaoChamado);
                         cmd.Parameters.AddWithValue("@DataChamado", DateTime.Now);
                         cmd.Parameters.AddWithValue("@StatusChamado", "Aberto");
