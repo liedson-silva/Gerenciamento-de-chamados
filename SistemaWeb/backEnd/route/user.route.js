@@ -3,6 +3,7 @@ import { LoginController, TicketsController } from "../controllers/user.controll
 
 export default function userRouter(pool, sql) {
     const router = Router()
+    
     const loginController = new LoginController(pool, sql)
     const ticketsController = new TicketsController(pool, sql)
 
