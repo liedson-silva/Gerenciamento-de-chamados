@@ -12,7 +12,7 @@ const ImpactTicket = () => {
 
     const handleSuccessTicket = async () => {
         try {
-            const { data } = await api.post("/create-ticket", { title, description, category, userId: user?.Id })
+            const { data } = await api.post("/create-ticket", { title, description, category, userId: user?.IdUsuario })
 
             if (data.success) {
                 navigate("/create-ticket/impact/success", { state: { user, affectedPeople, stopWork, happenedBefore, ticket: data.ticket } })

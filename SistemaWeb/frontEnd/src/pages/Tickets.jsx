@@ -13,8 +13,8 @@ const Tickets = () => {
     const [ViewTickets, SetViewTickets] = useState([])
 
     async function getTickets(){
-        const ticketsFromApi = await api.get(`/tickets/${user.IdUsuario}`)
-        SetViewTickets(ticketsFromApi.data)
+        const response = await api.get(`/tickets/${user.IdUsuario}`)
+        SetViewTickets(response.data.Tickets)
     }
 
     useEffect(() => {
