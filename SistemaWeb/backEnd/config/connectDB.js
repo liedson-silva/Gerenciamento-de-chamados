@@ -17,7 +17,7 @@ const config = {
 export async function connectDB() {
     try {
         let pool = await sql.connect(config);
-        console.log("Conectado ao SQL Server!");
+        console.log("Conectado ao SQL Server");
         return pool;
     } catch (err) {
         console.error("Erro na conexão com o SQL Server:", err);
