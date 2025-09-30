@@ -6,13 +6,13 @@ const Tickets = () => {
     const location = useLocation()
     const user = location.state?.user
     const navigate = useNavigate()
-    const handleViewTicketForm = () => {
-        navigate("/view-ticket-form", { state: { user } })
+    const handleViewTicketForm = (ticket) => {
+        navigate("/view-ticket-form", { state: { user, ticket } })
     }
 
     const [ViewTickets, SetViewTickets] = useState([])
 
-    async function getTickets(){
+    async function getTickets() {
         const response = await api.get(`/tickets/${user.IdUsuario}`)
         SetViewTickets(response.data.Tickets)
     }
@@ -20,7 +20,7 @@ const Tickets = () => {
     useEffect(() => {
         getTickets()
     }, [])
-    
+
 
     return (
         <section>
@@ -37,19 +37,23 @@ const Tickets = () => {
                 </ul>
             </div>
 
-            {ViewTickets.map((ticket) => (
-                <div className="box-ticket" onClick={handleViewTicketForm}>
-                    <ul className="info-ticket">
-                        <li className="view-desktop">{ticket.IdChamado}</li>
-                        <li>{ticket.Titulo}</li>
-                        <li> <span className="circle-orange">ㅤ</span> {ticket.StatusChamado}</li>
-                        <li className="view-desktop">{ticket.DataChamado}</li>
-                        <li className="view-desktop"> <span className="circle-green">ㅤ</span> {ticket.PrioridadeChamado}</li>
-                        <li className="view-desktop">{ticket.Categoria}</li>
-                        <li className="view-desktop">{ticket.Descricao}</li>
-                    </ul>
-                </div>
-            ))}
+            {ViewTickets.length > 0 ? (
+                ViewTickets.map((ticket) => (
+                    <div key={ticket.IdChamado} className="box-ticket" onClick={() => handleViewTicketForm(ticket)}>
+                        <ul className="info-ticket">
+                            <li className="view-desktop">{ticket.IdChamado}</li>
+                            <li>{ticket.Titulo}</li>
+                            <li> <span className="circle-orange">ㅤ</span> {ticket.StatusChamado}</li>
+                            <li className="view-desktop">{new Date(ticket.DataChamado).toLocaleDateString('pt-BR')}</li>
+                            <li className="view-desktop"> <span className="circle-green">ㅤ</span> {ticket.PrioridadeChamado}</li>
+                            <li className="view-desktop">{ticket.Categoria}</li>
+                            <li className="view-desktop">{ticket.Descricao}</li>
+                        </ul>
+                    </div>
+                ))
+            ) : (
+                <p className="no-call">Nenhum chamado no momento.</p>
+            )}
 
         </section>
     )

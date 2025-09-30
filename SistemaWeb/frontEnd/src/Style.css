@@ -146,7 +146,7 @@ input {
     list-style: none;
     cursor: pointer;
     margin-bottom: 20px;
-    font-size: 1.5rem;
+    font-size: 1.5vw;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -601,6 +601,7 @@ h1 {
 
 .form-info-data {
     color: #43AE70;
+    overflow-wrap: break-word;
 }
 
 .box-pagina-inicia {
@@ -634,6 +635,7 @@ h1 {
 .box-ticket {
     background-color: #ccc;
     cursor: pointer;
+    border: solid 0.5px #ffffff;
     padding: 15px;
 }
 
@@ -650,6 +652,7 @@ h1 {
     /* quebra linha */
     text-overflow: ellipsis;
     /* mostra ... no final */
+    max-width: 130px;
 }
 
 .circle-green {
@@ -671,6 +674,11 @@ h1 {
     height: 20px;
     background-color: yellow;
     border-radius: 50%;
+}
+
+.no-call{
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
