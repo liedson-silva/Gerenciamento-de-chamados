@@ -15,6 +15,7 @@ const ViewTicketForm = () => {
       <div className="form-data">
         <h1 className="form-title">Dados do formulário</h1>
         <p className="form-info">Criado por : <span className="form-info-data">{user?.Nome}</span></p>
+        <p className="form-info">Data : <span className="form-info-data">{new Date(ticket.DataChamado).toLocaleDateString('pt-BR')}</span></p>
         <p className="form-info">Título: <span className="form-info-data">{ticket.Titulo}</span></p>
         <p className="form-info">Categoria: <span className="form-info-data">{ticket.Categoria}</span></p>
         <p className="form-info">Descrição do problema: <span className="form-info-data">{ticket.Descricao}</span></p>

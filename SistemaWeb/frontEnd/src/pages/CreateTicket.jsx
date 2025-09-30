@@ -35,6 +35,7 @@ const CreateTicket = () => {
                 >
                     <option value="">Selecione</option>
                     <option value="Hardware">Hardware</option>
+                    <option value="Software">Software</option>
                     <option value="Segurança">Segurança</option>
                     <option value="Serviços">Serviços</option>
                     <option value="Rede">Rede</option>

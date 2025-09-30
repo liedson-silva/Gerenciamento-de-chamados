@@ -1,12 +1,28 @@
 import { useNavigate, useLocation } from "react-router-dom"
+import { useState, useEffect } from "react"
+import api from "../services/api"
 
 const TicketInProgress = () => {
     const location = useLocation()
     const user = location.state?.user
     const navigate = useNavigate()
-    const handleViewTicketForm = () => {
-        navigate("/view-ticket-form", { state: { user } })
+    const handleViewTicketForm = (ticket) => {
+        navigate("/view-ticket-form", { state: { user, ticket } })
     }
+
+    const [ViewTicket, SetViewTicket] = useState([])
+
+    async function getTickets() {
+        const response = await api.get(`/tickets/${user.IdUsuario}`)
+        const allTickets = response.data.Tickets
+        const ticketInProgress = allTickets.filter(ticket => ticket.StatusChamado === "Em andamento")
+        SetViewTicket(ticketInProgress)
+    }
+
+    useEffect(() => {
+        getTickets()
+    }, [])
+
 
     return (
         <section>
@@ -23,17 +39,23 @@ const TicketInProgress = () => {
                 </ul>
             </div>
 
-            <div className="box-ticket" onClick={handleViewTicketForm}>
-                <ul className="info-ticket">
-                    <li className="view-desktop">4856</li>
-                    <li>Impressora não liga</li>
-                    <li> <span className="circle-yellow">ㅤ</span> Em atendimento</li>
-                    <li className="view-desktop">05/07/2004</li>
-                    <li className="view-desktop"> <span className="circle-green">ㅤ</span> Baixa</li>
-                    <li className="view-desktop">Hardware</li>
-                    <li className="view-desktop">A impressora está ligada e corretamente conectada ao computador/rede, porém não esta realizando impressões. Os documentos estão em fila.</li>
-                </ul>
-            </div>
+            {ViewTicket.length > 0 ? (
+                ViewTicket.map((ticket) => (
+                    <div key={ticket.IdChamado} className="box-ticket" onClick={() => handleViewTicketForm(ticket)}>
+                        <ul className="info-ticket">
+                            <li className="view-desktop">{ticket.IdChamado}</li>
+                            <li>{ticket.Titulo}</li>
+                            <li> <span className="circle-orange">ㅤ</span> {ticket.StatusChamado}</li>
+                            <li className="view-desktop">{new Date(ticket.DataChamado).toLocaleDateString('pt-BR')}</li>
+                            <li className="view-desktop"> <span className="circle-green">ㅤ</span> {ticket.PrioridadeChamado}</li>
+                            <li className="view-desktop">{ticket.Categoria}</li>
+                            <li className="view-desktop">{ticket.Descricao}</li>
+                        </ul>
+                    </div>
+                ))
+            ) : (
+                <p className="no-call">Nenhum chamado em andamento no momento.</p>
+            )}
 
         </section>
     )
