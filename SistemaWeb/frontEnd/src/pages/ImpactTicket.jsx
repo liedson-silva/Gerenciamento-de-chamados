@@ -10,15 +10,19 @@ const ImpactTicket = () => {
     const { user, title, category, description } = location.state || {}
     const navigate = useNavigate()
 
+    const handleCreateTicket = () => {
+        navigate("/create-ticket", { state: { user } })
+    }
+
     const handleSuccessTicket = async () => {
         try {
-            const { data } = await api.post("/create-ticket", { title, description, category, userId: user?.IdUsuario })
+            const { data } = await api.post("/create-ticket", { title, description, category, userId: user?.IdUsuario, affectedPeople, stopWork, happenedBefore })
 
             if (data.success) {
-                navigate("/create-ticket/impact/success", { state: { user, affectedPeople, stopWork, happenedBefore, ticket: data.ticket } })
+                navigate("/create-ticket/impact/success", { state: { user, ticket: data.ticket } })
             }
         } catch (err) {
-            alert("Erro ao enviar chamado")
+            alert("Erro ao enviar chamado, preencha todos os campos!")
         }
     }
 
@@ -63,7 +67,7 @@ const ImpactTicket = () => {
                     <option value="">Selecione</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
-                    <option value="Parcialmente">Não sei</option>
+                    <option value="Não sei">Não sei</option>
                 </select>
             </div>
 
@@ -71,10 +75,11 @@ const ImpactTicket = () => {
                 <p className="info-impact">*Esta seção está sendo preenchida com apoio da inteligência artificial*</p>
             </div>
 
-            <div className='box-enviar-ticket'>
+            <div className="box-impact-buttons">
+                <button className='button-voltar-ticket' onClick={handleCreateTicket}>Voltar</button>
+
                 <button className='button-enviar-ticket' onClick={handleSuccessTicket}>Enviar</button>
             </div>
-
         </section>
     )
 }

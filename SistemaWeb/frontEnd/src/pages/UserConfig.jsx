@@ -23,7 +23,7 @@ const UserConfig = () => {
                     <div className='user-data'>{user?.Setor}</div>
                     <div className='user-data'>{user?.Login}</div>
                     <div className='user-data'>{user?.Sexo}</div>
-                    <div className='user-data'>{user?.DataDeNascimento}</div>
+                    <div className='user-data'>{new Date(user?.DataDeNascimento).toLocaleDateString('pt-BR')}</div>
                 </div>
             </div>
         </section>

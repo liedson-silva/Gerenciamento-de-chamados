@@ -55,9 +55,9 @@ export class TicketsController {
     }
 
     async createTicket(req, res) {
-        const { title, description, category, userId } = req.body
+        const { title, description, category, userId, affectedPeople, stopWork, happenedBefore } = req.body
 
-        if (!title || !description || !category || !userId) {
+        if (!title || !description || !category || !userId || !affectedPeople || !stopWork || !happenedBefore) {
             return res.status(400).json({ success: false, message: "Campos obrigatórios faltando" })
         }
 
@@ -67,10 +67,13 @@ export class TicketsController {
                 .input("priority", this.sql.VarChar(7), "Análise")
                 .input("description", this.sql.VarChar(500), description)
                 .input("ticketDate", this.sql.Date, new Date())
-                .input("ticketStatus", this.sql.VarChar(12), "Aberto")
+                .input("ticketStatus", this.sql.VarChar(12), "Pendente")
                 .input("category", this.sql.VarChar(16), category)
                 .input("userId", this.sql.Int, userId)
-                .query("INSERT INTO Chamado (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario) OUTPUT INSERTED.* VALUES (@title, @priority, @description, @ticketDate, @ticketStatus, @category, @userId)")
+                .input("affectedPeople", this.sql.VarChar(15), affectedPeople)
+                .input("stopWork", this.sql.VarChar(12), stopWork)
+                .input("happenedBefore", this.sql.VarChar(7), happenedBefore)
+                .query("INSERT INTO Chamado (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente) OUTPUT INSERTED.* VALUES (@title, @priority, @description, @ticketDate, @ticketStatus, @category, @userId, @affectedPeople, @stopWork, @happenedBefore)")
 
             res.json({ success: true, ticket: result.recordset[0] })
         } catch (err) {
