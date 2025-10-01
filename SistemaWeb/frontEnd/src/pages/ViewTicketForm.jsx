@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 
 const ViewTicketForm = () => {
   const location = useLocation()
-  const {user, ticket, affectedPeople, stopWork, happenedBefore } = location.state || {}
+  const {user, ticket} = location.state || {}
   const navigate = useNavigate()
 
   const handleHome = () => {
@@ -20,9 +20,9 @@ const ViewTicketForm = () => {
         <p className="form-info">Categoria: <span className="form-info-data">{ticket.Categoria}</span></p>
         <p className="form-info">Descrição do problema: <span className="form-info-data">{ticket.Descricao}</span></p>
         <p className="form-info">Arquivo anexo: <span className="form-info-data">...</span></p>
-        <p className="form-info">Pessoas afetadas: <span className="form-info-data">{affectedPeople}</span></p>
-        <p className="form-info">Problema esta impedindo meu trabalho? <span className="form-info-data">{stopWork}</span></p>
-        <p className="form-info">Já ocorreu anteriormente? <span className="form-info-data">{happenedBefore}</span></p>
+        <p className="form-info">Pessoas afetadas: <span className="form-info-data">{ticket.PessoasAfetadas}</span></p>
+        <p className="form-info">Problema esta impedindo meu trabalho? <span className="form-info-data">{ticket.ImpedeTrabalho}</span></p>
+        <p className="form-info">Já ocorreu anteriormente? <span className="form-info-data">{ticket.OcorreuAnteriormente}</span></p>
       </div>
 
       <div className='box-pagina-inicia'>

@@ -39,23 +39,25 @@ const TicketInProgress = () => {
                 </ul>
             </div>
 
-            {ViewTicket.length > 0 ? (
-                ViewTicket.map((ticket) => (
-                    <div key={ticket.IdChamado} className="box-ticket" onClick={() => handleViewTicketForm(ticket)}>
-                        <ul className="info-ticket">
-                            <li className="view-desktop">{ticket.IdChamado}</li>
-                            <li>{ticket.Titulo}</li>
-                            <li> <span className="circle-orange">ㅤ</span> {ticket.StatusChamado}</li>
-                            <li className="view-desktop">{new Date(ticket.DataChamado).toLocaleDateString('pt-BR')}</li>
-                            <li className="view-desktop"> <span className="circle-green">ㅤ</span> {ticket.PrioridadeChamado}</li>
-                            <li className="view-desktop">{ticket.Categoria}</li>
-                            <li className="view-desktop">{ticket.Descricao}</li>
-                        </ul>
-                    </div>
-                ))
-            ) : (
-                <p className="no-call">Nenhum chamado em andamento no momento.</p>
-            )}
+            <div className="tickets-list">
+                {ViewTicket.length > 0 ? (
+                    ViewTicket.map((ticket) => (
+                        <div key={ticket.IdChamado} className="box-ticket" onClick={() => handleViewTicketForm(ticket)}>
+                            <ul className="info-ticket">
+                                <li className="view-desktop">{ticket.IdChamado}</li>
+                                <li>{ticket.Titulo}</li>
+                                <li> <span className="circle-orange">ㅤ</span> {ticket.StatusChamado}</li>
+                                <li className="view-desktop">{new Date(ticket.DataChamado).toLocaleDateString('pt-BR')}</li>
+                                <li className="view-desktop"> <span className="circle-green">ㅤ</span> {ticket.PrioridadeChamado}</li>
+                                <li className="view-desktop">{ticket.Categoria}</li>
+                                <li className="view-desktop">{ticket.Descricao}</li>
+                            </ul>
+                        </div>
+                    ))
+                ) : (
+                    <p className="no-call">Nenhum chamado em andamento no momento.</p>
+                )}
+            </div>
 
         </section>
     )
