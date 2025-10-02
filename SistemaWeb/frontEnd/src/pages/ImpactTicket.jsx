@@ -6,6 +6,7 @@ const ImpactTicket = () => {
     const [affectedPeople, setAffectedPeople] = useState("")
     const [stopWork, setStopWork] = useState("")
     const [happenedBefore, setHappenedBefore] = useState("")
+    const [error, setError] = useState("");
     const location = useLocation()
     const { user, title, category, description } = location.state || {}
     const navigate = useNavigate()
@@ -22,7 +23,8 @@ const ImpactTicket = () => {
                 navigate("/create-ticket/impact/success", { state: { user, ticket: data.ticket } })
             }
         } catch (err) {
-            alert("Erro ao enviar chamado, preencha todos os campos!")
+            setError("Campos obrigatórios faltando!");
+            setTimeout(() => setError(""), 2000);
         }
     }
 
@@ -80,6 +82,7 @@ const ImpactTicket = () => {
 
                 <button className='button-enviar-ticket' onClick={handleSuccessTicket}>Enviar</button>
             </div>
+            {error && <p className="notice">{error}</p>}
         </section>
     )
 }
