@@ -61,7 +61,7 @@ const Home = () => {
         </div>
 
         <div>
-          <StageCharts2 />
+          {StageCharts2(user)}
         </div>
       </section>
     </main>
