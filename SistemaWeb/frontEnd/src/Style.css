@@ -522,6 +522,7 @@ h1 {
 
 .box-continuar-ticket {
     display: flex;
+    max-width: 1000px;
     justify-content: end;
     margin-right: 40px;
 }
