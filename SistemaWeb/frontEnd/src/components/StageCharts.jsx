@@ -1,6 +1,18 @@
-import { Bar, BarChart, XAxis } from 'recharts'
+import { Bar, BarChart, Tooltip, XAxis } from 'recharts'
 import api from "../services/api.js"
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    const data = payload[0]
+    return (
+      <div>
+        <p>{data.payload.uv} chamados</p>
+      </div>
+    )
+  }
+  return null
+}
 
 const StageCharts = (user) => {
   const [ViewTickets, SetViewTickets] = useState([])
@@ -29,6 +41,7 @@ const StageCharts = (user) => {
           radius={[10, 10, 0, 0]} // borda arredondada no topo
           fill="currentColor"
         />
+        <Tooltip content={<CustomTooltip />} />
       </BarChart>
     </div>
   )

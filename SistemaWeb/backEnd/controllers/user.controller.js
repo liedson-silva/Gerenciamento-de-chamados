@@ -64,7 +64,7 @@ export class TicketsController {
         try {
             const result = await this.pool.request()
                 .input("title", this.sql.VarChar(30), title)
-                .input("priority", this.sql.VarChar(7), "Análise")
+                .input("priority", this.sql.VarChar(7), "Baixa")
                 .input("description", this.sql.VarChar(500), description)
                 .input("ticketDate", this.sql.Date, new Date())
                 .input("ticketStatus", this.sql.VarChar(12), "Pendente")

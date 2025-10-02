@@ -1,28 +1,7 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts'
+import api from "../services/api.js"
+import { useEffect, useState } from 'react'
 
-// Dados dos chamados por prioridade
-const ticketData = [
-  {
-    name: 'Baixa',
-    value: 65,
-    color: '#50eb89ff',
-    count: 65
-  },
-  {
-    name: 'Média',
-    value: 28,
-    color: '#9557e0ff',
-    count: 28
-  },
-  {
-    name: 'Alta',
-    value: 15,
-    color: '#ec6258ff',
-    count: 15
-  }
-]
-
-// Tooltip personalizada
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const data = payload[0]
@@ -48,13 +27,41 @@ const LegendItem = ({ color, name, count }) => (
   </div>
 )
 
-const StageCharts2 = () => {
-  const totalTickets = ticketData.reduce((sum, item) => sum + item.count, 0)
+const StageCharts2 = (user) => {
+  const [ViewTickets, SetViewTickets] = useState([])
+
+  async function getTickets() {
+    const response = await api.get(`/tickets/${user.IdUsuario}`)
+    SetViewTickets(response.data.Tickets)
+  }
+  useEffect(() => {
+    getTickets()
+  }, [])
+
+  const ticketData = [
+    {
+      name: 'Baixa',
+      value: ViewTickets.filter(ticket => ticket.PrioridadeChamado === "Baixa").length,
+      color: '#50eb89ff',
+      count: ViewTickets.filter(ticket => ticket.PrioridadeChamado === "Baixa").length
+    },
+    {
+      name: 'Média',
+      value: ViewTickets.filter(ticket => ticket.PrioridadeChamado === "Média").length,
+      color: '#5789e0ff',
+      count: ViewTickets.filter(ticket => ticket.PrioridadeChamado === "Média").length
+    },
+    {
+      name: 'Alta',
+      value: ViewTickets.filter(ticket => ticket.PrioridadeChamado === "Alta").length,
+      color: '#ec6258ff',
+      count: ViewTickets.filter(ticket => ticket.PrioridadeChamado === "Alta").length
+    }
+  ]
 
   return (
     <div>
       <div className="chart-wrapper">
-        {/* 🚨 Altura corrigida aqui */}
         <h3>Chamados por prioridade</h3>
         <ResponsiveContainer width="100%" height={100}>
           <PieChart>
