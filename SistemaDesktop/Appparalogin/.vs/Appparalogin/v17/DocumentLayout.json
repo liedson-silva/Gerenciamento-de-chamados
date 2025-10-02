@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|c:\\users\\liedson\\onedrive\\documentos\\unip\\pim\\gerenciamento-de-chamados\\sistemadesktop\\appparalogin\\appparalogin\\aberturachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|C:\\Users\\Liedson\\OneDrive\\Documentos\\Unip\\pim\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\appparalogin\\aberturachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Appparalogin\\Gerenciamento_De_Chamados.csproj|solutionrelative:appparalogin\\aberturachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -70,24 +70,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\Liedson\\OneDrive\\Documentos\\Unip\\pim\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\.gitignore",
-              "RelativeDocumentMoniker": "Appparalogin\\.gitignore",
-              "ToolTip": "C:\\Users\\Liedson\\OneDrive\\Documentos\\Unip\\pim\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\.gitignore",
-              "RelativeToolTip": "Appparalogin\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-02T14:07:44.503Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -111,6 +98,19 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\Liedson\\OneDrive\\Documentos\\Unip\\pim\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\.gitignore",
+              "RelativeDocumentMoniker": "Appparalogin\\.gitignore",
+              "ToolTip": "C:\\Users\\Liedson\\OneDrive\\Documentos\\Unip\\pim\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\.gitignore",
+              "RelativeToolTip": "Appparalogin\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-02T14:07:44.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "AberturaChamados.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Liedson\\OneDrive\\Documentos\\Unip\\pim\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\AberturaChamados.cs",
@@ -118,8 +118,7 @@
               "ToolTip": "C:\\Users\\Liedson\\OneDrive\\Documentos\\Unip\\pim\\Gerenciamento-de-chamados\\SistemaDesktop\\Appparalogin\\Appparalogin\\AberturaChamados.cs [Design]",
               "RelativeToolTip": "Appparalogin\\AberturaChamados.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T11:24:21.099Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-29T11:24:21.099Z"
             },
             {
               "$type": "Document",
