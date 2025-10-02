@@ -1,6 +1,4 @@
-import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-
 import folder from "../assets/folder.svg"
 import hourglass from "../assets/hourglass.svg"
 import correct from "../assets/correct.svg"
@@ -29,7 +27,7 @@ const Home = () => {
   }
 
   return (
-    <section>
+    <main>
       <h1>Bem-vindo, {user?.Nome}!</h1>
 
       <div className="box-buttons">
@@ -52,23 +50,21 @@ const Home = () => {
 
           <button className="button-chamados" onClick={handleTicketResolved}>
             <img src={correct} alt="Solucionados" />
-            Chamados Solucionados
+            Chamados Resolvidos
           </button>
         </div>
       </div>
 
-      <div className="dashboard-charts">
-        {/* Gráfico de Barras */}
+      <section className="dashboard-charts">
         <div className="chart-wrapper">
-          <StageCharts />
+          {StageCharts(user)}
         </div>
 
-        {/* Gráfico de Setor */}
-        <section className="analytics-section" aria-labelledby="chart-heading">
+        <div>
           <StageCharts2 />
-        </section>
-      </div>
-    </section>
+        </div>
+      </section>
+    </main>
   )
 }
 

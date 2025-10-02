@@ -77,16 +77,15 @@ input {
     background: linear-gradient(to right, white, rgb(176, 176, 176));
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     font-size: 1.2rem;
-    font-weight: bold;
     border-radius: 8px;
     border: none;
     padding: 6px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s;
 }
 
 .enter:hover {
-    opacity: 0.7;
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 .notice {
@@ -330,14 +329,14 @@ h1 {
     height: 50px;
     width: 240px;
     border-radius: 8px;
-    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
+    border: none;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    transition: all 0.3s;
 }
 
 .button-criar-chamado:hover {
-    opacity: 0.7;
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 .chamados {
@@ -355,14 +354,67 @@ h1 {
     height: 80px;
     width: 280px;
     border-radius: 8px;
-    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
+    border: none;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    transition: all 0.3s;
 }
 
 .button-chamados:hover {
-    opacity: 0.7;
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
+/* graphics */
+
+.dashboard-charts {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.chart-wrapper{
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    color: #19135d;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+@media (max-width: 1300px) {
+    .dashboard-charts {
+        display: none;
+    }
 }
 
 /* User Config */
@@ -477,8 +529,8 @@ h1 {
 .button-continuar-ticket {
     cursor: pointer;
     background: linear-gradient(to right, white, rgb(176, 176, 176));
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
     font-size: 1.1rem;
     border-radius: 8px;
     padding: 10px;
@@ -486,7 +538,7 @@ h1 {
 }
 
 .button-continuar-ticket:hover {
-    opacity: 0.7;
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 @media (max-width: 768px) {
@@ -495,6 +547,10 @@ h1 {
         flex-direction: column;
         margin-top: -30px;
         align-items: center;
+    }
+
+    .button-continuar-ticket {
+        margin-top: 30px;
     }
 }
 
@@ -514,8 +570,8 @@ h1 {
 .button-voltar-ticket {
     cursor: pointer;
     background: linear-gradient(to right, white, rgb(176, 176, 176));
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
     font-size: 1.1rem;
     border-radius: 8px;
     padding: 10px;
@@ -523,14 +579,14 @@ h1 {
 }
 
 .button-voltar-ticket:hover {
-    opacity: 0.7;
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 .button-enviar-ticket {
     cursor: pointer;
     background: linear-gradient(to right, white, rgb(176, 176, 176));
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
     font-size: 1.1rem;
     margin-left: auto;
     border-radius: 8px;
@@ -539,7 +595,7 @@ h1 {
 }
 
 .button-enviar-ticket:hover {
-    opacity: 0.7;
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 /* Success Ticket */
@@ -573,8 +629,8 @@ h1 {
 .button-vizualizar-chamado {
     cursor: pointer;
     background: linear-gradient(to right, white, rgb(176, 176, 176));
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
     font-size: 1.1rem;
     border-radius: 8px;
     padding: 10px;
@@ -582,7 +638,7 @@ h1 {
 }
 
 .button-vizualizar-chamado:hover {
-    opacity: 0.7;
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 /* View Ticket Form */
@@ -627,8 +683,8 @@ h1 {
 .button-pagina-inicia {
     cursor: pointer;
     background: linear-gradient(to right, white, rgb(176, 176, 176));
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
     font-size: 1.1rem;
     border-radius: 8px;
     padding: 10px;
@@ -637,7 +693,7 @@ h1 {
 }
 
 .button-pagina-inicia:hover {
-    opacity: 0.7;
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 /* Tickets, Pending Ticket, Ticket In Progress, Ticket Resolved*/
@@ -711,56 +767,4 @@ h1 {
     .info-ticket {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-.dashboard-charts {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    /* espaço entre os gráficos */
-    max-width: 1100px;
-    /* largura máxima do container pai */
-    width: 100%;
-    margin: 0 auto;
-    padding: 40px 20px;
-    box-sizing: border-box;/
-}
-
-.chart-wrapper,
-.analytics-section {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    color: #19135d;
-    padding: 20px;
-    width: 100%;
-    /* responsivo */
-    max-width: 500px;
-    /* largura máxima fixa */
-    box-sizing: border-box;
-}
-
-/* Legenda comum */
-.chart-legend {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin-top: 20px;
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #333;
-}
-
-.legend-color {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts'
 
 // Dados dos chamados por prioridade
@@ -28,9 +27,9 @@ const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const data = payload[0]
     return (
-      <div className="custom-tooltip">
-        <p className="tooltip-label">Prioridade {data.payload.name}</p>
-        <p className="tooltip-desc">{data.payload.count} chamados pendentes</p>
+      <div>
+        <p>Prioridade {data.payload.name}</p>
+        <p>{data.payload.count} chamados pendentes</p>
       </div>
     )
   }
@@ -44,8 +43,8 @@ const LegendItem = ({ color, name, count }) => (
       className="legend-color"
       style={{ backgroundColor: color }}
     />
-    <span className="legend-name">{name}</span>
-    <span className="legend-count">({count})</span>
+    <span>{name}</span>
+    <span>({count})</span>
   </div>
 )
 
@@ -53,22 +52,18 @@ const StageCharts2 = () => {
   const totalTickets = ticketData.reduce((sum, item) => sum + item.count, 0)
 
   return (
-    <div className="chart-container">
-      <header className="chart-header">
-        <h3>Chamados por Prioridade</h3>
-        <p>Total: {totalTickets} chamados pendentes</p>
-      </header>
-
+    <div>
       <div className="chart-wrapper">
         {/* 🚨 Altura corrigida aqui */}
-        <ResponsiveContainer width="100%" height={300}>
+        <h3>Chamados por prioridade</h3>
+        <ResponsiveContainer width="100%" height={100}>
           <PieChart>
             <Pie
               data={ticketData}
               cx="50%"
               cy="50%"
-              innerRadius={60}
-              outerRadius={120}
+              innerRadius={15}
+              outerRadius={50}
               paddingAngle={2}
               dataKey="value"
               strokeWidth={0}
@@ -80,17 +75,18 @@ const StageCharts2 = () => {
             <Tooltip content={<CustomTooltip />} />
           </PieChart>
         </ResponsiveContainer>
-      </div>
 
-      <div className="chart-legend">
-        {ticketData.map((item, index) => (
-          <LegendItem
-            key={index}
-            color={item.color}
-            name={item.name}
-            count={item.count}
-          />
-        ))}
+        <div className="chart-legend">
+          {ticketData.map((item, index) => (
+            <LegendItem
+              key={index}
+              color={item.color}
+              name={item.name}
+              count={item.count}
+            />
+          ))}
+        </div>
+
       </div>
     </div>
   )

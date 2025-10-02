@@ -40,7 +40,7 @@ const Home = () => {
 
       <div className="header">
         <div className="box-inicio">
-          <button className="button-inicio" onClick={handleHome}><FaHouse className="icons-home" /> Home</button>
+          <button className="button-inicio" onClick={handleHome}><FaHouse className="icons-home" /> Início</button>
 
           <div className="home-mobile" onClick={handleHome}>
             <img src={logo} className="logo-mobile" alt="logo" />
