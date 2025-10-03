@@ -20,7 +20,7 @@ export async function connectDB() {
         console.log("Conectado ao SQL Server");
         return pool;
     } catch (err) {
-        console.error("Erro na conexão com o SQL Server:", err);
+        console.log("Erro na conexão com o SQL Server:", err);
     }
 }
 
