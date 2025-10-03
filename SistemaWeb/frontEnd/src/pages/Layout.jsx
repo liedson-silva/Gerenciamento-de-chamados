@@ -26,6 +26,10 @@ const Home = () => {
     navigate("/tickets", { state: { user } })
   }
 
+  const handleFAQ = () => {
+  navigate("/faq", { state: { user } })
+}
+
   return (
     <section className="home">
       <div className="nav-bar">
@@ -34,7 +38,7 @@ const Home = () => {
         </button>
         <ul>
           <li className="utils" onClick={handlePendingTicket}><BsList className="icons-home" /> Chamados</li>
-          <li className="utils"><LuMessageCircleQuestion className="icons-home" /> FAQ</li>
+          <li className="utils" onClick={handleFAQ}><LuMessageCircleQuestion className="icons-home" /> FAQ</li>
         </ul>
       </div>
 
@@ -52,7 +56,7 @@ const Home = () => {
                 <li onClick={handleUserConfig} className="menu">Minha Conta</li>
                 <li onClick={handlePendingTicket} className="menu">Chamados</li>
                 <li className="menu">Servicos</li>
-                <li className="menu">FAQ</li>
+                <li onClick={handleFAQ} className="menu">FAQ</li>
                 <li onClick={handleLogin} className="menu">Sair</li>
               </ul>
             </div>
