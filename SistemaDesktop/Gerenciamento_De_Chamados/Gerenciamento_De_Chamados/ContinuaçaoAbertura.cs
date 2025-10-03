@@ -84,6 +84,8 @@ namespace Gerenciamento_De_Chamados
                     MessageBox.Show("Erro ao abrir chamado: " + ex.Message);
                 }
             }
+            var telaChamadoCriado = new ChamadoCriado();
+            telaChamadoCriado.Show();
         }
     }
 }
