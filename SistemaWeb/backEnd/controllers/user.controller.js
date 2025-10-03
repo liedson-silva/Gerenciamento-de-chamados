@@ -1,5 +1,6 @@
 import crypto from "crypto"
-import Gemini from "../config/connectIA.js";
+import Gemini from "../config/connectIA.js"
+import sendEmail from "../config/sendEmail.js"
 
 export class LoginController {
     constructor(pool, sql) {
@@ -77,9 +78,17 @@ export class TicketsController {
                 .input("happenedBefore", this.sql.VarChar(7), happenedBefore)
                 .query("INSERT INTO Chamado (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente) OUTPUT INSERTED.* VALUES (@title, @priority, @description, @ticketDate, @ticketStatus, @category, @userId, @affectedPeople, @stopWork, @happenedBefore)")
 
-            const newTicket = result.recordset[0];
+            const newTicket = result.recordset[0]
             this.updatePriorityByAI(newTicket.IdChamado, description, affectedPeople,
                 stopWork, happenedBefore)
+
+            const userResult = await this.pool.request()
+                .input("userId", this.sql.Int, userId)
+                .query("SELECT Nome, Email FROM Usuario WHERE IdUsuario = @userId")
+            const user = userResult.recordset[0]
+            const userEmail = user?.Email
+            const userName = user?.Nome
+            sendEmail(userEmail, userName)
 
             res.json({ success: true, ticket: newTicket })
         } catch (err) {
@@ -109,9 +118,11 @@ export class TicketsController {
             await this.pool.request()
                 .input("priority", this.sql.VarChar(20), priority)
                 .input("idChamado", this.sql.Int, ticketId)
-                .query("UPDATE Chamado SET PrioridadeChamado = @priority WHERE IdChamado = @idChamado");
+                .query("UPDATE Chamado SET PrioridadeChamado = @priority WHERE IdChamado = @idChamado")
+
+            console.log("Prioridade atualizado pela IA")
         } catch (error) {
-            console.error(`Erro ao atualizar a prioridade do chamado ${ticketId} pela IA:`, error);
+            console.error(`Erro ao atualizar a prioridade do chamado ${ticketId} pela IA:`, error)
         }
     }
 

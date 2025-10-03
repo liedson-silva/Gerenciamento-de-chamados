@@ -44,7 +44,7 @@ const Tickets = () => {
                 </ul>
             </div>
 
-            <div className="tickets-list">
+            <div className="scroll-list">
                 {ViewTickets.length > 0 ? (
                     ViewTickets.map((ticket) => (
                         <div key={ticket.IdChamado} className="box-ticket" onClick={() => handleViewTicketForm(ticket)}>

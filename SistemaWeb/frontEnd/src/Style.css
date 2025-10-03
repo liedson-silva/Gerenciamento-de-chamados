@@ -116,7 +116,8 @@ input {
 
 .home {
     display: flex;
-    min-height: 100vh; /*permite crescer se o conteúdo for maior*/
+    height: 100vh;
+    /*permite crescer se o conteúdo for maior*/
 }
 
 .nav-bar {
@@ -126,8 +127,6 @@ input {
     max-width: 350px;
     background: linear-gradient(to bottom, white, rgb(26, 26, 26));
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    align-self: stretch; /*faz o menu lateral crescer junto*/
-
 }
 
 .box-logo {
@@ -332,7 +331,7 @@ h1 {
     border-radius: 8px;
     cursor: pointer;
     border: none;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    box-shadow: 0px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
     transition: all 0.3s;
 }
 
@@ -378,7 +377,7 @@ h1 {
     padding: 20px;
 }
 
-.chart-wrapper{
+.chart-wrapper {
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -547,7 +546,7 @@ h1 {
     .form-file {
         display: flex;
         flex-direction: column;
-        margin-top: -30px;
+        margin-top: -20px;
         align-items: center;
     }
 
@@ -587,7 +586,7 @@ h1 {
 .button-enviar-ticket {
     cursor: pointer;
     background: linear-gradient(to right, white, rgb(176, 176, 176));
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    box-shadow: 0px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
     border: none;
     font-size: 1.1rem;
     margin-left: auto;
@@ -704,7 +703,7 @@ h1 {
     padding: 15px;
 }
 
-.tickets-list {
+.scroll-list {
     max-height: calc(100vh - 200px);
     /* 100vh = altura total da tela. Ajuste os 200px conforme a altura do seu cabeçalho/navbar */
     overflow-y: auto;
@@ -762,45 +761,51 @@ h1 {
 }
 
 @media (max-width: 768px) {
+    .info-ticket {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .view-desktop {
         display: none;
     }
 }
 
+/* FAQ */
+
 .faq-section {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-  font-size: 1.1rem;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-size: 1.1rem;
 }
 
 .faq-item {
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  padding: 20px;
-  transition: background 0.3s ease;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    padding: 20px;
+    transition: background 0.3s ease;
 }
 
 .faq-item:hover {
-  background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 .faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
 }
 
 .arrow {
-  font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 .faq-answer {
-  margin-top: 10px;
-  color: #333;
-  line-height: 1.5;
+    margin-top: 10px;
+    color: #333;
+    line-height: 1.5;
 }
