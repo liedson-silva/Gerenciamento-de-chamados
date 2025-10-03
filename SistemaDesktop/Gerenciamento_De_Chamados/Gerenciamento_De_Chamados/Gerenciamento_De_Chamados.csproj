@@ -74,6 +74,12 @@
     <Compile Include="Cadastro_de_Usuarios.Designer.cs">
       <DependentUpon>Cadastro_de_Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChamadoCriado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChamadoCriado.Designer.cs">
+      <DependentUpon>ChamadoCriado.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContinuaçaoAbertura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastro_de_Usuarios.resx">
       <DependentUpon>Cadastro_de_Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChamadoCriado.resx">
+      <DependentUpon>ChamadoCriado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ContinuaçaoAbertura.resx">
       <DependentUpon>ContinuaçaoAbertura.cs</DependentUpon>
