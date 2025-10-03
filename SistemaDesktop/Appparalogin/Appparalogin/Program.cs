@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
-namespace Appparalogin
+namespace Gerenciamento_De_Chamados
 {
     internal static class Program
     {

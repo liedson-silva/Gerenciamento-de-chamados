@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Appparalogin
+namespace Gerenciamento_De_Chamados
 {
     public partial class Home: Form
     {
@@ -27,7 +27,7 @@ namespace Appparalogin
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var gerusuario = new Cadastro_de_Usuarios();
+            var gerusuario = new GerenciarUsuarios();
             gerusuario.Show(); 
             this.Hide(); 
         }

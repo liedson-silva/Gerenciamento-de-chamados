@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
-namespace Appparalogin
+namespace Gerenciamento_De_Chamados
 {
     public partial class Cadastro_de_Usuarios : Form
     {

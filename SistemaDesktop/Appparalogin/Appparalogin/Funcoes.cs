@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Appparalogin
+namespace Gerenciamento_De_Chamados
 {
     public class Funcoes
     {

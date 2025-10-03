@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Appparalogin
+namespace Gerenciamento_De_Chamados
 {
 
 public static class SenhaHelper
