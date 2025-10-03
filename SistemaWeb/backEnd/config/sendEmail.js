@@ -6,7 +6,7 @@ const transport = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: "fatalsystem.unip@gmail.com",
+        user: process.env.GOOGLE_EMAIL,
         pass: process.env.GOOGLE_PASSWORD,
     }
 })
@@ -14,7 +14,7 @@ const transport = nodemailer.createTransport({
 export default async function sendEmail(email, name) {
     try {
         const mailOptions = {
-            from: "Fatal System <fatalsystem.unip@gmail.com>",
+            from: `Fatal System <${process.env.GOOGLE_EMAIL}>`,
             to: `${email}`,
             subject: "Chamado criado com sucesso!",
             html: `<h1>Prezado(a) ${name},</h1>
