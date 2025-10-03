@@ -55,7 +55,6 @@ const Home = () => {
               <ul>
                 <li onClick={handleUserConfig} className="menu">Minha Conta</li>
                 <li onClick={handlePendingTicket} className="menu">Chamados</li>
-                <li className="menu">Servicos</li>
                 <li onClick={handleFAQ} className="menu">FAQ</li>
                 <li onClick={handleLogin} className="menu">Sair</li>
               </ul>

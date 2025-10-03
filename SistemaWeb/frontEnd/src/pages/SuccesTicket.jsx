@@ -3,11 +3,11 @@ import { useNavigate, useLocation } from "react-router-dom"
 
 const SuccesTicket = () => {
     const location = useLocation()
-    const { user, ticket, affectedPeople, stopWork, happenedBefore } = location.state || {}
+    const { user, ticket } = location.state || {}
     const navigate = useNavigate()
 
     const handleViewTicketForm = () => {
-        navigate("/view-ticket-form", { state: { user, ticket, affectedPeople, stopWork, happenedBefore } })
+        navigate("/view-ticket-form", { state: { user, ticket } })
     }
 
     const data = new Date(ticket.DataChamado);
@@ -25,6 +25,8 @@ const SuccesTicket = () => {
 
             <div className="success-details">
                 <p>ID do chamado: {ticket.IdChamado}</p>
+                <p>Data chamado: {new Date(ticket.DataChamado).toLocaleDateString('pt-BR')}</p>
+                <p>Email enviado para: {user.Email}</p>
             </div>
 
             <div className='box-vizualizar-chamado'>

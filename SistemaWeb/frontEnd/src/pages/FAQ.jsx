@@ -43,7 +43,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="content">
+    <div className="scroll-list">
       <h1>FAQ - Perguntas Frequentes</h1>
       <section className="faq-section">
         {faqData.map((item, index) => (
