@@ -22,5 +22,16 @@ namespace Gerenciamento_De_Chamados.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=fatalsystemsrv1.database.windows.net;Initial Catalog=DbaFatal-System;" +
+            "Persist Security Info=True;User ID=frederico;Encrypt=True")]
+        public string DbaFatal_SystemConnectionString {
+            get {
+                return ((string)(this["DbaFatal_SystemConnectionString"]));
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿        namespace Appparalogin
+﻿        namespace Gerenciamento_De_Chamados
         {
             partial class Login
             {
@@ -41,8 +41,8 @@
             // 
             this.btnEntrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar.Location = new System.Drawing.Point(815, 318);
-            this.btnEntrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEntrar.Location = new System.Drawing.Point(954, 484);
+            this.btnEntrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(88, 41);
             this.btnEntrar.TabIndex = 4;
@@ -54,7 +54,7 @@
             // 
             this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(496, 299);
+            this.linkLabel1.Location = new System.Drawing.Point(635, 465);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(108, 13);
             this.linkLabel1.TabIndex = 3;
@@ -66,7 +66,7 @@
             this.txtSenha.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtSenha.Location = new System.Drawing.Point(498, 250);
+            this.txtSenha.Location = new System.Drawing.Point(637, 416);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(396, 35);
             this.txtSenha.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtUsuario.Location = new System.Drawing.Point(498, 193);
+            this.txtUsuario.Location = new System.Drawing.Point(637, 359);
             this.txtUsuario.MaxLength = 50;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(396, 29);
@@ -97,7 +97,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(640, 89);
+            this.label1.Location = new System.Drawing.Point(779, 255);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 42);
             this.label1.TabIndex = 0;
@@ -108,10 +108,10 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
-            this.pictureBox1.Location = new System.Drawing.Point(-25, 76);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(114, 76);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(515, 353);
+            this.pictureBox1.Size = new System.Drawing.Size(515, 519);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -121,7 +121,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(958, 613);
+            this.ClientSize = new System.Drawing.Size(1237, 779);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnEntrar);

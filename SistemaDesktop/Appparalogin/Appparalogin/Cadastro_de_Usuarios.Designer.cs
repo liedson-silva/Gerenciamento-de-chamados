@@ -1,4 +1,4 @@
-﻿namespace Appparalogin
+﻿namespace Gerenciamento_De_Chamados
 {
     partial class Cadastro_de_Usuarios
     {

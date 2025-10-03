@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Appparalogin
+namespace Gerenciamento_De_Chamados
 {
     public partial class AberturaChamados : Form
     {

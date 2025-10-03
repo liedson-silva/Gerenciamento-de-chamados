@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace Appparalogin
+namespace Gerenciamento_De_Chamados
 {
     public partial class Login : Form
     {
@@ -40,8 +40,6 @@ namespace Appparalogin
                 {
                     conexao.Open();
 
-                    // Mostra qual login está sendo buscado
-                    MessageBox.Show("🔎 Tentando logar com: " + usuario);
 
                     string sql = "SELECT Senha FROM Usuario WHERE Login = @usuario";
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
@@ -57,9 +55,6 @@ namespace Appparalogin
                         }
 
                         string hashSalvo = resultado.ToString();
-
-                        // Mostra o hash encontrado no banco
-                        MessageBox.Show("🔑 Hash salvo no banco: " + hashSalvo);
 
                         // Valida a senha usando o hash
                         if (SenhaHelper.ValidarSenha(senhaDigitada, hashSalvo))
