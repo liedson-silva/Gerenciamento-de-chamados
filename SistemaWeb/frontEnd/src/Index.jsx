@@ -11,6 +11,7 @@ import Tickets from "./pages/Tickets";
 import PendingTicket from "./pages/PendingTicket";
 import TicketInProgress from "./pages/TicketInProgress";
 import TicketResolved from "./pages/TicketResolved";
+import FAQ from "./pages/FAQ";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/pending-ticket" element={<PendingTicket />} />
           <Route path="/ticket-in-progress" element={<TicketInProgress />} />
           <Route path="/ticket-resolved" element={<TicketResolved />} />
+          <Route path="/faq" element={<FAQ />} />
         </Route>
       </Routes>
     </Router>
