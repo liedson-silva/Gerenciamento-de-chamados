@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,19 @@ namespace Gerenciamento_De_Chamados
     public partial class Home: Form
     {
 
+
+        private Funcoes funcoes;
         public Home()
         {
             InitializeComponent();
+
+            funcoes = new Funcoes();
+            
         }
+        
+
+
+        
 
         private void btnGerChamado_Click(object sender, EventArgs e)
         {
@@ -45,6 +55,11 @@ namespace Gerenciamento_De_Chamados
                     corFimPanel,
                     LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
