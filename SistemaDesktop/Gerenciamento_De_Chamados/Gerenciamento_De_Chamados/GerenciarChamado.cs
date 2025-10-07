@@ -51,5 +51,10 @@ namespace Gerenciamento_De_Chamados
                     LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

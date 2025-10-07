@@ -51,7 +51,7 @@
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(326, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1096, 103);
             this.panel2.TabIndex = 11;
@@ -89,7 +89,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(326, 977);
             this.panel1.TabIndex = 10;
@@ -125,17 +125,18 @@
             // 
             this.pictureBox1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
             this.pictureBox1.Location = new System.Drawing.Point(-47, -63);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(393, 298);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnCriarChamado
             // 
             this.btnCriarChamado.Location = new System.Drawing.Point(421, 217);
-            this.btnCriarChamado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCriarChamado.Margin = new System.Windows.Forms.Padding(4);
             this.btnCriarChamado.Name = "btnCriarChamado";
             this.btnCriarChamado.Size = new System.Drawing.Size(221, 86);
             this.btnCriarChamado.TabIndex = 12;
@@ -146,7 +147,7 @@
             // btnVisualizarCh
             // 
             this.btnVisualizarCh.Location = new System.Drawing.Point(725, 217);
-            this.btnVisualizarCh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVisualizarCh.Margin = new System.Windows.Forms.Padding(4);
             this.btnVisualizarCh.Name = "btnVisualizarCh";
             this.btnVisualizarCh.Size = new System.Drawing.Size(221, 86);
             this.btnVisualizarCh.TabIndex = 13;
@@ -157,7 +158,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(1043, 217);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(221, 86);
             this.button3.TabIndex = 14;
@@ -174,7 +175,7 @@
             this.Controls.Add(this.btnCriarChamado);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GerenciarChamado";
             this.Text = "GerenciarChamado";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
