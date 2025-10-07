@@ -86,6 +86,12 @@
     <Compile Include="ContinuaçaoAbertura.Designer.cs">
       <DependentUpon>ContinuaçaoAbertura.cs</DependentUpon>
     </Compile>
+    <Compile Include="FimChamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FimChamado.Designer.cs">
+      <DependentUpon>FimChamado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funcoes.cs" />
     <Compile Include="GerenciarChamado.cs">
       <SubType>Form</SubType>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContinuaçaoAbertura.resx">
       <DependentUpon>ContinuaçaoAbertura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FimChamado.resx">
+      <DependentUpon>FimChamado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GerenciarChamado.resx">
       <DependentUpon>GerenciarChamado.cs</DependentUpon>
@@ -267,6 +276,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include="Resources\check_circle_350dp_9DC384_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\check_circle_250dp_9DC384_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\menu_24dp_000000_FILL0_wght400_GRAD0_opsz24 %281%29.png" />
+    <None Include="Resources\contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+    <None Include="Resources\Suporte.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\HOME %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

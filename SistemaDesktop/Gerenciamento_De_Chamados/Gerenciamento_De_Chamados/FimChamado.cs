@@ -11,32 +11,11 @@ using System.Windows.Forms;
 
 namespace Gerenciamento_De_Chamados
 {
-    public partial class GerenciarChamado : Form
+    public partial class FimChamado : Form
     {
-        public GerenciarChamado()
+        public FimChamado()
         {
             InitializeComponent();
-        }
-
-        private void btnCriarChamado_Click(object sender, EventArgs e)
-        {
-            var aberturaChamadosForm = new AberturaChamados();
-            aberturaChamadosForm.Show();
-            this.Hide();
-        }
-
-        private void btnVisualizarCh_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var visualizarChamados = new VisualizarChamado();
-                visualizarChamados.Show();
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao abrir janela: " + ex.Message);
-            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -50,6 +29,18 @@ namespace Gerenciamento_De_Chamados
                     corFimPanel,
                     LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
+
+
+        }
+
+        private void btn_PaginaInicial_Click(object sender, EventArgs e)
+        {
+            var telaHome = new Home();
+            telaHome.Show();
+            this.Visible = false;
         }
     }
-}
+    }
+
+
+
