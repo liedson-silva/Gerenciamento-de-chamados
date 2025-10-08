@@ -105,6 +105,12 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomeUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeUsuario.Designer.cs">
+      <DependentUpon>HomeUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeUsuario.resx">
+      <DependentUpon>HomeUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -276,6 +285,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include="Resources\folder_46dp_EAC452_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\hourglass_empty_46dp_000000_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\check_circle_46dp_9DC384_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\check_circle_26dp_9DC384_FILL0_wght400_GRAD0_opsz24.png" />
     <None Include="Resources\check_circle_350dp_9DC384_FILL0_wght400_GRAD0_opsz48.png" />
     <None Include="Resources\check_circle_250dp_9DC384_FILL0_wght400_GRAD0_opsz48.png" />
     <None Include="Resources\menu_24dp_000000_FILL0_wght400_GRAD0_opsz24 %281%29.png" />
