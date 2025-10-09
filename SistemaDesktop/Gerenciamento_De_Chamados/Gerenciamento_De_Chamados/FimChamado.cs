@@ -16,6 +16,7 @@ namespace Gerenciamento_De_Chamados
         public FimChamado()
         {
             InitializeComponent();
+            this.Load += FimChamado_Load;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -39,8 +40,15 @@ namespace Gerenciamento_De_Chamados
             telaHome.Show();
             this.Visible = false;
         }
+        private void FimChamado_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
+        }
     }
-    }
+}
 
 
 

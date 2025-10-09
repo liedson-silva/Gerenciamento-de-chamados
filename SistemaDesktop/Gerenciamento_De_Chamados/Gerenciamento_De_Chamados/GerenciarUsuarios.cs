@@ -32,7 +32,17 @@ namespace Gerenciamento_De_Chamados
 
         private void GerenciarUsuarios_Load(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
             CarregarUsuarios();
+
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
+
         }
 
         private void CarregarUsuarios(string filtro = "")
@@ -103,6 +113,13 @@ namespace Gerenciamento_De_Chamados
                     LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
 
+        }
+        private void GerenciarUsuarios_Load_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
         }
     }
 }

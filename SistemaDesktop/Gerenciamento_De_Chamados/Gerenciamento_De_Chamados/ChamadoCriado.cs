@@ -15,6 +15,7 @@ namespace Gerenciamento_De_Chamados
         public ChamadoCriado()
         {
             InitializeComponent();
+            this.Load += ChamadoCriado_Load;
         }
 
         private void gbxChamadoCriado_Paint(object sender, PaintEventArgs e)
@@ -40,6 +41,13 @@ namespace Gerenciamento_De_Chamados
                     box.ForeColor
                 );
             }
+        }
+        private void ChamadoCriado_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
         }
 
     }

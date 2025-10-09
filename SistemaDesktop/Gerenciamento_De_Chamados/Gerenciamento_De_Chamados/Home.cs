@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +23,7 @@ namespace Gerenciamento_De_Chamados
             InitializeComponent();
 
             funcoes = new Funcoes();
-            
+
         }
         
 
@@ -32,7 +33,7 @@ namespace Gerenciamento_De_Chamados
         private void btnGerChamado_Click(object sender, EventArgs e)
         {
             var gerchamado = new GerenciarChamado();
-            gerchamado.Show();
+            gerchamado. Show();
             this.Hide(); // Oculta o form atual
         }
 
@@ -57,9 +58,13 @@ namespace Gerenciamento_De_Chamados
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Home_Load(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
         }
+
     }
 }

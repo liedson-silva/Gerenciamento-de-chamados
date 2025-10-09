@@ -18,6 +18,8 @@ namespace Gerenciamento_De_Chamados
         public AberturaChamados()
         {
             InitializeComponent();
+            this.Load += AberturaChamados_Load;
+
         }
         Funcoes funcoes = new Funcoes();
         public void btnContinuar_Click(object sender, EventArgs e)
@@ -56,9 +58,17 @@ namespace Gerenciamento_De_Chamados
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void AberturaChamados_Load(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
+        }
 
+        private void lbl_Inicio_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHome(this);
         }
     }
 }

@@ -104,5 +104,12 @@ namespace Gerenciamento_De_Chamados
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
 
         }
+        private void VisualizarChamado_Load_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
+        }
     }
 }

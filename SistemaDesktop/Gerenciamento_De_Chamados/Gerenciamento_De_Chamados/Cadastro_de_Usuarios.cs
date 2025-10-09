@@ -18,6 +18,7 @@ namespace Gerenciamento_De_Chamados
         public Cadastro_de_Usuarios()
         {
             InitializeComponent();
+            this.Load += Cadastro_de_Usuarios_Load;
         }
 
         private void btnCadastroAdd_Click(object sender, EventArgs e)
@@ -123,6 +124,13 @@ namespace Gerenciamento_De_Chamados
 
 
 
+        }
+        private void Cadastro_de_Usuarios_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
         }
     }
 }

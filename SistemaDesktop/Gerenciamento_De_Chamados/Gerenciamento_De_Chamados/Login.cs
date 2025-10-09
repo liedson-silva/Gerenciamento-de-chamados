@@ -8,6 +8,9 @@ namespace Gerenciamento_De_Chamados
 {
     public partial class Login : Form
     {
+        private readonly string connectionString =
+            "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
+
         public Login()
         {
             InitializeComponent();
@@ -19,69 +22,67 @@ namespace Gerenciamento_De_Chamados
             string usuario = txtUsuario.Text.Trim();
             string senhaDigitada = txtSenha.Text.Trim();
 
-            // Usuário admin padrão
-            const string adminLogin = "admin";
-            const string adminSenha = "admin1234";
-
-            if (usuario == adminLogin && senhaDigitada == adminSenha)
+            // ✅ Login administrativo padrão
+            if (usuario == "admin" && senhaDigitada == "admin1234")
             {
                 MessageBox.Show("✅ Login de administrador realizado com sucesso!");
+
+                Funcoes.SessaoUsuario.IdUsuario = 0;
+                Funcoes.SessaoUsuario.Login = "admin";
+                Funcoes.SessaoUsuario.Nome = "Administrador";
+
                 var home = new Home();
                 home.Show();
                 this.Hide();
                 return;
             }
 
-            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
-
-            using (SqlConnection conexao = new SqlConnection(connectionString))
+            try
             {
-                try
+                using (SqlConnection conexao = new SqlConnection(connectionString))
                 {
                     conexao.Open();
 
-
+                    // Busca hash da senha
                     string sql = "SELECT Senha FROM Usuario WHERE Login = @usuario";
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
                     {
                         cmd.Parameters.AddWithValue("@usuario", usuario);
-
                         object resultado = cmd.ExecuteScalar();
 
                         if (resultado == null)
                         {
-                            MessageBox.Show($"❌ Usuário '{usuario}' não encontrado no banco.");
+                            MessageBox.Show($"❌ Usuário '{usuario}' não encontrado.");
                             return;
                         }
 
                         string hashSalvo = resultado.ToString();
 
-                        // Valida a senha usando o hash
+                        // Validação da senha
                         if (SenhaHelper.ValidarSenha(senhaDigitada, hashSalvo))
                         {
+                            // ✅ Preenche sessão global do usuário logado
                             try
                             {
-                                // Preenche sessão com dados do usuário
-                                Funcoes.SessaoUsuario.Login = usuario; 
+                                Funcoes.SessaoUsuario.Login = usuario;
                                 Funcoes.SessaoUsuario.Nome = Funcoes.ObterNomeDoUsuario(usuario, conexao);
                                 Funcoes.SessaoUsuario.IdUsuario = Funcoes.ObterIdDoUsuario(usuario, conexao);
 
-                                if (string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome) || Funcoes.SessaoUsuario.IdUsuario == 0)
+                                if (!Funcoes.SessaoUsuario.UsuarioIdentificado())
                                 {
-                                    MessageBox.Show("Usuário não identificado corretamente. Verifique os dados do usuário no banco.");
+                                    MessageBox.Show("⚠️ Usuário identificado parcialmente. Verifique os dados no banco.");
                                     return;
                                 }
 
-                                MessageBox.Show("✅ Login realizado com sucesso!\nBem-vindo, " + Funcoes.SessaoUsuario.Nome);
+                                MessageBox.Show($"✅ Login realizado com sucesso!\nBem-vindo, {Funcoes.SessaoUsuario.Nome}");
 
-                                // Abre a tela Home já com o usuário logado
                                 var home = new Home();
                                 home.Show();
                                 this.Hide();
                             }
                             catch (Exception exSessao)
                             {
-                                MessageBox.Show("Erro ao carregar dados do usuário: " + exSessao.Message);
+                                MessageBox.Show("Erro ao carregar informações do usuário: " + exSessao.Message);
                             }
                         }
                         else
@@ -91,12 +92,14 @@ namespace Gerenciamento_De_Chamados
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro de conexão: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro de conexão ou execução: " + ex.Message);
             }
         }
+
+        #region Estética e comportamento dos campos
 
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
@@ -142,37 +145,26 @@ namespace Gerenciamento_De_Chamados
 
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int tecla = (int)e.KeyChar;
-
-            if (!char.IsLetterOrDigit(e.KeyChar) && tecla != 08)
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
-                MessageBox.Show("Digite apenas letras ou números",
-                                    "Ops",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
-
-                txtUsuario.SelectionStart = 0;
-                txtUsuario.SelectionLength = txtUsuario.Text.Length;
-
-                txtUsuario.Focus();
+                MessageBox.Show("Digite apenas letras ou números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void Login_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-
             Color corInicio = Color.White;
             Color corFim = ColorTranslator.FromHtml("#232325");
 
-            LinearGradientBrush gradiente = new LinearGradientBrush(
-                this.ClientRectangle,
-                corInicio,
-                corFim,
-                LinearGradientMode.Horizontal);
-
-            g.FillRectangle(gradiente, this.ClientRectangle);
+            using (LinearGradientBrush gradiente = new LinearGradientBrush(
+                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+            {
+                g.FillRectangle(gradiente, this.ClientRectangle);
+            }
         }
+
+        #endregion
     }
 }

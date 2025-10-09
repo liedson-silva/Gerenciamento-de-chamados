@@ -42,6 +42,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cBoxPessoasAfeta = new System.Windows.Forms.ComboBox();
             this.cBoxAcontAntes = new System.Windows.Forms.ComboBox();
+            this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
@@ -53,10 +54,10 @@
             this.btnConcluirCH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConcluirCH.BackColor = System.Drawing.Color.White;
             this.btnConcluirCH.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConcluirCH.Location = new System.Drawing.Point(1227, 907);
-            this.btnConcluirCH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConcluirCH.Location = new System.Drawing.Point(920, 737);
+            this.btnConcluirCH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConcluirCH.Name = "btnConcluirCH";
-            this.btnConcluirCH.Size = new System.Drawing.Size(163, 46);
+            this.btnConcluirCH.Size = new System.Drawing.Size(122, 37);
             this.btnConcluirCH.TabIndex = 29;
             this.btnConcluirCH.Text = "Continuar";
             this.btnConcluirCH.UseVisualStyleBackColor = false;
@@ -69,9 +70,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(364, 469);
+            this.label5.Location = new System.Drawing.Point(273, 381);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(362, 36);
+            this.label5.Size = new System.Drawing.Size(294, 29);
             this.label5.TabIndex = 26;
             this.label5.Text = "Já ocorreu anteriormente?";
             // 
@@ -86,10 +88,10 @@
             "Sim",
             "Não",
             "Parcialmente"});
-            this.cBoxImpedTrab.Location = new System.Drawing.Point(370, 343);
-            this.cBoxImpedTrab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cBoxImpedTrab.Location = new System.Drawing.Point(278, 279);
+            this.cBoxImpedTrab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cBoxImpedTrab.Name = "cBoxImpedTrab";
-            this.cBoxImpedTrab.Size = new System.Drawing.Size(361, 44);
+            this.cBoxImpedTrab.Size = new System.Drawing.Size(272, 37);
             this.cBoxImpedTrab.TabIndex = 25;
             this.cBoxImpedTrab.Text = "Selecione...";
             // 
@@ -100,9 +102,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(364, 262);
+            this.label4.Location = new System.Drawing.Point(273, 213);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(634, 36);
+            this.label4.Size = new System.Drawing.Size(518, 29);
             this.label4.TabIndex = 24;
             this.label4.Text = "Esse problema está impedindo meu trabalho ? ";
             // 
@@ -113,22 +116,24 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(364, 122);
+            this.label2.Location = new System.Drawing.Point(273, 99);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(412, 36);
+            this.label2.Size = new System.Drawing.Size(333, 29);
             this.label2.TabIndex = 22;
             this.label2.Text = "Quais pessoas são afetadas ?";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lbl_NomeUser);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(326, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(244, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1096, 84);
+            this.panel2.Size = new System.Drawing.Size(822, 68);
             this.panel2.TabIndex = 21;
             // 
             // label9
@@ -137,9 +142,10 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME__2_;
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label9.Location = new System.Drawing.Point(59, 34);
+            this.label9.Location = new System.Drawing.Point(44, 28);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(120, 31);
+            this.label9.Size = new System.Drawing.Size(99, 26);
             this.label9.TabIndex = 5;
             this.label9.Text = "      Início";
             // 
@@ -147,10 +153,10 @@
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(1033, 14);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(775, 11);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox4.Size = new System.Drawing.Size(38, 41);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
@@ -163,9 +169,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(326, 977);
+            this.panel1.Size = new System.Drawing.Size(244, 794);
             this.panel1.TabIndex = 20;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -175,9 +181,10 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(12, 333);
+            this.label3.Location = new System.Drawing.Point(9, 271);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 25);
+            this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 13;
             this.label3.Text = "      FAQ";
             // 
@@ -187,19 +194,20 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 271);
+            this.label1.Location = new System.Drawing.Point(9, 220);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 25);
+            this.label1.Size = new System.Drawing.Size(153, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "      Meus Chamados";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
-            this.pictureBox1.Location = new System.Drawing.Point(-35, -50);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(-26, -41);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(393, 298);
+            this.pictureBox1.Size = new System.Drawing.Size(295, 242);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -215,10 +223,10 @@
             "Somente eu ",
             "Meu setor ",
             "A empresa inteira"});
-            this.cBoxPessoasAfeta.Location = new System.Drawing.Point(370, 182);
-            this.cBoxPessoasAfeta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cBoxPessoasAfeta.Location = new System.Drawing.Point(278, 148);
+            this.cBoxPessoasAfeta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cBoxPessoasAfeta.Name = "cBoxPessoasAfeta";
-            this.cBoxPessoasAfeta.Size = new System.Drawing.Size(361, 44);
+            this.cBoxPessoasAfeta.Size = new System.Drawing.Size(272, 37);
             this.cBoxPessoasAfeta.TabIndex = 30;
             this.cBoxPessoasAfeta.Text = "Selecione...";
             // 
@@ -233,19 +241,28 @@
             "Sim",
             "Não",
             "Não sei "});
-            this.cBoxAcontAntes.Location = new System.Drawing.Point(370, 557);
-            this.cBoxAcontAntes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cBoxAcontAntes.Location = new System.Drawing.Point(278, 453);
+            this.cBoxAcontAntes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cBoxAcontAntes.Name = "cBoxAcontAntes";
-            this.cBoxAcontAntes.Size = new System.Drawing.Size(361, 44);
+            this.cBoxAcontAntes.Size = new System.Drawing.Size(272, 37);
             this.cBoxAcontAntes.TabIndex = 31;
             this.cBoxAcontAntes.Text = "Selecione...";
             // 
+            // lbl_NomeUser
+            // 
+            this.lbl_NomeUser.AutoSize = true;
+            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NomeUser.Location = new System.Drawing.Point(159, 34);
+            this.lbl_NomeUser.Name = "lbl_NomeUser";
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
+            this.lbl_NomeUser.TabIndex = 8;
+            // 
             // ContinuaçaoAbertura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1422, 977);
+            this.ClientSize = new System.Drawing.Size(1066, 794);
             this.Controls.Add(this.cBoxAcontAntes);
             this.Controls.Add(this.cBoxPessoasAfeta);
             this.Controls.Add(this.btnConcluirCH);
@@ -255,7 +272,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ContinuaçaoAbertura";
             this.Text = "ContinuaçaoAbertura";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -286,5 +303,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cBoxPessoasAfeta;
         private System.Windows.Forms.ComboBox cBoxAcontAntes;
+        private System.Windows.Forms.Label lbl_NomeUser;
     }
 }
