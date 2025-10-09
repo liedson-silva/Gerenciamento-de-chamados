@@ -18,7 +18,13 @@ const Login = () => {
       const response = await api.post("/login", { login, password })
 
       if (response.data.success) {
-        navigate("/home", { state: { user: response.data.user } })
+        const user = response.data.user;
+
+        if (user.FuncaoUsuario === "admin") {
+          navigate("/admin-home", { state: { user } });
+        } else {
+          navigate("/home", { state: { user } });
+        }
       }
     } catch (err) {
       setError("Usuário ou senha inválidos!");
@@ -44,22 +50,35 @@ const Login = () => {
 
           <div className='inputs'>
             <FaRegUser className='icons' />
-            <input className='input-login' name='login' type="text" placeholder='Usuário'
-              value={login} onChange={(e) => setLogin(e.target.value)} />
+            <input
+              className='input-login'
+              name='login'
+              type="text"
+              placeholder='Usuário'
+              value={login}
+              onChange={(e) => setLogin(e.target.value)}
+            />
           </div>
 
           <div className='inputs'>
             <TbLockPassword className='icons' />
-            <input className='input-login' name='password' type="password" placeholder='Senha'
-              value={password} onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={e => e.key === "Enter" && handleLogin()} />
+            <input
+              className='input-login'
+              name='password'
+              type="password"
+              placeholder='Senha'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={e => e.key === "Enter" && handleLogin()}
+            />
           </div>
 
           {error && <p className="notice">{error}</p>}
           {forgetPassword && <p className='notice'>{forgetPassword}</p>}
 
           <button className='forget-password' onClick={textForgetPassword}>
-            Esqueceu a senha?</button>
+            Esqueceu a senha?
+          </button>
 
           <div className='button-enter'>
             <button className='enter' type='submit' onClick={handleLogin}>Entrar</button>
