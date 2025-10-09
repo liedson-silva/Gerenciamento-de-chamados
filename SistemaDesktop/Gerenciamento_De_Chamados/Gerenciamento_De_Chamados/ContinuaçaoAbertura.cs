@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Gerenciamento_De_Chamados
 {
     public partial class ContinuaçaoAbertura : Form
@@ -21,6 +22,7 @@ namespace Gerenciamento_De_Chamados
         {
             InitializeComponent();
             aberturaChamados = abertura;
+            this.Load += ContinuaçaoAbertura_Load;
         }
 
         private void btnConcluirCH_Click(object sender, EventArgs e)
@@ -79,6 +81,9 @@ namespace Gerenciamento_De_Chamados
                     }
 
                     MessageBox.Show("Chamado aberto com sucesso! Número do chamado: " + idChamado);
+                    // Envia o e-mail com os dados do chamado
+                    Funcoes.EnviarEmailChamado(TituloChamado, DescricaoChamado, CategoriaChamado, idChamado);
+
                 }
                 catch (Exception ex)
                 {
@@ -101,6 +106,11 @@ namespace Gerenciamento_De_Chamados
                     corFimPanel,
                     LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
+        }
+        private void ContinuaçaoAbertura_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
         }
     }
 }

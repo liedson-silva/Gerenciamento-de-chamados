@@ -16,6 +16,7 @@ namespace Gerenciamento_De_Chamados
         public GerenciarChamado()
         {
             InitializeComponent();
+            this.Load += GerenciarChamado_Load;
         }
 
         private void btnCriarChamado_Click(object sender, EventArgs e)
@@ -52,9 +53,12 @@ namespace Gerenciamento_De_Chamados
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void GerenciarChamado_Load(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
         }
     }
 }
