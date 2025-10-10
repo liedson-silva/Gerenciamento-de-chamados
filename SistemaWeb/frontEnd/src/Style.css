@@ -384,7 +384,7 @@ h1 {
     color: #19135d;
     padding: 20px;
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     box-sizing: border-box;
 }
 
@@ -800,13 +800,29 @@ h1 {
     font-weight: bold;
 }
 
-.manage-users {
-  padding: 2rem;
+/* Manage Users */
+
+.button-create-ticket{
+    cursor: pointer;
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    padding: 10px;
+    width: 180px;
+    margin-left: 40px;
+}
+
+.button-create-ticket:hover{
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 .user-list,
 .user-form {
   margin-top: 2rem;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .user-table {
@@ -821,11 +837,48 @@ h1 {
   text-align: left;
 }
 
+.button-edit-ticket{
+    cursor: pointer;
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
+    font-size: .9rem;
+    border-radius: 8px;
+    padding: 5px;
+    width: 50px;
+}
+
+.button-edit-ticket:hover{
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
 .form-create-user {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 0.8rem;
-  max-width: 600px;
+  max-width: 900px;
   margin-top: 1rem;
+}
+
+.button-confirm-user{
+    cursor: pointer;
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    padding: 10px;
+    width: 180px;
+}
+
+.button-confirm-user:hover{
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
+.input-create-user {
+    border: solid 2px #c6c6c6;
+    width: 70%;
+    max-width: 760px;
 }
 
 .success {

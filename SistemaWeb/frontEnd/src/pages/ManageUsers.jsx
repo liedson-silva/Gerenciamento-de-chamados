@@ -65,14 +65,15 @@ const ManageUsers = () => {
   };
 
   const handleEditUser = (user) => {
+    console.log("Objeto User recebido:", user)
     setFormData({
       name: user.Nome,
-      cpf: "", 
-      rg: "", 
+      cpf: user.CPF, 
+      rg: user.RG, 
       functionUser: user.FuncaoUsuario,
-      sex: "", 
+      sex: user.Sexo, 
       sector: user.Setor,
-      date: "", 
+      date: user.DataDeNascimento, 
       email: user.Email,
       password: "", // vazio por segurança
       login: user.Login,
@@ -115,13 +116,13 @@ const ManageUsers = () => {
   };
 
   return (
-    <main className="manage-users">
+    <main className="scroll-list">
       <h1>Gerenciar Usuários</h1>
 
       {errorMessage && <p className="error">{errorMessage}</p>}
       {successMessage && <p className="success">{successMessage}</p>}
 
-      <button onClick={handleShowCreateForm}>Criar Novo Usuário</button>
+      <button onClick={handleShowCreateForm} className="button-create-ticket">Criar Novo Usuário</button>
 
       <section className="user-list">
         <h2>Usuários Cadastrados</h2>
@@ -147,7 +148,7 @@ const ManageUsers = () => {
                 <td>{user.Email}</td>
                 <td>{user.Setor}</td>
                 <td>
-                  <button onClick={() => handleEditUser(user)}>Editar</button>
+                  <button className="button-edit-ticket" onClick={() => handleEditUser(user)}>Editar</button>
                 </td>
               </tr>
             ))}
@@ -159,19 +160,19 @@ const ManageUsers = () => {
         <section className="user-form">
           <h2>{isEditing ? "Editar Usuário" : "Criar Novo Usuário"}</h2>
           <form onSubmit={handleFormSubmit} className="form-create-user">
-            <input name="name" placeholder="Nome" value={formData.name} onChange={handleInputChange} required />
-            <input name="cpf" placeholder="CPF" value={formData.cpf} onChange={handleInputChange} />
-            <input name="rg" placeholder="RG" value={formData.rg} onChange={handleInputChange} />
-            <input name="functionUser" placeholder="Função" value={formData.functionUser} onChange={handleInputChange} required />
-            <input name="sex" placeholder="Sexo" value={formData.sex} onChange={handleInputChange} />
-            <input name="sector" placeholder="Setor" value={formData.sector} onChange={handleInputChange} required />
-            <input name="date" type="date" value={formData.date} onChange={handleInputChange} />
-            <input name="email" type="email" placeholder="Email" value={formData.email} onChange={handleInputChange} required />
-            <input name="login" placeholder="Login" value={formData.login} onChange={handleInputChange} required />
+            <input name="name"  className="input-create-user" placeholder="Nome" value={formData.name} onChange={handleInputChange} />
+            <input name="cpf" className="input-create-user" placeholder="CPF" value={formData.cpf} onChange={handleInputChange} />
+            <input name="rg" className="input-create-user" placeholder="RG" value={formData.rg} onChange={handleInputChange} />
+            <input name="functionUser" className="input-create-user" placeholder="Função" value={formData.functionUser} onChange={handleInputChange} />
+            <input name="sex" className="input-create-user" placeholder="Sexo" value={formData.sex} onChange={handleInputChange} />
+            <input name="sector" className="input-create-user" placeholder="Setor" value={formData.sector} onChange={handleInputChange} />
+            <input name="date" className="input-create-user" type="date" value={formData.date} onChange={handleInputChange} />
+            <input name="email" className="input-create-user" type="email" placeholder="Email" value={formData.email} onChange={handleInputChange} />
+            <input name="login" className="input-create-user" placeholder="Login" value={formData.login} onChange={handleInputChange} />
             {!isEditing && (
-              <input name="password" type="password" placeholder="Senha" value={formData.password} onChange={handleInputChange} required />
+              <input name="password" className="input-create-user" type="password" placeholder="Senha" value={formData.password} onChange={handleInputChange} />
             )}
-            <button type="submit">{isEditing ? "Salvar Alterações" : "Criar Usuário"}</button>
+            <button className="button-confirm-user" type="submit">{isEditing ? "Salvar Alterações" : "Criar Usuário"}</button>
           </form>
         </section>
       )}

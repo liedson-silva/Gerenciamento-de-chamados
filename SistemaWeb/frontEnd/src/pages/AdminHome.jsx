@@ -39,12 +39,12 @@ const AdminHome = () => {
         </div>
       </div>
 
-      <section className="dashboard-charts" aria-label="Gráficos de status">
+      <section className="dashboard-charts">
         <div className="chart-wrapper">
           <StageCharts user={user} />
         </div>
 
-        <div className="chart-wrapper">
+        <div>
           <StageCharts2 user={user} />
         </div>
       </section>
