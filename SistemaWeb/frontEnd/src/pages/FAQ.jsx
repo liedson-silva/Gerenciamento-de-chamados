@@ -64,6 +64,6 @@ const FAQ = () => {
       </section>
     </div>
   );
-};
+}; 
 
 export default FAQ;

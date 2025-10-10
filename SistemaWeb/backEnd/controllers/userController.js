@@ -55,7 +55,7 @@ export class UserController {
   async getAllUsers(req, res) {
     try {
       const result = await this.pool.request()
-        .query(`SELECT IdUsuario, Nome, Login, FuncaoUsuario, Email, Setor FROM Usuario`);
+        .query(`SELECT * FROM Usuario`);
 
       return res.status(200).json({ success: true, users: result.recordset });
     } catch (err) {
