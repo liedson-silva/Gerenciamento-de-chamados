@@ -67,6 +67,8 @@ namespace Gerenciamento_De_Chamados
                                 Funcoes.SessaoUsuario.Login = usuario;
                                 Funcoes.SessaoUsuario.Nome = Funcoes.ObterNomeDoUsuario(usuario, conexao);
                                 Funcoes.SessaoUsuario.IdUsuario = Funcoes.ObterIdDoUsuario(usuario, conexao);
+                                Funcoes.SessaoUsuario.Email = Funcoes.ObterEmailDoUsuario(usuario, conexao);
+                                Funcoes.SessaoUsuario.FuncaoUsuario = Funcoes.ObterFuncaoDoUsuario(usuario, conexao);
 
                                 if (!Funcoes.SessaoUsuario.UsuarioIdentificado())
                                 {
@@ -76,8 +78,18 @@ namespace Gerenciamento_De_Chamados
 
                                 MessageBox.Show($"✅ Login realizado com sucesso!\nBem-vindo, {Funcoes.SessaoUsuario.Nome}");
 
-                                var home = new Home();
-                                home.Show();
+                                string funcao = Funcoes.SessaoUsuario.FuncaoUsuario.ToLower();
+
+                                if (funcao == "dev" || funcao == "admin" || funcao == "equipe de ti")
+                                {
+                                    var home = new Home();
+                                    home.Show();
+                                }
+                                else
+                                {
+                                    var Homeuser = new HomeUsuario();
+                                    Homeuser.Show();
+                                }
                                 this.Hide();
                             }
                             catch (Exception exSessao)

@@ -13,10 +13,21 @@ namespace Gerenciamento_De_Chamados
 {
     public partial class FimChamado : Form
     {
-        public FimChamado()
+        //variavel para receber o ID do chamado
+        private int chamadoId;
+        public FimChamado(int idDoChamado)
         {
             InitializeComponent();
             this.Load += FimChamado_Load;
+            this.chamadoId = idDoChamado; // Atribui o ID recebido à variável da classe
+        }
+
+        private void btnVerChamado_Click(object sender, EventArgs e)
+        {
+
+            var telaDetalhes = new ChamadoCriado(this.chamadoId);
+            telaDetalhes.ShowDialog();
+            this.Close();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -36,7 +47,7 @@ namespace Gerenciamento_De_Chamados
 
         private void btn_PaginaInicial_Click(object sender, EventArgs e)
         {
-            var telaHome = new Home();
+            var telaHome = new HomeUsuario();
             telaHome.Show();
             this.Visible = false;
         }
@@ -47,6 +58,8 @@ namespace Gerenciamento_De_Chamados
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
         }
+
+
     }
 }
 

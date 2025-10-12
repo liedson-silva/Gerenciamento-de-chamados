@@ -15,43 +15,68 @@ namespace Gerenciamento_De_Chamados
         public GerenciarUsuarios()
         {
             InitializeComponent();
+            ConfigurarGrade(); // PASSO 1: Configura a grade assim que a tela é criada
 
-            // evento para carregar os dados ao abrir o form
+            // Associa os eventos
             this.Load += GerenciarUsuarios_Load;
-
-            // evento para pesquisar
             txtPesquisarUser.TextChanged += TxtPesquisar_TextChanged;
         }
 
-        private void btnCadastroUser_Click(object sender, EventArgs e)
+        // NOVO MÉTODO: Apenas para configurar o design e as colunas da grade
+        private void ConfigurarGrade()
         {
-            var Cadastro = new Cadastro_de_Usuarios();
-            Cadastro.Show();
-            this.Visible = false;
+            dgvUsuarios.AutoGenerateColumns = false;
+            dgvUsuarios.Columns.Clear(); // Limpa quaisquer colunas do modo design
+
+            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "IdUsuario", // Nome da coluna
+                DataPropertyName = "IdUsuario", // De onde vem o dado na tabela
+                HeaderText = "ID",
+                Visible = false // Coluna oculta
+            });
+            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Nome",
+                DataPropertyName = "Nome",
+                HeaderText = "Nome",
+                Width = 250
+            });
+            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Email",
+                DataPropertyName = "Email",
+                HeaderText = "Email",
+                Width = 250
+            });
+            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Cargo",
+                DataPropertyName = "Cargo",
+                HeaderText = "Cargo",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill // Ocupa o espaço restante
+            });
         }
+
 
         private void GerenciarUsuarios_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+                lbl_NomeUser.Text = $"Bem vindo {Funcoes.SessaoUsuario.Nome}";
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
+
             CarregarUsuarios();
-
-            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
-            else
-                lbl_NomeUser.Text = "Usuário não identificado";
-
         }
 
         private void CarregarUsuarios(string filtro = "")
         {
             string sql = @"
-                SELECT Nome, Email, FuncaoUsuario AS Cargo FROM Usuario
+                SELECT IdUsuario, Nome, Email, FuncaoUsuario AS Cargo 
+                FROM Usuario
                 WHERE (@filtro = '' OR Nome LIKE '%' + @filtro + '%'
-                                  OR Email LIKE '%' + @filtro + '%' 
-                                  OR FuncaoUsuario LIKE '%' + @filtro + '%')
+                                    OR Email LIKE '%' + @filtro + '%' 
+                                    OR FuncaoUsuario LIKE '%' + @filtro + '%')
                 ORDER BY Nome";
 
             try
@@ -62,17 +87,8 @@ namespace Gerenciamento_De_Chamados
                 {
                     cmd.Parameters.AddWithValue("@filtro", filtro ?? string.Empty);
                     usuariosTable.Clear();
-
-                    dgvUsuarios.Columns.Clear();
-                    dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nome", DataPropertyName = "Nome" });
-                    dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Email", DataPropertyName = "Email" });
-                    dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Cargo", DataPropertyName = "Cargo" });
-                    dgvUsuarios.DataSource = usuariosTable;
-
-                    
-                    dgvUsuarios.AutoGenerateColumns = false; 
                     da.Fill(usuariosTable);
-                    dgvUsuarios.DataSource = usuariosTable;
+                    dgvUsuarios.DataSource = usuariosTable; // Apenas atualiza a fonte de dados
                 }
             }
             catch (Exception ex)
@@ -87,39 +103,98 @@ namespace Gerenciamento_De_Chamados
             CarregarUsuarios(filtro);
         }
 
+        private void btnEditarUsuario_Click(object sender, EventArgs e)
+        {
+            if (dgvUsuarios.CurrentRow == null || dgvUsuarios.CurrentRow.DataBoundItem == null)
+            {
+                MessageBox.Show("Por favor, selecione um usuário para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            object idValue = dgvUsuarios.CurrentRow.Cells["IdUsuario"].Value;
+            int idUsuarioSelecionado;
+
+            if (idValue != null && int.TryParse(idValue.ToString(), out idUsuarioSelecionado))
+            {
+                var telaDeEdicao = new Editar_Usuario(idUsuarioSelecionado);
+
+                telaDeEdicao.ShowDialog(); //Abre a tela e ESPERA ela ser fechada.
+
+                CarregarUsuarios(); //Recarrega a grade com os dados atualizados!
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível identificar o ID do usuário selecionado...", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCadastroUser_Click(object sender, EventArgs e)
+        {
+            // Abre a tela de cadastro para um NOVO usuário
+            var cadastro = new Cadastro_de_Usuarios();
+            cadastro.ShowDialog();
+            CarregarUsuarios();
+            
+        }
+
+
+        private void btnExcluirUsuario_Click(object sender, EventArgs e)
+        {
+            if (dgvUsuarios.CurrentRow == null || dgvUsuarios.CurrentRow.DataBoundItem == null)
+            {
+                MessageBox.Show("Por favor, selecione um usuário para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Pega os dados do usuário da linha selecionada para a mensagem de confirmação
+            int idUsuarioSelecionado = Convert.ToInt32(dgvUsuarios.CurrentRow.Cells[0].Value);
+            string nomeUsuario = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
+
+            // Mensagem de confirmação
+            var confirmResult = MessageBox.Show($"Tem certeza que deseja excluir o usuário '{nomeUsuario}'?",
+                                                 "Confirmar Exclusão",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        string sql = "DELETE FROM Usuario WHERE IdUsuario = @IdUsuario";
+                        using (SqlCommand cmd = new SqlCommand(sql, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@IdUsuario", idUsuarioSelecionado);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Usuário excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                CarregarUsuarios(); // Recarrega a lista para mostrar a alteração
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao excluir usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             Color corInicioPanel = Color.White;
             Color corFimPanel = ColorTranslator.FromHtml("#232325");
             LinearGradientBrush gradientePanel = new LinearGradientBrush(
-                     panel1.ClientRectangle,
-                    corInicioPanel,
-                    corFimPanel,
-                    LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
+                         panel1.ClientRectangle,
+                         corInicioPanel,
+                         corFimPanel,
+                         LinearGradientMode.Vertical);
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
-
-        }
-
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Color corInicioPanel = Color.White;
-            Color corFimPanel = ColorTranslator.FromHtml("#232325");
-            LinearGradientBrush gradientePanel = new LinearGradientBrush(
-                     panel1.ClientRectangle,
-                    corInicioPanel,
-                    corFimPanel,
-                    LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
-            g.FillRectangle(gradientePanel, panel1.ClientRectangle);
-
-        }
-        private void GerenciarUsuarios_Load_1(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
-            else
-                lbl_NomeUser.Text = "Usuário não identificado";
         }
     }
 }
