@@ -29,7 +29,7 @@ namespace Gerenciamento_De_Chamados
             string CadastroUsuario = txtCadastroLogin.Text.Trim();
             string CadastroEmail = txtCadastroEmail.Text.Trim();
             string CadastroSenhaDigitada = txtCadastroSenha.Text.Trim();
-            string CadastroFuncaoUsuario = txtCadastroFuncao.Text.Trim();
+            string CadastroFuncaoUsuario = cbxCadastroFuncao.Text;
             string CadastroSexo = comboBoxCadastroSexo.Text;
             string CadastroSetor = cBoxCadSetor.Text;
             DateTime CadastroDataDeNascimento = dtpCadDN.Value;
@@ -91,6 +91,8 @@ namespace Gerenciamento_De_Chamados
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("✅ Usuário cadastrado com sucesso!");
+
+                        this.Close();
                     }
                 }
                 catch (Exception ex)
@@ -98,16 +100,6 @@ namespace Gerenciamento_De_Chamados
                     MessageBox.Show("❌ Erro ao cadastrar: " + ex.Message);
                 }
             }
-        }
-
-        private void txtCadastroCpf_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

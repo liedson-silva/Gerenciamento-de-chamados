@@ -30,8 +30,8 @@ namespace Gerenciamento_De_Chamados
             string TituloChamado = aberturaChamados.txtTituloChamado.Text.Trim();
             string DescricaoChamado = aberturaChamados.txtDescriçãoCh.Text.Trim();
             string PessoasAfetadas = cBoxPessoasAfeta.Text.Trim();
-            string SetorAfetado = cBoxImpedTrab.Text;
-            string Historicoacont = cBoxAcontAntes.Text;
+            string ImpedeTrabalho = cBoxImpedTrab.Text;
+            string OcorreuAnteriormente = cBoxAcontAntes.Text;
             string CategoriaChamado = aberturaChamados.cboxCtgChamado.Text;
             byte[] AnexarArquivo = aberturaChamados.arquivoAnexado;
 
@@ -41,9 +41,9 @@ namespace Gerenciamento_De_Chamados
 
             int idUsuario = Funcoes.SessaoUsuario.IdUsuario;
             string sql = @"INSERT INTO Chamado 
-                           (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario) 
-                           OUTPUT INSERTED.IdChamado
-                           VALUES (@Titulo, @PrioridadeChamado, @Descricao, @DataChamado, @StatusChamado, @Categoria, @FK_IdUsuario)";
+                   (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente) 
+                   OUTPUT INSERTED.IdChamado
+                   VALUES (@Titulo, @PrioridadeChamado, @Descricao, @DataChamado, @StatusChamado, @Categoria, @FK_IdUsuario, @PessoasAfetadas, @ImpedeTrabalho, @OcorreuAnteriormente)";
 
             using (SqlConnection conexao = new SqlConnection(connectionString))
             {
@@ -52,15 +52,21 @@ namespace Gerenciamento_De_Chamados
                     conexao.Open();
 
                     int idChamado;
+                    string prioridade = "Em análise";
+                    string status = "Pendente";
+
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
                     {
                         cmd.Parameters.AddWithValue("@Titulo", TituloChamado);
-                        cmd.Parameters.AddWithValue("@PrioridadeChamado", "análise");
+                        cmd.Parameters.AddWithValue("@PrioridadeChamado", prioridade);
                         cmd.Parameters.AddWithValue("@Descricao", DescricaoChamado);
                         cmd.Parameters.AddWithValue("@DataChamado", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@StatusChamado", "Aberto");
+                        cmd.Parameters.AddWithValue("@StatusChamado", status);
                         cmd.Parameters.AddWithValue("@Categoria", CategoriaChamado);
                         cmd.Parameters.AddWithValue("@FK_IdUsuario", idUsuario);
+                        cmd.Parameters.AddWithValue("@PessoasAfetadas", PessoasAfetadas);
+                        cmd.Parameters.AddWithValue("@ImpedeTrabalho", ImpedeTrabalho);
+                        cmd.Parameters.AddWithValue("@OcorreuAnteriormente", OcorreuAnteriormente);
 
                         idChamado = (int)cmd.ExecuteScalar();
                     }
@@ -82,7 +88,25 @@ namespace Gerenciamento_De_Chamados
 
                     MessageBox.Show("Chamado aberto com sucesso! Número do chamado: " + idChamado);
                     // Envia o e-mail com os dados do chamado
-                    Funcoes.EnviarEmailChamado(TituloChamado, DescricaoChamado, CategoriaChamado, idChamado);
+                    Funcoes.EnviarEmailChamado(
+                                                 TituloChamado,
+                                                 DescricaoChamado,
+                                                 CategoriaChamado,
+                                                 idChamado,
+                                                 prioridade, 
+                                                 status,     
+                                                 PessoasAfetadas,
+                                                 ImpedeTrabalho,
+                                                 OcorreuAnteriormente,
+                                                 AnexarArquivo, 
+                                                 "anexo_chamado.png" // nome padrão para o arquivo no e-mail
+);
+
+                    var telaFim = new FimChamado(idChamado);
+                    telaFim.ShowDialog();
+
+                    aberturaChamados.Close();
+                    this.Close();
 
                 }
                 catch (Exception ex)
@@ -90,9 +114,6 @@ namespace Gerenciamento_De_Chamados
                     MessageBox.Show("Erro ao abrir chamado: " + ex.Message);
                 }
             }
-            var telaFimChamado = new FimChamado();
-            telaFimChamado.Show();
-            this.Visible = false;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

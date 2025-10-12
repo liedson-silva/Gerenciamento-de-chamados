@@ -69,13 +69,26 @@ namespace Gerenciamento_De_Chamados
             public static string Login { get; set; }
             public static string Nome { get; set; }
             public static string Email { get; set; }
+            public static string FuncaoUsuario { get; set; }
 
             public static bool UsuarioIdentificado()
             {
-                return !string.IsNullOrEmpty(Nome) && IdUsuario > 0;
+                return !string.IsNullOrEmpty(Nome) && IdUsuario > 0 && !string.IsNullOrEmpty(FuncaoUsuario);
             }
         }
 
+        public static string ObterFuncaoDoUsuario(string login, SqlConnection conexao)
+        {
+            string sql = "SELECT FuncaoUsuario FROM Usuario WHERE Login = @login";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conexao))
+            {
+                cmd.Parameters.AddWithValue("@login", login);
+                object result = cmd.ExecuteScalar();
+
+                return (result != null && result != DBNull.Value) ? result.ToString() : string.Empty;
+            }
+        }
         // 🔎 Buscar nome do usuário
         public static string ObterNomeDoUsuario(string login, SqlConnection conexao)
         {
@@ -84,6 +97,20 @@ namespace Gerenciamento_De_Chamados
             using (SqlCommand cmd = new SqlCommand(sql, conexao))
             {
                 cmd.Parameters.AddWithValue("@login", login);
+                object result = cmd.ExecuteScalar();
+
+                return (result != null && result != DBNull.Value) ? result.ToString() : string.Empty;
+            }
+        }
+
+        public static string ObterEmailDoUsuario(string login, SqlConnection conexao)
+        {
+            string sql = "SELECT Email FROM Usuario WHERE Login = @login";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conexao))
+            {
+                cmd.Parameters.AddWithValue("@login", login);
+                // Executa a consulta SQL e retorna o primeiro valor da primeira linha do resultado (usado para buscar um único campo)
                 object result = cmd.ExecuteScalar();
 
                 return (result != null && result != DBNull.Value) ? result.ToString() : string.Empty;
@@ -121,37 +148,57 @@ namespace Gerenciamento_De_Chamados
         }
 
         // 📧 Enviar e-mail ao abrir chamado
-        public static void EnviarEmailChamado(string titulo, string descricao, string categoria, int idChamado)
+        public static void EnviarEmailChamado(
+            string titulo, string descricao, string categoria, int idChamado,
+            string prioridade, string status, string pessoasAfetadas,
+            string impedeTrabalho, string ocorreuAnteriormente,
+            byte[] anexo, string nomeAnexo
+        )
         {
             try
             {
                 string usuario = SessaoUsuario.Nome ?? "Usuário não identificado";
                 string emailUsuario = SessaoUsuario.Email ?? "sememail@dominio.com";
-
                 string corpoEmail = $@"
-                    <h2>Novo Chamado Criado</h2>
-                    <p><b>Número:</b> {idChamado}</p>
-                    <p><b>Usuário:</b> {usuario}</p>
-                    <p><b>Título:</b> {titulo}</p>
-                    <p><b>Descrição:</b> {descricao}</p>
-                    <p><b>Categoria:</b> {categoria}</p>
-                    <p><i>Data:</i> {DateTime.Now}</p>
-                ";
+            <h2>Novo Chamado Criado</h2>
+            <p><b>Número:</b> {idChamado}</p>
+            <p><b>Usuário:</b> {usuario}</p>
+            <hr>
+            <p><b>Título:</b> {titulo}</p>
+            <p><b>Descrição:</b> {descricao}</p>
+            <p><b>Categoria:</b> {categoria}</p>
+            <p><b>Prioridade:</b> {prioridade}</p>
+            <p><b>Status:</b> {status}</p>
+            <hr>
+            <p><b>Pessoas Afetadas:</b> {pessoasAfetadas}</p>
+            <p><b>Impede o Trabalho:</b> {impedeTrabalho}</p>
+            <p><b>Ocorreu Anteriormente:</b> {ocorreuAnteriormente}</p>
+            <hr>
+            <p><i>Data:</i> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
+        ";
 
                 using (MailMessage mail = new MailMessage())
                 {
-                    // Remetente fixo (sua conta SMTP real)
-                    mail.From = new MailAddress("fatalsystem.unip@gmail.com");
-
-                    // Destinatário principal (suporte)
-                    mail.To.Add("fatalsystem.unip@gmail.com");
-
-                    // O usuário logado também recebe cópia
-                    mail.CC.Add(emailUsuario);
+                    mail.From = new MailAddress("fatalsystem.unip@gmail.com", "Sistema de Chamados Fatal System");
+                    mail.To.Add("fatalsystem.unip@gmail.com"); // Destinatário principal
+                    mail.CC.Add(emailUsuario); // Usuário que abriu o chamado recebe em cópia
 
                     mail.Subject = $"Novo Chamado #{idChamado} - {titulo}";
                     mail.Body = corpoEmail;
                     mail.IsBodyHtml = true;
+
+                   
+                    if (anexo != null && anexo.Length > 0)
+                    {
+                        // Converte o array de bytes (byte[]) em um stream de memória
+                        using (MemoryStream ms = new MemoryStream(anexo))
+                        {
+                            // Cria o anexo a partir do stream de memória
+                            Attachment attachment = new Attachment(ms, nomeAnexo);
+                            mail.Attachments.Add(attachment); // Adiciona o anexo ao e-mail
+                        }
+                    }
+                    
 
                     using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                     {
@@ -166,5 +213,6 @@ namespace Gerenciamento_De_Chamados
                 MessageBox.Show("Erro ao enviar e-mail: " + ex.Message);
             }
         }
+
     }
 }

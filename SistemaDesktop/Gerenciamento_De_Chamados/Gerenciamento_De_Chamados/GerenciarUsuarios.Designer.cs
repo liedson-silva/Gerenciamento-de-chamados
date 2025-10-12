@@ -34,13 +34,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPesquisarUser = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnEditarUsuario = new System.Windows.Forms.Button();
+            this.btnExcluirUsuario = new System.Windows.Forms.Button();
             this.btnCadastroUser = new System.Windows.Forms.Button();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._DbaFatal_SystemDataSet = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSet();
@@ -49,7 +50,6 @@
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funcaoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -70,7 +70,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(229, 754);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
             // label3
             // 
@@ -117,6 +116,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1048, 84);
             this.panel2.TabIndex = 2;
+            // 
+            // lbl_NomeUser
+            // 
+            this.lbl_NomeUser.AutoSize = true;
+            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NomeUser.Location = new System.Drawing.Point(174, 38);
+            this.lbl_NomeUser.Name = "lbl_NomeUser";
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
+            this.lbl_NomeUser.TabIndex = 8;
             // 
             // label9
             // 
@@ -177,31 +185,33 @@
             this.txtPesquisarUser.Size = new System.Drawing.Size(776, 35);
             this.txtPesquisarUser.TabIndex = 7;
             // 
-            // button1
+            // btnEditarUsuario
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.edit_44dp_000000_FILL0_wght400_GRAD0_opsz48;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(506, 664);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 55);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "         Editar ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEditarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnEditarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarUsuario.Image = global::Gerenciamento_De_Chamados.Properties.Resources.edit_44dp_000000_FILL0_wght400_GRAD0_opsz48;
+            this.btnEditarUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarUsuario.Location = new System.Drawing.Point(506, 664);
+            this.btnEditarUsuario.Name = "btnEditarUsuario";
+            this.btnEditarUsuario.Size = new System.Drawing.Size(159, 55);
+            this.btnEditarUsuario.TabIndex = 4;
+            this.btnEditarUsuario.Text = "         Editar ";
+            this.btnEditarUsuario.UseVisualStyleBackColor = true;
+            this.btnEditarUsuario.Click += new System.EventHandler(this.btnEditarUsuario_Click);
             // 
-            // btnExcluir
+            // btnExcluirUsuario
             // 
-            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Image = global::Gerenciamento_De_Chamados.Properties.Resources.delete_44dp_000000_FILL0_wght400_GRAD0_opsz48;
-            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(709, 664);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(159, 55);
-            this.btnExcluir.TabIndex = 3;
-            this.btnExcluir.Text = "       Excluir ";
-            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluirUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcluirUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluirUsuario.Image = global::Gerenciamento_De_Chamados.Properties.Resources.delete_44dp_000000_FILL0_wght400_GRAD0_opsz48;
+            this.btnExcluirUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluirUsuario.Location = new System.Drawing.Point(709, 664);
+            this.btnExcluirUsuario.Name = "btnExcluirUsuario";
+            this.btnExcluirUsuario.Size = new System.Drawing.Size(159, 55);
+            this.btnExcluirUsuario.TabIndex = 3;
+            this.btnExcluirUsuario.Text = "       Excluir ";
+            this.btnExcluirUsuario.UseVisualStyleBackColor = true;
+            this.btnExcluirUsuario.Click += new System.EventHandler(this.btnExcluirUsuario_Click);
             // 
             // btnCadastroUser
             // 
@@ -273,15 +283,6 @@
             this.funcaoUsuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.funcaoUsuarioDataGridViewTextBoxColumn.Name = "funcaoUsuarioDataGridViewTextBoxColumn";
             // 
-            // lbl_NomeUser
-            // 
-            this.lbl_NomeUser.AutoSize = true;
-            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(174, 38);
-            this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
-            this.lbl_NomeUser.TabIndex = 8;
-            // 
             // GerenciarUsuarios
             // 
             this.BackColor = System.Drawing.Color.LightGray;
@@ -290,8 +291,8 @@
             this.Controls.Add(this.txtPesquisarUser);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnEditarUsuario);
+            this.Controls.Add(this.btnExcluirUsuario);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCadastroUser);
@@ -320,8 +321,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExcluirUsuario;
+        private System.Windows.Forms.Button btnEditarUsuario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
