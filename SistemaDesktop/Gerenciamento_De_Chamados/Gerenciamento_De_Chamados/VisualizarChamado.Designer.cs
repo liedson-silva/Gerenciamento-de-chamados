@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -53,7 +54,6 @@
             this._DbaFatal_SystemDataSet = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSet();
             this.dbaFatalSystemDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chamadoTableAdapter = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSet1TableAdapters.ChamadoTableAdapter();
-            this.lbl_NomeUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChamados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chamadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet1)).BeginInit();
@@ -88,6 +88,7 @@
             this.dgvChamados.RowHeadersWidth = 51;
             this.dgvChamados.Size = new System.Drawing.Size(963, 261);
             this.dgvChamados.TabIndex = 17;
+            this.dgvChamados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChamados_CellDoubleClick);
             // 
             // idChamadoDataGridViewTextBoxColumn
             // 
@@ -201,6 +202,15 @@
             this.panel2.Size = new System.Drawing.Size(994, 84);
             this.panel2.TabIndex = 11;
             // 
+            // lbl_NomeUser
+            // 
+            this.lbl_NomeUser.AutoSize = true;
+            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NomeUser.Location = new System.Drawing.Point(163, 40);
+            this.lbl_NomeUser.Name = "lbl_NomeUser";
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
+            this.lbl_NomeUser.TabIndex = 9;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -285,15 +295,6 @@
             // chamadoTableAdapter
             // 
             this.chamadoTableAdapter.ClearBeforeFill = true;
-            // 
-            // lbl_NomeUser
-            // 
-            this.lbl_NomeUser.AutoSize = true;
-            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(163, 40);
-            this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
-            this.lbl_NomeUser.TabIndex = 9;
             // 
             // VisualizarChamado
             // 

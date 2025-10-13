@@ -3,39 +3,43 @@
   "WorkspaceRootPath": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\homeusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\homeusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\visualizarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\visualizarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\chamadocriado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\chamadocriado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\visualizarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\visualizarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\chamadocriado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\chamadocriado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\fimchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\fimchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\fimchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\fimchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\chamadocriado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\chamadocriado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\fimchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\fimchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\fimchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\fimchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\cadastro_de_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -51,7 +55,7 @@
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\aberturachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -59,7 +63,7 @@
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\gerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\users\\frede\\onedrive\\\u00E1rea de trabalho\\faculdade\\github fatalsystem\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -79,10 +83,6 @@
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\homeusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\visualizarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\visualizarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\gerenciarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\gerenciarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -97,10 +97,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\visualizarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\visualizarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,7 +106,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -126,7 +122,58 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ChamadoCriado.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\ChamadoCriado.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\ChamadoCriado.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\ChamadoCriado.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\ChamadoCriado.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAqwG4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T03:46:44.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Continua\u00E7aoAbertura.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAYwEIAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T03:47:34.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VisualizarChamado.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\VisualizarChamado.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs [Design]*",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\VisualizarChamado.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T04:01:17.936Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VisualizarChamado.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\VisualizarChamado.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs*",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\VisualizarChamado.cs*",
+              "ViewState": "AgIAACEAAAAAAAAAAAAiwDsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T04:01:39.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "FimChamado.cs [Design]",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\FimChamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\FimChamado.cs",
@@ -134,18 +181,6 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\FimChamado.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-09T03:53:44.468Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Continua\u00E7aoAbertura.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
-              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs [Design]",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:47:13.657Z",
               "EditorCaption": " [Design]"
             },
             {
@@ -162,20 +197,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ChamadoCriado.cs",
-              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\ChamadoCriado.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\ChamadoCriado.cs",
-              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\ChamadoCriado.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\ChamadoCriado.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAmwFMAAABKAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Continua\u00E7aoAbertura.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs [Design]",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:46:44.557Z",
+              "WhenOpened": "2025-10-09T03:47:13.657Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Funcoes.cs",
+              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Funcoes.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Funcoes.cs",
+              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Funcoes.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\Funcoes.cs",
+              "ViewState": "AgIAALMAAAAAAAAAAAAswNMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T04:35:10.095Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "FimChamado.cs",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\FimChamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\FimChamado.cs",
@@ -188,57 +235,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Funcoes.cs",
-              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Funcoes.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Funcoes.cs",
-              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Funcoes.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\Funcoes.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAswMgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T04:35:10.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HomeUsuario.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeUsuario.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeUsuario.cs",
-              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeUsuario.cs [Design]",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\HomeUsuario.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:56:56.198Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Continua\u00E7aoAbertura.cs",
-              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
-              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAswDwAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:47:34.518Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Cadastro_de_Usuarios.cs [Design]",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs",
               "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T17:11:09.442Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-12T17:11:09.442Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "GerenciarUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
@@ -246,12 +254,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
               "ViewState": "AgIAAHUAAAAAAAAAAAAmwIgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T04:28:25.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T04:28:25.541Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Cadastro_de_Usuarios.cs",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs",
@@ -259,12 +266,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAowF4AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:44:55.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T03:44:55.158Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Editar_Usuarios.cs",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Editar_Usuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Editar_Usuarios.cs",
@@ -272,48 +278,44 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Editar_Usuarios.cs",
               "ViewState": "AgIAAG8AAAAAAAAAAAAswKYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T15:52:30.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T15:52:30.946Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "GerenciarUsuarios.cs [Design]",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
               "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\GerenciarUsuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:55:25.703Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-09T03:55:25.703Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Editar_Usuarios.cs [Design]",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Editar_Usuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Editar_Usuarios.cs",
               "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Editar_Usuarios.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Editar_Usuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T15:34:42.817Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-12T15:34:42.817Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "AberturaChamados.cs [Design]",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AberturaChamados.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\AberturaChamados.cs",
               "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AberturaChamados.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\AberturaChamados.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:36:07.021Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-09T03:36:07.021Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Login.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Login.cs",
@@ -321,36 +323,33 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Login.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAAowFIAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T04:02:47.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T04:02:47.746Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Home.cs [Design]",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Home.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Home.cs",
               "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Home.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Home.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T17:45:50.044Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-03T17:45:50.044Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "GerenciarChamado.cs [Design]",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarChamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\GerenciarChamado.cs",
               "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarChamado.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\GerenciarChamado.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:54:24.038Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-09T03:54:24.038Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "HomeUsuario.cs",
               "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeUsuario.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeUsuario.cs",
@@ -358,21 +357,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\HomeUsuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:57:53.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "VisualizarChamado.cs",
-              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\VisualizarChamado.cs",
-              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\VisualizarChamado.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T04:01:39.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T03:57:53.93Z"
             },
             {
               "$type": "Document",
@@ -384,8 +369,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\GerenciarChamado.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAwwBIAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:54:45.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T03:54:45.01Z"
             },
             {
               "$type": "Document",
@@ -397,8 +381,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\AberturaChamados.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T03:37:19.35Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-09T03:37:19.35Z"
             },
             {
               "$type": "Document",
@@ -410,20 +393,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Home.Designer.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAmwB0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T04:06:09.869Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "VisualizarChamado.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\VisualizarChamado.cs",
-              "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs [Design]",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\VisualizarChamado.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T04:01:17.936Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-09T04:06:09.869Z"
             },
             {
               "$type": "Document",
@@ -434,8 +404,7 @@
               "ToolTip": "C:\\Users\\frede\\OneDrive\\\u00C1rea de Trabalho\\Faculdade\\GitHub FatalSystem\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Login.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T04:02:45.649Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-09T04:02:45.649Z"
             }
           ]
         }

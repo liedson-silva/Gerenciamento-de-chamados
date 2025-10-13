@@ -190,13 +190,12 @@ namespace Gerenciamento_De_Chamados
                    
                     if (anexo != null && anexo.Length > 0)
                     {
-                        // Converte o array de bytes (byte[]) em um stream de memória
-                        using (MemoryStream ms = new MemoryStream(anexo))
-                        {
+                        MemoryStream ms = new MemoryStream(anexo);
+                        
                             // Cria o anexo a partir do stream de memória
                             Attachment attachment = new Attachment(ms, nomeAnexo);
                             mail.Attachments.Add(attachment); // Adiciona o anexo ao e-mail
-                        }
+                        
                     }
                     
 
@@ -210,7 +209,14 @@ namespace Gerenciamento_De_Chamados
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao enviar e-mail: " + ex.Message);
+                
+                string mensagemErro = "Erro ao enviar e-mail: " + ex.Message;
+                if (ex.InnerException != null)
+                {
+                    mensagemErro += "\n\nDetalhes: " + ex.InnerException.Message;
+                }
+
+                MessageBox.Show(mensagemErro, "Falha no Envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

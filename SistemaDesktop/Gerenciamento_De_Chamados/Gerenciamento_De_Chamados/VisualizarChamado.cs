@@ -24,6 +24,8 @@ namespace Gerenciamento_De_Chamados
             // evento para carregar os dados ao abrir o form
             this.Load += VisualizarChamado_Load;
 
+            ConfigurarGrade();
+
             // evento para pesquisar
             txtPesquisarChamados.TextChanged += TxtPesquisar_TextChanged;
         }
@@ -31,8 +33,70 @@ namespace Gerenciamento_De_Chamados
         private void VisualizarChamado_Load(object sender, EventArgs e)
         {
             CarregarChamados();
-            
 
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
+
+
+        }
+        private void ConfigurarGrade()
+        {
+
+            dgvChamados.AutoGenerateColumns = false;
+            dgvChamados.Columns.Clear();
+
+
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "IdChamado", 
+                DataPropertyName = "IdChamado", 
+                HeaderText = "ID",              
+                Width = 50
+            });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Usuario", 
+                DataPropertyName = "Usuario",
+                HeaderText = "Usuário",
+                Width = 150
+            });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Titulo",
+                DataPropertyName = "Titulo",
+                HeaderText = "Título",
+                Width = 200
+            });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Status",
+                DataPropertyName = "Status",
+                HeaderText = "Status",
+                Width = 100
+            });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Prioridade",
+                DataPropertyName = "Prioridade",
+                HeaderText = "Prioridade",
+                Width = 100
+            });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Data",
+                DataPropertyName = "Data",
+                HeaderText = "Data",
+                Width = 120
+            });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Categoria",
+                DataPropertyName = "Categoria",
+                HeaderText = "Categoria",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
         }
 
         private void CarregarChamados(string filtro = "")
@@ -59,24 +123,15 @@ namespace Gerenciamento_De_Chamados
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                using (SqlDataAdapter da = new SqlDataAdapter(sql,conn))
                 {
-                    cmd.Parameters.AddWithValue("@filtro", filtro ?? string.Empty);
+                    da.SelectCommand.Parameters.AddWithValue("@filtro", filtro ?? string.Empty);
+
                     chamadosTable.Clear();
-                    dgvChamados.Columns.Clear();
-                    dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "ID Chamado", DataPropertyName = "IdChamado" });
-                    dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Usuario", DataPropertyName = "Usuario" });
-                    dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Título", DataPropertyName = "Titulo" });
-                    dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Prioridade", DataPropertyName = "Prioridade" });
-                    dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Descrição", DataPropertyName = "Descricao" });
-                    dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Data", DataPropertyName = "Data" });
-                    dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Status", DataPropertyName = "Status" });
-                    dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Categoria", DataPropertyName = "Categoria" });
-                    dgvChamados.DataSource = chamadosTable;
-                    // Configurações adicionais para o DataGridView
-                    dgvChamados.AutoGenerateColumns = false; // Evita a geração automática de colunas
                     da.Fill(chamadosTable);
+
+                    // Atualiza a fonte de dados
+                    dgvChamados.DataSource = chamadosTable;
                 }
             }
             catch (Exception ex)
@@ -84,7 +139,6 @@ namespace Gerenciamento_De_Chamados
                 MessageBox.Show("Erro ao carregar chamados: " + ex.Message);
             }
         }
-        // Adicione este método ao seu formulário VisualizarChamado
 
         private void TxtPesquisar_TextChanged(object sender, EventArgs e)
         {
@@ -104,12 +158,30 @@ namespace Gerenciamento_De_Chamados
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
 
         }
-        private void VisualizarChamado_Load_1(object sender, EventArgs e)
+
+        private void dgvChamados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
-            else
-                lbl_NomeUser.Text = "Usuário não identificado";
+            // Verifica se o clique foi em uma linha de dados válida (e não no cabeçalho da coluna)
+            // e.RowIndex >= 0 significa que não foi no cabeçalho
+            if (e.RowIndex >= 0)
+            {
+                // Pega a linha inteira que recebeu o duplo-clique
+                DataGridViewRow row = dgvChamados.Rows[e.RowIndex];
+
+                // Pega o valor da célula que contém o ID. 
+                object idValue = row.Cells["IdChamado"].Value;
+                int idChamadoSelecionado;
+
+                // Tenta converter o ID para um número inteiro de forma segura
+                if (idValue != null && int.TryParse(idValue.ToString(), out idChamadoSelecionado))
+                {
+                    // Se a conversão funcionou, cria e abre a tela de detalhes, passando o ID
+                    var telaDetalhes = new ChamadoCriado(idChamadoSelecionado);
+                    telaDetalhes.ShowDialog();
+
+                    CarregarChamados();
+                }
+            }
         }
     }
 }

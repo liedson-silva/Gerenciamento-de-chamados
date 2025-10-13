@@ -57,10 +57,14 @@ namespace Gerenciamento_De_Chamados
 
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
                     {
+                        TimeZoneInfo brasilTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+                        DateTime horaDeBrasilia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasilTimeZone);
+
+
                         cmd.Parameters.AddWithValue("@Titulo", TituloChamado);
                         cmd.Parameters.AddWithValue("@PrioridadeChamado", prioridade);
                         cmd.Parameters.AddWithValue("@Descricao", DescricaoChamado);
-                        cmd.Parameters.AddWithValue("@DataChamado", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@DataChamado", horaDeBrasilia);
                         cmd.Parameters.AddWithValue("@StatusChamado", status);
                         cmd.Parameters.AddWithValue("@Categoria", CategoriaChamado);
                         cmd.Parameters.AddWithValue("@FK_IdUsuario", idUsuario);

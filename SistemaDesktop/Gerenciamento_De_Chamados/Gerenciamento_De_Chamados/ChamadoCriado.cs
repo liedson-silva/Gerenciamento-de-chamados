@@ -48,17 +48,23 @@ namespace Gerenciamento_De_Chamados
         }
         private void ChamadoCriado_Load(object sender, EventArgs e)
         {
+            
             if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
-
+                lbl_NomeUser.Text = $"Bem vindo {Funcoes.SessaoUsuario.Nome}";
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string sql = "SELECT DataChamado, Titulo, Descricao, Categoria FROM Chamado WHERE IdChamado = @IdChamado";
+                    
+                    string sql = @"SELECT Titulo, Descricao, Categoria, DataChamado, 
+                                  PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente
+                           FROM Chamado 
+                           WHERE IdChamado = @IdChamado";
+
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@IdChamado", this.chamadoId);
@@ -66,20 +72,62 @@ namespace Gerenciamento_De_Chamados
                         {
                             if (reader.Read())
                             {
+                                
                                 DateTime dataCriacao = Convert.ToDateTime(reader["DataChamado"]);
                                 string titulo = reader["Titulo"].ToString();
                                 string descricao = reader["Descricao"].ToString();
                                 string categoria = reader["Categoria"].ToString();
+                                string pessoasAfetadas = reader["PessoasAfetadas"].ToString();
+                                string impedeTrabalho = reader["ImpedeTrabalho"].ToString();
+                                string ocorreuAntes = reader["OcorreuAnteriormente"].ToString();
 
+                               
                                 StringBuilder resumo = new StringBuilder();
-                                resumo.AppendLine($"Chamado criado em: {dataCriacao:dd/MM/yyyy HH:mm:ss}");
-                                resumo.AppendLine($"Usuario: {Funcoes.SessaoUsuario.Nome}");
-                                resumo.AppendLine("------------------------------------------------");
-                                resumo.AppendLine($"Título: {titulo}");
-                                resumo.AppendLine($"Categoria: {categoria}");
+
+                                TimeZoneInfo brasilTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+                                DateTime horaDeBrasiliaAtual = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasilTimeZone);
+
+
+                                TimeSpan tempoPassado = horaDeBrasiliaAtual - dataCriacao;
+                                string quandoFoiCriado;
+                                if (tempoPassado.TotalMinutes < 2)
+                                {
+                                    quandoFoiCriado = "poucos segundos atrás";
+                                }
+                                else if (tempoPassado.TotalHours < 1)
+                                {
+                                    quandoFoiCriado = $"{Math.Round(tempoPassado.TotalMinutes)} minutos atrás";
+                                }
+                                else if (tempoPassado.TotalDays < 1)
+                                {
+                                    quandoFoiCriado = $"{Math.Round(tempoPassado.TotalHours)} horas atrás";
+                                }
+                                else
+                                {
+                                    quandoFoiCriado = $"{tempoPassado.Days} dias atrás";
+                                }
+                                resumo.AppendLine($"Criado em: {quandoFoiCriado}   por   {Funcoes.SessaoUsuario.Nome.ToUpper()}");
+                                resumo.AppendLine(); 
+
+                                // Categoria > Título
+                                resumo.AppendLine($"{categoria} > {titulo}");
+                                resumo.AppendLine("==================================================");
                                 resumo.AppendLine();
-                                resumo.AppendLine("---Descrição---");
+
+                                // Corpo do Formulário
+                                resumo.AppendLine("DADOS DO FORMULÁRIO");
+                                resumo.AppendLine("Informações do chamado");
+                                resumo.AppendLine("--------------------------------------------------");
+
+                                
+                                resumo.AppendLine($"1. Problema está impedindo o trabalho?  {impedeTrabalho}");
+                                resumo.AppendLine($"2. Quais as pessoas afetadas?           {pessoasAfetadas}");
+                                resumo.AppendLine($"3. Ocorreu anteriormente?              {ocorreuAntes}");
+
+                                resumo.AppendLine();
+                                resumo.AppendLine($"4. Descrição da sua solicitação:");
                                 resumo.AppendLine(descricao);
+                                resumo.AppendLine();
 
                                 txtResumoChamado.Text = resumo.ToString();
                             }
@@ -92,6 +140,7 @@ namespace Gerenciamento_De_Chamados
                 MessageBox.Show("Erro ao carregar detalhes do chamado: " + ex.Message);
             }
         }
+        
 
         private void gbxTitulo_Paint(object sender, PaintEventArgs e)
         {
