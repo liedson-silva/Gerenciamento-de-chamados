@@ -61,10 +61,9 @@ namespace Gerenciamento_De_Chamados
         private void Home_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+                lbl_NomeUser.Text = ($"Bem-Vindo:{Funcoes.SessaoUsuario.Nome}!");
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
         }
-
     }
 }
