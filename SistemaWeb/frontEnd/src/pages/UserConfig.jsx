@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom'
+import { formatDate } from '../components/FormatDate'
 
 const UserConfig = () => {
     const location = useLocation()
@@ -23,7 +24,7 @@ const UserConfig = () => {
                     <div className='user-data'>{user?.Setor}</div>
                     <div className='user-data'>{user?.Login}</div>
                     <div className='user-data'>{user?.Sexo}</div>
-                    <div className='user-data'>{new Date(user?.DataDeNascimento).toLocaleDateString('pt-BR')}</div>
+                    <div className='user-data'>{formatDate(user?.DataDeNascimento)}</div>
                 </div>
             </div>
         </section>

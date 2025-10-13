@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom"
+import { formatDate } from "../components/FormatDate"
 
 const ViewTicketForm = () => {
   const location = useLocation()
@@ -14,12 +15,14 @@ const ViewTicketForm = () => {
 
       <div className="form-data">
         <h1 className="form-title">Dados do formulário</h1>
-        <p className="form-info">Criado por : <span className="form-info-data">{user?.Nome}</span></p>
-        <p className="form-info">Data : <span className="form-info-data">{new Date(ticket.DataChamado).toLocaleDateString('pt-BR')}</span></p>
+        <p className="form-info">Id do chamado: <span className="form-info-data">{ticket.IdChamado}</span></p>
+        <p className="form-info">Id do usuário: <span className="form-info-data">{ticket.FK_IdUsuario}</span></p>
+        <p className="form-info">Data : <span className="form-info-data">{formatDate(ticket?.DataChamado)}</span></p>
         <p className="form-info">Título: <span className="form-info-data">{ticket.Titulo}</span></p>
         <p className="form-info">Categoria: <span className="form-info-data">{ticket.Categoria}</span></p>
+        <p className="form-info">Status: <span className="form-info-data">{ticket.StatusChamado}</span></p>
+        <p className="form-info">Prioridade: <span className="form-info-data">{ticket.PrioridadeChamado}</span></p>
         <p className="form-info">Descrição do problema: <span className="form-info-data">{ticket.Descricao}</span></p>
-        <p className="form-info">Arquivo anexo: <span className="form-info-data">...</span></p>
         <p className="form-info">Pessoas afetadas: <span className="form-info-data">{ticket.PessoasAfetadas}</span></p>
         <p className="form-info">Problema esta impedindo meu trabalho? <span className="form-info-data">{ticket.ImpedeTrabalho}</span></p>
         <p className="form-info">Já ocorreu anteriormente? <span className="form-info-data">{ticket.OcorreuAnteriormente}</span></p>

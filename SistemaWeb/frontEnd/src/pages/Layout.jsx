@@ -10,10 +10,11 @@ const Home = () => {
   const user = location.state?.user;
   const navigate = useNavigate();
 
-  // 👇 Redireciona para a home correta (admin ou normal)
   const handleHome = () => {
-    if (user?.FuncaoUsuario === "admin") {
+    if (user.FuncaoUsuario === "Admin") {
       navigate("/admin-home", { state: { user } });
+    } else if (user.FuncaoUsuario === "Tecnico") {
+      navigate("/tec-home", { state: { user } });
     } else {
       navigate("/home", { state: { user } });
     }
@@ -28,7 +29,7 @@ const Home = () => {
   };
 
   const handlePendingTicket = () => {
-    navigate("/tickets", { state: { user } });
+      navigate("/tickets", { state: { user } });
   };
 
   const handleFAQ = () => {

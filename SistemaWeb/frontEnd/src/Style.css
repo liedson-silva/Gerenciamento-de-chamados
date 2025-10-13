@@ -327,7 +327,7 @@ h1 {
     background: linear-gradient(to right, white, rgb(176, 176, 176));
     font-size: 1.7rem;
     height: 50px;
-    width: 240px;
+    width: 280px;
     border-radius: 8px;
     cursor: pointer;
     border: none;
@@ -645,6 +645,8 @@ h1 {
 /* View Ticket Form */
 
 .view-ticket-form {
+    display: flex;
+    gap: 50px;
     padding: 20px;
 }
 
@@ -660,6 +662,7 @@ h1 {
 }
 
 .form-title {
+    margin-top: 0;
     color: #03672D;
 }
 
@@ -677,8 +680,7 @@ h1 {
 
 .box-pagina-inicia {
     display: flex;
-    justify-content: end;
-    margin-right: 40px;
+    align-items: end;
 }
 
 .button-pagina-inicia {
@@ -689,12 +691,19 @@ h1 {
     font-size: 1.1rem;
     border-radius: 8px;
     padding: 10px;
+    height: 50px;
     width: 180px;
     margin-top: 25px;
 }
 
 .button-pagina-inicia:hover {
     background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
+@media (max-width: 768px) {
+    .view-ticket-form {
+    display: block;
+}
 }
 
 /* Tickets, Pending Ticket, Ticket In Progress, Ticket Resolved*/
@@ -708,6 +717,12 @@ h1 {
     /* 100vh = altura total da tela. Ajuste os 200px conforme a altura do seu cabeçalho/navbar */
     overflow-y: auto;
     /* Adiciona a barra de rolagem vertical apenas quando necessário */
+    padding-bottom: 10px;
+}
+
+.scroll-lists {
+    max-height: calc(55vh - 200px);
+    overflow-y: auto;
     padding-bottom: 10px;
 }
 
@@ -777,7 +792,7 @@ h1 {
     margin: 40px auto;
     padding: 0 20px;
     font-size: 1.1rem;
-}
+} 
 
 .faq-item {
     background-color: #f9f9f9;
@@ -882,9 +897,38 @@ h1 {
 }
 
 .success {
-  color: green;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: green;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.error {
-  color: red;
+/* Tec Home */
+
+.box-tec-button{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-answer-ticket{
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    font-size: 1.7rem;
+    height: 50px;
+    width: 280px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    transition: all 0.3s;
+}
+
+.button-answer-ticket:hover{
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
+
 }

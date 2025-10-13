@@ -20,8 +20,10 @@ const Login = () => {
       if (response.data.success) {
         const user = response.data.user;
 
-        if (user.FuncaoUsuario === "admin") {
+        if (user.FuncaoUsuario === "Admin") {
           navigate("/admin-home", { state: { user } });
+        } else if (user.FuncaoUsuario === "Tecnico") {
+          navigate("/tec-home", { state: { user } });
         } else {
           navigate("/home", { state: { user } });
         }

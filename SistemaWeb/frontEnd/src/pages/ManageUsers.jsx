@@ -68,12 +68,12 @@ const ManageUsers = () => {
     console.log("Objeto User recebido:", user)
     setFormData({
       name: user.Nome,
-      cpf: user.CPF, 
-      rg: user.RG, 
+      cpf: user.CPF,
+      rg: user.RG,
       functionUser: user.FuncaoUsuario,
-      sex: user.Sexo, 
+      sex: user.Sexo,
       sector: user.Setor,
-      date: user.DataDeNascimento, 
+      date: user.DataDeNascimento,
       email: user.Email,
       password: "", // vazio por segurança
       login: user.Login,
@@ -119,48 +119,50 @@ const ManageUsers = () => {
     <main className="scroll-list">
       <h1>Gerenciar Usuários</h1>
 
-      {errorMessage && <p className="error">{errorMessage}</p>}
+      {errorMessage && <p className="notice">{errorMessage}</p>}
       {successMessage && <p className="success">{successMessage}</p>}
 
       <button onClick={handleShowCreateForm} className="button-create-ticket">Criar Novo Usuário</button>
 
       <section className="user-list">
         <h2>Usuários Cadastrados</h2>
-        <table className="user-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Login</th>
-              <th>Função</th>
-              <th>Email</th>
-              <th>Setor</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => (
-              <tr key={user.IdUsuario}>
-                <td>{user.IdUsuario}</td>
-                <td>{user.Nome}</td>
-                <td>{user.Login}</td>
-                <td>{user.FuncaoUsuario}</td>
-                <td>{user.Email}</td>
-                <td>{user.Setor}</td>
-                <td>
-                  <button className="button-edit-ticket" onClick={() => handleEditUser(user)}>Editar</button>
-                </td>
+        <div className="scroll-lists">
+          <table className="user-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Login</th>
+                <th>Função</th>
+                <th>Email</th>
+                <th>Setor</th>
+                <th>Ações</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr key={user.IdUsuario}>
+                  <td>{user.IdUsuario}</td>
+                  <td>{user.Nome}</td>
+                  <td>{user.Login}</td>
+                  <td>{user.FuncaoUsuario}</td>
+                  <td>{user.Email}</td>
+                  <td>{user.Setor}</td>
+                  <td>
+                    <button className="button-edit-ticket" onClick={() => handleEditUser(user)}>Editar</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       {showForm && (
         <section className="user-form">
           <h2>{isEditing ? "Editar Usuário" : "Criar Novo Usuário"}</h2>
           <form onSubmit={handleFormSubmit} className="form-create-user">
-            <input name="name"  className="input-create-user" placeholder="Nome" value={formData.name} onChange={handleInputChange} />
+            <input name="name" className="input-create-user" placeholder="Nome" value={formData.name} onChange={handleInputChange} />
             <input name="cpf" className="input-create-user" placeholder="CPF" value={formData.cpf} onChange={handleInputChange} />
             <input name="rg" className="input-create-user" placeholder="RG" value={formData.rg} onChange={handleInputChange} />
             <input name="functionUser" className="input-create-user" placeholder="Função" value={formData.functionUser} onChange={handleInputChange} />
