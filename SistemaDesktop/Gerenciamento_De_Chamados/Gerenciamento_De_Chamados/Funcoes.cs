@@ -160,9 +160,9 @@ namespace Gerenciamento_De_Chamados
                 string usuario = SessaoUsuario.Nome ?? "Usuário não identificado";
                 string emailUsuario = SessaoUsuario.Email ?? "sememail@dominio.com";
                 string corpoEmail = $@"
-            <h2>Novo Chamado Criado</h2>
+            <h2>Prezado(a): {usuario}</h2>
             <p><b>Número:</b> {idChamado}</p>
-            <p><b>Usuário:</b> {usuario}</p>
+            <p><i>Data:</i> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
             <hr>
             <p><b>Título:</b> {titulo}</p>
             <p><b>Descrição:</b> {descricao}</p>
@@ -174,7 +174,7 @@ namespace Gerenciamento_De_Chamados
             <p><b>Impede o Trabalho:</b> {impedeTrabalho}</p>
             <p><b>Ocorreu Anteriormente:</b> {ocorreuAnteriormente}</p>
             <hr>
-            <p><i>Data:</i> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
+            
         ";
 
                 using (MailMessage mail = new MailMessage())
