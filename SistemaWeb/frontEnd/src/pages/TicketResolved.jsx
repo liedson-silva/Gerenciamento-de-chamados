@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom"
 import { useState, useEffect } from "react"
 import api from "../services/api"
+import { formatDate } from "../components/FormatDate"
 
 const TicketResolved = () => {
     const location = useLocation()
@@ -13,10 +14,17 @@ const TicketResolved = () => {
     const [ViewTicket, SetViewTicket] = useState([])
 
     async function getTickets() {
-        const response = await api.get(`/tickets/${user.IdUsuario}`)
-        const allTickets = response.data.Tickets
-        const ticketResolved = allTickets.filter(ticket => ticket.StatusChamado === "Resolvido")
-        SetViewTicket(ticketResolved)
+        if (user.FuncaoUsuario === "Admin" || user.FuncaoUsuario === "Tecnico") {
+            const response = await api.get("/All-tickets")
+            const allTickets = response.data.Tickets
+            const pendingTickets = allTickets.filter(ticket => ticket.StatusChamado === "Resolvido")
+            SetViewTicket(pendingTickets)
+        } else {
+            const response = await api.get(`/tickets/${user.IdUsuario}`)
+            const allTickets = response.data.Tickets
+            const pendingTickets = allTickets.filter(ticket => ticket.StatusChamado === "Resolvido")
+            SetViewTicket(pendingTickets)
+        }
     }
 
     useEffect(() => {
@@ -39,7 +47,7 @@ const TicketResolved = () => {
                 </ul>
             </div>
 
-            <div className="tickets-list">
+            <div className="scroll-list">
                 {ViewTicket.length > 0 ? (
                     ViewTicket.map((ticket) => (
                         <div key={ticket.IdChamado} className="box-ticket" onClick={() => handleViewTicketForm(ticket)}>
@@ -47,7 +55,7 @@ const TicketResolved = () => {
                                 <li className="view-desktop">{ticket.IdChamado}</li>
                                 <li>{ticket.Titulo}</li>
                                 <li> <span className="circle-green">ㅤ</span> {ticket.StatusChamado}</li>
-                                <li className="view-desktop">{new Date(ticket.DataChamado).toLocaleDateString('pt-BR')}</li>
+                                <li className="view-desktop">{formatDate(ticket.DataChamado)}</li>
                                 <li className="view-desktop"> <span className="circle-green">ㅤ</span> {ticket.PrioridadeChamado}</li>
                                 <li className="view-desktop">{ticket.Categoria}</li>
                                 <li className="view-desktop">{ticket.Descricao}</li>

@@ -14,7 +14,8 @@ export default function userRouter(pool, sql) {
     router.post("/create-ticket", (req, res) => ticketsController.createTicket(req, res))
     router.post("/create-user", (req, res) => userController.createUser(req, res))
     router.get('/users', (req, res) => userController.getAllUsers(req, res));
-    router.put("/update-user/:id", (req, res) => userController.updateUser(req, res));
+    router.put("/update-user/:id", (req, res) => userController.updateUser(req, res))    
+    router.get("/All-tickets", (req, res) => ticketsController.getAllTickes(req, res))
 
     return router
 }

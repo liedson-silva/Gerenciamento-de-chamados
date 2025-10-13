@@ -41,11 +41,11 @@ const AdminHome = () => {
 
       <section className="dashboard-charts">
         <div className="chart-wrapper">
-          <StageCharts user={user} />
+          {StageCharts(user)}
         </div>
 
         <div>
-          <StageCharts2 user={user} />
+          {StageCharts2(user)}
         </div>
       </section>
     </main>

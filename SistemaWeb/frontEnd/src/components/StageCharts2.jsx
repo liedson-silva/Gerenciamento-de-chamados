@@ -31,8 +31,13 @@ const StageCharts2 = (user) => {
   const [ViewTickets, SetViewTickets] = useState([])
 
   async function getTickets() {
-    const response = await api.get(`/tickets/${user.IdUsuario}`)
-    SetViewTickets(response.data.Tickets)
+    if (user.FuncaoUsuario === "Admin" || user.FuncaoUsuario === "Tecnico") {
+      const response = await api.get("/All-tickets")
+      SetViewTickets(response.data.Tickets)
+    } else {
+      const response = await api.get(`/tickets/${user.IdUsuario}`)
+      SetViewTickets(response.data.Tickets)
+    }
   }
   useEffect(() => {
     getTickets()

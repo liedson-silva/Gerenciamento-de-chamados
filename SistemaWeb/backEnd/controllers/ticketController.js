@@ -16,11 +16,19 @@ export class TicketsController {
         }
 
         try {
+            const dateforSQL = new Date().toLocaleDateString('en-CA',
+                {
+                    timeZone: 'America/Sao_Paulo',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                }).replace(/\//g, '-')
+
             const result = await this.pool.request()
                 .input("title", this.sql.VarChar(30), title)
                 .input("priority", this.sql.VarChar(7), "Análise")
                 .input("description", this.sql.VarChar(500), description)
-                .input("ticketDate", this.sql.Date, new Date())
+                .input("ticketDate", this.sql.Date, dateforSQL)
                 .input("ticketStatus", this.sql.VarChar(12), "Pendente")
                 .input("category", this.sql.VarChar(16), category)
                 .input("userId", this.sql.Int, userId)
@@ -30,8 +38,7 @@ export class TicketsController {
                 .query("INSERT INTO Chamado (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente) OUTPUT INSERTED.* VALUES (@title, @priority, @description, @ticketDate, @ticketStatus, @category, @userId, @affectedPeople, @stopWork, @happenedBefore)")
 
             const newTicket = result.recordset[0]
-            this.updatePriorityByAI(newTicket.IdChamado, description, affectedPeople,
-                stopWork, happenedBefore)
+            this.updatePriorityByAI(newTicket.IdChamado, description, affectedPeople, stopWork, happenedBefore)
 
             const userResult = await this.pool.request()
                 .input("userId", this.sql.Int, userId)
@@ -39,7 +46,9 @@ export class TicketsController {
             const user = userResult.recordset[0]
             const userEmail = user?.Email
             const userName = user?.Nome
-            sendEmail(userEmail, userName)
+            const d = newTicket.DataChamado;
+            const dateTicket = `${String(d.getUTCDate()).padStart(2, '0')}/${String(d.getUTCMonth() + 1).padStart(2, '0')}/${d.getUTCFullYear()}`;
+            sendEmail(userEmail, userName, newTicket.IdChamado, dateTicket, title, description, category, newTicket.PrioridadeChamado, newTicket.StatusChamado, affectedPeople, stopWork, happenedBefore)
 
             res.json({ success: true, ticket: newTicket })
         } catch (err) {
@@ -93,6 +102,22 @@ export class TicketsController {
         } catch (err) {
             console.error(err)
             res.status(500).json({ success: false, message: "Erro ao buscar chamado" })
+        }
+    }
+
+    async getAllTickes(req, res) {
+        try {
+            const result = await this.pool.request()
+                .query("SELECT * FROM Chamado")
+
+            if (result.recordset.length === 0) {
+                return res.status(401).json({ success: false, message: "Nenhu, chamado encontrado" })
+            }
+
+            res.json({ success: true, Tickets: result.recordset })
+        } catch (err) {
+            console.error(err)
+            res.status(500).json({ success: false, message: "Erro ao buscar chamados" })
         }
     }
 } 
