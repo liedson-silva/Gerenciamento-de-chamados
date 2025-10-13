@@ -201,7 +201,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(591, 334);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(452, 372);
+            this.pictureBox2.Size = new System.Drawing.Size(452, 419);
             this.pictureBox2.TabIndex = 38;
             this.pictureBox2.TabStop = false;
             // 

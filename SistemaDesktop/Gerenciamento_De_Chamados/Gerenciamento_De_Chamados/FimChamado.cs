@@ -47,7 +47,7 @@ namespace Gerenciamento_De_Chamados
 
         private void btn_PaginaInicial_Click(object sender, EventArgs e)
         {
-            var telaHome = new HomeUsuario();
+            var telaHome = new Home();
             telaHome.Show();
             this.Visible = false;
         }

@@ -121,8 +121,8 @@ namespace Gerenciamento_De_Chamados
 
                                 
                                 resumo.AppendLine($"1. Problema está impedindo o trabalho?  {impedeTrabalho}");
-                                resumo.AppendLine($"2. Quais as pessoas afetadas?           {pessoasAfetadas}");
-                                resumo.AppendLine($"3. Ocorreu anteriormente?              {ocorreuAntes}");
+                                resumo.AppendLine($"2. Quais as pessoas afetadas?  {pessoasAfetadas}");
+                                resumo.AppendLine($"3. Ocorreu anteriormente?  {ocorreuAntes}");
 
                                 resumo.AppendLine();
                                 resumo.AppendLine($"4. Descrição da sua solicitação:");

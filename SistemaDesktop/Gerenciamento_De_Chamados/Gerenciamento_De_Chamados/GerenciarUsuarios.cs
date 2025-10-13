@@ -140,48 +140,7 @@ namespace Gerenciamento_De_Chamados
 
         private void btnExcluirUsuario_Click(object sender, EventArgs e)
         {
-            if (dgvUsuarios.CurrentRow == null || dgvUsuarios.CurrentRow.DataBoundItem == null)
-            {
-                MessageBox.Show("Por favor, selecione um usuário para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
-            // Pega os dados do usuário da linha selecionada para a mensagem de confirmação
-            int idUsuarioSelecionado = Convert.ToInt32(dgvUsuarios.CurrentRow.Cells[0].Value);
-            string nomeUsuario = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
-
-            // Mensagem de confirmação
-            var confirmResult = MessageBox.Show($"Tem certeza que deseja excluir o usuário '{nomeUsuario}'?",
-                                                 "Confirmar Exclusão",
-                                                 MessageBoxButtons.YesNo,
-                                                 MessageBoxIcon.Question);
-
-            if (confirmResult == DialogResult.Yes)
-            {
-                try
-                {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    {
-                        conn.Open();
-                        string sql = "DELETE FROM Usuario WHERE IdUsuario = @IdUsuario";
-                        using (SqlCommand cmd = new SqlCommand(sql, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@IdUsuario", idUsuarioSelecionado);
-                            int rowsAffected = cmd.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
-                            {
-                                MessageBox.Show("Usuário excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                CarregarUsuarios(); // Recarrega a lista para mostrar a alteração
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao excluir usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
