@@ -7,13 +7,19 @@ const ViewTicketForm = () => {
   const navigate = useNavigate()
 
   const handleHome = () => {
-    navigate("/home", { state: { user } })
+    if (user.FuncaoUsuario === "Admin") {
+          navigate("/admin-home", { state: { user } });
+        } else if (user.FuncaoUsuario === "Tecnico") {
+          navigate("/tec-home", { state: { user } });
+        } else {
+          navigate("/home", { state: { user } });
+        }
   }
 
   return (
-    <section className="view-ticket-form">
+    <main className="view-ticket-form">
 
-      <div className="form-data">
+      <section className="form-data">
         <h1 className="form-title">Dados do formulário</h1>
         <p className="form-info">Id do chamado: <span className="form-info-data">{ticket.IdChamado}</span></p>
         <p className="form-info">Id do usuário: <span className="form-info-data">{ticket.FK_IdUsuario}</span></p>
@@ -26,13 +32,13 @@ const ViewTicketForm = () => {
         <p className="form-info">Pessoas afetadas: <span className="form-info-data">{ticket.PessoasAfetadas}</span></p>
         <p className="form-info">Problema esta impedindo meu trabalho? <span className="form-info-data">{ticket.ImpedeTrabalho}</span></p>
         <p className="form-info">Já ocorreu anteriormente? <span className="form-info-data">{ticket.OcorreuAnteriormente}</span></p>
-      </div>
+      </section>
 
       <div className='box-pagina-inicia'>
         <button className='button-pagina-inicia' onClick={handleHome}>Página inicial</button>
       </div>
 
-    </section>
+    </main>
   )
 }
 

@@ -33,7 +33,7 @@ const TicketResolved = () => {
 
 
     return (
-        <section>
+        <main>
 
             <div className="ticket">
                 <ul className="info-ticket">
@@ -47,7 +47,7 @@ const TicketResolved = () => {
                 </ul>
             </div>
 
-            <div className="scroll-list">
+            <section className="scroll-list">
                 {ViewTicket.length > 0 ? (
                     ViewTicket.map((ticket) => (
                         <div key={ticket.IdChamado} className="box-ticket" onClick={() => handleViewTicketForm(ticket)}>
@@ -65,9 +65,9 @@ const TicketResolved = () => {
                 ) : (
                     <p className="no-call">Nenhum chamado resolvido no momento.</p>
                 )}
-            </div>
+            </section>
 
-        </section>
+        </main>
     )
 }
 

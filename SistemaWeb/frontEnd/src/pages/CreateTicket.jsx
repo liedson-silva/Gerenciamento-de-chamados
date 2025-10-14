@@ -13,7 +13,7 @@ const CreateTicket = () => {
         navigate("/create-ticket/Impact", { state: { user, title, category, description } })
     }
     return (
-        <section>
+        <main>
 
             <div className='create-ticket'>
                 <p className='form-ticket'>Título <span className='asterisk'>*</span></p>
@@ -71,7 +71,7 @@ const CreateTicket = () => {
                 <button className='button-continuar-ticket' onClick={handleImpact}>Continuar</button>
             </div>
 
-        </section>
+        </main>
     )
 }
 

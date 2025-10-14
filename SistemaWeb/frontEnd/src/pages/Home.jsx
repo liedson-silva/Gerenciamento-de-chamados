@@ -37,7 +37,7 @@ const Home = () => {
         <p className="home-role">Funcionário</p>
       </header>
 
-      <div className="box-buttons">
+      <section className="box-buttons">
         <div className="box-button-chamado">
           <button className="button-criar-chamado" onClick={handleCreateTicket}>
             Criar chamado
@@ -60,14 +60,14 @@ const Home = () => {
             Chamados Resolvidos
           </button>
         </div>
-      </div>
+      </section>
 
       <section className="dashboard-charts">
         <div className="chart-wrapper">
           {StageCharts(user)}
         </div>
 
-        <div className="chart-wrapper">
+        <div>
           {StageCharts2(user)}
         </div>
       </section>

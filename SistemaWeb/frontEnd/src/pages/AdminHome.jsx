@@ -17,10 +17,10 @@ const AdminHome = () => {
     navigate("/manage-users", { state: { user } });
   };
 
-  const handleManageTickets = () => {
-    navigate("/manage-tickets", { state: { user } });
+  const handleAllTickets = () => {
+    navigate("/tickets", { state: { user } });
   };
-
+ 
   return (
     <main>
       <header className="home-header">
@@ -28,26 +28,26 @@ const AdminHome = () => {
         <p className="home-role">Administrador</p>
       </header>
 
-      <div className="box-buttons">
+      <section className="box-buttons">
         <div className="chamados">
           <button className="button-chamados" onClick={handleManageUsers}>
             <img src={userIcon} alt="Gerenciar Usuários" />
             Gerenciar Usuários
           </button>
 
-          <button className="button-chamados" onClick={handleManageTickets}>
+          <button className="button-chamados" onClick={handleAllTickets}>
             <img src={ticketIcon} alt="Gerenciar Chamados" />
             Gerenciar Chamados
           </button>
         </div>
-      </div>
+      </section>
 
       <section className="dashboard-charts">
         <div className="chart-wrapper">
           {StageCharts(user)}
         </div>
 
-        <div className="chart-wrapper">
+        <div>
           {StageCharts2(user)}
         </div>
       </section>

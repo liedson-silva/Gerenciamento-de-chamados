@@ -162,18 +162,33 @@ const ManageUsers = () => {
         <section className="user-form">
           <h2>{isEditing ? "Editar Usuário" : "Criar Novo Usuário"}</h2>
           <form onSubmit={handleFormSubmit} className="form-create-user">
-            <input name="name" className="input-create-user" placeholder="Nome" value={formData.name} onChange={handleInputChange} />
-            <input name="cpf" className="input-create-user" placeholder="CPF" value={formData.cpf} onChange={handleInputChange} />
-            <input name="rg" className="input-create-user" placeholder="RG" value={formData.rg} onChange={handleInputChange} />
-            <input name="functionUser" className="input-create-user" placeholder="Função" value={formData.functionUser} onChange={handleInputChange} />
-            <input name="sex" className="input-create-user" placeholder="Sexo" value={formData.sex} onChange={handleInputChange} />
-            <input name="sector" className="input-create-user" placeholder="Setor" value={formData.sector} onChange={handleInputChange} />
-            <input name="date" className="input-create-user" type="date" value={formData.date} onChange={handleInputChange} />
-            <input name="email" className="input-create-user" type="email" placeholder="Email" value={formData.email} onChange={handleInputChange} />
-            <input name="login" className="input-create-user" placeholder="Login" value={formData.login} onChange={handleInputChange} />
-            {!isEditing && (
-              <input name="password" className="input-create-user" type="password" placeholder="Senha" value={formData.password} onChange={handleInputChange} />
-            )}
+            <input name="name" className="input-create-user" placeholder="Nome" value={formData.name} onChange={handleInputChange} required />
+            <input name="cpf" className="input-create-user" placeholder="CPF: xxx.xxx.xxx-xx" value={formData.cpf} onChange={handleInputChange} required />
+            <input name="rg" type="rg" className="input-create-user" placeholder="RG: xx.xxx.xxx-x" value={formData.rg} onChange={handleInputChange} required />
+            <select name="functionUser" className="input-create-user" value={formData.functionUser}
+              onChange={handleInputChange} required>
+              <option value="">Função</option>
+              <option value="Admin">Admin</option>
+              <option value="Tecnico">Técnico</option>
+              <option value="Funcionario">Funcionário</option>
+            </select >
+            <input name="email" className="input-create-user" type="email" placeholder="Email" value={formData.email} onChange={handleInputChange} required />
+            <select name="sex" className="input-create-user" value={formData.sex}
+              onChange={handleInputChange} required>
+              <option value="">Sexo</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+              <option value="Outros">Outros</option>
+            </select >
+            <input name="date" className="input-create-user" type="date" value={formData.date} onChange={handleInputChange}  />
+            <select name="sector" className="input-create-user" value={formData.sector}
+              onChange={handleInputChange} required>
+              <option value="">Setor</option>
+              <option value="RH">RH</option>
+              <option value="Financeiro">Financeiro</option>
+            </select >
+            <input name="login" className="input-create-user" placeholder="Login" value={formData.login} onChange={handleInputChange} required />
+            {!isEditing && (<input name="password" className="input-create-user" type="password" placeholder="Senha" value={formData.password} onChange={handleInputChange} required/>)}
             <button className="button-confirm-user" type="submit">{isEditing ? "Salvar Alterações" : "Criar Usuário"}</button>
           </form>
         </section>
