@@ -5,9 +5,9 @@ const UserConfig = () => {
     const location = useLocation()
     const user = location.state?.user
     return (
-        <section>
+        <main>
             <h1>Minhas Configurações</h1>
-            <div className='user-config-data'>
+            <section className='user-config-data'>
                 <div>
                     <p className='user-config'>Nome:</p>
                     <p className='user-config'>Email:</p>
@@ -26,8 +26,8 @@ const UserConfig = () => {
                     <div className='user-data'>{user?.Sexo}</div>
                     <div className='user-data'>{formatDate(user?.DataDeNascimento)}</div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
     )
 }
 

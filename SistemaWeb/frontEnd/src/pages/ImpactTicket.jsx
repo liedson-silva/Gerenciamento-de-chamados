@@ -29,7 +29,7 @@ const ImpactTicket = () => {
     }
 
     return (
-        <section>
+        <main>
 
             <div className='create-ticket'>
                 <p className='form-ticket'>Quais pessoas são afetadas ? <span className='asterisk'>*</span></p>
@@ -83,7 +83,7 @@ const ImpactTicket = () => {
                 <button className='button-enviar-ticket' onClick={handleSuccessTicket}>Enviar</button>
             </div>
             {error && <p className="notice">{error}</p>}
-        </section>
+        </main>
     )
 }
 

@@ -28,8 +28,8 @@ const Home = () => {
     navigate("/user-configuration", { state: { user } });
   };
 
-  const handlePendingTicket = () => {
-      navigate("/tickets", { state: { user } });
+  const handleAllTicket = () => {
+    navigate("/tickets", { state: { user } });
   };
 
   const handleFAQ = () => {
@@ -37,62 +37,58 @@ const Home = () => {
   };
 
   return (
-    <section className="home">
-      <div className="nav-bar">
-        <button className="box-logo" onClick={handleHome}>
-          <img src={logo} className="logo-home" alt="logo" />
+    <main className="app-layout">
+      <nav>
+        <button className="nav-logo-link" onClick={handleHome}>
+          <img src={logo} className="nav-logo-img" alt="logo" />
         </button>
         <ul>
-          <li className="utils" onClick={handlePendingTicket}>
-            <BsList className="icons-home" /> Chamados
+          <li className="nav-item" onClick={handleAllTicket}>
+            <BsList className="nav-item-icon" /> Chamados
           </li>
-          <li className="utils" onClick={handleFAQ}>
-            <LuMessageCircleQuestion className="icons-home" /> FAQ
+          <li className="nav-item" onClick={handleFAQ}>
+            <LuMessageCircleQuestion className="nav-item-icon" /> FAQ
           </li>
         </ul>
-      </div>
+      </nav>
 
-      <div className="header">
-        <div className="box-inicio">
-          <button className="button-inicio" onClick={handleHome}>
-            <FaHouse className="icons-home" /> Início
+      <div className="main-header">
+        <div className="header-content-wrapper">
+          <button className="header-home-btn" onClick={handleHome}>
+            <FaHouse className="nav-item-icon" /> Início
           </button>
 
-          <div className="home-mobile" onClick={handleHome}>
-            <img src={logo} className="logo-mobile" alt="logo" />
-          </div>
+          <figure className="header-mobile-home" onClick={handleHome}>
+            <img src={logo} className="header-mobile-logo" alt="logo" />
+          </figure>
 
           <div className="dropdown-mobile" tabIndex={0}>
             <button className="menu-mobile"><BsList /></button>
-            <div className="dropdown-menu">
-              <ul>
-                <li onClick={handleUserConfig} className="menu">Minha Conta</li>
-                <li onClick={handlePendingTicket} className="menu">Chamados</li>
-                <li onClick={handleFAQ} className="menu">FAQ</li>
-                <li onClick={handleLogin} className="menu">Sair</li>
-              </ul>
-            </div>
+            <ul className="dropdown-menu">
+              <li onClick={handleUserConfig} className="menu">Minha Conta</li>
+              <li onClick={handleAllTicket} className="menu">Chamados</li>
+              <li onClick={handleFAQ} className="menu">FAQ</li>
+              <li onClick={handleLogin} className="menu">Sair</li>
+            </ul>
           </div>
 
-          <div className="user">
+          <header className="user">
             <p className="name">{user?.Nome}</p>
             <div className="dropdown" tabIndex={0}>
               <button className="button-user"><FaRegUserCircle /></button>
-              <div className="dropdown-menu">
-                <ul>
-                  <li onClick={handleUserConfig} className="menu">Minha Conta</li>
-                  <li onClick={handleLogin} className="menu">Sair</li>
-                </ul>
-              </div>
+              <ul className="dropdown-menu">
+                <li onClick={handleUserConfig} className="menu">Minha Conta</li>
+                <li onClick={handleLogin} className="menu">Sair</li>
+              </ul>
             </div>
-          </div>
+          </header>
         </div>
 
-        <div className="content">
+        <main className="content">
           <Outlet />
-        </div>
+        </main>
       </div>
-    </section>
+    </main>
   );
 };
 

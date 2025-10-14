@@ -13,7 +13,7 @@ const SuccesTicket = () => {
     const data = new Date(ticket.DataChamado);
 
     return (
-        <section>
+        <main>
 
             <div className="success-ticket">
                 <h1 className="success-title">Chamado enviado com sucesso!</h1>
@@ -33,7 +33,7 @@ const SuccesTicket = () => {
                 <button className='button-vizualizar-chamado' onClick={handleViewTicketForm}>Vizualizar chamado</button>
             </div>
 
-        </section>
+        </main>
     )
 }
 

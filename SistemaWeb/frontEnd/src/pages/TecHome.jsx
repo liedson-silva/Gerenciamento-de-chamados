@@ -37,7 +37,7 @@ const TecHome = () => {
         <p className="home-role">Técnico</p>
       </header>
 
-      <div className="box-buttons">
+      <section className="box-buttons">
         <div className="box-tec-button">
           <button className="button-answer-ticket">
             Responder chamado
@@ -63,14 +63,14 @@ const TecHome = () => {
             Chamados Resolvidos
           </button>
         </div>
-      </div>
+      </section>
 
       <section className="dashboard-charts">
         <div className="chart-wrapper">
           {StageCharts(user)}
         </div>
 
-        <div className="chart-wrapper">
+        <div>
           {StageCharts2(user)}
         </div>
       </section>

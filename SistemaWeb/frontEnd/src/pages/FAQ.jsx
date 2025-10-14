@@ -43,7 +43,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="scroll-list">
+    <main className="scroll-list">
       <h1>FAQ - Perguntas Frequentes</h1>
       <section className="faq-section">
         {faqData.map((item, index) => (
@@ -62,7 +62,7 @@ const FAQ = () => {
           </div>
         ))}
       </section>
-    </div>
+    </main>
   );
 }; 
 

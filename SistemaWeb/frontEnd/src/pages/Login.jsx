@@ -42,11 +42,11 @@ const Login = () => {
   }
 
   return (
-    <section className='login'>
+    <main className='login'>
       <figure>
         <img src={logo} alt="logo Fatal-System" className='logo-login' />
       </figure>
-      <div className="box-login">
+      <section className="box-login">
         <h1 className='text-login'>Login</h1>
         <div className='form'>
 
@@ -87,8 +87,8 @@ const Login = () => {
           </div>
 
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   )
 }
 
