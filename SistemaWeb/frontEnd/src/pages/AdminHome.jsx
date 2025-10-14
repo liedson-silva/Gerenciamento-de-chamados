@@ -1,8 +1,8 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import userIcon from "../assets/folder.svg";
 import ticketIcon from "../assets/folder.svg";
-import StageCharts from '../components/StageCharts'
-import StageCharts2 from '../components/StageCharts2'
+import StageCharts from '../components/StageCharts';
+import StageCharts2 from '../components/StageCharts2';
 
 const AdminHome = () => {
   const location = useLocation();
@@ -23,7 +23,10 @@ const AdminHome = () => {
 
   return (
     <main>
-      <h1>Bem-vindo, {user?.Nome} (Admin)!</h1>
+      <header className="home-header">
+        <h1 className="home-welcome">Bem-vindo, {user?.Nome}</h1>
+        <p className="home-role">Administrador</p>
+      </header>
 
       <div className="box-buttons">
         <div className="chamados">
@@ -44,7 +47,7 @@ const AdminHome = () => {
           {StageCharts(user)}
         </div>
 
-        <div>
+        <div className="chart-wrapper">
           {StageCharts2(user)}
         </div>
       </section>

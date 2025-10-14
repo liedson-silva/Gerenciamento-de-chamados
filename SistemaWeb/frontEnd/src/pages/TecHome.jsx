@@ -1,74 +1,81 @@
-import { useLocation, useNavigate } from 'react-router-dom'
-import folder from "../assets/folder.svg"
-import hourglass from "../assets/hourglass.svg"
-import correct from "../assets/correct.svg"
-import StageCharts from '../components/StageCharts'
-import StageCharts2 from '../components/StageCharts2'
+import { useLocation, useNavigate } from 'react-router-dom';
+import folder from "../assets/folder.svg";
+import hourglass from "../assets/hourglass.svg";
+import correct from "../assets/correct.svg";
+import StageCharts from '../components/StageCharts';
+import StageCharts2 from '../components/StageCharts2';
 
 const TecHome = () => {
-    const location = useLocation()
-    const user = location.state?.user
-    const navigate = useNavigate()
+  const location = useLocation();
+  const user = location.state?.user;
+  const navigate = useNavigate();
 
-    const handleCreateTicket = () => {
-        navigate("/create-ticket", { state: { user } })
-    }
+  const handleCreateTicket = () => {
+    navigate("/create-ticket", { state: { user } });
+  };
 
-    const handlePendingTicket = () => {
-        navigate("/pending-ticket", { state: { user } })
-    }
+  const handlePendingTicket = () => {
+    navigate("/pending-ticket", { state: { user } });
+  };
 
-    const handleTicketInProgress = () => {
-        navigate("/ticket-in-progress", { state: { user } })
-    }
+  const handleTicketInProgress = () => {
+    navigate("/ticket-in-progress", { state: { user } });
+  };
 
-    const handleTicketResolved = () => {
-        navigate("/ticket-resolved", { state: { user } })
-    }
+  const handleTicketResolved = () => {
+    navigate("/ticket-resolved", { state: { user } });
+  };
 
-    return (
-        <main>
-            <h1>Bem-vindo, {user?.Nome}(Técnico)!</h1>
+  if (!user) {
+    return <p>Usuário não autenticado.</p>;
+  }
 
-            <div className="box-buttons">
-                <div className="box-tec-button">
-                    <button className="button-answer-ticket">
-                        Responder chamado
-                    </button>
-                    <button className="button-criar-chamado" onClick={handleCreateTicket}>
-                        Criar chamado
-                    </button>
-                </div>
+  return (
+    <main>
+      <header className="home-header">
+        <h1 className="home-welcome">Bem-vindo, {user?.Nome}</h1>
+        <p className="home-role">Técnico</p>
+      </header>
 
-                <div className="chamados">
-                    <button className="button-chamados" onClick={handlePendingTicket}>
-                        <img src={folder} alt="Pendentes" />
-                        Chamados Pendentes
-                    </button>
+      <div className="box-buttons">
+        <div className="box-tec-button">
+          <button className="button-answer-ticket">
+            Responder chamado
+          </button>
+          <button className="button-criar-chamado" onClick={handleCreateTicket}>
+            Criar chamado
+          </button>
+        </div>
 
-                    <button className="button-chamados" onClick={handleTicketInProgress}>
-                        <img src={hourglass} alt="Em andamento" />
-                        Chamados em Andamento
-                    </button>
+        <div className="chamados">
+          <button className="button-chamados" onClick={handlePendingTicket}>
+            <img src={folder} alt="Pendentes" />
+            Chamados Pendentes
+          </button>
 
-                    <button className="button-chamados" onClick={handleTicketResolved}>
-                        <img src={correct} alt="Solucionados" />
-                        Chamados Resolvidos
-                    </button>
-                </div>
-            </div>
+          <button className="button-chamados" onClick={handleTicketInProgress}>
+            <img src={hourglass} alt="Em andamento" />
+            Chamados em Andamento
+          </button>
 
-            <section className="dashboard-charts">
-                <div className="chart-wrapper">
-                    {StageCharts(user)}
-                </div>
+          <button className="button-chamados" onClick={handleTicketResolved}>
+            <img src={correct} alt="Solucionados" />
+            Chamados Resolvidos
+          </button>
+        </div>
+      </div>
 
-                <div>
-                    {StageCharts2(user)}
-                </div>
-            </section>
-        </main>
-    )
-}
+      <section className="dashboard-charts">
+        <div className="chart-wrapper">
+          {StageCharts(user)}
+        </div>
 
-export default TecHome
+        <div className="chart-wrapper">
+          {StageCharts2(user)}
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default TecHome;

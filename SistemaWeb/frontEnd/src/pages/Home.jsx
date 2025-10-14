@@ -1,34 +1,41 @@
-import { useLocation, useNavigate } from 'react-router-dom'
-import folder from "../assets/folder.svg"
-import hourglass from "../assets/hourglass.svg"
-import correct from "../assets/correct.svg"
-import StageCharts from '../components/StageCharts'
-import StageCharts2 from '../components/StageCharts2'
+import { useLocation, useNavigate } from 'react-router-dom';
+import folder from "../assets/folder.svg";
+import hourglass from "../assets/hourglass.svg";
+import correct from "../assets/correct.svg";
+import StageCharts from '../components/StageCharts';
+import StageCharts2 from '../components/StageCharts2';
 
 const Home = () => {
-  const location = useLocation()
-  const user = location.state?.user
-  const navigate = useNavigate()
+  const location = useLocation();
+  const user = location.state?.user;
+  const navigate = useNavigate();
 
   const handleCreateTicket = () => {
-    navigate("/create-ticket", { state: { user } })
-  }
+    navigate("/create-ticket", { state: { user } });
+  };
 
   const handlePendingTicket = () => {
-    navigate("/pending-ticket", { state: { user } })
-  }
+    navigate("/pending-ticket", { state: { user } });
+  };
 
   const handleTicketInProgress = () => {
-    navigate("/ticket-in-progress", { state: { user } })
-  }
+    navigate("/ticket-in-progress", { state: { user } });
+  };
 
   const handleTicketResolved = () => {
-    navigate("/ticket-resolved", { state: { user } })
+    navigate("/ticket-resolved", { state: { user } });
+  };
+
+  if (!user) {
+    return <p>Usuário não autenticado.</p>;
   }
 
   return (
     <main>
-      <h1>Bem-vindo, {user?.Nome}!</h1>
+      <header className="home-header">
+        <h1 className="home-welcome">Bem-vindo, {user?.Nome}</h1>
+        <p className="home-role">Funcionário</p>
+      </header>
 
       <div className="box-buttons">
         <div className="box-button-chamado">
@@ -60,12 +67,12 @@ const Home = () => {
           {StageCharts(user)}
         </div>
 
-        <div>
+        <div className="chart-wrapper">
           {StageCharts2(user)}
         </div>
       </section>
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
