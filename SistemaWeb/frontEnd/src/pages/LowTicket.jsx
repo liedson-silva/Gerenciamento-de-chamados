@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import api from "../services/api"
 import { formatDate } from "../components/FormatDate"
 
-const TicketResolved = () => {
+const LowTicket = () => {
     const location = useLocation()
     const user = location.state?.user
     const navigate = useNavigate()
@@ -14,30 +14,23 @@ const TicketResolved = () => {
     const [ViewTicket, SetViewTicket] = useState([])
 
     async function getTickets() {
-        if (user.FuncaoUsuario === "Admin" || user.FuncaoUsuario === "Tecnico") {
-            const response = await api.get("/All-tickets")
-            const allTickets = response.data.Tickets
-            const pendingTickets = allTickets.filter(ticket => ticket.StatusChamado === "Resolvido")
-            SetViewTicket(pendingTickets)
-        } else {
-            const response = await api.get(`/tickets/${user.IdUsuario}`)
-            const allTickets = response.data.Tickets
-            const pendingTickets = allTickets.filter(ticket => ticket.StatusChamado === "Resolvido")
-            SetViewTicket(pendingTickets)
-        }
+        const response = await api.get("/All-tickets")
+        const allTickets = response.data.Tickets
+        const pendingTickets = allTickets.filter(ticket => ticket.PrioridadeChamado === "Baixa")
+        SetViewTicket(pendingTickets)
     }
 
     useEffect(() => {
         getTickets()
     }, [])
 
-    function priorityDetail(PrioridadeChamado) {
-        if (PrioridadeChamado === "Alta") {
-            return (<><span className="circle-red">ㅤ</span> {PrioridadeChamado}</>)
-        } else if (PrioridadeChamado === "Média") {
-            return (<><span className="circle-blue">ㅤ</span> {PrioridadeChamado}</>)
+    function statusDetail(StatusChamado) {
+        if (StatusChamado === "Pendente") {
+            return (<><span className="circle-yellow">ㅤ</span> {StatusChamado}</>)
+        } else if (StatusChamado === "Em andamento") {
+            return (<><span className="circle-orange">ㅤ</span> {StatusChamado}</>)
         } else {
-            return (<><span className="circle-green">ㅤ</span> {PrioridadeChamado}</>)
+            return (<><span className="circle-green">ㅤ</span> {StatusChamado}</>)
         }
     }
 
@@ -63,16 +56,16 @@ const TicketResolved = () => {
                             <ul className="info-ticket">
                                 <li className="view-desktop">{ticket.IdChamado}</li>
                                 <li>{ticket.Titulo}</li>
-                                <li> <span className="circle-green">ㅤ</span> {ticket.StatusChamado}</li>
+                                <li>{statusDetail(ticket.StatusChamado)}</li>
                                 <li className="view-desktop">{formatDate(ticket.DataChamado)}</li>
-                                <li>{priorityDetail(ticket.PrioridadeChamado)}</li>
+                                <li className="view-desktop"> <span className="circle-green">ㅤ</span> {ticket.PrioridadeChamado}</li>
                                 <li className="view-desktop">{ticket.Categoria}</li>
                                 <li className="view-desktop">{ticket.Descricao}</li>
                             </ul>
                         </div>
                     ))
                 ) : (
-                    <p className="no-call">Nenhum chamado resolvido no momento.</p>
+                    <p className="no-call">Nenhum chamado com prioridade baixa no momento.</p>
                 )}
             </section>
 
@@ -80,4 +73,4 @@ const TicketResolved = () => {
     )
 }
 
-export default TicketResolved
+export default LowTicket

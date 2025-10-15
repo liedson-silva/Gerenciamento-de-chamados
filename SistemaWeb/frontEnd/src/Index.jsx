@@ -15,6 +15,10 @@ import FAQ from "./pages/FAQ";
 import AdminHome from "./pages/AdminHome";
 import ManageUsers from './pages/ManageUsers';
 import TecHome from './pages/TecHome';
+import LowTicket from "./pages/LowTicket";
+import MediumTicket from "./pages/MediumTicket";
+import HighTicket from "./pages/HighTicket";
+import ReplyTicket from "./pages/ReplyTicket";
 
 function App() {
   return (
@@ -36,6 +40,10 @@ function App() {
           <Route path="/admin-home" element={<AdminHome />} />
           <Route path="/manage-users" element={<ManageUsers />} />
           <Route path="/tec-home" element={<TecHome />} />
+          <Route path="/low-ticket" element={<LowTicket />} />
+          <Route path="/medium-ticket" element={<MediumTicket />} />
+          <Route path="/high-ticket" element={<HighTicket />} />
+          <Route path="/reply-ticket" element={<ReplyTicket />} />
         </Route>
       </Routes>
     </Router>

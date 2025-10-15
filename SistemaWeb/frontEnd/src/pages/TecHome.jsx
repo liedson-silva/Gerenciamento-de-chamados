@@ -1,29 +1,33 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import folder from "../assets/folder.svg";
-import hourglass from "../assets/hourglass.svg";
-import correct from "../assets/correct.svg";
+import low from "../assets/low.svg";
+import medium from "../assets/medium.svg";
+import high from "../assets/high.svg";
 import StageCharts from '../components/StageCharts';
 import StageCharts2 from '../components/StageCharts2';
-
+ 
 const TecHome = () => {
   const location = useLocation();
   const user = location.state?.user;
   const navigate = useNavigate();
 
+  const handleReplyTicket = () => {
+    navigate("/reply-ticket", { state: { user } });
+  }
+
   const handleCreateTicket = () => {
     navigate("/create-ticket", { state: { user } });
   };
 
-  const handlePendingTicket = () => {
-    navigate("/pending-ticket", { state: { user } });
+  const handleLowTicket = () => {
+    navigate("/low-ticket", { state: { user } });
   };
 
-  const handleTicketInProgress = () => {
-    navigate("/ticket-in-progress", { state: { user } });
+  const handleMediumTicket = () => {
+    navigate("/medium-ticket", { state: { user } });
   };
 
-  const handleTicketResolved = () => {
-    navigate("/ticket-resolved", { state: { user } });
+  const handleHighTicket = () => {
+    navigate("/high-ticket", { state: { user } });
   };
 
   if (!user) {
@@ -39,7 +43,7 @@ const TecHome = () => {
 
       <section className="box-buttons">
         <div className="box-tec-button">
-          <button className="button-answer-ticket">
+          <button className="button-answer-ticket" onClick={handleReplyTicket}>
             Responder chamado
           </button>
           <button className="button-criar-chamado" onClick={handleCreateTicket}>
@@ -48,19 +52,19 @@ const TecHome = () => {
         </div>
 
         <div className="chamados">
-          <button className="button-chamados" onClick={handlePendingTicket}>
-            <img src={folder} alt="Pendentes" />
-            Chamados Pendentes
+          <button className="button-chamados" onClick={handleLowTicket}>
+            <img src={low} alt="Pendentes" />
+            Chamados Baixo
           </button>
 
-          <button className="button-chamados" onClick={handleTicketInProgress}>
-            <img src={hourglass} alt="Em andamento" />
-            Chamados em Andamento
+          <button className="button-chamados" onClick={handleMediumTicket}>
+            <img src={medium} alt="Em andamento" />
+            Chamados Médio
           </button>
 
-          <button className="button-chamados" onClick={handleTicketResolved}>
-            <img src={correct} alt="Solucionados" />
-            Chamados Resolvidos
+          <button className="button-chamados" onClick={handleHighTicket}>
+            <img src={high} alt="Solucionados" />
+            Chamados Altos
           </button>
         </div>
       </section>

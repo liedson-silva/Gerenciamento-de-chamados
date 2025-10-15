@@ -1,6 +1,8 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import userIcon from "../assets/folder.svg";
-import ticketIcon from "../assets/folder.svg";
+import low from "../assets/low.svg";
+import medium from "../assets/medium.svg";
+import high from "../assets/high.svg";
 import StageCharts from '../components/StageCharts';
 import StageCharts2 from '../components/StageCharts2';
 
@@ -17,10 +19,18 @@ const AdminHome = () => {
     navigate("/manage-users", { state: { user } });
   };
 
-  const handleAllTickets = () => {
-    navigate("/tickets", { state: { user } });
+  const handleLowTicket = () => {
+    navigate("/low-ticket", { state: { user } });
   };
- 
+
+  const handleMediumTicket = () => {
+    navigate("/medium-ticket", { state: { user } });
+  };
+
+  const handleHighTicket = () => {
+    navigate("/high-ticket", { state: { user } });
+  };
+
   return (
     <main>
       <header className="home-header">
@@ -34,10 +44,23 @@ const AdminHome = () => {
             <img src={userIcon} alt="Gerenciar Usuários" />
             Gerenciar Usuários
           </button>
+        </div>
 
-          <button className="button-chamados" onClick={handleAllTickets}>
-            <img src={ticketIcon} alt="Gerenciar Chamados" />
-            Gerenciar Chamados
+
+        <div className="chamados">
+          <button className="button-chamados" onClick={handleLowTicket}>
+            <img src={low} alt="Pendentes" />
+            Chamados Baixo
+          </button>
+
+          <button className="button-chamados" onClick={handleMediumTicket}>
+            <img src={medium} alt="Em andamento" />
+            Chamados Médio
+          </button>
+
+          <button className="button-chamados" onClick={handleHighTicket}>
+            <img src={high} alt="Solucionados" />
+            Chamados Altos
           </button>
         </div>
       </section>

@@ -29,7 +29,7 @@ export class TicketsController {
                 .input("priority", this.sql.VarChar(7), "Análise")
                 .input("description", this.sql.VarChar(500), description)
                 .input("ticketDate", this.sql.Date, dateforSQL)
-                .input("ticketStatus", this.sql.VarChar(12), "Pendente")
+                .input("ticketStatus", this.sql.VarChar(12), "Resolvido")
                 .input("category", this.sql.VarChar(16), category)
                 .input("userId", this.sql.Int, userId)
                 .input("affectedPeople", this.sql.VarChar(15), affectedPeople)
