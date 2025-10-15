@@ -1,5 +1,6 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    ;
     background: linear-gradient(to right, white, black);
     margin: 0;
 }
@@ -311,7 +312,7 @@ h1 {
 .box-buttons {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 1.5rem;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -430,7 +431,7 @@ h1 {
 
 .user-data {
     border: solid 2px #c6c6c6;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     width: 100%;
     max-width: 300px;
     height: 40px;
@@ -701,8 +702,8 @@ h1 {
 
 @media (max-width: 768px) {
     .view-ticket-form {
-    display: block;
-}
+        display: block;
+    }
 }
 
 /* Tickets, Pending Ticket, Ticket In Progress, Ticket Resolved*/
@@ -751,7 +752,7 @@ h1 {
 .circle-green {
     width: 20px;
     height: 20px;
-    background-color: lime;
+    background-color: #50eb89ff;
     border-radius: 50%;
 }
 
@@ -766,6 +767,20 @@ h1 {
     width: 20px;
     height: 20px;
     background-color: yellow;
+    border-radius: 50%;
+}
+
+.circle-blue {
+    width: 20px;
+    height: 20px;
+    background-color: #5789e0ff;
+    border-radius: 50%;
+}
+
+.circle-red {
+    width: 20px;
+    height: 20px;
+    background-color: #ec6258ff;
     border-radius: 50%;
 }
 
@@ -791,7 +806,7 @@ h1 {
     margin: 40px auto;
     padding: 0 20px;
     font-size: 1.1rem;
-} 
+}
 
 .faq-item {
     background-color: #f9f9f9;
@@ -816,7 +831,7 @@ h1 {
 
 /* Manage Users */
 
-.button-create-ticket{
+.button-create-ticket {
     cursor: pointer;
     background: linear-gradient(to right, white, rgb(176, 176, 176));
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
@@ -828,30 +843,30 @@ h1 {
     margin-left: 40px;
 }
 
-.button-create-ticket:hover{
+.button-create-ticket:hover {
     background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 .user-list,
 .user-form {
-  margin-top: 2rem;
-  margin-left: 40px;
-  margin-right: 40px;
+    margin-top: 2rem;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .user-table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .user-table th,
 .user-table td {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  text-align: left;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
 }
 
-.button-edit-ticket{
+.button-edit-ticket {
     cursor: pointer;
     background: linear-gradient(to right, white, rgb(176, 176, 176));
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
@@ -862,19 +877,19 @@ h1 {
     width: 50px;
 }
 
-.button-edit-ticket:hover{
+.button-edit-ticket:hover {
     background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 .form-create-user {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
-  max-width: 900px;
-  margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    max-width: 900px;
+    margin-top: 1rem;
 }
 
-.button-confirm-user{
+.button-confirm-user {
     cursor: pointer;
     background: linear-gradient(to right, white, rgb(176, 176, 176));
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
@@ -885,7 +900,7 @@ h1 {
     width: 180px;
 }
 
-.button-confirm-user:hover{
+.button-confirm-user:hover {
     background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
@@ -911,12 +926,12 @@ h1 {
 
 /* Tec Home */
 
-.box-tec-button{
+.box-tec-button {
     display: flex;
     justify-content: space-between;
 }
 
-.button-answer-ticket{
+.button-answer-ticket {
     background: linear-gradient(to right, white, rgb(176, 176, 176));
     font-size: 1.7rem;
     height: 50px;
@@ -928,39 +943,117 @@ h1 {
     transition: all 0.3s;
 }
 
-.button-answer-ticket:hover{
+.button-answer-ticket:hover {
     background: linear-gradient(to right, white, rgb(121, 121, 121));
 
 }
 
+
+@media (max-width: 768px) {
+    .box-tec-button {
+        display: block;
+    }
+}
+
 /* Home Admin, Tec */
 .home-header {
-  margin-left: 40px;
-  margin-bottom: 30px;
+    margin-left: 40px;
+    margin-bottom: 30px;
 }
 
 .home-welcome {
-  font-size: 2rem;
-  margin: 0;
+    font-size: 2rem;
+    margin: 0;
 }
 
 .home-role {
-  font-size: 1.2rem;
-  color: #555;
-  margin-top: 8px;
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 8px;
 }
 
 .admin-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
 }
 
 .admin-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Reply Ticket */
+
+.ticket-list,
+.usticketer-form {
+    margin-top: 2rem;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ticket-table th,
+.ticket-table td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.button-reply-ticket {
+    cursor: pointer;
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
+    font-size: .9rem;
+    border-radius: 8px;
+    padding: 5px;
+    width: 90px;
+}
+
+.button-reply-ticket:hover {
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
+.reply-info-ticket {
+    background-color: #c3c3c3;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.reply-ticket {
+    margin-top: 2rem;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.form-reply-ticket{
+    margin-top: 1rem;
+     border: solid 2px #c6c6c6;
+    border-radius: 8px;
+    width: 98%;
+}
+
+.button-confirm-reply {
+    cursor: pointer;
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    margin-top: 15px;
+    padding: 10px;
+    width: 180px;
+}
+
+.button-confirm-reply:hover {
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }

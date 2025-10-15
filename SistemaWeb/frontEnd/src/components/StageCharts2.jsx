@@ -44,7 +44,7 @@ const StageCharts2 = (user) => {
   }, [])
 
   const ticketData = [
-    {
+    { 
       name: 'Baixa',
       value: ViewTickets.filter(ticket => ticket.PrioridadeChamado === "Baixa").length,
       color: '#50eb89ff',

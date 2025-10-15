@@ -180,7 +180,7 @@ const ManageUsers = () => {
               <option value="Feminino">Feminino</option>
               <option value="Outros">Outros</option>
             </select >
-            <input name="date" className="input-create-user" type="date" value={formData.date} onChange={handleInputChange}  />
+            <input name="date" className="input-create-user" type="date" value={formData.date} onChange={handleInputChange} />
             <select name="sector" className="input-create-user" value={formData.sector}
               onChange={handleInputChange} required>
               <option value="">Setor</option>
@@ -188,7 +188,7 @@ const ManageUsers = () => {
               <option value="Financeiro">Financeiro</option>
             </select >
             <input name="login" className="input-create-user" placeholder="Login" value={formData.login} onChange={handleInputChange} required />
-            {!isEditing && (<input name="password" className="input-create-user" type="password" placeholder="Senha" value={formData.password} onChange={handleInputChange} required/>)}
+            {!isEditing && (<input name="password" className="input-create-user" type="password" placeholder="Senha" value={formData.password} onChange={handleInputChange} required />)}
             <button className="button-confirm-user" type="submit">{isEditing ? "Salvar Alterações" : "Criar Usuário"}</button>
           </form>
         </section>

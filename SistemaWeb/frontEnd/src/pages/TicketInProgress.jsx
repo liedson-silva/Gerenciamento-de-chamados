@@ -31,6 +31,15 @@ const TicketInProgress = () => {
         getTickets()
     }, [])
 
+    function priorityDetail(PrioridadeChamado) {
+        if (PrioridadeChamado === "Alta") {
+            return (<><span className="circle-red">ㅤ</span> {PrioridadeChamado}</>)
+        } else if (PrioridadeChamado === "Média") {
+            return (<><span className="circle-blue">ㅤ</span> {PrioridadeChamado}</>)
+        } else {
+            return (<><span className="circle-green">ㅤ</span> {PrioridadeChamado}</>)
+        }
+    }
 
     return (
         <main>
@@ -56,7 +65,7 @@ const TicketInProgress = () => {
                                 <li>{ticket.Titulo}</li>
                                 <li> <span className="circle-orange">ㅤ</span> {ticket.StatusChamado}</li>
                                 <li className="view-desktop">{formatDate(ticket.DataChamado)}</li>
-                                <li className="view-desktop"> <span className="circle-green">ㅤ</span> {ticket.PrioridadeChamado}</li>
+                                <li>{priorityDetail(ticket.PrioridadeChamado)}</li>
                                 <li className="view-desktop">{ticket.Categoria}</li>
                                 <li className="view-desktop">{ticket.Descricao}</li>
                             </ul>
