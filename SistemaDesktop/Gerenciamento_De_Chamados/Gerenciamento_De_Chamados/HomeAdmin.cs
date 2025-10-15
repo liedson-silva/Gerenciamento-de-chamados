@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace Gerenciamento_De_Chamados
 {
-    public partial class Home: Form
+    public partial class HomeAdmin: Form
     {
 
 
         private Funcoes funcoes;
-        public Home()
+        public HomeAdmin()
         {
             InitializeComponent();
 

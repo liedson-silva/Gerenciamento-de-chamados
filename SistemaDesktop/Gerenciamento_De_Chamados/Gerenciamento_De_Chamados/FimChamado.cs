@@ -47,7 +47,7 @@ namespace Gerenciamento_De_Chamados
 
         private void btn_PaginaInicial_Click(object sender, EventArgs e)
         {
-            var telaHome = new Home();
+            var telaHome = new HomeAdmin();
             telaHome.Show();
             this.Visible = false;
         }
@@ -60,6 +60,10 @@ namespace Gerenciamento_De_Chamados
         }
 
 
+        private void lbl_Inicio_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHomeAdmin(this);
+        }
     }
 }
 

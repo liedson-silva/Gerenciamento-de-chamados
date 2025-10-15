@@ -155,5 +155,10 @@ namespace Gerenciamento_De_Chamados
                          LinearGradientMode.Vertical);
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
         }
+
+        private void lbl_Inicio_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHomeAdmin(this);
+        }
     }
-}
+    }

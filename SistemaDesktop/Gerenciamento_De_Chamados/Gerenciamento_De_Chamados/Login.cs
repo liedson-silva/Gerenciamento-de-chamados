@@ -31,7 +31,7 @@ namespace Gerenciamento_De_Chamados
                 Funcoes.SessaoUsuario.Login = "admin";
                 Funcoes.SessaoUsuario.Nome = "Administrador";
 
-                var home = new Home();
+                var home = new HomeAdmin();
                 home.Show();
                 this.Hide();
                 return;
@@ -82,8 +82,8 @@ namespace Gerenciamento_De_Chamados
 
                                 if (funcao == "dev" || funcao == "admin" || funcao == "equipe de ti")
                                 {
-                                    var home = new Home();
-                                    home.Show();
+                                    var homeAdmin = new HomeAdmin();
+                                    homeAdmin.Show();
                                 }
                                 else
                                 {
@@ -175,8 +175,8 @@ namespace Gerenciamento_De_Chamados
             {
                 g.FillRectangle(gradiente, this.ClientRectangle);
             }
-        }
 
-        #endregion
+            #endregion
+        }
     }
 }
