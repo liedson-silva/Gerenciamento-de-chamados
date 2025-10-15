@@ -139,11 +139,27 @@ namespace Gerenciamento_De_Chamados
                 : "Usuário não identificado";
         }
 
-        // 🏠 Botão para voltar à Home
-        public static void BotaoHome(Form formAtual)
+        // 🏠 Botão para voltar à Home admin
+        public static void BotaoHomeAdmin(Form formAtual)
         {
-            var home = new Home();
-            home.Show();
+            var homeAdmin = new HomeAdmin();
+            homeAdmin.Show();
+            formAtual.Hide();
+        }
+
+        // 🏠 Botão para voltar à Home do Usuario
+        public static void BotaoHomeUsuario(Form formAtual)
+        {
+            var homeUsuario = new HomeUsuario();
+            homeUsuario.Show();
+            formAtual.Hide();
+        }
+
+        // 🏠 Botão para voltar à Home do Tecnico
+        public static void BotaoHomeTecnico(Form formAtual)
+        {
+            var homeTecnico = new HomeTecnico();
+            homeTecnico.Show();
             formAtual.Hide();
         }
 
@@ -162,7 +178,7 @@ namespace Gerenciamento_De_Chamados
                 string corpoEmail = $@"
             <h2>Prezado(a): {usuario}</h2>
             <p><b>Número:</b> {idChamado}</p>
-            <p><i>Data:</i> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
+            <p><b>Data:</b> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
             <hr>
             <p><b>Título:</b> {titulo}</p>
             <p><b>Descrição:</b> {descricao}</p>
