@@ -5,11 +5,13 @@ import { FaHouse } from "react-icons/fa6";
 import { IoExitOutline } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Home = () => {
   const location = useLocation();
   const user = location.state?.user;
   const navigate = useNavigate();
+  const [exit, setExit] = useState("");
 
   const handleHome = () => {
     if (user.FuncaoUsuario === "Admin") {
@@ -21,8 +23,14 @@ const Home = () => {
     }
   };
 
-  const handleLogin = () => {
-    navigate("/");
+  const handleLogin = (response) => {
+    setExit("Tem certeza que deseja sair?")
+    if (response === "yes") {
+      navigate("/");
+    } else if (response === "no") {
+      setExit("")
+    }
+    setTimeout(() => setExit(""), 3000);
   };
 
   const handleUserConfig = () => {
@@ -58,6 +66,20 @@ const Home = () => {
           </li>
         </ul>
       </nav>
+
+      {exit && (
+        <div>
+          <p className="notice">{exit}
+            <button className="button-yes" onClick={() => handleLogin("yes")}>
+              Sim
+            </button>
+            <button className="button-no" onClick={() => handleLogin("no")}>
+              Não
+            </button>
+          </p>
+
+        </div>
+      )}
 
       <div className="main-header">
         <div className="header-content-wrapper">

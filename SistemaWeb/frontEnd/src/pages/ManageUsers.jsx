@@ -40,7 +40,7 @@ const ManageUsers = () => {
       setErrorMessage("Erro ao buscar usuários.");
     }
   };
-
+ 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -114,7 +114,7 @@ const ManageUsers = () => {
       setErrorMessage("");
     }, 3000);
   };
-
+ 
   return (
     <main className="scroll-list">
       <h1>Gerenciar Usuários</h1>

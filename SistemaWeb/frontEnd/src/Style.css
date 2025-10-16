@@ -280,6 +280,38 @@ h1 {
     font-size: 2rem;
 }
 
+.button-yes {
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    margin: 10px;
+    border: none;
+    border-radius: 50px;
+    justify-content: center;
+    cursor: pointer;
+    width: 80px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.button-yes:hover {
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
+.button-no {
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    margin: 10px;
+    border: none;
+    border-radius: 50px;
+    justify-content: center;
+    cursor: pointer;
+    width: 80px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.button-no:hover {
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
 @media (max-width: 768px) {
     nav {
         display: none;
@@ -374,7 +406,7 @@ h1 {
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
-    padding: 20px;
+    margin-top: 15px;
 }
 
 .chart-wrapper {
@@ -439,9 +471,33 @@ h1 {
     align-items: center;
 }
 
+.box-button-back-home {
+    display: flex;
+    align-items: end;
+}
+
+.button-back-home {
+    cursor: pointer;
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100px;
+}
+
+.button-back-home:hover {
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
 @media (max-width:768px) {
     .user-config-data {
         gap: 2rem;
+    }
+
+    .button-back-home {
+        display: none;
     }
 }
 
@@ -662,8 +718,15 @@ h1 {
 }
 
 .form-title {
-    margin-top: 0;
+    margin-top: -25px;
     color: #03672D;
+}
+
+.form-info-desktop {
+    margin-left: 40px;
+    margin-right: 40px;
+    color: #03672D;
+    font-size: 1.1rem;
 }
 
 .form-info {
@@ -704,6 +767,10 @@ h1 {
     .view-ticket-form {
         display: block;
     }
+
+    .form-info-desktop {
+        display: none;
+    }
 }
 
 /* Tickets, Pending Ticket, Ticket In Progress, Ticket Resolved*/
@@ -721,7 +788,7 @@ h1 {
 }
 
 .scroll-lists {
-    max-height: calc(55vh - 200px);
+    max-height: calc(55vh - 100px);
     overflow-y: auto;
     padding-bottom: 10px;
 }
@@ -1035,9 +1102,9 @@ h1 {
     margin-right: 40px;
 }
 
-.form-reply-ticket{
+.form-reply-ticket {
     margin-top: 1rem;
-     border: solid 2px #c6c6c6;
+    border: solid 2px #c6c6c6;
     border-radius: 8px;
     width: 98%;
 }
