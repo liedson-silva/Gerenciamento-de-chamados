@@ -2,6 +2,7 @@ import logo from "../assets/logo.png";
 import { BsList } from "react-icons/bs";
 import { LuMessageCircleQuestion } from "react-icons/lu";
 import { FaHouse } from "react-icons/fa6";
+import { IoExitOutline } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
@@ -43,11 +44,17 @@ const Home = () => {
           <img src={logo} className="nav-logo-img" alt="logo" />
         </button>
         <ul>
+          <li className="nav-item" onClick={handleUserConfig}>
+            <FaRegUserCircle className="nav-item-icon" /> Minha Conta
+          </li>
           <li className="nav-item" onClick={handleAllTicket}>
             <BsList className="nav-item-icon" /> Chamados
           </li>
           <li className="nav-item" onClick={handleFAQ}>
             <LuMessageCircleQuestion className="nav-item-icon" /> FAQ
+          </li>
+          <li className="nav-item" onClick={handleLogin}>
+            <IoExitOutline className="nav-item-icon" /> Sair
           </li>
         </ul>
       </nav>

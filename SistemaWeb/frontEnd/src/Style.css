@@ -145,7 +145,7 @@ nav {
     list-style: none;
     cursor: pointer;
     margin-bottom: 20px;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -327,7 +327,7 @@ h1 {
     background: linear-gradient(to right, white, rgb(176, 176, 176));
     font-size: 1.7rem;
     height: 50px;
-    width: 280px;
+    width: 260px;
     border-radius: 8px;
     cursor: pointer;
     border: none;
@@ -352,7 +352,7 @@ h1 {
     align-items: center;
     font-size: 1.7rem;
     height: 80px;
-    width: 280px;
+    width: 260px;
     border-radius: 8px;
     cursor: pointer;
     border: none;
@@ -933,9 +933,9 @@ h1 {
 
 .button-answer-ticket {
     background: linear-gradient(to right, white, rgb(176, 176, 176));
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     height: 50px;
-    width: 280px;
+    width: 260px;
     border-radius: 8px;
     cursor: pointer;
     border: none;
