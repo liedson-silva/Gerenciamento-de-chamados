@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace Gerenciamento_De_Chamados
 {
@@ -167,5 +168,18 @@ namespace Gerenciamento_De_Chamados
             }
         
     }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicioPanel = Color.White;
+            Color corFimPanel = ColorTranslator.FromHtml("#232325");
+            LinearGradientBrush gradientePanel = new LinearGradientBrush(
+                     panel1.ClientRectangle,
+                    corInicioPanel,
+                    corFimPanel,
+                    LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
+            g.FillRectangle(gradientePanel, panel1.ClientRectangle);
+        }
     }
 }

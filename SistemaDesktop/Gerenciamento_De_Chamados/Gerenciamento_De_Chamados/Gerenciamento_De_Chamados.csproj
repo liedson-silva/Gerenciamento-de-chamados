@@ -137,11 +137,11 @@
     <Compile Include="HomeTecnico.Designer.cs">
       <DependentUpon>HomeTecnico.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeUsuario.cs">
+    <Compile Include="HomeFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomeUsuario.Designer.cs">
-      <DependentUpon>HomeUsuario.cs</DependentUpon>
+    <Compile Include="HomeFuncionario.Designer.cs">
+      <DependentUpon>HomeFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -201,8 +201,8 @@
     <EmbeddedResource Include="HomeTecnico.resx">
       <DependentUpon>HomeTecnico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomeUsuario.resx">
-      <DependentUpon>HomeUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="HomeFuncionario.resx">
+      <DependentUpon>HomeFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

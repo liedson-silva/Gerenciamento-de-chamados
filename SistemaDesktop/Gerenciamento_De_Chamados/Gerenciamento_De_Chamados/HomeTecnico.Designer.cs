@@ -237,7 +237,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(244, 104);
             this.button1.TabIndex = 22;
-            this.button1.Text = "     Chamados \r\n     Baixos\r\n";
+            this.button1.Text = "    \r\n Chamados \r\n     Baixo\r\n\r\n";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // HomeTecnico

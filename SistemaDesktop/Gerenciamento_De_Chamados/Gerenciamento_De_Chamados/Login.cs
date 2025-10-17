@@ -80,17 +80,24 @@ namespace Gerenciamento_De_Chamados
 
                                 string funcao = Funcoes.SessaoUsuario.FuncaoUsuario.ToLower();
 
-                                if (funcao == "dev" || funcao == "admin" || funcao == "equipe de ti")
+                                if (funcao == "admin")
                                 {
                                     var homeAdmin = new HomeAdmin();
                                     homeAdmin.Show();
+                                    this.Hide();
+                                }
+                                else if (funcao == "tecnico")
+                                {
+                                    var homeTecnico = new HomeTecnico();
+                                    homeTecnico.Show();
+                                    this.Hide();
                                 }
                                 else
                                 {
-                                    var Homeuser = new HomeUsuario();
-                                    Homeuser.Show();
+                                    var homeUser = new HomeFuncionario();
+                                    homeUser.Show();
+                                    this.Hide();
                                 }
-                                this.Hide();
                             }
                             catch (Exception exSessao)
                             {

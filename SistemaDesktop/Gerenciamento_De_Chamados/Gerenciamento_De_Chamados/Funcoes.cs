@@ -131,7 +131,7 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-        // 🧩 Exibir usuário logado em qualquer tela
+        //  Exibir usuário logado em qualquer tela
         public static void ExibirUsuarioEmLabel(Label labelDestino)
         {
             labelDestino.Text = !string.IsNullOrEmpty(SessaoUsuario.Nome)
@@ -139,7 +139,7 @@ namespace Gerenciamento_De_Chamados
                 : "Usuário não identificado";
         }
 
-        // 🏠 Botão para voltar à Home admin
+        //  Botão para voltar à Home admin
         public static void BotaoHomeAdmin(Form formAtual)
         {
             var homeAdmin = new HomeAdmin();
@@ -147,15 +147,15 @@ namespace Gerenciamento_De_Chamados
             formAtual.Hide();
         }
 
-        // 🏠 Botão para voltar à Home do Usuario
-        public static void BotaoHomeUsuario(Form formAtual)
+        // Botão para voltar à Home do Funcionario
+        public static void BotaoHomeFuncionario(Form formAtual)
         {
-            var homeUsuario = new HomeUsuario();
-            homeUsuario.Show();
+            var homeFuncionario = new HomeFuncionario();
+            homeFuncionario.Show();
             formAtual.Hide();
         }
 
-        // 🏠 Botão para voltar à Home do Tecnico
+        //  Botão para voltar à Home do Tecnico
         public static void BotaoHomeTecnico(Form formAtual)
         {
             var homeTecnico = new HomeTecnico();
@@ -163,7 +163,7 @@ namespace Gerenciamento_De_Chamados
             formAtual.Hide();
         }
 
-        // 📧 Enviar e-mail ao abrir chamado
+        //  Enviar e-mail ao abrir chamado
         public static void EnviarEmailChamado(
             string titulo, string descricao, string categoria, int idChamado,
             string prioridade, string status, string pessoasAfetadas,
