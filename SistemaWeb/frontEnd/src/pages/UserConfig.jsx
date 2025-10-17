@@ -1,9 +1,21 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { formatDate } from '../components/FormatDate'
 
 const UserConfig = () => {
     const location = useLocation()
     const user = location.state?.user
+    const navigate = useNavigate()
+
+    const handleHome = () => {
+        if (user.FuncaoUsuario === "Admin") {
+            navigate("/admin-home", { state: { user } });
+        } else if (user.FuncaoUsuario === "Tecnico") {
+            navigate("/tec-home", { state: { user } });
+        } else {
+            navigate("/home", { state: { user } });
+        }
+    }
+
     return (
         <main>
             <h1>Minhas Configurações</h1>
@@ -25,6 +37,9 @@ const UserConfig = () => {
                     <div className='user-data'>{user?.Login}</div>
                     <div className='user-data'>{user?.Sexo}</div>
                     <div className='user-data'>{formatDate(user?.DataDeNascimento)}</div>
+                </div>
+                <div className='box-button-back-home'>
+                    <button className='button-back-home' onClick={handleHome}>Voltar</button>
                 </div>
             </section>
         </main>

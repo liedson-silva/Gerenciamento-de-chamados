@@ -1,26 +1,62 @@
-import { useLocation } from "react-router-dom"
 import { useState, useEffect } from "react"
 import api from "../services/api.js"
 import { formatDate } from "../components/FormatDate.jsx"
 
 const ReplyTicket = () => {
-    const location = useLocation()
-    const user = location.state.user
     const [ViewTickets, SetViewTickets] = useState([])
+    const [successMessage, setSuccessMessage] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
+    const [showForm, setShowForm] = useState(false)
+    const [formData, setFormData] = useState({
+    idTicket: "",
+    idUser: "",
+    title: "",
+    description: "",
+    priority: "",
+    date: "",
+  })
 
     async function getTicket() {
-        const response = await api.get("/All-tickets")
-        SetViewTickets(response.data.Tickets)
+        try {
+            const response = await api.get("/All-tickets")
+            if (response.data.success) {
+                SetViewTickets(response.data.Tickets)
+            } else {
+                setErrorMessage("Erro ao carregar chamados.")
+            }
+        } catch (error) {
+            console.error("Erro ao buscar chamados:", error)
+            setErrorMessage("Erro ao buscar chamados.")
+        }
+        setTimeout(() => {
+            setSuccessMessage("");
+            setErrorMessage("");
+        }, 3000);
     }
     useEffect(() => {
         getTicket()
     }, [])
+
+    const handleReplyTicket = (ticket) => {
+    setFormData({
+      idTicket: ticket.IdChamado,
+      idUser: ticket.FK_IdUsuario,
+      title: ticket.Titulo,
+      description: ticket.Descricao,
+      priority: ticket.PrioridadeChamado,
+      date: ticket.DataChamado
+    })
+    setShowForm(true)
+  }
 
     return (
         <main className="scroll-list">
             <header className="home-header">
                 <h1 className="home-welcome">Responder chamado</h1>
             </header>
+
+            {errorMessage && <p className="notice">{errorMessage}</p>}
+            {successMessage && <p className="success">{successMessage}</p>}
 
             <section className="ticket-list">
                 <div className="scroll-lists">
@@ -38,7 +74,7 @@ const ReplyTicket = () => {
                         </thead>
                         <tbody>
                             {ViewTickets.map((ticket) => (
-                                <tr key={ticket.IdUsuario}>
+                                <tr key={ticket.IdChamado}>
                                     <td>{ticket.IdChamado}</td>
                                     <td>{ticket.Titulo}</td>
                                     <td>{ticket.Descricao}</td>
@@ -58,7 +94,7 @@ const ReplyTicket = () => {
                                         <> <span className="circle-green">ㅤ</span> {ticket.StatusChamado}</>
                                     )}</td>
                                     <td>
-                                        <button className="button-reply-ticket">Responder</button>
+                                        <button className="button-reply-ticket" onClick={() => (handleReplyTicket (ticket))}>Responder</button>
                                     </td>
                                 </tr>
                             ))}
@@ -67,18 +103,21 @@ const ReplyTicket = () => {
                 </div>
             </section>
 
-            <section className="reply-ticket">
-                <h2>Detalhes do Chamado #{ }</h2>
-                <div className="reply-info-ticket">
-                    <p>Id do Solicitante: xx</p>
-                    <p>Data de Abertura: xx/xx/xxxx</p>
-                    <p>Prioridade: x</p>
-                    <p>Titulo: x</p>
-                    <p>Descrição: x</p>
-                </div>
-                <input name="name" className="form-reply-ticket" placeholder="Resposta:" value={""} onChange={""} required />
-                <button className="button-confirm-reply" type="submit">Enviar</button>
-            </section>
+            {showForm && (
+                <section className="reply-ticket">
+                    <h2>Detalhes do Chamado #{formData.idTicket}</h2>
+                    <div className="reply-info-ticket">
+                        <p>Id do Solicitante: {formData.idUser}</p>
+                        <p>Data de Abertura: {formatDate(formData.date)}</p>
+                        <p>Prioridade: {formData.priority}</p>
+                        <p>Titulo: {formData.title}</p>
+                        <p>Descrição: {formData.description}</p>
+                    </div>
+                    <input name="name" className="form-reply-ticket" placeholder="Resposta:" value={""} onChange={""} required />
+                    <button className="button-confirm-reply" type="submit">Enviar</button>
+                </section>
+            )}
+
         </main>
     )
 }

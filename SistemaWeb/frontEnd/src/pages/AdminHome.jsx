@@ -60,7 +60,7 @@ const AdminHome = () => {
 
           <button className="button-chamados" onClick={handleHighTicket}>
             <img src={high} alt="Solucionados" />
-            Chamados Altos
+            Chamados Alto
           </button>
         </div>
       </section>
