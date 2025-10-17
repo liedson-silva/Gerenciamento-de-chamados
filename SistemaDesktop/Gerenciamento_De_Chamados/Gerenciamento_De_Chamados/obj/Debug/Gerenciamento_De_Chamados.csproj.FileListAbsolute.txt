@@ -56,7 +56,6 @@ C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Gerenciamento_De_Chamados.exe
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Gerenciamento_De_Chamados.pdb
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.csproj.AssemblyReference.cache
-C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe.config
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.AberturaChamados.resources
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.Cadastro_de_Usuarios.resources
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.ChamadoCriado.resources
@@ -71,10 +70,10 @@ C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.pdb
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.FimChamado.resources
-C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.HomeUsuario.resources
 C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.FimChamado.resources
 C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.HomeUsuario.resources
 C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.Editar_Usuario.resources
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.Editar_Usuario.resources
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.HomeAdmin.resources
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.HomeTecnico.resources
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.HomeFuncionario.resources

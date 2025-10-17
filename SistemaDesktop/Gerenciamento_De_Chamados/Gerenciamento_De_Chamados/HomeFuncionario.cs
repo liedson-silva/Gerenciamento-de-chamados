@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gerenciamento_De_Chamados
 {
-    public partial class HomeUsuario : Form
+    public partial class HomeFuncionario : Form
     {
-        public HomeUsuario()
+        public HomeFuncionario()
         {
             InitializeComponent();
             this.Load += HomeUsuario_Load;

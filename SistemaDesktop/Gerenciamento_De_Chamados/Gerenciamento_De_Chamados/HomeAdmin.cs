@@ -25,10 +25,7 @@ namespace Gerenciamento_De_Chamados
             funcoes = new Funcoes();
 
         }
-        
-
-
-        
+ 
 
         private void btnGerChamado_Click(object sender, EventArgs e)
         {
@@ -61,9 +58,23 @@ namespace Gerenciamento_De_Chamados
         private void Home_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem-Vindo:{Funcoes.SessaoUsuario.Nome}!");
+                lbl_NomeUser.Text = ($"Bem-Vindo, {Funcoes.SessaoUsuario.Nome}  {Funcoes.SessaoUsuario.FuncaoUsuario}!");
+           
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
+        }
+
+        private void HomeAdmin_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicio = Color.White;
+            Color corFim = ColorTranslator.FromHtml("#232325");
+
+            using (LinearGradientBrush gradiente = new LinearGradientBrush(
+                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+            {
+                g.FillRectangle(gradiente, this.ClientRectangle);
+            }
         }
     }
 }

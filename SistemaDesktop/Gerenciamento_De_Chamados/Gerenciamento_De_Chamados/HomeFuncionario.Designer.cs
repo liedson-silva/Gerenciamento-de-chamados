@@ -1,6 +1,6 @@
 ﻿namespace Gerenciamento_De_Chamados
 {
-    partial class HomeUsuario
+    partial class HomeFuncionario
     {
         /// <summary>
         /// Required designer variable.
