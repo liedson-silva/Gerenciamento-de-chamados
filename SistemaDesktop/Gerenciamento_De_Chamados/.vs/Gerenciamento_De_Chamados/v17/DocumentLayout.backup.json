@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\users\\gabriel\\desktop\\faculdade\\pim\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\users\\gabriel\\desktop\\faculdade\\pim\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\visualizarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\visualizarchamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\chamadocriado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -122,28 +122,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "Funcoes.cs",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Funcoes.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Funcoes.cs",
               "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Funcoes.cs",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Funcoes.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAAAEUAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAqwEUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-09T04:35:10.095Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AberturaChamados.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AberturaChamados.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\AberturaChamados.cs",
@@ -154,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GerenciarUsuarios.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
@@ -165,19 +162,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Editar_Usuarios.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Editar_Usuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Editar_Usuarios.cs",
               "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Editar_Usuarios.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Editar_Usuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T17:39:47.136Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-15T17:39:47.136Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "FimChamado.cs",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\FimChamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\FimChamado.cs",
@@ -200,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Login.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Login.cs",
@@ -212,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ChamadoCriado.cs",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\ChamadoCriado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\ChamadoCriado.cs",
@@ -224,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "VisualizarChamado.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\VisualizarChamado.cs",
@@ -247,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "HomeFuncionario.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeFuncionario.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeFuncionario.cs",

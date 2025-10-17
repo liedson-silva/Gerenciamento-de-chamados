@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\users\\gabriel\\desktop\\faculdade\\pim\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\funcoes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\users\\gabriel\\desktop\\faculdade\\pim\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\editar_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -139,10 +139,6 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "AberturaChamados.cs [Design]",
@@ -173,8 +169,7 @@
               "ToolTip": "C:\\Users\\Gabriel\\Desktop\\Faculdade\\PIM\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Editar_Usuarios.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Editar_Usuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T17:39:47.136Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-15T17:39:47.136Z"
             },
             {
               "$type": "Document",
