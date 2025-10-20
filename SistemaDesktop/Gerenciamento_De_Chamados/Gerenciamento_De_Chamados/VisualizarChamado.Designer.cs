@@ -29,15 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvChamados = new System.Windows.Forms.DataGridView();
-            this.idChamadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKIdUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataChamadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prioridadeChamadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusChamadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chamadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._DbaFatal_SystemDataSet1 = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSet1();
             this.txtPesquisarChamados = new System.Windows.Forms.TextBox();
@@ -54,6 +48,14 @@
             this._DbaFatal_SystemDataSet = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSet();
             this.dbaFatalSystemDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chamadoTableAdapter = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSet1TableAdapters.ChamadoTableAdapter();
+            this.idChamadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prioridadeChamadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataChamadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusChamadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKIdUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChamados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chamadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet1)).BeginInit();
@@ -67,86 +69,55 @@
             // 
             // dgvChamados
             // 
+            this.dgvChamados.AllowUserToAddRows = false;
+            this.dgvChamados.AllowUserToDeleteRows = false;
+            this.dgvChamados.AllowUserToResizeColumns = false;
+            this.dgvChamados.AllowUserToResizeRows = false;
             this.dgvChamados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvChamados.AutoGenerateColumns = false;
-            this.dgvChamados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvChamados.BackgroundColor = System.Drawing.Color.White;
+            this.dgvChamados.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvChamados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvChamados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChamados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idChamadoDataGridViewTextBoxColumn,
-            this.fKIdUsuarioDataGridViewTextBoxColumn,
             this.tituloDataGridViewTextBoxColumn,
-            this.dataChamadoDataGridViewTextBoxColumn,
-            this.categoriaDataGridViewTextBoxColumn,
-            this.descricaoDataGridViewTextBoxColumn,
             this.prioridadeChamadoDataGridViewTextBoxColumn,
-            this.statusChamadoDataGridViewTextBoxColumn});
+            this.descricaoDataGridViewTextBoxColumn,
+            this.dataChamadoDataGridViewTextBoxColumn,
+            this.statusChamadoDataGridViewTextBoxColumn,
+            this.categoriaDataGridViewTextBoxColumn,
+            this.fKIdUsuarioDataGridViewTextBoxColumn});
             this.dgvChamados.DataSource = this.chamadoBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChamados.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvChamados.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvChamados.Location = new System.Drawing.Point(317, 431);
-            this.dgvChamados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvChamados.Margin = new System.Windows.Forms.Padding(4);
             this.dgvChamados.Name = "dgvChamados";
+            this.dgvChamados.RowHeadersVisible = false;
             this.dgvChamados.RowHeadersWidth = 51;
+            this.dgvChamados.RowTemplate.Height = 40;
             this.dgvChamados.Size = new System.Drawing.Size(1284, 321);
             this.dgvChamados.TabIndex = 17;
             this.dgvChamados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChamados_CellDoubleClick);
-            // 
-            // idChamadoDataGridViewTextBoxColumn
-            // 
-            this.idChamadoDataGridViewTextBoxColumn.DataPropertyName = "IdChamado";
-            this.idChamadoDataGridViewTextBoxColumn.HeaderText = "IdChamado";
-            this.idChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idChamadoDataGridViewTextBoxColumn.Name = "idChamadoDataGridViewTextBoxColumn";
-            this.idChamadoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fKIdUsuarioDataGridViewTextBoxColumn
-            // 
-            this.fKIdUsuarioDataGridViewTextBoxColumn.DataPropertyName = "FK_IdUsuario";
-            this.fKIdUsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario";
-            this.fKIdUsuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fKIdUsuarioDataGridViewTextBoxColumn.Name = "fKIdUsuarioDataGridViewTextBoxColumn";
-            // 
-            // tituloDataGridViewTextBoxColumn
-            // 
-            this.tituloDataGridViewTextBoxColumn.DataPropertyName = "Titulo";
-            this.tituloDataGridViewTextBoxColumn.HeaderText = "Titulo";
-            this.tituloDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tituloDataGridViewTextBoxColumn.Name = "tituloDataGridViewTextBoxColumn";
-            // 
-            // dataChamadoDataGridViewTextBoxColumn
-            // 
-            this.dataChamadoDataGridViewTextBoxColumn.DataPropertyName = "DataChamado";
-            this.dataChamadoDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dataChamadoDataGridViewTextBoxColumn.Name = "dataChamadoDataGridViewTextBoxColumn";
-            // 
-            // categoriaDataGridViewTextBoxColumn
-            // 
-            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            // 
-            // prioridadeChamadoDataGridViewTextBoxColumn
-            // 
-            this.prioridadeChamadoDataGridViewTextBoxColumn.DataPropertyName = "PrioridadeChamado";
-            this.prioridadeChamadoDataGridViewTextBoxColumn.HeaderText = "Prioridade";
-            this.prioridadeChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.prioridadeChamadoDataGridViewTextBoxColumn.Name = "prioridadeChamadoDataGridViewTextBoxColumn";
-            // 
-            // statusChamadoDataGridViewTextBoxColumn
-            // 
-            this.statusChamadoDataGridViewTextBoxColumn.DataPropertyName = "StatusChamado";
-            this.statusChamadoDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.statusChamadoDataGridViewTextBoxColumn.Name = "statusChamadoDataGridViewTextBoxColumn";
             // 
             // chamadoBindingSource
             // 
@@ -164,7 +135,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPesquisarChamados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPesquisarChamados.Location = new System.Drawing.Point(463, 290);
-            this.txtPesquisarChamados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPesquisarChamados.Margin = new System.Windows.Forms.Padding(4);
             this.txtPesquisarChamados.Multiline = true;
             this.txtPesquisarChamados.Name = "txtPesquisarChamados";
             this.txtPesquisarChamados.Size = new System.Drawing.Size(1033, 42);
@@ -202,7 +173,7 @@
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(305, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1326, 103);
             this.panel2.TabIndex = 11;
@@ -250,7 +221,7 @@
             this.panel1.Controls.Add(this.PctBox_Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(305, 958);
             this.panel1.TabIndex = 10;
@@ -286,7 +257,7 @@
             // 
             this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
             this.PctBox_Logo.Location = new System.Drawing.Point(-47, -63);
-            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(4);
             this.PctBox_Logo.Name = "PctBox_Logo";
             this.PctBox_Logo.Size = new System.Drawing.Size(393, 298);
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -307,6 +278,81 @@
             // 
             this.chamadoTableAdapter.ClearBeforeFill = true;
             // 
+            // idChamadoDataGridViewTextBoxColumn
+            // 
+            this.idChamadoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idChamadoDataGridViewTextBoxColumn.DataPropertyName = "IdChamado";
+            this.idChamadoDataGridViewTextBoxColumn.FillWeight = 40F;
+            this.idChamadoDataGridViewTextBoxColumn.HeaderText = "IdChamado";
+            this.idChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idChamadoDataGridViewTextBoxColumn.Name = "idChamadoDataGridViewTextBoxColumn";
+            this.idChamadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idChamadoDataGridViewTextBoxColumn.Width = 131;
+            // 
+            // tituloDataGridViewTextBoxColumn
+            // 
+            this.tituloDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.tituloDataGridViewTextBoxColumn.DataPropertyName = "Titulo";
+            this.tituloDataGridViewTextBoxColumn.FillWeight = 60F;
+            this.tituloDataGridViewTextBoxColumn.HeaderText = "Titulo";
+            this.tituloDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tituloDataGridViewTextBoxColumn.Name = "tituloDataGridViewTextBoxColumn";
+            this.tituloDataGridViewTextBoxColumn.Width = 86;
+            // 
+            // prioridadeChamadoDataGridViewTextBoxColumn
+            // 
+            this.prioridadeChamadoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.prioridadeChamadoDataGridViewTextBoxColumn.DataPropertyName = "PrioridadeChamado";
+            this.prioridadeChamadoDataGridViewTextBoxColumn.HeaderText = "Prioridade";
+            this.prioridadeChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.prioridadeChamadoDataGridViewTextBoxColumn.Name = "prioridadeChamadoDataGridViewTextBoxColumn";
+            this.prioridadeChamadoDataGridViewTextBoxColumn.Width = 123;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.FillWeight = 240F;
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            // 
+            // dataChamadoDataGridViewTextBoxColumn
+            // 
+            this.dataChamadoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataChamadoDataGridViewTextBoxColumn.DataPropertyName = "DataChamado";
+            this.dataChamadoDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dataChamadoDataGridViewTextBoxColumn.Name = "dataChamadoDataGridViewTextBoxColumn";
+            this.dataChamadoDataGridViewTextBoxColumn.Width = 77;
+            // 
+            // statusChamadoDataGridViewTextBoxColumn
+            // 
+            this.statusChamadoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.statusChamadoDataGridViewTextBoxColumn.DataPropertyName = "StatusChamado";
+            this.statusChamadoDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.statusChamadoDataGridViewTextBoxColumn.Name = "statusChamadoDataGridViewTextBoxColumn";
+            this.statusChamadoDataGridViewTextBoxColumn.Width = 89;
+            // 
+            // categoriaDataGridViewTextBoxColumn
+            // 
+            this.categoriaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
+            this.categoriaDataGridViewTextBoxColumn.Width = 117;
+            // 
+            // fKIdUsuarioDataGridViewTextBoxColumn
+            // 
+            this.fKIdUsuarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.fKIdUsuarioDataGridViewTextBoxColumn.DataPropertyName = "FK_IdUsuario";
+            this.fKIdUsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario";
+            this.fKIdUsuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fKIdUsuarioDataGridViewTextBoxColumn.Name = "fKIdUsuarioDataGridViewTextBoxColumn";
+            this.fKIdUsuarioDataGridViewTextBoxColumn.Width = 99;
+            // 
             // VisualizarChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -318,7 +364,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VisualizarChamado";
             this.Text = "VisualizarChamado";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -357,14 +403,14 @@
         private _DbaFatal_SystemDataSet1 _DbaFatal_SystemDataSet1;
         private System.Windows.Forms.BindingSource chamadoBindingSource;
         private _DbaFatal_SystemDataSet1TableAdapters.ChamadoTableAdapter chamadoTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idChamadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fKIdUsuarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataChamadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prioridadeChamadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusChamadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lbl_NomeUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idChamadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prioridadeChamadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataChamadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusChamadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fKIdUsuarioDataGridViewTextBoxColumn;
     }
 }

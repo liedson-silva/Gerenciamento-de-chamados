@@ -28,26 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_inicio = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnGerChamado = new System.Windows.Forms.Button();
-            this.GpBox_Home = new System.Windows.Forms.GroupBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lbl_NomeUser = new System.Windows.Forms.Label();
+            this.roundedPanel1 = new RoundedPanel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
-            this.GpBox_Home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,17 +86,6 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
-            // 
-            // lbl_NomeUser
-            // 
-            this.lbl_NomeUser.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(7, 6);
-            this.lbl_NomeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(659, 94);
-            this.lbl_NomeUser.TabIndex = 6;
-            this.lbl_NomeUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel1
             // 
@@ -157,7 +145,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::Gerenciamento_De_Chamados.Properties.Resources.folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz481;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(48, 184);
+            this.button2.Location = new System.Drawing.Point(370, 315);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(338, 121);
@@ -172,7 +160,7 @@
             this.btnGerChamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerChamado.Image = global::Gerenciamento_De_Chamados.Properties.Resources.folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz48;
             this.btnGerChamado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGerChamado.Location = new System.Drawing.Point(565, 184);
+            this.btnGerChamado.Location = new System.Drawing.Point(858, 315);
             this.btnGerChamado.Margin = new System.Windows.Forms.Padding(4);
             this.btnGerChamado.Name = "btnGerChamado";
             this.btnGerChamado.Size = new System.Drawing.Size(340, 121);
@@ -181,43 +169,51 @@
             this.btnGerChamado.UseVisualStyleBackColor = true;
             this.btnGerChamado.Click += new System.EventHandler(this.btnGerChamado_Click);
             // 
-            // GpBox_Home
-            // 
-            this.GpBox_Home.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.GpBox_Home.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.GpBox_Home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.GpBox_Home.Controls.Add(this.chart1);
-            this.GpBox_Home.Controls.Add(this.lbl_NomeUser);
-            this.GpBox_Home.Controls.Add(this.btnGerChamado);
-            this.GpBox_Home.Controls.Add(this.button2);
-            this.GpBox_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GpBox_Home.Location = new System.Drawing.Point(332, 135);
-            this.GpBox_Home.Name = "GpBox_Home";
-            this.GpBox_Home.Size = new System.Drawing.Size(1045, 793);
-            this.GpBox_Home.TabIndex = 0;
-            this.GpBox_Home.TabStop = false;
-            // 
             // chart1
             // 
             this.chart1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.chart1.BackColor = System.Drawing.Color.DarkGray;
             this.chart1.BorderlineColor = System.Drawing.Color.DarkGray;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(117, 389);
+            chartArea9.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this.chart1.Legends.Add(legend9);
+            this.chart1.Location = new System.Drawing.Point(382, 496);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chart1.Series.Add(series9);
             this.chart1.Size = new System.Drawing.Size(300, 321);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
+            // 
+            // lbl_NomeUser
+            // 
+            this.lbl_NomeUser.BackColor = System.Drawing.Color.White;
+            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NomeUser.Location = new System.Drawing.Point(363, 182);
+            this.lbl_NomeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_NomeUser.Name = "lbl_NomeUser";
+            this.lbl_NomeUser.Size = new System.Drawing.Size(659, 94);
+            this.lbl_NomeUser.TabIndex = 6;
+            this.lbl_NomeUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.CornerRadius = 15;
+            this.roundedPanel1.Location = new System.Drawing.Point(342, 138);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Size = new System.Drawing.Size(1064, 808);
+            this.roundedPanel1.TabIndex = 10;
             // 
             // HomeAdmin
             // 
@@ -225,9 +221,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1422, 977);
+            this.Controls.Add(this.lbl_NomeUser);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.GpBox_Home);
+            this.Controls.Add(this.btnGerChamado);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.roundedPanel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HomeAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -241,7 +241,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).EndInit();
-            this.GpBox_Home.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
@@ -256,10 +255,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox PctBox_Logo;
-        private System.Windows.Forms.Button btnGerChamado;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label lbl_NomeUser;
-        private System.Windows.Forms.GroupBox GpBox_Home;
+        private System.Windows.Forms.Button btnGerChamado;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label lbl_NomeUser;
+        private RoundedPanel roundedPanel1;
     }
 }

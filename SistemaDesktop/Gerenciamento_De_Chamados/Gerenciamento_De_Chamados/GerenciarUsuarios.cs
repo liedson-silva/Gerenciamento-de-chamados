@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Gerenciamento_De_Chamados
@@ -15,33 +16,51 @@ namespace Gerenciamento_De_Chamados
         public GerenciarUsuarios()
         {
             InitializeComponent();
-            ConfigurarGrade(); // PASSO 1: Configura a grade assim que a tela é criada
+            ConfigurarGrade(); // PASSO 1: Configura as colunas
+            EstilizarGrade();  // PASSO 2: Aplica o estilo visual
 
             // Associa os eventos
             this.Load += GerenciarUsuarios_Load;
             txtPesquisarUser.TextChanged += TxtPesquisar_TextChanged;
         }
 
-        // NOVO MÉTODO: Apenas para configurar o design e as colunas da grade
         private void ConfigurarGrade()
         {
             dgvUsuarios.AutoGenerateColumns = false;
-            dgvUsuarios.Columns.Clear(); // Limpa quaisquer colunas do modo design
+            dgvUsuarios.Columns.Clear();
 
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name = "IdUsuario", // Nome da coluna
-                DataPropertyName = "IdUsuario", // De onde vem o dado na tabela
+                Name = "IdUsuario",
+                DataPropertyName = "IdUsuario",
                 HeaderText = "ID",
-                Visible = false // Coluna oculta
+                Width = 60
             });
+
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Nome",
                 DataPropertyName = "Nome",
                 HeaderText = "Nome",
-                Width = 250
+                Width = 180
             });
+
+            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Login",
+                DataPropertyName = "Login",
+                HeaderText = "Login",
+                Width = 80
+            });
+
+            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Cargo",
+                DataPropertyName = "Cargo",
+                HeaderText = "Função",
+                Width = 100
+            });
+
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Email",
@@ -49,15 +68,27 @@ namespace Gerenciamento_De_Chamados
                 HeaderText = "Email",
                 Width = 250
             });
+
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name = "Cargo",
-                DataPropertyName = "Cargo",
-                HeaderText = "Cargo",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill // Ocupa o espaço restante
+                Name = "Setor",
+                DataPropertyName = "Setor",
+                HeaderText = "Setor",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
         }
 
+        private void EstilizarGrade()
+        {
+            // Ativa o double buffering para uma rolagem mais suave
+            typeof(DataGridView).InvokeMember("DoubleBuffered", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty, null, dgvUsuarios, new object[] { true });
+
+            
+           
+            dgvUsuarios.ColumnHeadersHeight = 35; 
+
+            dgvUsuarios.RowTemplate.Height = 35;
+        }
 
         private void GerenciarUsuarios_Load(object sender, EventArgs e)
         {
@@ -72,11 +103,13 @@ namespace Gerenciamento_De_Chamados
         private void CarregarUsuarios(string filtro = "")
         {
             string sql = @"
-                SELECT IdUsuario, Nome, Email, FuncaoUsuario AS Cargo 
+                SELECT IdUsuario, Nome, Login, FuncaoUsuario AS Cargo, Email, Setor
                 FROM Usuario
                 WHERE (@filtro = '' OR Nome LIKE '%' + @filtro + '%'
                                     OR Email LIKE '%' + @filtro + '%' 
-                                    OR FuncaoUsuario LIKE '%' + @filtro + '%')
+                                    OR FuncaoUsuario LIKE '%' + @filtro + '%'
+                                    OR Login LIKE '%' + @filtro + '%'
+                                    OR Setor LIKE '%' + @filtro + '%')
                 ORDER BY Nome";
 
             try
@@ -112,35 +145,28 @@ namespace Gerenciamento_De_Chamados
             }
 
             object idValue = dgvUsuarios.CurrentRow.Cells["IdUsuario"].Value;
-            int idUsuarioSelecionado;
-
-            if (idValue != null && int.TryParse(idValue.ToString(), out idUsuarioSelecionado))
+            if (idValue != null && int.TryParse(idValue.ToString(), out int idUsuarioSelecionado))
             {
                 var telaDeEdicao = new Editar_Usuario(idUsuarioSelecionado);
-
-                telaDeEdicao.ShowDialog(); //Abre a tela e ESPERA ela ser fechada.
-
-                CarregarUsuarios(); //Recarrega a grade com os dados atualizados!
+                telaDeEdicao.ShowDialog();
+                CarregarUsuarios(txtPesquisarUser.Text.Trim());
             }
             else
             {
-                MessageBox.Show("Não foi possível identificar o ID do usuário selecionado...", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Não foi possível identificar o ID do usuário selecionado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnCadastroUser_Click(object sender, EventArgs e)
         {
-            // Abre a tela de cadastro para um NOVO usuário
             var cadastro = new Cadastro_de_Usuarios();
             cadastro.ShowDialog();
             CarregarUsuarios();
-            
         }
-
 
         private void btnExcluirUsuario_Click(object sender, EventArgs e)
         {
-
+            // Implementação futura
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -161,4 +187,4 @@ namespace Gerenciamento_De_Chamados
             Funcoes.BotaoHomeAdmin(this);
         }
     }
-    }
+}
