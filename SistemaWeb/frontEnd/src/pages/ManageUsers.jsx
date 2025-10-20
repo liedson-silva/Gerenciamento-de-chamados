@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import api from "../services/api";
 import "../Style.css";
 
 const ManageUsers = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const user = location.state?.user;
+
+  if (!user) {
+    return <p>Usuário não autenticado.</p>;
+  }
+
   const [users, setUsers] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -40,7 +49,7 @@ const ManageUsers = () => {
       setErrorMessage("Erro ao buscar usuários.");
     }
   };
- 
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -65,7 +74,7 @@ const ManageUsers = () => {
   };
 
   const handleEditUser = (user) => {
-    console.log("Objeto User recebido:", user)
+    console.log("Objeto User recebido:", user);
     setFormData({
       name: user.Nome,
       cpf: user.CPF,
@@ -114,7 +123,11 @@ const ManageUsers = () => {
       setErrorMessage("");
     }, 3000);
   };
- 
+
+  const handleBack = () => {
+    navigate("/admin-home", { state: { user } });
+  };
+
   return (
     <main className="scroll-list">
       <h1>Gerenciar Usuários</h1>
@@ -122,9 +135,11 @@ const ManageUsers = () => {
       {errorMessage && <p className="notice">{errorMessage}</p>}
       {successMessage && <p className="success">{successMessage}</p>}
 
-      <button onClick={handleShowCreateForm} className="button-create-ticket">Criar Novo Usuário</button>
+      <button onClick={handleShowCreateForm} className="button-create-ticket">
+        Criar Novo Usuário
+      </button>
 
-      <section className="user-list">
+      <section className="user-list" style={{ position: "relative", paddingBottom: "70px" }}>
         <h2>Usuários Cadastrados</h2>
         <div className="scroll-lists">
           <table className="user-table">
@@ -149,47 +164,122 @@ const ManageUsers = () => {
                   <td>{user.Email}</td>
                   <td>{user.Setor}</td>
                   <td>
-                    <button className="button-edit-ticket" onClick={() => handleEditUser(user)}>Editar</button>
+                    <button className="button-edit-ticket" onClick={() => handleEditUser(user)}>
+                      Editar
+                    </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <button onClick={handleBack} className="button-voltar-canto">
+          Voltar
+        </button>
       </section>
 
       {showForm && (
         <section className="user-form">
           <h2>{isEditing ? "Editar Usuário" : "Criar Novo Usuário"}</h2>
           <form onSubmit={handleFormSubmit} className="form-create-user">
-            <input name="name" className="input-create-user" placeholder="Nome" value={formData.name} onChange={handleInputChange} required />
-            <input name="cpf" className="input-create-user" placeholder="CPF: xxx.xxx.xxx-xx" value={formData.cpf} onChange={handleInputChange} required />
-            <input name="rg" type="rg" className="input-create-user" placeholder="RG: xx.xxx.xxx-x" value={formData.rg} onChange={handleInputChange} required />
-            <select name="functionUser" className="input-create-user" value={formData.functionUser}
-              onChange={handleInputChange} required>
+            <input
+              name="name"
+              className="input-create-user"
+              placeholder="Nome"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+            />
+            <input
+              name="cpf"
+              className="input-create-user"
+              placeholder="CPF: xxx.xxx.xxx-xx"
+              value={formData.cpf}
+              onChange={handleInputChange}
+              required
+            />
+            <input
+              name="rg"
+              type="rg"
+              className="input-create-user"
+              placeholder="RG: xx.xxx.xxx-x"
+              value={formData.rg}
+              onChange={handleInputChange}
+              required
+            />
+            <select
+              name="functionUser"
+              className="input-create-user"
+              value={formData.functionUser}
+              onChange={handleInputChange}
+              required
+            >
               <option value="">Função</option>
               <option value="Admin">Admin</option>
               <option value="Tecnico">Técnico</option>
               <option value="Funcionario">Funcionário</option>
-            </select >
-            <input name="email" className="input-create-user" type="email" placeholder="Email" value={formData.email} onChange={handleInputChange} required />
-            <select name="sex" className="input-create-user" value={formData.sex}
-              onChange={handleInputChange} required>
+            </select>
+            <input
+              name="email"
+              className="input-create-user"
+              type="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+            <select
+              name="sex"
+              className="input-create-user"
+              value={formData.sex}
+              onChange={handleInputChange}
+              required
+            >
               <option value="">Sexo</option>
               <option value="Masculino">Masculino</option>
               <option value="Feminino">Feminino</option>
               <option value="Outros">Outros</option>
-            </select >
-            <input name="date" className="input-create-user" type="date" value={formData.date} onChange={handleInputChange} />
-            <select name="sector" className="input-create-user" value={formData.sector}
-              onChange={handleInputChange} required>
+            </select>
+            <input
+              name="date"
+              className="input-create-user"
+              type="date"
+              value={formData.date}
+              onChange={handleInputChange}
+            />
+            <select
+              name="sector"
+              className="input-create-user"
+              value={formData.sector}
+              onChange={handleInputChange}
+              required
+            >
               <option value="">Setor</option>
               <option value="RH">RH</option>
               <option value="Financeiro">Financeiro</option>
-            </select >
-            <input name="login" className="input-create-user" placeholder="Login" value={formData.login} onChange={handleInputChange} required />
-            {!isEditing && (<input name="password" className="input-create-user" type="password" placeholder="Senha" value={formData.password} onChange={handleInputChange} required />)}
-            <button className="button-confirm-user" type="submit">{isEditing ? "Salvar Alterações" : "Criar Usuário"}</button>
+            </select>
+            <input
+              name="login"
+              className="input-create-user"
+              placeholder="Login"
+              value={formData.login}
+              onChange={handleInputChange}
+              required
+            />
+            {!isEditing && (
+              <input
+                name="password"
+                className="input-create-user"
+                type="password"
+                placeholder="Senha"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+              />
+            )}
+            <button className="button-confirm-user" type="submit">
+              {isEditing ? "Salvar Alterações" : "Criar Usuário"}
+            </button>
           </form>
         </section>
       )}
