@@ -157,12 +157,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SenhaHelper.cs" />
     <Compile Include="VisualizarChamado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VisualizarChamado.Designer.cs">
       <DependentUpon>VisualizarChamado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visualizar_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visualizar_Usuario.Designer.cs">
+      <DependentUpon>Visualizar_Usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="_DbaFatal_SystemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -222,6 +231,9 @@
     </Compile>
     <EmbeddedResource Include="VisualizarChamado.resx">
       <DependentUpon>VisualizarChamado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visualizar_Usuario.resx">
+      <DependentUpon>Visualizar_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -324,6 +336,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include="Resources\account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
     <None Include="Resources\folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz481.png" />
     <None Include="Resources\folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz48.png" />
     <None Include="Resources\error_48dp_0000F5_FILL0_wght400_GRAD0_opsz48.png" />

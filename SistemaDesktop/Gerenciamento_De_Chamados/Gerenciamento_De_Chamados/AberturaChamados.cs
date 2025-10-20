@@ -75,6 +75,13 @@ namespace Gerenciamento_De_Chamados
         {
             Funcoes.BotaoHomeAdmin(this);
         }
+
+        private void lblMconta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(); 
+            visualizarUsuario.Show();
+            this.Hide(); 
+        }
     }
 }
 

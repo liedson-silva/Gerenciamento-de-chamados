@@ -44,50 +44,55 @@ namespace Gerenciamento_De_Chamados
         private void ConfigurarGrade()
         {
 
+            dgvChamados.RowTemplate.Height = 30;
+
+            dgvChamados.ColumnHeadersHeight = 30;
+
             dgvChamados.AutoGenerateColumns = false;
+
             dgvChamados.Columns.Clear();
 
 
             dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name = "IdChamado", 
-                DataPropertyName = "IdChamado", 
-                HeaderText = "ID",              
-                Width = 50
-            });
-            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "Usuario", 
-                DataPropertyName = "Usuario",
-                HeaderText = "Usuário",
-                Width = 150
+                Name = "IdChamado",
+                DataPropertyName = "IdChamado",
+                HeaderText = "ID",
+                Width = 60
             });
             dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Titulo",
                 DataPropertyName = "Titulo",
-                HeaderText = "Título",
+                HeaderText = "Titulo",
                 Width = 200
-            });
-            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "Status",
-                DataPropertyName = "Status",
-                HeaderText = "Status",
-                Width = 100
             });
             dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Prioridade",
                 DataPropertyName = "Prioridade",
                 HeaderText = "Prioridade",
+                Width = 200
+            });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Descricao",
+                DataPropertyName = "Descricao",
+                HeaderText = "Descricao",
+                Width = 300
+            });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "data",
+                DataPropertyName = "data",
+                HeaderText = "data",
                 Width = 100
             });
             dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name = "Data",
-                DataPropertyName = "Data",
-                HeaderText = "Data",
+                Name = "Status",
+                DataPropertyName = "Status",
+                HeaderText = "Status",
                 Width = 120
             });
             dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
@@ -95,6 +100,13 @@ namespace Gerenciamento_De_Chamados
                 Name = "Categoria",
                 DataPropertyName = "Categoria",
                 HeaderText = "Categoria",
+                Width = 120
+            });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "IdUsuario",
+                DataPropertyName = "IdUsuario",
+                HeaderText = "IdUsuario",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
         }
@@ -103,6 +115,7 @@ namespace Gerenciamento_De_Chamados
         {
             string sql = @"
                             SELECT 
+                                    u.IdUsuario,
                                     c.IdChamado, 
                                     u.Nome AS Usuario, 
                                     c.Titulo, 
