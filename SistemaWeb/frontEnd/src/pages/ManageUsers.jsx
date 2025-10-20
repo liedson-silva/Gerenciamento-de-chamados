@@ -84,7 +84,7 @@ const ManageUsers = () => {
       sector: user.Setor,
       date: user.DataDeNascimento,
       email: user.Email,
-      password: "", // vazio por segurança
+      password: "", // vazio por segurança, senha só muda se preencher
       login: user.Login,
     });
     setSelectedUserId(user.IdUsuario);
@@ -96,15 +96,23 @@ const ManageUsers = () => {
     e.preventDefault();
 
     try {
+      // Cria uma cópia para ajustar dados antes de enviar
+      const dataToSend = { ...formData };
+
+      // Se estiver editando e a senha estiver vazia, remove para não atualizar
+      if (isEditing && !dataToSend.password) {
+        delete dataToSend.password;
+      }
+
       if (isEditing) {
-        const response = await api.put(`/update-user/${selectedUserId}`, formData);
+        const response = await api.put(`/update-user/${selectedUserId}`, dataToSend);
         if (response.data.success) {
           setSuccessMessage("Usuário atualizado com sucesso!");
         } else {
           setErrorMessage("Erro ao atualizar usuário.");
         }
       } else {
-        const response = await api.post("/create-user", formData);
+        const response = await api.post("/create-user", dataToSend);
         if (response.data.success) {
           setSuccessMessage("Usuário criado com sucesso!");
         } else {
@@ -266,17 +274,15 @@ const ManageUsers = () => {
               onChange={handleInputChange}
               required
             />
-            {!isEditing && (
-              <input
-                name="password"
-                className="input-create-user"
-                type="password"
-                placeholder="Senha"
-                value={formData.password}
-                onChange={handleInputChange}
-                required
-              />
-            )}
+            <input
+              name="password"
+              className="input-create-user"
+              type="password"
+              placeholder={isEditing ? "Nova senha (deixe vazio para não alterar)" : "Senha"}
+              value={formData.password}
+              onChange={handleInputChange}
+              required={!isEditing} // obrigatório só na criação
+            />
             <button className="button-confirm-user" type="submit">
               {isEditing ? "Salvar Alterações" : "Criar Usuário"}
             </button>
