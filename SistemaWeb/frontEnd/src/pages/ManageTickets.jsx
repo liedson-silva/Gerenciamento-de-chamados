@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import api from "../services/api";
 import "../Style.css";
+import { formatDate } from "../components/FormatDate";
 
 const ManageTickets = () => {
   const navigate = useNavigate();
@@ -164,14 +165,14 @@ const ManageTickets = () => {
                 <th>Ações</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody> 
               {tickets.map((ticket) => (
                 <tr key={ticket.IdChamado}>
                   <td>{ticket.IdChamado}</td>
                   <td>{ticket.Titulo}</td>
                   <td>{ticket.PrioridadeChamado}</td>
                   <td>{ticket.Descricao}</td>
-                  <td>{new Date(ticket.DataChamado).toLocaleDateString()}</td>
+                  <td>{formatDate(ticket.DataChamado)}</td>
                   <td>{ticket.StatusChamado}</td>
                   <td>{ticket.Categoria}</td>
                   <td>{ticket.FK_IdUsuario}</td>

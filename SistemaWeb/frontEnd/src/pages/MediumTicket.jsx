@@ -14,11 +14,11 @@ const MediumTicket = () => {
     const [ViewTicket, SetViewTicket] = useState([])
 
     async function getTickets() {
-        const response = await api.get("/manage-tickets");
+        const response = await api.get("/All-tickets");
         const allTickets = response.data.Tickets
         const pendingTickets = allTickets.filter(ticket => ticket.PrioridadeChamado === "Média")
         SetViewTicket(pendingTickets)
-    }
+    } 
 
     useEffect(() => {
         getTickets()

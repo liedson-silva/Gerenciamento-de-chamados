@@ -8,13 +8,13 @@ const ReplyTicket = () => {
     const [errorMessage, setErrorMessage] = useState("")
     const [showForm, setShowForm] = useState(false)
     const [formData, setFormData] = useState({
-    idTicket: "",
-    idUser: "",
-    title: "",
-    description: "",
-    priority: "",
-    date: "",
-  })
+        idTicket: "",
+        idUser: "",
+        title: "",
+        description: "",
+        priority: "",
+        date: "",
+    })
 
     async function getTicket() {
         try {
@@ -38,16 +38,16 @@ const ReplyTicket = () => {
     }, [])
 
     const handleReplyTicket = (ticket) => {
-    setFormData({
-      idTicket: ticket.IdChamado,
-      idUser: ticket.FK_IdUsuario,
-      title: ticket.Titulo,
-      description: ticket.Descricao,
-      priority: ticket.PrioridadeChamado,
-      date: ticket.DataChamado
-    })
-    setShowForm(true)
-  }
+        setFormData({
+            idTicket: ticket.IdChamado,
+            idUser: ticket.FK_IdUsuario,
+            title: ticket.Titulo,
+            description: ticket.Descricao,
+            priority: ticket.PrioridadeChamado,
+            date: ticket.DataChamado
+        })
+        setShowForm(true)
+    }
 
     return (
         <main className="scroll-list">
@@ -69,6 +69,7 @@ const ReplyTicket = () => {
                                 <th>Prioridade</th>
                                 <th>Data</th>
                                 <th>Status</th>
+                                <th>Usuário</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -93,8 +94,9 @@ const ReplyTicket = () => {
                                     ) : (
                                         <> <span className="circle-green">ㅤ</span> {ticket.StatusChamado}</>
                                     )}</td>
+                                    <td>{ticket.FK_IdUsuario}</td>
                                     <td>
-                                        <button className="button-reply-ticket" onClick={() => (handleReplyTicket (ticket))}>Responder</button>
+                                        <button className="button-reply-ticket" onClick={() => (handleReplyTicket(ticket))}>Responder</button>
                                     </td>
                                 </tr>
                             ))}

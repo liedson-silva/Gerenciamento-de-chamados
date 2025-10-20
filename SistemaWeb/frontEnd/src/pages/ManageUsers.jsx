@@ -82,7 +82,7 @@ const ManageUsers = () => {
       functionUser: user.FuncaoUsuario,
       sex: user.Sexo,
       sector: user.Setor,
-      date: user.DataDeNascimento,
+      date: user.DataDeNascimento ? user.DataDeNascimento.slice(0, 10) : "",
       email: user.Email,
       password: "", // vazio por segurança, senha só muda se preencher
       login: user.Login,
