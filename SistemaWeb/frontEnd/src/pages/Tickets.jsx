@@ -69,7 +69,7 @@ const Tickets = () => {
                                 <li>{ticket.Titulo}</li>
                                 <li>{statusDetail(ticket.StatusChamado)}</li>
                                 <li className="view-desktop">{formatDate(ticket.DataChamado)}</li>
-                                <li>{priorityDetail(ticket.PrioridadeChamado)}</li>
+                                <li className="view-desktop">{priorityDetail(ticket.PrioridadeChamado)}</li>
                                 <li className="view-desktop">{ticket.Categoria}</li>
                                 <li className="view-desktop">{ticket.Descricao}</li>
                             </ul>
