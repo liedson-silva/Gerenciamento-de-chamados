@@ -105,7 +105,7 @@ export class TicketsController {
         }
     }
 
-    async getAllTickes(req, res) {
+    async getAllTickets(req, res) {
         try {
             const result = await this.pool.request()
                 .query("SELECT * FROM Chamado")

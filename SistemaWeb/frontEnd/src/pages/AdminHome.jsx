@@ -19,6 +19,10 @@ const AdminHome = () => {
     navigate("/manage-users", { state: { user } });
   };
 
+   const handleManageTickets = () => {
+    navigate("/manage-tickets", { state: { user } });
+  };
+
   const handleLowTicket = () => {
     navigate("/low-ticket", { state: { user } });
   };
@@ -43,6 +47,10 @@ const AdminHome = () => {
           <button className="button-chamados" onClick={handleManageUsers}>
             <img src={userIcon} alt="Gerenciar Usuários" />
             Gerenciar Usuários
+          </button>
+          <button className="button-chamados" onClick={handleManageTickets}>
+            <img src={userIcon} alt="Gerenciar Chamados" />
+            Gerenciar Chamados
           </button>
         </div>
 
