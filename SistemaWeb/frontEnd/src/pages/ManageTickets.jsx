@@ -90,47 +90,47 @@ const ManageTickets = () => {
     setIsEditing(true);
     setShowForm(true);
   };
-
+  
   const handleFormSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const requiredFields = ["Descricao", "DataChamado", "StatusChamado", "Categoria", "FK_IdUsuario"];
-    for (let field of requiredFields) {
-      if (!formData[field]) {
-        setErrorMessage(`Campo obrigatório "${field}" está vazio.`);
-        setTimeout(() => setErrorMessage(""), 3000);
-        return;
-      }
+  const requiredFields = ["Descricao", "DataChamado", "StatusChamado", "Categoria", "FK_IdUsuario"];
+  for (let field of requiredFields) {
+    if (!formData[field]) {
+      setErrorMessage(`Campo obrigatório "${field}" está vazio.`);
+      setTimeout(() => setErrorMessage(""), 3000);
+      return;
     }
+  }
 
-    try {
-      if (isEditing) {
-        const response = await api.put(`/update-ticket/${selectedTicketId}`, formData);
-        if (response.data.success) {
-          setSuccessMessage("Chamado atualizado com sucesso!");
-        } else {
-          setErrorMessage("Erro ao atualizar chamado.");
-        }
+  try {
+    if (isEditing) {
+      const response = await api.put(`/manage-ticket/${selectedTicketId}`, formData);
+      if (response.data.success) {
+        setSuccessMessage("Chamado atualizado com sucesso!");
       } else {
-        const response = await api.post("/create-ticket", formData);
-        if (response.data.success) {
-          setSuccessMessage("Chamado criado com sucesso!");
-        } else {
-          setErrorMessage("Erro ao criar chamado.");
-        }
+        setErrorMessage("Erro ao atualizar chamado.");
       }
-      setShowForm(false);
-      fetchTickets();
-    } catch (error) {
-      console.error("Erro:", error);
-      setErrorMessage("Erro ao processar a solicitação.");
+    } else {
+      const response = await api.post("/manage-ticket", formData);
+      if (response.data.success) {
+        setSuccessMessage("Chamado criado com sucesso!");
+      } else {
+        setErrorMessage("Erro ao criar chamado.");
+      }
     }
+    setShowForm(false);
+    fetchTickets();
+  } catch (error) {
+    console.error("Erro:", error);
+    setErrorMessage("Erro ao processar a solicitação.");
+  }
 
-    setTimeout(() => {
-      setSuccessMessage("");
-      setErrorMessage("");
-    }, 3000);
-  };
+  setTimeout(() => {
+    setSuccessMessage("");
+    setErrorMessage("");
+  }, 3000);
+};
 
   const handleBack = () => {
     navigate("/admin-home", { state: { user } });
