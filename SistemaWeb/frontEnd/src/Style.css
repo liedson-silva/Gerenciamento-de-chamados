@@ -1,6 +1,5 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    ;
     background: linear-gradient(to right, white, black);
     margin: 0;
 }
@@ -1123,4 +1122,28 @@ h1 {
 
 .button-confirm-reply:hover {
     background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
+.user-list {
+  position: relative;
+  padding-bottom: 70px; /* Espaço para o botão no canto inferior */
+}
+
+.button-voltar-canto {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  cursor: pointer;
+  background: linear-gradient(to right, white, rgb(176, 176, 176));
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  border: none;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  padding: 10px 20px;
+  width: 140px;
+  transition: background 0.3s;
+}
+
+.button-voltar-canto:hover {
+  background: linear-gradient(to right, white, rgb(121, 121, 121));
 }

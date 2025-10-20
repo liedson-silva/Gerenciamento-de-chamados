@@ -14,6 +14,7 @@ import TicketResolved from "./pages/TicketResolved";
 import FAQ from "./pages/FAQ";
 import AdminHome from "./pages/AdminHome";
 import ManageUsers from './pages/ManageUsers';
+import ManageTickets from './pages/ManageTickets';
 import TecHome from './pages/TecHome';
 import LowTicket from "./pages/LowTicket";
 import MediumTicket from "./pages/MediumTicket";
@@ -39,6 +40,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/admin-home" element={<AdminHome />} />
           <Route path="/manage-users" element={<ManageUsers />} />
+          <Route path="/manage-tickets" element={<ManageTickets />} />
           <Route path="/tec-home" element={<TecHome />} />
           <Route path="/low-ticket" element={<LowTicket />} />
           <Route path="/medium-ticket" element={<MediumTicket />} />
