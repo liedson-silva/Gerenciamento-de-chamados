@@ -4,6 +4,7 @@ import { LuMessageCircleQuestion } from "react-icons/lu";
 import { FaHouse } from "react-icons/fa6";
 import { IoExitOutline } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
+import { TbReportSearch } from "react-icons/tb";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -41,6 +42,10 @@ const Home = () => {
     navigate("/tickets", { state: { user } });
   };
 
+  const handleReport = () => {
+    navigate("/report", { state: { user } });
+  };
+
   const handleFAQ = () => {
     navigate("/faq", { state: { user } });
   };
@@ -58,6 +63,9 @@ const Home = () => {
           <li className="nav-item" onClick={handleAllTicket}>
             <BsList className="nav-item-icon" /> Chamados
           </li>
+          {user.FuncaoUsuario === "Admin" && <li className="nav-item" onClick={handleReport}>
+            <TbReportSearch className="nav-item-icon" /> Relatório
+          </li>}
           <li className="nav-item" onClick={handleFAQ}>
             <LuMessageCircleQuestion className="nav-item-icon" /> FAQ
           </li>
@@ -96,6 +104,8 @@ const Home = () => {
             <ul className="dropdown-menu">
               <li onClick={handleUserConfig} className="menu">Minha Conta</li>
               <li onClick={handleAllTicket} className="menu">Chamados</li>
+              {user.FuncaoUsuario === "Admin" && <li onClick={handleReport}
+                className="menu" > Relatório </li>}
               <li onClick={handleFAQ} className="menu">FAQ</li>
               <li onClick={handleLogin} className="menu">Sair</li>
             </ul>

@@ -74,7 +74,6 @@ const ManageUsers = () => {
   };
 
   const handleEditUser = (user) => {
-    console.log("Objeto User recebido:", user);
     setFormData({
       name: user.Nome,
       cpf: user.CPF,
@@ -190,99 +189,139 @@ const ManageUsers = () => {
         <section className="user-form">
           <h2>{isEditing ? "Editar Usuário" : "Criar Novo Usuário"}</h2>
           <form onSubmit={handleFormSubmit} className="form-create-user">
-            <input
-              name="name"
-              className="input-create-user"
-              placeholder="Nome"
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              name="cpf"
-              className="input-create-user"
-              placeholder="CPF: xxx.xxx.xxx-xx"
-              value={formData.cpf}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              name="rg"
-              type="rg"
-              className="input-create-user"
-              placeholder="RG: xx.xxx.xxx-x"
-              value={formData.rg}
-              onChange={handleInputChange}
-              required
-            />
-            <select
-              name="functionUser"
-              className="input-create-user"
-              value={formData.functionUser}
-              onChange={handleInputChange}
-              required
-            >
-              <option value="">Função</option>
-              <option value="Admin">Admin</option>
-              <option value="Tecnico">Técnico</option>
-              <option value="Funcionario">Funcionário</option>
-            </select>
-            <input
-              name="email"
-              className="input-create-user"
-              type="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-            />
-            <select
+            <div className="form-group">
+              <input
+                name="name"
+                className="input-create-user"
+                id="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="name">Nome</label>
+            </div>
+
+            <div className="form-group">
+              <input
+                name="cpf"
+                id="cpf"
+                className="input-create-user"
+                value={formData.cpf}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="cpf">CPF: xxx.xxx.xxx-xx</label>
+            </div>
+
+            <div className="form-group">
+              <input
+                name="rg"
+                id="rg"
+                type="rg"
+                className="input-create-user"
+                value={formData.rg}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="rg">RG: xx.xxx.xxx-x</label>
+            </div>
+
+            <div className="form-group">
+              <select
+                name="functionUser"
+                id="functionUser"
+                className="input-create-user"
+                value={formData.functionUser}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="Funcionario">Funcionário</option>
+                <option value="Admin">Admin</option>
+                <option value="Tecnico">Técnico</option>
+              </select>
+              <label htmlFor="functionUser">Função</label>
+            </div>
+
+            <div className="form-group">
+              <input
+                name="email"
+                id="email"
+                className="input-create-user"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="email">Email</label>
+            </div>
+
+            <div className="form-group"><select
               name="sex"
+              id="sex"
               className="input-create-user"
               value={formData.sex}
               onChange={handleInputChange}
               required
             >
-              <option value="">Sexo</option>
               <option value="Masculino">Masculino</option>
               <option value="Feminino">Feminino</option>
               <option value="Outros">Outros</option>
             </select>
-            <input
-              name="date"
-              className="input-create-user"
-              type="date"
-              value={formData.date}
-              onChange={handleInputChange}
-            />
-            <select
-              name="sector"
-              className="input-create-user"
-              value={formData.sector}
-              onChange={handleInputChange}
-              required
-            >
-              <option value="">Setor</option>
-              <option value="RH">RH</option>
-              <option value="Financeiro">Financeiro</option>
-            </select>
-            <input
-              name="login"
-              className="input-create-user"
-              placeholder="Login"
-              value={formData.login}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              name="password"
-              className="input-create-user"
-              type="password"
-              placeholder={isEditing ? "Nova senha (deixe vazio para não alterar)" : "Senha"}
-              value={formData.password}
-              onChange={handleInputChange}
-              required={!isEditing} // obrigatório só na criação
-            />
+              <label htmlFor="sex">Sexo</label>
+            </div>
+
+            <div className="form-group">
+              <input
+                name="date"
+                id="date"
+                className="input-create-user"
+                type="date"
+                value={formData.date}
+                onChange={handleInputChange}
+              />
+              <label htmlFor="date">Data do nascimento</label>
+            </div>
+
+            <div className="form-group">
+              <select
+                name="sector"
+                id="sector"
+                className="input-create-user"
+                value={formData.sector}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="RH">RH</option>
+                <option value="Financeiro">Financeiro</option>
+              </select>
+              <label htmlFor="sector">setor</label>
+            </div>
+
+            <div className="form-group">
+              <input
+                name="login"
+                id="login"
+                className="input-create-user"
+                value={formData.login}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="login">Login</label>
+            </div>
+            <div className="form-group">
+              <input
+                name="password"
+                className="input-create-user"
+                type="password"
+                id="senha"
+                placeholder={isEditing && "Senha (deixe vazio para não alterar)"}
+                value={formData.password}
+                onChange={handleInputChange}
+                required={!isEditing} // obrigatório só na criação
+              />
+              <label htmlFor="senha">Senha</label>
+            </div>
+
             <button className="button-confirm-user" type="submit">
               {isEditing ? "Salvar Alterações" : "Criar Usuário"}
             </button>

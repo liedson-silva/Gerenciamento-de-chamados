@@ -12,6 +12,17 @@ const CreateTicket = () => {
     const handleImpact = () => {
         navigate("/create-ticket/Impact", { state: { user, title, category, description } })
     }
+
+    const handleHome = () => {
+        if (user.FuncaoUsuario === "Admin") {
+            navigate("/admin-home", { state: { user } });
+        } else if (user.FuncaoUsuario === "Tecnico") {
+            navigate("/tec-home", { state: { user } });
+        } else {
+            navigate("/home", { state: { user } });
+        }
+    };
+
     return (
         <main>
 
@@ -67,7 +78,9 @@ const CreateTicket = () => {
                 </div>
             </div>
 
-            <div className='box-continuar-ticket'>
+            <div className='box-buttons-ticket'>
+                <button className='button-back-ticket' onClick={handleHome}>Voltar</button>
+
                 <button className='button-continuar-ticket' onClick={handleImpact}>Continuar</button>
             </div>
 
