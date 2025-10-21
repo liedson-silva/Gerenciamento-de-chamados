@@ -14,7 +14,7 @@ const Tickets = () => {
 
     async function getTickets() {
         if (user.FuncaoUsuario === "Admin" || user.FuncaoUsuario === "Tecnico") {
-            const response = await api.get("/All-tickets")
+            const response = await api.get("/all-tickets")
             SetViewTickets(response.data.Tickets)
         } else {
             const response = await api.get(`/tickets/${user.IdUsuario}`)

@@ -20,6 +20,7 @@ import LowTicket from "./pages/LowTicket";
 import MediumTicket from "./pages/MediumTicket";
 import HighTicket from "./pages/HighTicket";
 import ReplyTicket from "./pages/ReplyTicket";
+import Report from "./pages/Report";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="/medium-ticket" element={<MediumTicket />} />
           <Route path="/high-ticket" element={<HighTicket />} />
           <Route path="/reply-ticket" element={<ReplyTicket />} />
+          <Route path="/report" element={<Report />} />
         </Route>
       </Routes>
     </Router>

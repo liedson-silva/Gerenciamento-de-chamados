@@ -39,9 +39,9 @@ const ManageTickets = () => {
 
   const fetchTickets = async () => {
     try {
-      const response = await api.get("/manage-tickets");
+      const response = await api.get("/all-tickets");
       if (response.data.success) {
-        setTickets(response.data.tickets);
+        setTickets(response.data.Tickets);
       } else {
         setErrorMessage("Erro ao carregar chamados.");
       }
@@ -56,22 +56,8 @@ const ManageTickets = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleShowCreateForm = () => {
-    setFormData({
-      Titulo: "",
-      PrioridadeChamado: "",
-      Descricao: "",
-      DataChamado: "",
-      StatusChamado: "",
-      Categoria: "",
-      FK_IdUsuario: user.IdUsuario || "",
-      PessoasAfetadas: "",
-      ImpedeTrabalho: "",
-      OcorreuAnteriormente: "",
-    });
-    setIsEditing(false);
-    setSelectedTicketId(null);
-    setShowForm(true);
+  const handleCreateTicket = () => {
+    navigate("/create-ticket", { state: { user } });
   };
 
   const handleEditTicket = (ticket) => {
@@ -91,47 +77,38 @@ const ManageTickets = () => {
     setIsEditing(true);
     setShowForm(true);
   };
-  
+
   const handleFormSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const requiredFields = ["Descricao", "DataChamado", "StatusChamado", "Categoria", "FK_IdUsuario"];
-  for (let field of requiredFields) {
-    if (!formData[field]) {
-      setErrorMessage(`Campo obrigatório "${field}" está vazio.`);
-      setTimeout(() => setErrorMessage(""), 3000);
-      return;
-    }
-  }
-
-  try {
-    if (isEditing) {
-      const response = await api.put(`/manage-ticket/${selectedTicketId}`, formData);
-      if (response.data.success) {
-        setSuccessMessage("Chamado atualizado com sucesso!");
+    try {
+      if (isEditing) {
+        const response = await api.put(`/update-ticket/${selectedTicketId}`, formData);
+        if (response.data.success) {
+          setSuccessMessage("Chamado atualizado com sucesso!");
+        } else {
+          setErrorMessage("Erro ao atualizar chamado.");
+        }
       } else {
-        setErrorMessage("Erro ao atualizar chamado.");
+        const response = await api.post("/create-ticket", formData);
+        if (response.data.success) {
+          setSuccessMessage("Chamado criado com sucesso!");
+        } else {
+          setErrorMessage("Erro ao criar chamado.");
+        }
       }
-    } else {
-      const response = await api.post("/manage-ticket", formData);
-      if (response.data.success) {
-        setSuccessMessage("Chamado criado com sucesso!");
-      } else {
-        setErrorMessage("Erro ao criar chamado.");
-      }
+      setShowForm(false);
+      fetchTickets();
+    } catch (error) {
+      console.error("Erro:", error);
+      setErrorMessage("Erro ao processar a solicitação.");
     }
-    setShowForm(false);
-    fetchTickets();
-  } catch (error) {
-    console.error("Erro:", error);
-    setErrorMessage("Erro ao processar a solicitação.");
-  }
 
-  setTimeout(() => {
-    setSuccessMessage("");
-    setErrorMessage("");
-  }, 3000);
-};
+    setTimeout(() => {
+      setSuccessMessage("");
+      setErrorMessage("");
+    }, 3000);
+  };
 
   const handleBack = () => {
     navigate("/admin-home", { state: { user } });
@@ -144,7 +121,7 @@ const ManageTickets = () => {
       {errorMessage && <p className="notice">{errorMessage}</p>}
       {successMessage && <p className="success">{successMessage}</p>}
 
-      <button onClick={handleShowCreateForm} className="button-create-ticket">
+      <button onClick={handleCreateTicket} className="button-create-ticket">
         Criar Novo Chamado
       </button>
 
@@ -165,7 +142,7 @@ const ManageTickets = () => {
                 <th>Ações</th>
               </tr>
             </thead>
-            <tbody> 
+            <tbody>
               {tickets.map((ticket) => (
                 <tr key={ticket.IdChamado}>
                   <td>{ticket.IdChamado}</td>
@@ -207,112 +184,127 @@ const ManageTickets = () => {
           <h2>{isEditing ? "Editar Chamado" : "Criar Novo Chamado"}</h2>
           <form onSubmit={handleFormSubmit} className="form-create-user">
 
-            <label htmlFor="titulo">Título:</label>
-            <input
-              id="titulo"
-              name="Titulo"
-              className="input-create-user"
-              value={formData.Titulo}
-              onChange={handleInputChange}
-            />
+            <div className="form-group">
+              <input
+                id="titulo"
+                name="Titulo"
+                className="input-create-user"
+                value={formData.Titulo}
+                onChange={handleInputChange}
+              />
+              <label htmlFor="titulo">Título</label>
+            </div>
 
-            <label htmlFor="prioridade">Prioridade:</label>
-            <select
-              id="prioridade"
-              name="PrioridadeChamado"
-              className="input-create-user"
-              value={formData.PrioridadeChamado}
-              onChange={handleInputChange}
-            >
-              <option value="">--Selecione a Prioridade--</option>
-              <option value="Baixa">Baixa</option>
-              <option value="Média">Média</option>
-              <option value="Alta">Alta</option>
-            </select>
+            <div className="form-group">
+              <select
+                id="prioridade"
+                name="PrioridadeChamado"
+                className="input-create-user"
+                value={formData.PrioridadeChamado}
+                onChange={handleInputChange}
+              >
+                <option value="">Selecione a Prioridade</option>
+                <option value="Baixa">Baixa</option>
+                <option value="Média">Média</option>
+                <option value="Alta">Alta</option>
+              </select>
+              <label htmlFor="prioridade">Prioridade:</label>
+            </div>
 
-            <label htmlFor="descricao">Descrição:</label>
-            <textarea
-              id="descricao"
-              name="Descricao"
-              className="input-create-user"
-              value={formData.Descricao}
-              onChange={handleInputChange}
-              required
-              rows={3}
-            />
+            <div className="form-group">
+              <textarea
+                id="descricao"
+                name="Descricao"
+                className="input-create-user"
+                value={formData.Descricao}
+                onChange={handleInputChange}
+                required
+                rows={3}
+              />
+              <label htmlFor="descricao">Descrição</label>
+            </div>
 
-            <label htmlFor="dataChamado">Data do Chamado:</label>
-            <input
-              id="dataChamado"
-              name="DataChamado"
-              className="input-create-user"
-              type="date"
-              value={formData.DataChamado}
-              onChange={handleInputChange}
-              required
-            />
+            <div className="form-group">
+              <input
+                id="dataChamado"
+                name="DataChamado"
+                className="input-create-user"
+                type="date"
+                value={formData.DataChamado}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="dataChamado">Data do Chamado</label>
+            </div>
 
-            <label htmlFor="statusChamado">Status:</label>
-            <select
-              id="statusChamado"
-              name="StatusChamado"
-              className="input-create-user"
-              value={formData.StatusChamado}
-              onChange={handleInputChange}
-              required
-            >
-              <option value="">--Selecione o Status--</option>
-              <option value="Pendente">Pendente</option>
-              <option value="Em Andamento">Em Andamento</option>
-              <option value="Resolvido">Resolvido</option>
-              <option value="Fechado">Fechado</option>
-            </select>
+            <div className="form-group">
+              <select
+                id="statusChamado"
+                name="StatusChamado"
+                className="input-create-user"
+                value={formData.StatusChamado}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="">--Selecione o Status--</option>
+                <option value="Pendente">Pendente</option>
+                <option value="Em Andamento">Em Andamento</option>
+                <option value="Resolvido">Resolvido</option>
+                <option value="Fechado">Fechado</option>
+              </select>
+              <label htmlFor="statusChamado">Status</label>
+            </div>
 
-            <label htmlFor="categoria">Categoria:</label>
-            <select
-              id="categoria"
-              name="Categoria"
-              className="input-create-user"
-              value={formData.Categoria}
-              onChange={handleInputChange}
-              required
-            >
-              <option value="">--Selecione a Categoria--</option>
-              <option value="Hardware">Hardware</option>
-              <option value="Software">Software</option>
-              <option value="Segurança">Segurança</option>
-              <option value="Serviços">Serviços</option>
-              <option value="Rede">Rede</option>
-              <option value="Infraestrutura">Infraestrutura</option>
-            </select>
+            <div className="form-group">
+              <select
+                id="categoria"
+                name="Categoria"
+                className="input-create-user"
+                value={formData.Categoria}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="">--Selecione a Categoria--</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Software">Software</option>
+                <option value="Segurança">Segurança</option>
+                <option value="Serviços">Serviços</option>
+                <option value="Rede">Rede</option>
+                <option value="Infraestrutura">Infraestrutura</option>
+              </select>
+              <label htmlFor="categoria">Categoria</label>
+            </div>
 
-            <label htmlFor="fkUsuario">ID do Usuário:</label>
-            <input
-              name="FK_IdUsuario"
-              className="input-create-user"
-              type="number"
-              placeholder="ID do Usuário"
-              value={formData.FK_IdUsuario}
-              onChange={handleInputChange}
-              required
-              readOnly
-            />
+            <div className="form-group">
+              <input
+                name="FK_IdUsuario"
+                className="input-create-user"
+                type="number"
+                id="id"
+                value={formData.FK_IdUsuario}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="id">ID do usuário</label>
+            </div>
 
-            <label htmlFor="pessoasAfetadas">Pessoas Afetadas:</label>
-            <select
-              id="pessoasAfetadas"
-              name="PessoasAfetadas"
-              className="input-create-user"
-              value={formData.PessoasAfetadas}
-              onChange={handleInputChange}
-            >
-              <option value="">--Selecione--</option>
-              <option value="Somente eu">Somente eu</option>
-              <option value="Meu setor">Meu setor</option>
-              <option value="Empresa Inteira">Empresa Inteira</option>
-            </select>
+            <div className="form-group">
+              <select
+                id="pessoasAfetadas"
+                name="PessoasAfetadas"
+                className="input-create-user"
+                value={formData.PessoasAfetadas}
+                onChange={handleInputChange}
+              >
+                <option value="">--Selecione--</option>
+                <option value="Somente eu">Somente eu</option>
+                <option value="Meu setor">Meu setor</option>
+                <option value="Empresa Inteira">Empresa Inteira</option>
+              </select>
+              <label htmlFor="pessoasAfetadas">Pessoas Afetadas</label>
+            </div>
 
-            <label htmlFor="impedeTrabalho">Impede Trabalho?</label>
+            <div className="form-group">
             <select
               id="impedeTrabalho"
               name="ImpedeTrabalho"
@@ -325,8 +317,10 @@ const ManageTickets = () => {
               <option value="Não">Não</option>
               <option value="Parcialmente">Parcialmente</option>
             </select>
+            <label htmlFor="impedeTrabalho">Impede Trabalho</label>
+            </div>
 
-            <label htmlFor="ocorreuAnteriormente">Ocorreu Anteriormente?</label>
+            <div className="form-group">
             <select
               id="ocorreuAnteriormente"
               name="OcorreuAnteriormente"
@@ -339,6 +333,8 @@ const ManageTickets = () => {
               <option value="Não">Não</option>
               <option value="Não sei">Não sei</option>
             </select>
+            <label htmlFor="ocorreuAnteriormente">Ocorreu Anteriormente</label>
+            </div>
 
             <button className="button-confirm-user" type="submit">
               {isEditing ? "Atualizar" : "Criar"}
