@@ -23,7 +23,7 @@ namespace Gerenciamento_De_Chamados
         }
         Funcoes funcoes = new Funcoes();
         public void btnContinuar_Click(object sender, EventArgs e)
-        { 
+        {
             var continuaçaoabertura = new ContinuaçaoAbertura(this);
             continuaçaoabertura.Show();
             this.Hide(); // Oculta o form atual
@@ -49,7 +49,7 @@ namespace Gerenciamento_De_Chamados
 
             if (arquivoAnexado != null)
             {
-               btnAnexArq.Image = funcoes.ByteArrayToImage(arquivoAnexado);
+                btnAnexArq.Image = funcoes.ByteArrayToImage(arquivoAnexado);
             }
             else
             {
@@ -78,9 +78,19 @@ namespace Gerenciamento_De_Chamados
 
         private void lblMconta_Click(object sender, EventArgs e)
         {
-            var visualizarUsuario = new Visualizar_Usuario(); 
+            var visualizarUsuario = new Visualizar_Usuario();
             visualizarUsuario.Show();
-            this.Hide(); 
+            this.Hide();
+        }
+
+        private void lbSair_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Você realmente deseja sair ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                var Telalogin = new Login();
+                Telalogin.Show();
+                this.Hide();
+            }
         }
     }
 }

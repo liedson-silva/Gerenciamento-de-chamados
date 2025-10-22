@@ -106,6 +106,12 @@
     <Compile Include="ContinuaçaoAbertura.Designer.cs">
       <DependentUpon>ContinuaçaoAbertura.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContinuaçaoResponderChamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContinuaçaoResponderChamado.Designer.cs">
+      <DependentUpon>ContinuaçaoResponderChamado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editar_Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responder_Chamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Responder_Chamado.Designer.cs">
+      <DependentUpon>Responder_Chamado.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -195,6 +207,9 @@
     <EmbeddedResource Include="ContinuaçaoAbertura.resx">
       <DependentUpon>ContinuaçaoAbertura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ContinuaçaoResponderChamado.resx">
+      <DependentUpon>ContinuaçaoResponderChamado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editar_Usuarios.resx">
       <DependentUpon>Editar_Usuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +244,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Responder_Chamado.resx">
+      <DependentUpon>Responder_Chamado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VisualizarChamado.resx">
       <DependentUpon>VisualizarChamado.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,6 +263,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Responder" />
     <None Include="_DbaFatal_SystemDataSet.xsc">
       <DependentUpon>_DbaFatal_SystemDataSet.xsd</DependentUpon>
     </None>
@@ -336,6 +355,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include="Resources\move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
     <None Include="Resources\account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
     <None Include="Resources\folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz481.png" />
     <None Include="Resources\folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz48.png" />
