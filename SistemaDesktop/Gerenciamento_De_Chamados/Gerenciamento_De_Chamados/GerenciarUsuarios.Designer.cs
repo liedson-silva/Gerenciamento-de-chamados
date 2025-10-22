@@ -44,20 +44,19 @@
             this.txtPesquisarUser = new System.Windows.Forms.TextBox();
             this.btnEditarUsuario = new System.Windows.Forms.Button();
             this.btnCadastroUser = new System.Windows.Forms.Button();
-            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._DbaFatal_SystemDataSet = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSet();
-            this.usuarioTableAdapter = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSetTableAdapters.UsuarioTableAdapter();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcaoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -219,19 +218,10 @@
             this.btnCadastroUser.UseVisualStyleBackColor = false;
             this.btnCadastroUser.Click += new System.EventHandler(this.btnCadastroUser_Click);
             // 
-            // usuarioBindingSource
-            // 
-            this.usuarioBindingSource.DataMember = "Usuario";
-            this.usuarioBindingSource.DataSource = this._DbaFatal_SystemDataSet;
-            // 
             // _DbaFatal_SystemDataSet
             // 
             this._DbaFatal_SystemDataSet.DataSetName = "_DbaFatal_SystemDataSet";
             this._DbaFatal_SystemDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // usuarioTableAdapter
-            // 
-            this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
             // dgvUsuarios
             // 
@@ -241,7 +231,6 @@
             this.dgvUsuarios.AllowUserToResizeRows = false;
             this.dgvUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvUsuarios.AutoGenerateColumns = false;
             this.dgvUsuarios.BackgroundColor = System.Drawing.Color.White;
             this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -258,7 +247,6 @@
             this.nomeDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
             this.funcaoUsuarioDataGridViewTextBoxColumn});
-            this.dgvUsuarios.DataSource = this.usuarioBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -276,13 +264,18 @@
             this.dgvUsuarios.Size = new System.Drawing.Size(885, 309);
             this.dgvUsuarios.TabIndex = 8;
             // 
-            // nomeDataGridViewTextBoxColumn
+            // usuarioBindingSource
             // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            this.nomeDataGridViewTextBoxColumn.Width = 295;
+            this.usuarioBindingSource.DataMember = "Usuario";
+            this.usuarioBindingSource.DataSource = this._DbaFatal_SystemDataSet;
+            // 
+            // funcaoUsuarioDataGridViewTextBoxColumn
+            // 
+            this.funcaoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "FuncaoUsuario";
+            this.funcaoUsuarioDataGridViewTextBoxColumn.HeaderText = "Cargo";
+            this.funcaoUsuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.funcaoUsuarioDataGridViewTextBoxColumn.Name = "funcaoUsuarioDataGridViewTextBoxColumn";
+            this.funcaoUsuarioDataGridViewTextBoxColumn.Width = 295;
             // 
             // emailDataGridViewTextBoxColumn
             // 
@@ -292,13 +285,13 @@
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.Width = 294;
             // 
-            // funcaoUsuarioDataGridViewTextBoxColumn
+            // nomeDataGridViewTextBoxColumn
             // 
-            this.funcaoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "FuncaoUsuario";
-            this.funcaoUsuarioDataGridViewTextBoxColumn.HeaderText = "Cargo";
-            this.funcaoUsuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.funcaoUsuarioDataGridViewTextBoxColumn.Name = "funcaoUsuarioDataGridViewTextBoxColumn";
-            this.funcaoUsuarioDataGridViewTextBoxColumn.Width = 295;
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.Width = 295;
             // 
             // GerenciarUsuarios
             // 
@@ -322,9 +315,9 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,12 +339,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPesquisarUser;
         private Gerenciamento_De_Chamados._DbaFatal_SystemDataSet _DbaFatal_SystemDataSet;
-        private System.Windows.Forms.BindingSource usuarioBindingSource;
-        private Gerenciamento_De_Chamados._DbaFatal_SystemDataSetTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
         private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.Label lbl_NomeUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn funcaoUsuarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label lbl_NomeUser;
+        private System.Windows.Forms.BindingSource usuarioBindingSource;
     }
 }
