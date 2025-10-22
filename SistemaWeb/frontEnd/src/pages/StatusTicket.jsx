@@ -3,9 +3,9 @@ import { useState, useEffect } from "react"
 import api from "../services/api"
 import { formatDate } from "../components/FormatDate"
 
-const TicketResolved = () => {
+const StatusTicket = () => {
     const location = useLocation()
-    const user = location.state?.user
+    const { user, statusTicket } = location.state
     const navigate = useNavigate()
     const handleViewTicketForm = (ticket) => {
         navigate("/view-ticket-form", { state: { user, ticket } })
@@ -14,30 +14,33 @@ const TicketResolved = () => {
     const [ViewTicket, SetViewTicket] = useState([])
 
     async function getTickets() {
-        if (user.FuncaoUsuario === "Admin" || user.FuncaoUsuario === "Tecnico") {
-            const response = await api.get("/All-tickets")
-            const allTickets = response.data.Tickets
-            const pendingTickets = allTickets.filter(ticket => ticket.StatusChamado === "Resolvido")
-            SetViewTicket(pendingTickets)
-        } else {
-            const response = await api.get(`/tickets/${user.IdUsuario}`)
-            const allTickets = response.data.Tickets
-            const pendingTickets = allTickets.filter(ticket => ticket.StatusChamado === "Resolvido")
-            SetViewTicket(pendingTickets)
-        }
+        const response = await api.get(`/tickets/${user.IdUsuario}`)
+        const allTickets = response.data.Tickets
+        const status = allTickets.filter(ticket => ticket.StatusChamado === statusTicket)
+        SetViewTicket(status)
     }
 
     useEffect(() => {
         getTickets()
     }, [])
 
-    function priorityDetail(PrioridadeChamado) {
-        if (PrioridadeChamado === "Alta") {
-            return (<><span className="circle-red">ㅤ</span> {PrioridadeChamado}</>)
-        } else if (PrioridadeChamado === "Média") {
-            return (<><span className="circle-blue">ㅤ</span> {PrioridadeChamado}</>)
+    function statusDetail(statusTicket) {
+        if (statusTicket === "Pendente") {
+            return (<><span className="circle-yellow">ㅤ</span> {statusTicket}</>)
+        } else if (statusTicket === "Em andamento") {
+            return (<><span className="circle-orange">ㅤ</span> {statusTicket}</>)
         } else {
-            return (<><span className="circle-green">ㅤ</span> {PrioridadeChamado}</>)
+            return (<><span className="circle-green">ㅤ</span> {statusTicket}</>)
+        }
+    }
+
+    function priorityDetail(priority) {
+        if (priority === "Alta") {
+            return (<><span className="circle-red">ㅤ</span> {priority}</>)
+        } else if (priority === "Média") {
+            return (<><span className="circle-blue">ㅤ</span> {priority}</>)
+        } else {
+            return (<><span className="circle-green">ㅤ</span> {priority}</>)
         }
     }
 
@@ -63,7 +66,7 @@ const TicketResolved = () => {
                             <ul className="info-ticket">
                                 <li className="view-desktop">{ticket.IdChamado}</li>
                                 <li>{ticket.Titulo}</li>
-                                <li> <span className="circle-green">ㅤ</span> {ticket.StatusChamado}</li>
+                                <li>{statusDetail(ticket.StatusChamado)}</li>
                                 <li className="view-desktop">{formatDate(ticket.DataChamado)}</li>
                                 <li>{priorityDetail(ticket.PrioridadeChamado)}</li>
                                 <li className="view-desktop">{ticket.Categoria}</li>
@@ -72,12 +75,17 @@ const TicketResolved = () => {
                         </div>
                     ))
                 ) : (
-                    <p className="no-call">Nenhum chamado resolvido no momento.</p>
-                )}
+                    statusTicket === "Pendente" ?
+                    <p className="no-call">Nenhum chamado pendente no momento.</p> :
+                    statusTicket === "Em andamento" ?
+                    <p className="no-call">Nenhum chamado em andamento no momento.</p> :
+                    <p className="no-call">Nenhum chamado em resolvido no momento.</p>
+                )
+                }
             </section>
 
         </main>
     )
 }
 
-export default TicketResolved
+export default StatusTicket

@@ -19,20 +19,20 @@ const AdminHome = () => {
     navigate("/manage-users", { state: { user } });
   };
 
-   const handleManageTickets = () => {
+  const handleManageTickets = () => {
     navigate("/manage-tickets", { state: { user } });
   };
 
   const handleLowTicket = () => {
-    navigate("/low-ticket", { state: { user } });
+    navigate("/priority-ticket", { state: { user, priority: "Baixa" } });
   };
 
   const handleMediumTicket = () => {
-    navigate("/medium-ticket", { state: { user } });
+    navigate("/priority-ticket", { state: { user, priority: "Média" } });
   };
 
   const handleHighTicket = () => {
-    navigate("/high-ticket", { state: { user } });
+    navigate("/priority-ticket", { state: { user, priority: "Alta" } });
   };
 
   return (

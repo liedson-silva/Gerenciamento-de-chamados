@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react"
+import { useNavigate, useLocation } from 'react-router-dom';
 import api from "../services/api.js"
 import { formatDate } from "../components/FormatDate.jsx"
 
 const ReplyTicket = () => {
+    const location = useLocation()
+    const user = location.state?.user
+    const navigate = useNavigate()
     const [ViewTickets, SetViewTickets] = useState([])
     const [successMessage, setSuccessMessage] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
@@ -47,6 +51,10 @@ const ReplyTicket = () => {
             date: ticket.DataChamado
         })
         setShowForm(true)
+    }
+
+    const handleBack = () => {
+        navigate("/tec-home", { state: { user } });
     }
 
     return (
@@ -119,6 +127,10 @@ const ReplyTicket = () => {
                     <button className="button-confirm-reply" type="submit">Enviar</button>
                 </section>
             )}
+
+            <button onClick={handleBack} className='button-back' >
+                Voltar
+            </button>
 
         </main>
     )

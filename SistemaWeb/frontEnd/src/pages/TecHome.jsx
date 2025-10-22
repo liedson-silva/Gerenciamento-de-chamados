@@ -19,15 +19,15 @@ const TecHome = () => {
   };
 
   const handleLowTicket = () => {
-    navigate("/low-ticket", { state: { user } });
+    navigate("/priority-ticket", { state: { user, priority: "Baixa" } });
   };
 
   const handleMediumTicket = () => {
-    navigate("/medium-ticket", { state: { user } });
+    navigate("/priority-ticket", { state: { user, priority: "Média" } });
   };
 
   const handleHighTicket = () => {
-    navigate("/high-ticket", { state: { user } });
+    navigate("/priority-ticket", { state: { user, priority: "Alta" } });
   };
 
   if (!user) {
