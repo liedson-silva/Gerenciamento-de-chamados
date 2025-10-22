@@ -1168,6 +1168,26 @@ input:valid~label{
     background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
+.button-back{
+  cursor: pointer;
+  background: linear-gradient(to right, white, rgb(176, 176, 176));
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  border: none;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  padding: 10px 20px;
+  width: 140px;
+  margin-top: 20px;
+  margin-left: 40px;
+  transition: background 0.3s;
+}
+
+.button-back:hover {
+  background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
+/*Menage ticket*/
+
 .user-list {
   position: relative;
   padding-bottom: 70px; /* Espaço para o botão no canto inferior */

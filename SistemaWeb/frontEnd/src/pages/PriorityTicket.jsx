@@ -3,9 +3,9 @@ import { useState, useEffect } from "react"
 import api from "../services/api"
 import { formatDate } from "../components/FormatDate"
 
-const HighTicket = () => {
+const PriorityTicket = () => {
     const location = useLocation()
-    const user = location.state?.user
+    const { user, priority } = location.state
     const navigate = useNavigate()
     const handleViewTicketForm = (ticket) => {
         navigate("/view-ticket-form", { state: { user, ticket } })
@@ -16,21 +16,31 @@ const HighTicket = () => {
     async function getTickets() {
         const response = await api.get("/All-tickets")
         const allTickets = response.data.Tickets
-        const pendingTickets = allTickets.filter(ticket => ticket.PrioridadeChamado === "Alta")
-        SetViewTicket(pendingTickets)
+        const priorityTickets = allTickets.filter(ticket => ticket.PrioridadeChamado === priority)
+        SetViewTicket(priorityTickets)
     }
 
     useEffect(() => {
         getTickets()
     }, [])
 
-    function statusDetail(StatusChamado) {
-        if (StatusChamado === "Pendente") {
-            return (<><span className="circle-yellow">ㅤ</span> {StatusChamado}</>)
-        } else if (StatusChamado === "Em andamento") {
-            return (<><span className="circle-orange">ㅤ</span> {StatusChamado}</>)
+    function statusDetail(statusTicket) {
+        if (statusTicket === "Pendente") {
+            return (<><span className="circle-yellow">ㅤ</span> {statusTicket}</>)
+        } else if (statusTicket === "Em andamento") {
+            return (<><span className="circle-orange">ㅤ</span> {statusTicket}</>)
         } else {
-            return (<><span className="circle-green">ㅤ</span> {StatusChamado}</>)
+            return (<><span className="circle-green">ㅤ</span> {statusTicket}</>)
+        }
+    }
+
+    function priorityDetail(priority) {
+        if (priority === "Alta") {
+            return (<><span className="circle-red">ㅤ</span> {priority}</>)
+        } else if (priority === "Média") {
+            return (<><span className="circle-blue">ㅤ</span> {priority}</>)
+        } else {
+            return (<><span className="circle-green">ㅤ</span> {priority}</>)
         }
     }
 
@@ -58,19 +68,24 @@ const HighTicket = () => {
                                 <li>{ticket.Titulo}</li>
                                 <li>{statusDetail(ticket.StatusChamado)}</li>
                                 <li className="view-desktop">{formatDate(ticket.DataChamado)}</li>
-                                <li className="view-desktop"> <span className="circle-red">ㅤ</span> {ticket.PrioridadeChamado}</li>
+                                <li className="view-desktop">{priorityDetail(ticket.PrioridadeChamado)}</li>
                                 <li className="view-desktop">{ticket.Categoria}</li>
                                 <li className="view-desktop">{ticket.Descricao}</li>
                             </ul>
                         </div>
                     ))
                 ) : (
-                    <p className="no-call">Nenhum chamado com prioridade alta no momento.</p>
-                )}
+                    priority === "Baixa" ?
+                        <p className="no-call">Nenhum chamado com prioridade baixa no momento.</p> :
+                        priority === "Média" ?
+                            <p className="no-call">Nenhum chamado com prioridade média no momento.</p> :
+                            <p className="no-call">Nenhum chamado com prioridade alta no momento.</p>
+                )
+                }
             </section>
 
         </main>
     )
 }
 
-export default HighTicket
+export default PriorityTicket

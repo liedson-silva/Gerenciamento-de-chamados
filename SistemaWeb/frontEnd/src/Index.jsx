@@ -8,17 +8,13 @@ import ImpactTicket from "./pages/ImpactTicket";
 import SuccesTicket from "./pages/SuccesTicket";
 import ViewTicketForm from "./pages/ViewTicketForm";
 import Tickets from "./pages/Tickets";
-import PendingTicket from "./pages/PendingTicket";
-import TicketInProgress from "./pages/TicketInProgress";
-import TicketResolved from "./pages/TicketResolved";
+import StatusTicket from "./pages/StatusTicket";
 import FAQ from "./pages/FAQ";
 import AdminHome from "./pages/AdminHome";
 import ManageUsers from './pages/ManageUsers';
 import ManageTickets from './pages/ManageTickets';
 import TecHome from './pages/TecHome';
-import LowTicket from "./pages/LowTicket";
-import MediumTicket from "./pages/MediumTicket";
-import HighTicket from "./pages/HighTicket";
+import PriorityTicket from "./pages/PriorityTicket";
 import ReplyTicket from "./pages/ReplyTicket";
 import Report from "./pages/Report";
 
@@ -35,17 +31,13 @@ function App() {
           <Route path="/create-ticket/impact/success" element={<SuccesTicket />} />
           <Route path="/view-ticket-form" element={<ViewTicketForm />} />
           <Route path="/tickets" element={<Tickets />} />
-          <Route path="/pending-ticket" element={<PendingTicket />} />
-          <Route path="/ticket-in-progress" element={<TicketInProgress />} />
-          <Route path="/ticket-resolved" element={<TicketResolved />} />
+          <Route path="/status-ticket" element={<StatusTicket />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/admin-home" element={<AdminHome />} />
           <Route path="/manage-users" element={<ManageUsers />} />
           <Route path="/manage-tickets" element={<ManageTickets />} />
           <Route path="/tec-home" element={<TecHome />} />
-          <Route path="/low-ticket" element={<LowTicket />} />
-          <Route path="/medium-ticket" element={<MediumTicket />} />
-          <Route path="/high-ticket" element={<HighTicket />} />
+          <Route path="/priority-ticket" element={<PriorityTicket />} />
           <Route path="/reply-ticket" element={<ReplyTicket />} />
           <Route path="/report" element={<Report />} />
         </Route>

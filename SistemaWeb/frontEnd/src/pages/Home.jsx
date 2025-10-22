@@ -15,15 +15,18 @@ const Home = () => {
   };
 
   const handlePendingTicket = () => {
-    navigate("/pending-ticket", { state: { user } });
+    const statusTicket = "Pendente"
+    navigate("/status-ticket", { state: { user, statusTicket } });
   };
 
   const handleTicketInProgress = () => {
-    navigate("/ticket-in-progress", { state: { user } });
+    const statusTicket = "Em andamento"
+    navigate("/status-ticket", { state: { user, statusTicket } });
   };
 
   const handleTicketResolved = () => {
-    navigate("/ticket-resolved", { state: { user } });
+    const statusTicket = "Resolvido"
+    navigate("/status-ticket", { state: { user, statusTicket } });
   };
 
   if (!user) {
