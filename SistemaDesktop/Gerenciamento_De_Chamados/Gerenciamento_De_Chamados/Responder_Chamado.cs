@@ -169,5 +169,27 @@ namespace Gerenciamento_De_Chamados
                 g.FillRectangle(gradiente, this.ClientRectangle);
             }
         }
+
+        private void dgvResponder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verifica se o clique foi em uma linha válida (não no cabeçalho)
+            if (e.RowIndex >= 0)
+            {
+                
+                DataGridViewRow row = dgvResponder.Rows[e.RowIndex];// Pega a linha que foi clicada
+                object idValue = row.Cells["IdChamado"].Value;// Pega o valor da célula que contém o ID do chamado (verifica se o nome da coluna é "IdChamado")
+                int idChamadoSelecionado;
+
+                if (idValue != null && int.TryParse(idValue.ToString(), out idChamadoSelecionado))
+                {
+                    var analisechamado = new AnaliseChamado(idChamadoSelecionado); 
+                    analisechamado.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível obter o ID do chamado selecionado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
     }
 }
