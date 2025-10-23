@@ -25,7 +25,58 @@ namespace Gerenciamento_De_Chamados
             this.Load += ContinuaçaoAbertura_Load;
         }
 
-        private void btnConcluirCH_Click(object sender, EventArgs e)
+        private string CalcularPrioridadePorScore(string pessoasAfetadas, string impedeTrabalho)
+        {
+            int score = 0;
+
+           
+            switch (pessoasAfetadas)
+            {
+                case "A empresa inteira":
+                    score += 60;
+                    break;
+                case "Meu setor":
+                    score += 30;
+                    break;
+                case "Somente eu":
+                    score += 10;
+                    break;
+                default:
+                    score += 10; 
+                    break;
+            }
+
+            switch (impedeTrabalho)
+            {
+                case "Sim":
+                    score += 30;
+                    break;
+                case "Parcialmente":
+                    score += 15;
+                    break;
+                case "Não":
+                    score += 0;
+                    break;
+                default:
+                    score += 0;
+                    break;
+            }
+
+            if (score >= 60)
+            {
+                return "Alta";
+            }
+            else if (score >= 30)
+            {
+                return "Média";
+            }
+            else
+            {
+                return "Baixa";
+            }
+        }
+
+        private async void btnConcluirCH_Click(object sender, EventArgs e)
         {
             string TituloChamado = aberturaChamados.txtTituloChamado.Text.Trim();
             string DescricaoChamado = aberturaChamados.txtDescriçãoCh.Text.Trim();
@@ -35,15 +86,36 @@ namespace Gerenciamento_De_Chamados
             string CategoriaChamado = aberturaChamados.cboxCtgChamado.Text;
             byte[] AnexarArquivo = aberturaChamados.arquivoAnexado;
 
+            string prioridadeCalculada = CalcularPrioridadePorScore(PessoasAfetadas, ImpedeTrabalho);
+            string status = "Pendente";
+                        
+            string problemaIA = "Análise Pendente";
+            string solucaoIA = "Análise Pendente";
+            try
+            {
+                AIService aiService = new AIService(); 
+                var (problema, solucao) = await aiService.AnalisarChamado(TituloChamado, DescricaoChamado, CategoriaChamado);
+                problemaIA = problema;
+                solucaoIA = solucao;
+            }
 
+            catch (Exception aiEx)
+            {
+                MessageBox.Show($"Erro ao analisar chamado com IA: {aiEx.Message}. O chamado será criado sem sugestão.", "Aviso IA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+            }
 
             string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
 
             int idUsuario = Funcoes.SessaoUsuario.IdUsuario;
-            string sql = @"INSERT INTO Chamado 
-                   (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente) 
+            string sql = @"INSERT INTO Chamado
+                                    (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria,
+                                    FK_IdUsuario, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente,
+                                    PrioridadeSugeridaIA, ProblemaSugeridoIA, SolucaoSugeridaIA)
                    OUTPUT INSERTED.IdChamado
-                   VALUES (@Titulo, @PrioridadeChamado, @Descricao, @DataChamado, @StatusChamado, @Categoria, @FK_IdUsuario, @PessoasAfetadas, @ImpedeTrabalho, @OcorreuAnteriormente)";
+                   VALUES (@Titulo, @PrioridadeChamado, @Descricao, @DataChamado,
+                            @StatusChamado, @Categoria, @FK_IdUsuario, @PessoasAfetadas,
+                            @ImpedeTrabalho, @OcorreuAnteriormente, @PrioridadeSugeridaIA, @ProblemaSugeridoIA, @SolucaoSugeridaIA)";
 
             using (SqlConnection conexao = new SqlConnection(connectionString))
             {
@@ -53,7 +125,7 @@ namespace Gerenciamento_De_Chamados
 
                     int idChamado;
                     string prioridade = "Em análise";
-                    string status = "Pendente";
+                    
 
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
                     {
@@ -72,6 +144,9 @@ namespace Gerenciamento_De_Chamados
                         cmd.Parameters.AddWithValue("@ImpedeTrabalho", ImpedeTrabalho);
                         cmd.Parameters.AddWithValue("@OcorreuAnteriormente", OcorreuAnteriormente);
 
+                        cmd.Parameters.AddWithValue("@PrioridadeSugeridaIA", prioridadeCalculada);
+                        cmd.Parameters.AddWithValue("@ProblemaSugeridoIA", problemaIA);
+                        cmd.Parameters.AddWithValue("@SolucaoSugeridaIA", solucaoIA);
                         idChamado = (int)cmd.ExecuteScalar();
                     }
 
@@ -97,13 +172,15 @@ namespace Gerenciamento_De_Chamados
                                                  DescricaoChamado,
                                                  CategoriaChamado,
                                                  idChamado,
-                                                 prioridade, 
+                                                 prioridadeCalculada, 
                                                  status,     
                                                  PessoasAfetadas,
                                                  ImpedeTrabalho,
                                                  OcorreuAnteriormente,
+                                                 problemaIA,
+                                                 solucaoIA,
                                                  AnexarArquivo, 
-                                                 "anexo_chamado.png" // nome padrão para o arquivo no e-mail
+                                                 "anexo_chamado.png" 
 );
 
                     var telaFim = new FimChamado(idChamado);

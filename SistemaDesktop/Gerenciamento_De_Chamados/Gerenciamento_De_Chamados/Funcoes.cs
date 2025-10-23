@@ -166,8 +166,8 @@ namespace Gerenciamento_De_Chamados
         //  Enviar e-mail ao abrir chamado
         public static void EnviarEmailChamado(
             string titulo, string descricao, string categoria, int idChamado,
-            string prioridade, string status, string pessoasAfetadas,
-            string impedeTrabalho, string ocorreuAnteriormente,
+            string prioridadeCalculada, string status, string pessoasAfetadas,
+            string impedeTrabalho, string ocorreuAnteriormente,string problemaIA, string solucaoIA,
             byte[] anexo, string nomeAnexo
         )
         {
@@ -175,66 +175,118 @@ namespace Gerenciamento_De_Chamados
             {
                 string usuario = SessaoUsuario.Nome ?? "Usuário não identificado";
                 string emailUsuario = SessaoUsuario.Email ?? "sememail@dominio.com";
-                string corpoEmail = $@"
-            <h2>Prezado(a): {usuario}</h2>
-            <p><b>Número:</b> {idChamado}</p>
-            <p><b>Data:</b> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
-            <hr>
-            <p><b>Título:</b> {titulo}</p>
-            <p><b>Descrição:</b> {descricao}</p>
-            <p><b>Categoria:</b> {categoria}</p>
-            <p><b>Prioridade:</b> {prioridade}</p>
-            <p><b>Status:</b> {status}</p>
-            <hr>
-            <p><b>Pessoas Afetadas:</b> {pessoasAfetadas}</p>
-            <p><b>Impede o Trabalho:</b> {impedeTrabalho}</p>
-            <p><b>Ocorreu Anteriormente:</b> {ocorreuAnteriormente}</p>
-            <hr>
-            
-        ";
+                string emailTecnico = "fatalsystem.unip@gmail.com";
 
-                using (MailMessage mail = new MailMessage())
+                string corpoEmailTI = $@"
+                    <h2>Novo Chamado #{idChamado} Recebido - Análise Necessária</h2>
+                    <p>Um novo chamado foi registrado e precisa de análise.</p>
+                    <p><b>Registrado por:</b> {usuario} ({emailUsuario})</p>
+                    <p><b>Número:</b> {idChamado}</p>
+                    <p><b>Data:</b> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
+                    <hr>
+                    <p><b>Título:</b> {titulo}</p>
+                    <p><b>Descrição do Usuário:</b> {descricao}</p>
+                    <p><b>Categoria:</b> {categoria}</p>
+                    <p><b>Prioridade Calculada (Score):</b> {prioridadeCalculada}</p>
+                    <p><b>Status Inicial:</b> {status}</p>
+                    <hr>
+                    <p><b>Pessoas Afetadas:</b> {pessoasAfetadas}</p>
+                    <p><b>Impede o Trabalho:</b> {impedeTrabalho}</p>
+                    <p><b>Ocorreu Anteriormente:</b> {ocorreuAnteriormente}</p>
+                    <hr>
+                    <h3>Sugestões da Análise Preliminar (IA):</h3>
+                    <p><b>Identificação do Problema:</b> {problemaIA}</p>
+                    <p><b>Proposta de Solução:</b> {solucaoIA}</p>
+                    <hr>";
+
+                using (MailMessage mailTI = new MailMessage())
                 {
-                    mail.From = new MailAddress("fatalsystem.unip@gmail.com", "Sistema de Chamados Fatal System");
-                    mail.To.Add("fatalsystem.unip@gmail.com"); // Destinatário principal
-                    mail.CC.Add(emailUsuario); // Usuário que abriu o chamado recebe em cópia
+                    mailTI.From = new MailAddress("fatalsystem.unip@gmail.com", "Sistema de Chamados Fatal System");
+                    mailTI.To.Add(emailTecnico); // Envia para a equipe de TI
+                    mailTI.Subject = $"[Chamado #{idChamado} - {prioridadeCalculada}] Novo Chamado: {titulo}";
+                    mailTI.Body = corpoEmailTI;
+                    mailTI.IsBodyHtml = true;
 
-                    mail.Subject = $"Novo Chamado #{idChamado} - {titulo}";
-                    mail.Body = corpoEmail;
-                    mail.IsBodyHtml = true;
-
-                   
+                    Attachment attachmentTI = null;
+                    MemoryStream msTI = null;
                     if (anexo != null && anexo.Length > 0)
                     {
-                        MemoryStream ms = new MemoryStream(anexo);
-                        
-                            // Cria o anexo a partir do stream de memória
-                            Attachment attachment = new Attachment(ms, nomeAnexo);
-                            mail.Attachments.Add(attachment); // Adiciona o anexo ao e-mail
-                        
+                        msTI = new MemoryStream(anexo);
+                        attachmentTI = new Attachment(msTI, nomeAnexo);
+                        mailTI.Attachments.Add(attachmentTI);
                     }
-                    
 
                     using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                     {
-                        smtp.Credentials = new NetworkCredential("fatalsystem.unip@gmail.com", "wwtr xdst wpwm lavr");
+                        smtp.Credentials = new NetworkCredential("fatalsystem.unip@gmail.com", "wwtr xdst wpwm lavr"); // Cuidado com a senha aqui
                         smtp.EnableSsl = true;
-                        smtp.Send(mail);
+                        smtp.Send(mailTI);
+                    }
+
+                    // Limpa os recursos do anexo, se existirem
+                    attachmentTI?.Dispose();
+                    msTI?.Dispose();
+                }
+
+                if (!string.IsNullOrEmpty(emailUsuario))
+                {
+                    string corpoEmailUsuario = $@"
+                        <h2>Olá, {usuario}!</h2>
+                        <p>Seu chamado foi registrado com sucesso em nosso sistema.</p>
+                        <p><b>Número do Chamado:</b> {idChamado}</p>
+                        <p><b>Data:</b> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
+                        <hr>
+                        <p><b>Título:</b> {titulo}</p>
+                        <p><b>Descrição Fornecida:</b> {descricao}</p>
+                        <p><b>Categoria:</b> {categoria}</p>
+                        <p><b>Prioridade Definida: Em análise </b></p>
+                        <p><b>Status Atual:</b> {status}</p>
+                        <hr>
+                        <p>Nossa equipe de TI já foi notificada e analisará sua solicitação em breve.</p>
+                        <p>Atenciosamente,<br>Equipe Fatal System</p>";
+
+                    using (MailMessage mailUsuario = new MailMessage())
+                    {
+                        mailUsuario.From = new MailAddress("fatalsystem.unip@gmail.com", "Sistema de Chamados Fatal System");
+                        mailUsuario.To.Add(emailUsuario); // Envia para o usuário que abriu
+                        mailUsuario.Subject = $"Confirmação: Chamado #{idChamado} Registrado - {titulo}";
+                        mailUsuario.Body = corpoEmailUsuario;
+                        mailUsuario.IsBodyHtml = true;
+
+
+                        Attachment attachmentUser = null;
+                        MemoryStream msUser = null;
+                        if (anexo != null && anexo.Length > 0)
+                        {
+                            msUser = new MemoryStream(anexo); 
+                            attachmentUser = new Attachment(msUser, nomeAnexo);
+                            mailUsuario.Attachments.Add(attachmentUser);
+                        }
+                        
+
+                        using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                        {
+                            smtp.Credentials = new NetworkCredential("fatalsystem.unip@gmail.com", "wwtr xdst wpwm lavr");
+                            smtp.EnableSsl = true;
+                            smtp.Send(mailUsuario);
+                        }
+
+
                     }
                 }
             }
             catch (Exception ex)
             {
-                
-                string mensagemErro = "Erro ao enviar e-mail: " + ex.Message;
+
+                string mensagemErro = "Erro ao enviar e-mail(s): " + ex.Message;
                 if (ex.InnerException != null)
                 {
                     mensagemErro += "\n\nDetalhes: " + ex.InnerException.Message;
                 }
-
                 MessageBox.Show(mensagemErro, "Falha no Envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }
+
+    
