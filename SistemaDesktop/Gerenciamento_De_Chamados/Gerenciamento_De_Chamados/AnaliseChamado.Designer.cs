@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_NomeUser = new System.Windows.Forms.Label();
-            this.roundedPanel1 = new RoundedPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
-            this.cboxPrioridProp = new System.Windows.Forms.ComboBox();
-            this.txtIdentificacaoProb = new System.Windows.Forms.TextBox();
-            this.txtSolProp = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_NomeUser = new System.Windows.Forms.Label();
+            this.roundedPanel1 = new RoundedPanel();
             this.btnSalvarAnalise = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSolProp = new System.Windows.Forms.TextBox();
+            this.txtIdentificacaoProb = new System.Windows.Forms.TextBox();
+            this.cboxPrioridProp = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
+            this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -62,61 +62,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1005, 84);
             this.panel2.TabIndex = 31;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.PctBox_Logo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(231, 754);
-            this.panel1.TabIndex = 30;
-            // 
-            // lbl_NomeUser
-            // 
-            this.lbl_NomeUser.AutoSize = true;
-            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(289, 93);
-            this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 31);
-            this.lbl_NomeUser.TabIndex = 29;
-            // 
-            // roundedPanel1
-            // 
-            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.roundedPanel1.BackColor = System.Drawing.Color.White;
-            this.roundedPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedPanel1.BorderWidth = 1F;
-            this.roundedPanel1.Controls.Add(this.btnSalvarAnalise);
-            this.roundedPanel1.Controls.Add(this.label6);
-            this.roundedPanel1.Controls.Add(this.label5);
-            this.roundedPanel1.Controls.Add(this.label4);
-            this.roundedPanel1.Controls.Add(this.txtSolProp);
-            this.roundedPanel1.Controls.Add(this.txtIdentificacaoProb);
-            this.roundedPanel1.Controls.Add(this.cboxPrioridProp);
-            this.roundedPanel1.Controls.Add(this.label2);
-            this.roundedPanel1.CornerRadius = 15;
-            this.roundedPanel1.Location = new System.Drawing.Point(250, 93);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(975, 650);
-            this.roundedPanel1.TabIndex = 32;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 31);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(316, 37);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Analise do Chamado";
             // 
             // pictureBox4
             // 
@@ -141,6 +86,18 @@
             this.label9.Size = new System.Drawing.Size(105, 26);
             this.label9.TabIndex = 5;
             this.label9.Text = "       Início";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.PctBox_Logo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(231, 754);
+            this.panel1.TabIndex = 30;
             // 
             // label3
             // 
@@ -177,6 +134,96 @@
             this.PctBox_Logo.TabIndex = 3;
             this.PctBox_Logo.TabStop = false;
             // 
+            // lbl_NomeUser
+            // 
+            this.lbl_NomeUser.AutoSize = true;
+            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NomeUser.Location = new System.Drawing.Point(289, 93);
+            this.lbl_NomeUser.Name = "lbl_NomeUser";
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 31);
+            this.lbl_NomeUser.TabIndex = 29;
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.Controls.Add(this.btnSalvarAnalise);
+            this.roundedPanel1.Controls.Add(this.label6);
+            this.roundedPanel1.Controls.Add(this.label5);
+            this.roundedPanel1.Controls.Add(this.label4);
+            this.roundedPanel1.Controls.Add(this.txtSolProp);
+            this.roundedPanel1.Controls.Add(this.txtIdentificacaoProb);
+            this.roundedPanel1.Controls.Add(this.cboxPrioridProp);
+            this.roundedPanel1.Controls.Add(this.label2);
+            this.roundedPanel1.CornerRadius = 15;
+            this.roundedPanel1.Location = new System.Drawing.Point(250, 93);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Size = new System.Drawing.Size(975, 650);
+            this.roundedPanel1.TabIndex = 32;
+            // 
+            // btnSalvarAnalise
+            // 
+            this.btnSalvarAnalise.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarAnalise.Location = new System.Drawing.Point(709, 555);
+            this.btnSalvarAnalise.Name = "btnSalvarAnalise";
+            this.btnSalvarAnalise.Size = new System.Drawing.Size(238, 65);
+            this.btnSalvarAnalise.TabIndex = 7;
+            this.btnSalvarAnalise.Text = "Salvar Análise de Chamado";
+            this.btnSalvarAnalise.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(31, 387);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(261, 31);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Prioridade Proposta:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(31, 255);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(236, 31);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Solução Proposta:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(31, 133);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(335, 31);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Identificação do Problema:";
+            // 
+            // txtSolProp
+            // 
+            this.txtSolProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSolProp.Location = new System.Drawing.Point(37, 291);
+            this.txtSolProp.Multiline = true;
+            this.txtSolProp.Name = "txtSolProp";
+            this.txtSolProp.Size = new System.Drawing.Size(766, 54);
+            this.txtSolProp.TabIndex = 3;
+            // 
+            // txtIdentificacaoProb
+            // 
+            this.txtIdentificacaoProb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdentificacaoProb.Location = new System.Drawing.Point(37, 169);
+            this.txtIdentificacaoProb.Multiline = true;
+            this.txtIdentificacaoProb.Name = "txtIdentificacaoProb";
+            this.txtIdentificacaoProb.Size = new System.Drawing.Size(766, 54);
+            this.txtIdentificacaoProb.TabIndex = 2;
+            // 
             // cboxPrioridProp
             // 
             this.cboxPrioridProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -190,63 +237,16 @@
             this.cboxPrioridProp.Size = new System.Drawing.Size(182, 33);
             this.cboxPrioridProp.TabIndex = 1;
             // 
-            // txtIdentificacaoProb
+            // label2
             // 
-            this.txtIdentificacaoProb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentificacaoProb.Location = new System.Drawing.Point(37, 169);
-            this.txtIdentificacaoProb.Multiline = true;
-            this.txtIdentificacaoProb.Name = "txtIdentificacaoProb";
-            this.txtIdentificacaoProb.Size = new System.Drawing.Size(766, 54);
-            this.txtIdentificacaoProb.TabIndex = 2;
-            // 
-            // txtSolProp
-            // 
-            this.txtSolProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSolProp.Location = new System.Drawing.Point(37, 291);
-            this.txtSolProp.Multiline = true;
-            this.txtSolProp.Name = "txtSolProp";
-            this.txtSolProp.Size = new System.Drawing.Size(766, 54);
-            this.txtSolProp.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(31, 133);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(335, 31);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Identificação do Problema:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(31, 255);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(236, 31);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Solução Proposta:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(31, 387);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(261, 31);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Prioridade Proposta:";
-            // 
-            // btnSalvarAnalise
-            // 
-            this.btnSalvarAnalise.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarAnalise.Location = new System.Drawing.Point(709, 555);
-            this.btnSalvarAnalise.Name = "btnSalvarAnalise";
-            this.btnSalvarAnalise.Size = new System.Drawing.Size(238, 65);
-            this.btnSalvarAnalise.TabIndex = 7;
-            this.btnSalvarAnalise.Text = "Salvar Análise de Chamado";
-            this.btnSalvarAnalise.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(38, 42);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(316, 37);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Analise do Chamado";
             // 
             // AnaliseChamado
             // 
@@ -261,12 +261,12 @@
             this.Text = "AnaliseChamado";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).EndInit();
             this.roundedPanel1.ResumeLayout(false);
             this.roundedPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

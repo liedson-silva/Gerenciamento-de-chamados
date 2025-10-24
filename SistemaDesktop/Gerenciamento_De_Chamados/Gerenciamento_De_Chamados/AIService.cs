@@ -26,7 +26,8 @@ namespace Gerenciamento_De_Chamados
         }
 
         // Assinatura ajustada para retornar apenas problema e solucao
-        public async Task<(string problema, string solucao)> AnalisarChamado(string titulo, string descricao, string categoria)
+        public async Task<(string problema, string prioridade, string solucao)> AnalisarChamado(string titulo, 
+            string pessoaAfetadas, string ocorreuAnteriormente, string impedeTrabalho, string descricao, string categoria)
         {
             // Monta o prompt (igual ao anterior)
             string prompt = $@"
@@ -34,12 +35,23 @@ namespace Gerenciamento_De_Chamados
                 Título: {titulo}
                 Categoria: {categoria}
                 Descrição: {descricao}
+                Pessoas Afetadas: {pessoaAfetadas}
+                Ocorreu Anteriormente: {ocorreuAnteriormente}
+                Impede o Trabalho: {impedeTrabalho}
+                
+                Regras para definir a prioridade (Aplicar estritamente):
+                * Alta: (O problema afeta 'A empresa inteira' OU 'Meu setor') E (Impede o Trabalho = 'Sim'). OU (Afeta 'Somente eu' E Impede o Trabalho = 'Sim' E Ocorrência Anterior = 'Sim').
+                * Média: (O problema afeta 'Meu setor' AND (Impede o Trabalho = 'Não' OU Impede o Trabalho = 'Parcialmente')). OU (Afeta 'Somente eu' AND Impede o Trabalho = 'Sim' AND Ocorrência Anterior = 'Não').
+                * Baixa: (O problema afeta 'Somente eu' AND (Impede o Trabalho = 'Não' OU Impede o Trabalho = 'Parcialmente')). OU (Descrição indica pedido de informação/melhoria e não um erro funcional).
 
                 Com base nessas informações, forneça:
                 1. Identificação do Problema: (Descreva o problema principal em poucas palavras)
                 2. Proposta de Solução: (Sugira uma solução inicial ou próximos passos)
+                3. Prioridade Definida: [Baixa, Média ou Alta]
+                "";             
 
-                Responda APENAS com o texto solicitado para cada item, um em cada linha, começando EXATAMENTE com '1. Identificação do Problema:' e '2. Proposta de Solução:'.";
+                Responda APENAS com o texto solicitado para cada item, um em cada linha, começando EXATAMENTE com '1. Identificação do Problema:',
+                '2. Proposta de Solução:' e '3. Prioridade Definida:'.";
 
             try
             {
@@ -96,7 +108,7 @@ namespace Gerenciamento_De_Chamados
                         catch { /* Ignora erro ao parsear o erro */ }
                         Console.WriteLine($"Erro HTTP: {response.StatusCode} - {errorDetails}");
                         
-                        return ("Erro na API", $"Erro {response.StatusCode}: {errorDetails}"); 
+                        return ("Erro na API", "Não identificado", $"Erro {response.StatusCode}: {errorDetails}"); 
                     }
 
                     // Analisa a resposta JSON para extrair o texto gerado
@@ -119,25 +131,26 @@ namespace Gerenciamento_De_Chamados
                     catch (Exception jsonEx)
                     {
                         Console.WriteLine($"Erro ao analisar JSON da resposta: {jsonEx.Message}");
-                        return ("Erro no JSON", $"Resposta recebida, mas não pôde ser lida: {responseBody}"); // Ajustado para 2 valores
+                        return ("Erro no JSON", "Não identificado", $"Resposta recebida, mas não pôde ser lida: {responseBody}"); // Ajustado para 2 valores
                     }
 
                     // Usa a função ExtrairValor para pegar os dados específicos do texto gerado
                     string problemaSugerido = ExtrairValor(textoGerado, @"1\. Identificação do Problema:\s*(.*)");
                     string solucaoSugerida = ExtrairValor(textoGerado, @"2\. Proposta de Solução:\s*(.*)");
+                    string prioridadeSugerida = ExtrairValor(textoGerado, @"3\. Prioridade Definida:\s*(.*)");
 
-                    return (problemaSugerido, solucaoSugerida);
+                    return (problemaSugerido, prioridadeSugerida, solucaoSugerida);
                 } // Fim do using requestMessage
             }
             catch (HttpRequestException httpEx)
             {
                 Console.WriteLine($"Erro de Rede ao chamar a API Gemini: {httpEx.Message}");
-                return ("Erro de Rede", $"Não foi possível conectar à API: {httpEx.Message}"); // Ajustado para 2 valores
+                return ("Erro de Rede", "Não identificado", $"Não foi possível conectar à API: {httpEx.Message}"); // Troque por:
             }
             catch (Exception ex) // Captura outros erros inesperados
             {
                 Console.WriteLine($"Erro inesperado na AIService: {ex.Message}");
-                return ("Erro Inesperado", ex.Message); // Ajustado para 2 valores
+                return ("Erro Inesperado", "Não identificado", ex.Message); // Ajustado para 2 valores
             }
         }
 

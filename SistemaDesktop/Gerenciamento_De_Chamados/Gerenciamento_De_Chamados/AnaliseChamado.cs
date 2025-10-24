@@ -51,16 +51,16 @@ namespace Gerenciamento_De_Chamados
                                 txtIdentificacaoProb.Text = reader["ProblemaSugeridoIA"] != DBNull.Value ? reader["ProblemaSugeridoIA"].ToString() : "N/A";
                                 txtSolProp.Text = reader["SolucaoSugeridaIA"] != DBNull.Value ? reader["SolucaoSugeridaIA"].ToString() : "N/A";
 
-                                string prioridadeScore = reader["PrioridadeSugeridaIA"] != DBNull.Value ? reader["PrioridadeSugeridaIA"].ToString() : "Baixa"; // Padrão Baixa se nulo
+                                string prioridadeIA = reader["PrioridadeSugeridaIA"] != DBNull.Value ? reader["PrioridadeSugeridaIA"].ToString() : "Baixa"; // Padrão Baixa se nulo
                                 // Tenta selecionar o item na ComboBox
-                                int index = cboxPrioridProp.FindStringExact(prioridadeScore);
+                                int index = cboxPrioridProp.FindStringExact(prioridadeIA);
                                 if (index != -1)
                                 {
                                     cboxPrioridProp.SelectedIndex = index;
                                 }
                                 else
                                 {
-                                    cboxPrioridProp.Text = prioridadeScore; 
+                                    cboxPrioridProp.Text = prioridadeIA; 
                                 }
 
                                 
@@ -147,6 +147,5 @@ namespace Gerenciamento_De_Chamados
                     LinearGradientMode.Vertical);
             g.FillRectangle(gradientePanel, ClientRectangle); // Idem
         }
-
     }
 }

@@ -61,7 +61,7 @@
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(244, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1054, 68);
             this.panel2.TabIndex = 11;
@@ -94,7 +94,7 @@
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
             this.pictureBox4.Location = new System.Drawing.Point(1007, 11);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(38, 41);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -111,7 +111,7 @@
             this.panel1.Controls.Add(this.PctBox_Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(244, 794);
             this.panel1.TabIndex = 10;
@@ -179,7 +179,7 @@
             this.PctBox_Logo.BackColor = System.Drawing.Color.Transparent;
             this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
             this.PctBox_Logo.Location = new System.Drawing.Point(-34, -25);
-            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(2);
             this.PctBox_Logo.Name = "PctBox_Logo";
             this.PctBox_Logo.Size = new System.Drawing.Size(295, 242);
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -208,7 +208,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTituloChamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTituloChamado.Location = new System.Drawing.Point(275, 124);
-            this.txtTituloChamado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTituloChamado.Margin = new System.Windows.Forms.Padding(2);
             this.txtTituloChamado.Name = "txtTituloChamado";
             this.txtTituloChamado.Size = new System.Drawing.Size(918, 35);
             this.txtTituloChamado.TabIndex = 13;
@@ -244,7 +244,7 @@
             "Comunicação",
             "Incidentes"});
             this.cboxCtgChamado.Location = new System.Drawing.Point(275, 251);
-            this.cboxCtgChamado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboxCtgChamado.Margin = new System.Windows.Forms.Padding(2);
             this.cboxCtgChamado.Name = "cboxCtgChamado";
             this.cboxCtgChamado.Size = new System.Drawing.Size(504, 37);
             this.cboxCtgChamado.TabIndex = 15;
@@ -271,7 +271,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescriçãoCh.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescriçãoCh.Location = new System.Drawing.Point(268, 401);
-            this.txtDescriçãoCh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescriçãoCh.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescriçãoCh.Multiline = true;
             this.txtDescriçãoCh.Name = "txtDescriçãoCh";
             this.txtDescriçãoCh.Size = new System.Drawing.Size(918, 185);
@@ -283,7 +283,7 @@
             this.btnContinuar.BackColor = System.Drawing.Color.White;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinuar.Location = new System.Drawing.Point(1158, 722);
-            this.btnContinuar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnContinuar.Margin = new System.Windows.Forms.Padding(2);
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(123, 50);
             this.btnContinuar.TabIndex = 19;
@@ -296,7 +296,7 @@
             this.btnAnexArq.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAnexArq.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnexArq.Location = new System.Drawing.Point(262, 699);
-            this.btnAnexArq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAnexArq.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnexArq.Name = "btnAnexArq";
             this.btnAnexArq.Size = new System.Drawing.Size(179, 73);
             this.btnAnexArq.TabIndex = 2;
@@ -333,7 +333,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AberturaChamados";
             this.Text = "AberturaChamados";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
