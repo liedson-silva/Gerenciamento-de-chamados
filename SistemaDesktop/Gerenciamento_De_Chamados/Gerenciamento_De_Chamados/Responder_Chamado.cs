@@ -199,9 +199,9 @@ namespace Gerenciamento_De_Chamados
 
                     using (SqlConnection conexao = new SqlConnection(connectionString))
                     {
-                        await conexao.OpenAsync(); // Abre a conexão de forma assíncrona
+                        await conexao.OpenAsync(); 
 
-                        // 5. Busca TODOS os dados do chamado para a IA
+                       
                         string sqlSelect = @"
                     SELECT Titulo, Descricao, Categoria, PessoasAfetadas, 
                            ImpedeTrabalho, OcorreuAnteriormente, 
@@ -243,6 +243,7 @@ namespace Gerenciamento_De_Chamados
 
                             try
                             {
+                                List<string> solucoesAnteriores = await Funcoes.BuscarSolucoesAnteriores(categoria);
 
                                 AIService aiService = new AIService();
                                 var (novoProblema, novaPrioridade, novaSolucao) = await aiService.AnalisarChamado(
@@ -251,7 +252,8 @@ namespace Gerenciamento_De_Chamados
                                     ocorreuAnteriormente,
                                     impedeTrabalho,
                                     descricao,
-                                    categoria
+                                    categoria,
+                                    solucoesAnteriores
                                 );
 
 

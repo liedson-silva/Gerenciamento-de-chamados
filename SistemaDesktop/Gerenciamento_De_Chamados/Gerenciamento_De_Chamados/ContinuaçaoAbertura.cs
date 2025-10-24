@@ -38,14 +38,15 @@ namespace Gerenciamento_De_Chamados
 
             string status = "Pendente";
                         
-            string problemaIA = "Análise Pendente";
-            string solucaoIA = "Análise Pendente";
-            string prioridadeIA = "Análise Pendente";
+            string problemaIA = "Pendente";
+            string solucaoIA = "Pendente";
+            string prioridadeIA = "Analise";
             try
             {
-                    AIService aiService = new AIService(); 
+                List<string> solucoesAnteriores = await Funcoes.BuscarSolucoesAnteriores(CategoriaChamado);
+                AIService aiService = new AIService(); 
                 var (problema,prioridade, solucao) = await aiService.AnalisarChamado(TituloChamado,PessoasAfetadas,
-                    OcorreuAnteriormente, ImpedeTrabalho, DescricaoChamado, CategoriaChamado);
+                    OcorreuAnteriormente, ImpedeTrabalho, DescricaoChamado, CategoriaChamado, solucoesAnteriores);
                 problemaIA = problema;
                 solucaoIA = solucao;
                 prioridadeIA = prioridade;
@@ -78,7 +79,7 @@ namespace Gerenciamento_De_Chamados
                     conexao.Open();
 
                     int idChamado;
-                    string prioridade = "Em análise";
+                    string prioridade = "Análise";
                     
 
                     using (SqlCommand cmd = new SqlCommand(sql, conexao))
