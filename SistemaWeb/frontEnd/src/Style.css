@@ -875,7 +875,7 @@ h1 {
     .info-ticket {
         grid-template-columns: repeat(2, 1fr);
     }
- 
+
     .view-desktop {
         display: none;
     }
@@ -998,7 +998,7 @@ h1 {
     position: relative;
 }
 
-label{
+label {
     color: #c6c6c6;
     padding: 0 5px;
     position: absolute;
@@ -1014,7 +1014,7 @@ textarea:valid~label,
 select:focus~label,
 select:valid~label,
 input:focus~label,
-input:valid~label{
+input:valid~label {
     top: 0;
     color: #000;
     background-color: #FFF;
@@ -1168,63 +1168,65 @@ input:valid~label{
     background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
-.button-back{
-  cursor: pointer;
-  background: linear-gradient(to right, white, rgb(176, 176, 176));
-  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-  border: none;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  padding: 10px 20px;
-  width: 140px;
-  margin-top: 20px;
-  margin-left: 40px;
-  transition: background 0.3s;
+.button-back {
+    cursor: pointer;
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    padding: 10px 20px;
+    width: 140px;
+    margin-top: 20px;
+    margin-left: 40px;
+    transition: background 0.3s;
 }
 
 .button-back:hover {
-  background: linear-gradient(to right, white, rgb(121, 121, 121));
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 /*Menage ticket*/
 
 .user-list {
-  position: relative;
-  padding-bottom: 70px; /* Espaço para o botão no canto inferior */
+    position: relative;
+    padding-bottom: 70px;
+    /* Espaço para o botão no canto inferior */
 }
 
 .button-voltar-canto {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  cursor: pointer;
-  background: linear-gradient(to right, white, rgb(176, 176, 176));
-  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-  border: none;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  padding: 10px 20px;
-  width: 140px;
-  transition: background 0.3s;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    cursor: pointer;
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    padding: 10px 20px;
+    width: 140px;
+    transition: background 0.3s;
 }
 
 .button-voltar-canto:hover {
-  background: linear-gradient(to right, white, rgb(121, 121, 121));
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
 /*Report*/
 
-.report{
+.report {
     margin-left: 40px;
-    gap: 170px;
     display: flex;
+    flex-wrap: wrap; 
+    gap: 60px;
 }
 
 .report-title {
     font-weight: bold;
 }
 
-.report-date{
+.report-date {
     border: solid 2px #c6c6c6;
     border-radius: 8px;
     width: 70%;
@@ -1233,33 +1235,32 @@ input:valid~label{
 }
 
 .report-item {
-    list-style: none;
-    cursor: pointer;
+    display: flex;
     margin-left: -40px;
 }
-
-.report-item:hover {
-    opacity: 0.5;
+.report-radio{
+    cursor: pointer;
 }
 
 .button-report {
-  cursor: pointer;
-  background: linear-gradient(to right, white, rgb(176, 176, 176));
-  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-  border: none;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  max-height: 40px;
-  max-width: 160px;
-  width: 100%;
-  transition: background 0.3s;
+    margin-top: 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    max-height: 40px;
+    max-width: 160px;
+    width: 100%;
+    transition: background 0.3s;
 }
 
 .button-report:hover {
-  background: linear-gradient(to right, white, rgb(121, 121, 121));
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
 }
 
-.report-chart{
+.report-chart {
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -1280,4 +1281,10 @@ input:valid~label{
 .report-title-chart {
     margin-left: 40px;
     font-weight: bold;
+}
+
+.report-date-group {
+    position: relative;
+    display: flex;
+    gap: 10px;
 }
