@@ -36,20 +36,30 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
             this.lbl_NomeUser = new System.Windows.Forms.Label();
-            this.roundedPanel1 = new RoundedPanel();
-            this.btnSalvarAnalise = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelAnalise = new RoundedPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtSolProp = new System.Windows.Forms.TextBox();
-            this.txtIdentificacaoProb = new System.Windows.Forms.TextBox();
-            this.cboxPrioridProp = new System.Windows.Forms.ComboBox();
+            this.btnSalvarAnalise = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.cboxPrioridProp = new System.Windows.Forms.ComboBox();
+            this.txtIdentificacaoProb = new System.Windows.Forms.TextBox();
+            this.txtSolProp = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.panelResposta = new RoundedPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtSolucaoFinal = new System.Windows.Forms.TextBox();
+            this.btnCancelar2 = new System.Windows.Forms.Button();
+            this.btnResponderCH = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
-            this.roundedPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panelAnalise.SuspendLayout();
+            this.panelResposta.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -143,44 +153,45 @@
             this.lbl_NomeUser.Size = new System.Drawing.Size(0, 31);
             this.lbl_NomeUser.TabIndex = 29;
             // 
-            // roundedPanel1
+            // flowLayoutPanel1
             // 
-            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.roundedPanel1.BackColor = System.Drawing.Color.White;
-            this.roundedPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedPanel1.BorderWidth = 1F;
-            this.roundedPanel1.Controls.Add(this.btnSalvarAnalise);
-            this.roundedPanel1.Controls.Add(this.label6);
-            this.roundedPanel1.Controls.Add(this.label5);
-            this.roundedPanel1.Controls.Add(this.label4);
-            this.roundedPanel1.Controls.Add(this.txtSolProp);
-            this.roundedPanel1.Controls.Add(this.txtIdentificacaoProb);
-            this.roundedPanel1.Controls.Add(this.cboxPrioridProp);
-            this.roundedPanel1.Controls.Add(this.label2);
-            this.roundedPanel1.CornerRadius = 15;
-            this.roundedPanel1.Location = new System.Drawing.Point(250, 93);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(975, 650);
-            this.roundedPanel1.TabIndex = 32;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Controls.Add(this.panelAnalise);
+            this.flowLayoutPanel1.Controls.Add(this.panelResposta);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(231, 84);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1005, 670);
+            this.flowLayoutPanel1.TabIndex = 32;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
-            // btnSalvarAnalise
+            // panelAnalise
             // 
-            this.btnSalvarAnalise.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarAnalise.Location = new System.Drawing.Point(709, 555);
-            this.btnSalvarAnalise.Name = "btnSalvarAnalise";
-            this.btnSalvarAnalise.Size = new System.Drawing.Size(238, 65);
-            this.btnSalvarAnalise.TabIndex = 7;
-            this.btnSalvarAnalise.Text = "Salvar Análise de Chamado";
-            this.btnSalvarAnalise.UseVisualStyleBackColor = true;
+            this.panelAnalise.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelAnalise.BorderColor = System.Drawing.Color.Gray;
+            this.panelAnalise.BorderWidth = 1F;
+            this.panelAnalise.Controls.Add(this.label6);
+            this.panelAnalise.Controls.Add(this.label5);
+            this.panelAnalise.Controls.Add(this.label4);
+            this.panelAnalise.Controls.Add(this.btnSalvarAnalise);
+            this.panelAnalise.Controls.Add(this.label2);
+            this.panelAnalise.Controls.Add(this.cboxPrioridProp);
+            this.panelAnalise.Controls.Add(this.txtIdentificacaoProb);
+            this.panelAnalise.Controls.Add(this.txtSolProp);
+            this.panelAnalise.Controls.Add(this.btnCancelar);
+            this.panelAnalise.CornerRadius = 15;
+            this.panelAnalise.Location = new System.Drawing.Point(3, 3);
+            this.panelAnalise.Name = "panelAnalise";
+            this.panelAnalise.Size = new System.Drawing.Size(969, 616);
+            this.panelAnalise.TabIndex = 10;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(31, 387);
+            this.label6.Location = new System.Drawing.Point(6, 423);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(261, 31);
             this.label6.TabIndex = 6;
@@ -190,7 +201,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(31, 255);
+            this.label5.Location = new System.Drawing.Point(6, 262);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(236, 31);
             this.label5.TabIndex = 5;
@@ -200,29 +211,33 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(31, 133);
+            this.label4.Location = new System.Drawing.Point(6, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(335, 31);
             this.label4.TabIndex = 4;
             this.label4.Text = "Identificação do Problema:";
             // 
-            // txtSolProp
+            // btnSalvarAnalise
             // 
-            this.txtSolProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSolProp.Location = new System.Drawing.Point(37, 291);
-            this.txtSolProp.Multiline = true;
-            this.txtSolProp.Name = "txtSolProp";
-            this.txtSolProp.Size = new System.Drawing.Size(766, 54);
-            this.txtSolProp.TabIndex = 3;
+            this.btnSalvarAnalise.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarAnalise.Location = new System.Drawing.Point(713, 535);
+            this.btnSalvarAnalise.Name = "btnSalvarAnalise";
+            this.btnSalvarAnalise.Size = new System.Drawing.Size(238, 65);
+            this.btnSalvarAnalise.TabIndex = 7;
+            this.btnSalvarAnalise.Text = "Salvar Análise de Chamado";
+            this.btnSalvarAnalise.UseVisualStyleBackColor = true;
+            this.btnSalvarAnalise.Click += new System.EventHandler(this.btnSalvarAnalise_Click);
             // 
-            // txtIdentificacaoProb
+            // label2
             // 
-            this.txtIdentificacaoProb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentificacaoProb.Location = new System.Drawing.Point(37, 169);
-            this.txtIdentificacaoProb.Multiline = true;
-            this.txtIdentificacaoProb.Name = "txtIdentificacaoProb";
-            this.txtIdentificacaoProb.Size = new System.Drawing.Size(766, 54);
-            this.txtIdentificacaoProb.TabIndex = 2;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(7, 25);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(316, 37);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Analise do Chamado";
             // 
             // cboxPrioridProp
             // 
@@ -232,31 +247,115 @@
             "Alta",
             "Média",
             "Baixa"});
-            this.cboxPrioridProp.Location = new System.Drawing.Point(37, 423);
+            this.cboxPrioridProp.Location = new System.Drawing.Point(12, 457);
             this.cboxPrioridProp.Name = "cboxPrioridProp";
             this.cboxPrioridProp.Size = new System.Drawing.Size(182, 33);
             this.cboxPrioridProp.TabIndex = 1;
             // 
-            // label2
+            // txtIdentificacaoProb
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(38, 42);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(316, 37);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Analise do Chamado";
+            this.txtIdentificacaoProb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdentificacaoProb.Location = new System.Drawing.Point(12, 151);
+            this.txtIdentificacaoProb.Multiline = true;
+            this.txtIdentificacaoProb.Name = "txtIdentificacaoProb";
+            this.txtIdentificacaoProb.Size = new System.Drawing.Size(766, 83);
+            this.txtIdentificacaoProb.TabIndex = 2;
+            // 
+            // txtSolProp
+            // 
+            this.txtSolProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSolProp.Location = new System.Drawing.Point(12, 296);
+            this.txtSolProp.Multiline = true;
+            this.txtSolProp.Name = "txtSolProp";
+            this.txtSolProp.Size = new System.Drawing.Size(766, 93);
+            this.txtSolProp.TabIndex = 3;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(410, 535);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(238, 65);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // panelResposta
+            // 
+            this.panelResposta.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelResposta.BorderColor = System.Drawing.Color.Gray;
+            this.panelResposta.BorderWidth = 1F;
+            this.panelResposta.Controls.Add(this.label10);
+            this.panelResposta.Controls.Add(this.label11);
+            this.panelResposta.Controls.Add(this.txtSolucaoFinal);
+            this.panelResposta.Controls.Add(this.btnCancelar2);
+            this.panelResposta.Controls.Add(this.btnResponderCH);
+            this.panelResposta.CornerRadius = 15;
+            this.panelResposta.Location = new System.Drawing.Point(3, 625);
+            this.panelResposta.Name = "panelResposta";
+            this.panelResposta.Size = new System.Drawing.Size(969, 616);
+            this.panelResposta.TabIndex = 11;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 164);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(209, 31);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Resolução Final";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(2, 59);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(321, 37);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Responder Chamado";
+            // 
+            // txtSolucaoFinal
+            // 
+            this.txtSolucaoFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSolucaoFinal.Location = new System.Drawing.Point(12, 215);
+            this.txtSolucaoFinal.Multiline = true;
+            this.txtSolucaoFinal.Name = "txtSolucaoFinal";
+            this.txtSolucaoFinal.Size = new System.Drawing.Size(939, 248);
+            this.txtSolucaoFinal.TabIndex = 3;
+            // 
+            // btnCancelar2
+            // 
+            this.btnCancelar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar2.Location = new System.Drawing.Point(423, 542);
+            this.btnCancelar2.Name = "btnCancelar2";
+            this.btnCancelar2.Size = new System.Drawing.Size(238, 65);
+            this.btnCancelar2.TabIndex = 9;
+            this.btnCancelar2.Text = "Cancelar";
+            this.btnCancelar2.UseVisualStyleBackColor = true;
+            this.btnCancelar2.Click += new System.EventHandler(this.btnCancelar2_Click);
+            // 
+            // btnResponderCH
+            // 
+            this.btnResponderCH.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResponderCH.Location = new System.Drawing.Point(713, 542);
+            this.btnResponderCH.Name = "btnResponderCH";
+            this.btnResponderCH.Size = new System.Drawing.Size(238, 65);
+            this.btnResponderCH.TabIndex = 8;
+            this.btnResponderCH.Text = "Responder Chamado";
+            this.btnResponderCH.UseVisualStyleBackColor = true;
             // 
             // AnaliseChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1236, 754);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_NomeUser);
-            this.Controls.Add(this.roundedPanel1);
             this.Name = "AnaliseChamado";
             this.Text = "AnaliseChamado";
             this.panel2.ResumeLayout(false);
@@ -265,8 +364,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).EndInit();
-            this.roundedPanel1.ResumeLayout(false);
-            this.roundedPanel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panelAnalise.ResumeLayout(false);
+            this.panelAnalise.PerformLayout();
+            this.panelResposta.ResumeLayout(false);
+            this.panelResposta.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,14 +383,22 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox PctBox_Logo;
         private System.Windows.Forms.Label lbl_NomeUser;
-        private RoundedPanel roundedPanel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSolProp;
-        private System.Windows.Forms.TextBox txtIdentificacaoProb;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboxPrioridProp;
+        private System.Windows.Forms.TextBox txtIdentificacaoProb;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSalvarAnalise;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private RoundedPanel panelAnalise;
+        private RoundedPanel panelResposta;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtSolucaoFinal;
+        private System.Windows.Forms.Button btnCancelar2;
+        private System.Windows.Forms.Button btnResponderCH;
     }
 }
