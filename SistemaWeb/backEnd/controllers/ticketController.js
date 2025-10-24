@@ -175,4 +175,28 @@ export class TicketsController {
             return res.status(500).json({ success: false, message: "Erro ao atualizar chamado" });
         }
     }
+
+    async createReport(req, res) {
+        const { startDate, endDate } = req.body
+
+        if (!startDate || !endDate) {
+            return res.status(400).json({ success: false, message: "Campos obrigatórios faltando!" })
+        }
+
+        try {
+            const result = await this.pool.request()
+                .input("startDate", this.sql.Date, startDate)
+                .input("endDate", this.sql.Date, endDate)
+                .query("SELECT * FROM Chamado WHERE DataChamado >= @startDate AND DataChamado <= @endDate")
+
+            if (result.recordset.length === 0) {
+                return res.status(200).json({ success: false, message: "Nenhum chamado encontrado no período especificado" })
+            }
+
+            res.json({ success: true, Tickets: result.recordset })
+        } catch (err) {
+            console.error(err)
+            res.status(500).json({ success: false, message: "Erro ao buscar chamado" })
+        }
+    }
 } 
