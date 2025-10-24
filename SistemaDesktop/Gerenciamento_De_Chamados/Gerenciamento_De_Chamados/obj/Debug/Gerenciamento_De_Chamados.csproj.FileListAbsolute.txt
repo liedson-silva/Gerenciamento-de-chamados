@@ -183,3 +183,6 @@ C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Ge
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerencia.52AE2C3A.Up2Date
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.pdb
+C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\System.Text.Json.dll
+C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\System.IO.Pipelines.dll
+C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\System.Text.Encodings.Web.dll
