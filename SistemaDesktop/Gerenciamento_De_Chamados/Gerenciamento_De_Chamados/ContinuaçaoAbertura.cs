@@ -25,56 +25,6 @@ namespace Gerenciamento_De_Chamados
             this.Load += ContinuaçaoAbertura_Load;
         }
 
-        private string CalcularPrioridadePorScore(string pessoasAfetadas, string impedeTrabalho)
-        {
-            int score = 0;
-
-           
-            switch (pessoasAfetadas)
-            {
-                case "A empresa inteira":
-                    score += 60;
-                    break;
-                case "Meu setor":
-                    score += 30;
-                    break;
-                case "Somente eu":
-                    score += 10;
-                    break;
-                default:
-                    score += 10; 
-                    break;
-            }
-
-            switch (impedeTrabalho)
-            {
-                case "Sim":
-                    score += 30;
-                    break;
-                case "Parcialmente":
-                    score += 15;
-                    break;
-                case "Não":
-                    score += 0;
-                    break;
-                default:
-                    score += 0;
-                    break;
-            }
-
-            if (score >= 60)
-            {
-                return "Alta";
-            }
-            else if (score >= 30)
-            {
-                return "Média";
-            }
-            else
-            {
-                return "Baixa";
-            }
-        }
 
         private async void btnConcluirCH_Click(object sender, EventArgs e)
         {
@@ -86,18 +36,22 @@ namespace Gerenciamento_De_Chamados
             string CategoriaChamado = aberturaChamados.cboxCtgChamado.Text;
             byte[] AnexarArquivo = aberturaChamados.arquivoAnexado;
 
-            string prioridadeCalculada = CalcularPrioridadePorScore(PessoasAfetadas, ImpedeTrabalho);
             string status = "Pendente";
                         
             string problemaIA = "Análise Pendente";
             string solucaoIA = "Análise Pendente";
+            string prioridadeIA = "Análise Pendente";
             try
             {
-                AIService aiService = new AIService(); 
-                var (problema, solucao) = await aiService.AnalisarChamado(TituloChamado, DescricaoChamado, CategoriaChamado);
+                    AIService aiService = new AIService(); 
+                var (problema,prioridade, solucao) = await aiService.AnalisarChamado(TituloChamado,PessoasAfetadas,
+                    OcorreuAnteriormente, ImpedeTrabalho, DescricaoChamado, CategoriaChamado);
                 problemaIA = problema;
                 solucaoIA = solucao;
+                prioridadeIA = prioridade;
             }
+
+
 
             catch (Exception aiEx)
             {
@@ -144,7 +98,7 @@ namespace Gerenciamento_De_Chamados
                         cmd.Parameters.AddWithValue("@ImpedeTrabalho", ImpedeTrabalho);
                         cmd.Parameters.AddWithValue("@OcorreuAnteriormente", OcorreuAnteriormente);
 
-                        cmd.Parameters.AddWithValue("@PrioridadeSugeridaIA", prioridadeCalculada);
+                        cmd.Parameters.AddWithValue("@PrioridadeSugeridaIA", prioridadeIA);
                         cmd.Parameters.AddWithValue("@ProblemaSugeridoIA", problemaIA);
                         cmd.Parameters.AddWithValue("@SolucaoSugeridaIA", solucaoIA);
                         idChamado = (int)cmd.ExecuteScalar();
@@ -172,7 +126,7 @@ namespace Gerenciamento_De_Chamados
                                                  DescricaoChamado,
                                                  CategoriaChamado,
                                                  idChamado,
-                                                 prioridadeCalculada, 
+                                                 prioridadeIA, 
                                                  status,     
                                                  PessoasAfetadas,
                                                  ImpedeTrabalho,

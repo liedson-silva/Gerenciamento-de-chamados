@@ -162,20 +162,52 @@ namespace Gerenciamento_De_Chamados
             homeTecnico.Show();
             formAtual.Hide();
         }
+        public static string bolinhadeprioridade(string prioridade)
+        {
+            string indicadorPrioridadeHtml = "";
+            string estiloBase = "display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: middle;";
+            string prioridadeNormalizada = (prioridade ?? "").Trim().ToLower();
+
+            switch (prioridadeNormalizada)
+            {
+                case "alta":
+                    indicadorPrioridadeHtml = $"<span style='{estiloBase} background-color: red;'></span>";
+                    break;
+                case "media":
+                case "média":
+
+                    indicadorPrioridadeHtml = $"<span style='{estiloBase} background-color: #FFA500;'></span>";
+                    break;
+                case "baixa":
+                case "baixo":
+                    indicadorPrioridadeHtml = $"<span style='{estiloBase} background-color: green;'></span>";
+                    break;
+                default:
+                    indicadorPrioridadeHtml = $"<span style='{estiloBase} background-color: gray;'></span>";
+                    break;
+            }
+            return indicadorPrioridadeHtml;
+
+        }
 
         //  Enviar e-mail ao abrir chamado
         public static void EnviarEmailChamado(
             string titulo, string descricao, string categoria, int idChamado,
-            string prioridadeCalculada, string status, string pessoasAfetadas,
+            string prioridadeIA, string status, string pessoasAfetadas,
             string impedeTrabalho, string ocorreuAnteriormente,string problemaIA, string solucaoIA,
             byte[] anexo, string nomeAnexo
         )
         {
+
+
+
             try
             {
                 string usuario = SessaoUsuario.Nome ?? "Usuário não identificado";
                 string emailUsuario = SessaoUsuario.Email ?? "sememail@dominio.com";
                 string emailTecnico = "fatalsystem.unip@gmail.com";
+                string indicadorPrioridadeHtml = bolinhadeprioridade(prioridadeIA);
+
 
                 string corpoEmailTI = $@"
                     <h2>Novo Chamado #{idChamado} Recebido - Análise Necessária</h2>
@@ -187,7 +219,6 @@ namespace Gerenciamento_De_Chamados
                     <p><b>Título:</b> {titulo}</p>
                     <p><b>Descrição do Usuário:</b> {descricao}</p>
                     <p><b>Categoria:</b> {categoria}</p>
-                    <p><b>Prioridade Calculada (Score):</b> {prioridadeCalculada}</p>
                     <p><b>Status Inicial:</b> {status}</p>
                     <hr>
                     <p><b>Pessoas Afetadas:</b> {pessoasAfetadas}</p>
@@ -197,13 +228,14 @@ namespace Gerenciamento_De_Chamados
                     <h3>Sugestões da Análise Preliminar (IA):</h3>
                     <p><b>Identificação do Problema:</b> {problemaIA}</p>
                     <p><b>Proposta de Solução:</b> {solucaoIA}</p>
+                    <p><b>Prioridade Sugerida:</b>{indicadorPrioridadeHtml}{prioridadeIA}</p>
                     <hr>";
 
                 using (MailMessage mailTI = new MailMessage())
                 {
                     mailTI.From = new MailAddress("fatalsystem.unip@gmail.com", "Sistema de Chamados Fatal System");
                     mailTI.To.Add(emailTecnico); // Envia para a equipe de TI
-                    mailTI.Subject = $"[Chamado #{idChamado} - {prioridadeCalculada}] Novo Chamado: {titulo}";
+                    mailTI.Subject = $"[Chamado #{idChamado} - {prioridadeIA}] Novo Chamado: {titulo}";
                     mailTI.Body = corpoEmailTI;
                     mailTI.IsBodyHtml = true;
 

@@ -30,7 +30,7 @@ namespace Gerenciamento_De_Chamados
         {
             try
             {
-                var visualizarChamados = new VisualizarChamado();
+                var visualizarChamados = new Responder_Chamado();
                 visualizarChamados.Show();
                 this.Hide();
             }
