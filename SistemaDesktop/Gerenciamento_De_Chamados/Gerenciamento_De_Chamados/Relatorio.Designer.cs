@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Relatorio));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelContent = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.formPlotVisaoGeral = new ScottPlot.WinForms.FormsPlot();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -61,8 +62,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
-            this.formPlotVisaoGeral = new ScottPlot.WinForms.FormsPlot();
-            this.panel1.SuspendLayout();
+            this.panelEsquerdo = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panelDireito = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelPrincipal.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -77,15 +81,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelPrincipal
             // 
-            this.panel1.Controls.Add(this.panelContent);
-            this.panel1.Controls.Add(this.panelHeader);
-            this.panel1.Controls.Add(this.panelSidebar);
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1141, 706);
-            this.panel1.TabIndex = 0;
+            this.panelPrincipal.AutoScroll = true;
+            this.panelPrincipal.Controls.Add(this.panel1);
+            this.panelPrincipal.Controls.Add(this.panelContent);
+            this.panelPrincipal.Controls.Add(this.panelDireito);
+            this.panelPrincipal.Controls.Add(this.panel9);
+            this.panelPrincipal.Controls.Add(this.panelEsquerdo);
+            this.panelPrincipal.Controls.Add(this.panelHeader);
+            this.panelPrincipal.Controls.Add(this.panelSidebar);
+            this.panelPrincipal.Location = new System.Drawing.Point(-1, 0);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(1141, 739);
+            this.panelPrincipal.TabIndex = 0;
+            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
             // 
             // panelContent
             // 
@@ -99,10 +109,10 @@
             this.panelContent.Controls.Add(this.comboBox1);
             this.panelContent.Controls.Add(this.label4);
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(250, 80);
+            this.panelContent.Location = new System.Drawing.Point(252, 125);
             this.panelContent.Name = "panelContent";
             this.panelContent.Padding = new System.Windows.Forms.Padding(15);
-            this.panelContent.Size = new System.Drawing.Size(891, 626);
+            this.panelContent.Size = new System.Drawing.Size(859, 614);
             this.panelContent.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -112,7 +122,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Controls.Add(this.panel7, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel8, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(418, 237);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(418, 211);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.7027F));
@@ -145,7 +155,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(22, 140);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(15, 113);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.83761F));
@@ -163,6 +173,15 @@
             this.panel5.Size = new System.Drawing.Size(355, 260);
             this.panel5.TabIndex = 0;
             // 
+            // formPlotVisaoGeral
+            // 
+            this.formPlotVisaoGeral.DisplayScale = 0F;
+            this.formPlotVisaoGeral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formPlotVisaoGeral.Location = new System.Drawing.Point(10, 10);
+            this.formPlotVisaoGeral.Name = "formPlotVisaoGeral";
+            this.formPlotVisaoGeral.Size = new System.Drawing.Size(335, 240);
+            this.formPlotVisaoGeral.TabIndex = 0;
+            // 
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -175,7 +194,7 @@
             // button3
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Location = new System.Drawing.Point(147, 67);
+            this.button3.Location = new System.Drawing.Point(143, 85);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(123, 26);
             this.button3.TabIndex = 6;
@@ -185,7 +204,7 @@
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(18, 67);
+            this.button2.Location = new System.Drawing.Point(14, 85);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(123, 26);
             this.button2.TabIndex = 5;
@@ -201,7 +220,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(419, 140);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(421, 117);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -344,16 +363,16 @@
             this.panelHeader.Controls.Add(this.pictureBox4);
             this.panelHeader.Controls.Add(this.lbl_Inicio);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(250, 0);
+            this.panelHeader.Location = new System.Drawing.Point(222, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(891, 80);
+            this.panelHeader.Size = new System.Drawing.Size(919, 92);
             this.panelHeader.TabIndex = 1;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(831, 11);
+            this.pictureBox4.Location = new System.Drawing.Point(859, 11);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(51, 50);
@@ -375,6 +394,7 @@
             // 
             // panelSidebar
             // 
+            this.panelSidebar.BackColor = System.Drawing.Color.Transparent;
             this.panelSidebar.Controls.Add(this.label2);
             this.panelSidebar.Controls.Add(this.label3);
             this.panelSidebar.Controls.Add(this.label1);
@@ -382,8 +402,10 @@
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(250, 706);
+            this.panelSidebar.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.panelSidebar.Size = new System.Drawing.Size(222, 739);
             this.panelSidebar.TabIndex = 0;
+            this.panelSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSidebar_Paint);
             // 
             // label2
             // 
@@ -391,7 +413,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(13, 242);
+            this.label2.Location = new System.Drawing.Point(3, 242);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 24);
             this.label2.TabIndex = 17;
@@ -403,7 +425,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Suporte;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(13, 346);
+            this.label3.Location = new System.Drawing.Point(3, 346);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 24);
             this.label3.TabIndex = 15;
@@ -416,7 +438,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(13, 285);
+            this.label1.Location = new System.Drawing.Point(3, 285);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 24);
             this.label1.TabIndex = 16;
@@ -429,32 +451,60 @@
             this.PctBox_Inicio.Location = new System.Drawing.Point(0, 0);
             this.PctBox_Inicio.Margin = new System.Windows.Forms.Padding(2);
             this.PctBox_Inicio.Name = "PctBox_Inicio";
-            this.PctBox_Inicio.Size = new System.Drawing.Size(250, 217);
+            this.PctBox_Inicio.Size = new System.Drawing.Size(212, 217);
             this.PctBox_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Inicio.TabIndex = 11;
             this.PctBox_Inicio.TabStop = false;
             // 
-            // formPlotVisaoGeral
+            // panelEsquerdo
             // 
-            this.formPlotVisaoGeral.DisplayScale = 0F;
-            this.formPlotVisaoGeral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.formPlotVisaoGeral.Location = new System.Drawing.Point(10, 10);
-            this.formPlotVisaoGeral.Name = "formPlotVisaoGeral";
-            this.formPlotVisaoGeral.Size = new System.Drawing.Size(335, 240);
-            this.formPlotVisaoGeral.TabIndex = 0;
+            this.panelEsquerdo.BackColor = System.Drawing.Color.Transparent;
+            this.panelEsquerdo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelEsquerdo.Location = new System.Drawing.Point(222, 92);
+            this.panelEsquerdo.Name = "panelEsquerdo";
+            this.panelEsquerdo.Size = new System.Drawing.Size(30, 647);
+            this.panelEsquerdo.TabIndex = 3;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Transparent;
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(252, 92);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(889, 33);
+            this.panel9.TabIndex = 4;
+            // 
+            // panelDireito
+            // 
+            this.panelDireito.BackColor = System.Drawing.Color.Transparent;
+            this.panelDireito.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelDireito.Location = new System.Drawing.Point(1111, 125);
+            this.panelDireito.Name = "panelDireito";
+            this.panelDireito.Size = new System.Drawing.Size(30, 614);
+            this.panelDireito.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(252, 709);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(859, 30);
+            this.panel1.TabIndex = 6;
             // 
             // Relatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1143, 708);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1147, 734);
+            this.Controls.Add(this.panelPrincipal);
             this.Name = "Relatorio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatorio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Relatorio_Load);
-            this.panel1.ResumeLayout(false);
+            this.panelPrincipal.ResumeLayout(false);
             this.panelContent.ResumeLayout(false);
             this.panelContent.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -479,7 +529,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.Panel panelSidebar;
         private System.Windows.Forms.PictureBox PctBox_Inicio;
         private System.Windows.Forms.Label label3;
@@ -512,5 +562,9 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private ScottPlot.WinForms.FormsPlot formPlotVisaoGeral;
+        private System.Windows.Forms.Panel panelDireito;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panelEsquerdo;
+        private System.Windows.Forms.Panel panel1;
     }
 }

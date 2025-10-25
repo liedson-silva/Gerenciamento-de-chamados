@@ -1,13 +1,17 @@
-﻿using System;
+﻿using ScottPlot;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ScottPlot;
+using System.Windows.Forms.DataVisualization.Charting;
+
 
 namespace Gerenciamento_De_Chamados
 {
@@ -21,46 +25,133 @@ namespace Gerenciamento_De_Chamados
 
         private void Relatorio_Load(object sender, EventArgs e)
         {
-            // 1. Seus dados
-            double[] valores = { 4, 7, 2 };
-            string[] labelsX = { "Pendentes", "Em Andamento", "Resolvidos" };
 
-            // 2. Adiciona o gráfico de Pizza
-            var piePlot = formPlotVisaoGeral.Plot.Add.Pie(valores);
+            // Listas dinâmicas para receber os dados do banco
+            List<double> valoresDB = new List<double>();
+            List<string> labelsDB = new List<string>();
 
-            // 3. Define as cores de cada fatia
-            piePlot.Slices[0].Fill.Color = new ScottPlot.Color(239, 83, 80);   // Vermelho
-            piePlot.Slices[1].Fill.Color = new ScottPlot.Color(255, 167, 38); // Laranja
-            piePlot.Slices[2].Fill.Color = new ScottPlot.Color(102, 187, 106); // Verde
 
-            // 4. CORREÇÃO: Vamos criar os rótulos (Label + Porcentagem) manualmente
-            //    Primeiro, calculamos o total
-            double total = valores.Sum();
+            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
 
-            //    Agora, atribuímos o texto a cada fatia
-            for (int i = 0; i < labelsX.Length; i++)
+            string query = @"
+        SELECT StatusChamado, COUNT(IdChamado) 
+        FROM Chamado 
+        WHERE StatusChamado IN ('Pendente', 'Em Andamento', 'Resolvido') 
+        GROUP BY StatusChamado";
+
+
+            try
             {
-                double porcentagem = (valores[i] / total);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string status = reader.GetString(0);
+                                int contagem = reader.GetInt32(1);
 
-                // A propriedade .Label é a string que aparece na fatia
-                piePlot.Slices[i].Label = $"{labelsX[i]} ({porcentagem:P1})"; // ex: "Pendentes (30.8%)"
+                                labelsDB.Add(status);
+                                valoresDB.Add(contagem);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao conectar ao banco de dados: \n" + ex.Message);
+                return; 
             }
 
-            // 5. CORREÇÃO: Para mostrar os rótulos, a propriedade é 'ShowSliceLabels'
-            //piePlot.SliceLabelStyle.IsVisible = true;
-            piePlot.SliceLabelDistance = 0.6; // Ajuste a distância conforme necessário
+            if (valoresDB.Count == 0)
+            {
+                formPlotVisaoGeral.Plot.Title("Sem dados para exibir");
+                formPlotVisaoGeral.Plot.Axes.Frameless();
+                formPlotVisaoGeral.Plot.HideGrid();
+                formPlotVisaoGeral.Refresh();
+                return;
+            }
 
-            // 6. Define o Título
+            var piePlot = formPlotVisaoGeral.Plot.Add.Pie(valoresDB.ToArray());
+
+
+            double total = valoresDB.Sum(); 
+
+            for (int i = 0; i < labelsDB.Count; i++)
+            {
+                string status = labelsDB[i];
+                double porcentagem = (valoresDB[i] / total);
+
+               
+                piePlot.Slices[i].Label = $"{status} ({porcentagem:P1})";
+
+               
+                if (status.Equals("Pendente", StringComparison.OrdinalIgnoreCase))
+                {
+                    piePlot.Slices[i].Fill.Color = new ScottPlot.Color(33, 150, 243);  
+                }
+                else if (status.Equals("Em Andamento", StringComparison.OrdinalIgnoreCase))
+                {
+                    piePlot.Slices[i].Fill.Color = new ScottPlot.Color(255, 193, 7); 
+                }
+                else if (status.Equals("Resolvido", StringComparison.OrdinalIgnoreCase)) 
+                {
+                    piePlot.Slices[i].Fill.Color = new ScottPlot.Color(76, 175, 80); 
+                }
+                else
+                {
+                  
+                    piePlot.Slices[i].Fill.Color = ScottPlot.Colors.Gray;
+                }
+            }
+
+          
+            piePlot.SliceLabelDistance = 0.6; 
+
+           
             formPlotVisaoGeral.Plot.Title("Visão Overal de Chamados");
 
-            // 7. CORREÇÃO: O jeito certo de remover os eixos e a moldura
-            //    Não existe 'Hide()' ou 'Frame.Visible'.
-            //    O método correto é 'Frameless()'.
-            formPlotVisaoGeral.Plot.Axes.Frameless(); // Isso remove eixos, ticks e a moldura
-            formPlotVisaoGeral.Plot.HideGrid(); // Isso remove o grid de fundo
+            
+            formPlotVisaoGeral.Plot.Axes.Frameless();
+            formPlotVisaoGeral.Plot.HideGrid();
 
-            // 8. Atualiza o gráfico
+           
             formPlotVisaoGeral.Refresh();
+        }
+
+        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            System.Drawing.Color corInicio = System.Drawing.Color.White;
+            System.Drawing.Color corFim = ColorTranslator.FromHtml("#232325");
+
+            using (LinearGradientBrush gradiente = new LinearGradientBrush(
+                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+            {
+                g.FillRectangle(gradiente, this.ClientRectangle);
+            }
+        }
+
+        private void panelEsquerdo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelSidebar_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            System.Drawing.Color corInicioPanel = System.Drawing.Color.White;
+            System.Drawing.Color corFimPanel = ColorTranslator.FromHtml("#232325");
+            LinearGradientBrush gradientePanel = new LinearGradientBrush(
+                     panel1.ClientRectangle,
+                    corInicioPanel,
+                    corFimPanel,
+                    LinearGradientMode.Vertical);
+            g.FillRectangle(gradientePanel, panel1.ClientRectangle);
         }
     }
 }

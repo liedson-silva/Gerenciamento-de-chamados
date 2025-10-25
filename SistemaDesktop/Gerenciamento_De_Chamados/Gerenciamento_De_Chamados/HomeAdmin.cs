@@ -51,7 +51,7 @@ namespace Gerenciamento_De_Chamados
                      panel1.ClientRectangle,
                     corInicioPanel,
                     corFimPanel,
-                    LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
+                    LinearGradientMode.Vertical); 
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
         }
 
