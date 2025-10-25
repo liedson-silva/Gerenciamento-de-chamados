@@ -61,10 +61,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
+            this.formPlotVisaoGeral = new ScottPlot.WinForms.FormsPlot();
             this.panel1.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -153,6 +155,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.formPlotVisaoGeral);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
@@ -431,6 +434,15 @@
             this.PctBox_Inicio.TabIndex = 11;
             this.PctBox_Inicio.TabStop = false;
             // 
+            // formPlotVisaoGeral
+            // 
+            this.formPlotVisaoGeral.DisplayScale = 0F;
+            this.formPlotVisaoGeral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formPlotVisaoGeral.Location = new System.Drawing.Point(10, 10);
+            this.formPlotVisaoGeral.Name = "formPlotVisaoGeral";
+            this.formPlotVisaoGeral.Size = new System.Drawing.Size(335, 240);
+            this.formPlotVisaoGeral.TabIndex = 0;
+            // 
             // Relatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,11 +453,13 @@
             this.Name = "Relatorio";
             this.Text = "Relatorio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Relatorio_Load);
             this.panel1.ResumeLayout(false);
             this.panelContent.ResumeLayout(false);
             this.panelContent.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -497,5 +511,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
+        private ScottPlot.WinForms.FormsPlot formPlotVisaoGeral;
     }
 }
