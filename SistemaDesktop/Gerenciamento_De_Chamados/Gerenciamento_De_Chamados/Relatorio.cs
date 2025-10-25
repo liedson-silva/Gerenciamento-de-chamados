@@ -136,11 +136,6 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-        private void panelEsquerdo_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panelSidebar_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;

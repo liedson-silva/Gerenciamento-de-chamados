@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Relatorio));
             this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelContent = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -54,6 +55,9 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.panelDireito = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panelEsquerdo = new System.Windows.Forms.Panel();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_Inicio = new System.Windows.Forms.Label();
@@ -62,10 +66,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
-            this.panelEsquerdo = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panelDireito = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelPrincipal.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -96,6 +96,15 @@
             this.panelPrincipal.Size = new System.Drawing.Size(1141, 739);
             this.panelPrincipal.TabIndex = 0;
             this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(252, 709);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(859, 30);
+            this.panel1.TabIndex = 6;
             // 
             // panelContent
             // 
@@ -357,6 +366,33 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Relatorios";
             // 
+            // panelDireito
+            // 
+            this.panelDireito.BackColor = System.Drawing.Color.Transparent;
+            this.panelDireito.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelDireito.Location = new System.Drawing.Point(1111, 125);
+            this.panelDireito.Name = "panelDireito";
+            this.panelDireito.Size = new System.Drawing.Size(30, 614);
+            this.panelDireito.TabIndex = 5;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Transparent;
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(252, 92);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(889, 33);
+            this.panel9.TabIndex = 4;
+            // 
+            // panelEsquerdo
+            // 
+            this.panelEsquerdo.BackColor = System.Drawing.Color.Transparent;
+            this.panelEsquerdo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelEsquerdo.Location = new System.Drawing.Point(222, 92);
+            this.panelEsquerdo.Name = "panelEsquerdo";
+            this.panelEsquerdo.Size = new System.Drawing.Size(30, 647);
+            this.panelEsquerdo.TabIndex = 3;
+            // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.White;
@@ -455,42 +491,6 @@
             this.PctBox_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Inicio.TabIndex = 11;
             this.PctBox_Inicio.TabStop = false;
-            // 
-            // panelEsquerdo
-            // 
-            this.panelEsquerdo.BackColor = System.Drawing.Color.Transparent;
-            this.panelEsquerdo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelEsquerdo.Location = new System.Drawing.Point(222, 92);
-            this.panelEsquerdo.Name = "panelEsquerdo";
-            this.panelEsquerdo.Size = new System.Drawing.Size(30, 647);
-            this.panelEsquerdo.TabIndex = 3;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Transparent;
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(252, 92);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(889, 33);
-            this.panel9.TabIndex = 4;
-            // 
-            // panelDireito
-            // 
-            this.panelDireito.BackColor = System.Drawing.Color.Transparent;
-            this.panelDireito.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelDireito.Location = new System.Drawing.Point(1111, 125);
-            this.panelDireito.Name = "panelDireito";
-            this.panelDireito.Size = new System.Drawing.Size(30, 614);
-            this.panelDireito.TabIndex = 5;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(252, 709);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(859, 30);
-            this.panel1.TabIndex = 6;
             // 
             // Relatorio
             // 
