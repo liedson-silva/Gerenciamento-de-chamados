@@ -76,5 +76,13 @@ namespace Gerenciamento_De_Chamados
                 g.FillRectangle(gradiente, this.ClientRectangle);
             }
         }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            var relatorio = new Relatorio();
+            relatorio.Show();
+            this.Hide();
+
+        }
     }
 }
