@@ -471,6 +471,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCadastroAdd);
             this.Controls.Add(this.lblCadastroSenha);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Cadastro_de_Usuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
