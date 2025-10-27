@@ -13,7 +13,7 @@ namespace Gerenciamento_De_Chamados
     public class AIService
     {
         private readonly string _apiKey;
-        private readonly string _apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";  
+        private readonly string _apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";  
         private static readonly HttpClient _httpClient = new HttpClient(); 
 
         public AIService()
