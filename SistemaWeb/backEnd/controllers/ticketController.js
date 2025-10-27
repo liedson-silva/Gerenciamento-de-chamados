@@ -177,7 +177,7 @@ export class TicketsController {
     }
 
     async createReport(req, res) {
-        const { startDate, endDate } = req.body
+        const { startDate, endDate } = req.query
 
         if (!startDate || !endDate) {
             return res.status(400).json({ success: false, message: "Campos obrigatórios faltando!" })
@@ -190,7 +190,7 @@ export class TicketsController {
                 .query("SELECT * FROM Chamado WHERE DataChamado >= @startDate AND DataChamado <= @endDate")
 
             if (result.recordset.length === 0) {
-                return res.status(200).json({ success: false, message: "Nenhum chamado encontrado no período especificado" })
+                return res.status(200).json({ success: true, message: "Nenhum chamado encontrado no período especificado" })
             }
 
             res.json({ success: true, Tickets: result.recordset })
