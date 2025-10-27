@@ -11,7 +11,11 @@ const Report = () => {
   const location = useLocation()
   const user = location.state?.user
   const navigate = useNavigate()
-  const [viewTickets, SetViewTickets] = useState("")
+  const [viewTickets, SetViewTickets] = useState([])
+  const [viewReportTickets, SetReportTickets] = useState([])
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [error, setError] = useState("");
   const [showCreateReport, setShowCreateReport] = useState(true)
   const [showReport, setShowReport] = useState(false)
 
@@ -21,7 +25,7 @@ const Report = () => {
       if (response.data.success) {
         SetViewTickets(response.data.Tickets)
       } else {
-        setErrorMessage("Erro ao carregar chamados.")
+        console.log("Erro ao carregar chamados.")
       }
     } catch (error) {
       console.error("Erro ao buscar chamados:", error)
@@ -31,22 +35,71 @@ const Report = () => {
     getTicket()
   }, [])
 
-  const createReport = () => {
-    setShowCreateReport(false)
-    setShowReport(true)
+  async function getReportTicket(startDate, endDate) {
+    try {
+      const response = await api.get(`/report-ticket?startDate=${startDate}&endDate=${endDate}`)
+      if (response.data.success && response.data.Tickets) {
+        const fetchedTickets = response.data.Tickets;
+        SetReportTickets(fetchedTickets);
+        return fetchedTickets;
+      } else {
+        console.log("Erro ao carregar chamados ou sucesso falso da API.");
+        SetReportTickets([]);
+        return []
+      }
+    } catch (error) {
+      console.error("Erro ao buscar relatórios dos chamados:", error);
+        SetReportTickets([]);
+        return []
+    }
   }
 
-  const data = [
-    { "name": "Ago", "uv": 20, "pv": 30 },
-    { "name": "Set", "uv": 13, "pv": 48 },
-    { "name": "Out", "uv": 17, "pv": 30 },
-    { "name": "Nov", "uv": 35, "pv": 40 }
-  ]
+  const createReport = async () => {
+
+    if (!startDate || !endDate) {
+      setError("Por favor, selecione as datas de início e fim para gerar o relatório.")
+      setTimeout(() => setError(""), 4000);
+      return
+    }
+    setShowCreateReport(false)
+    setShowReport(true)
+
+    const tickets = await getReportTicket(startDate, endDate)
+
+    if (tickets.length === 0) {
+      setShowReport(false);
+      setShowCreateReport(true);
+      setError("Nenhum chamado encontrado no período especificado.");
+      setTimeout(() => setError(""), 4000);
+    }
+  }
+
+  const monthNames = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+
+  const data = Array.from({ length: 4 }, (_, i) => {
+    const today = new Date();
+    const targetDate = new Date(today.getFullYear(), today.getMonth() - i, 1);
+
+    const monthIndex = targetDate.getMonth();
+    const year = targetDate.getFullYear();
+    const monthName = monthNames[monthIndex];
+
+    const ticketsInMonth = viewTickets.filter(ticket => {
+      const d = new Date(ticket.DataChamado);
+      return d.getUTCFullYear() === year && d.getUTCMonth() === monthIndex;
+    });
+
+    return {
+      "name": monthName,
+      "uv": ticketsInMonth.filter(t => t.StatusChamado === "Resolvido").length,
+      "pv": ticketsInMonth.length
+    };
+  }).reverse();
 
   const data2 = [
-    { name: "Baixa", color: '#50eb89ff', uv: 4 },
-    { name: "Média", color: '#5789e0ff', uv: 3 },
-    { name: "Alta", color: '#ec6258ff', uv: 2 }
+    { name: "Baixa", color: '#50eb89ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "baixa").length },
+    { name: "Média", color: '#5789e0ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "Média").length },
+    { name: "Alta", color: '#ec6258ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "Alta").length }
   ]
 
   const CustomTooltip = ({ active, payload, label }) => {
@@ -77,35 +130,31 @@ const Report = () => {
   return (
     <main>
       <h1>Relatórios</h1>
-      
-        <section className="report">
-          <div>
-            <p className="report-title">Período:</p>
-            <form className="report-date-group">
-              <input type="date" id='start-date' className="report-date" />
-              <label htmlFor="start-date">De:</label>
-              <div className="form-group">
-                <input type="date" id='end-date' className="report-date" />
-                <label htmlFor="end-date">Até:</label>
-              </div>
-            </form>
-          </div>
 
-          <div>
-            <p className="report-title">Tipo de relatório:</p>
-            <ul>
-              <li className="report-item">Prioridade<input type="radio" className='report-radio' /></li>
-              <li className="report-item">Status <input type="radio" className='report-radio' /></li>
-            </ul>
-          </div>
+      <section className="report">
+        <div>
+          <p className="report-title">Período:</p>
+          <form className="report-date-group">
+            <input type="date" id='start-date' className="report-date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+            <label htmlFor="start-date">De:</label>
+            <div className="form-group">
+              <input type="date" id='end-date' className="report-date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+              <label htmlFor="end-date">Até:</label>
+            </div>
+          </form>
+        </div>
 
+        {error && <p className="notice">{error}</p>}
+
+        <div className='box-button-report'>
           <button className="button-report" onClick={createReport}>Gerar relatório</button>
-        </section>
+        </div>
+      </section>
 
-        {showCreateReport && (<>
+      {showCreateReport && (<>
         <section className='report-chart'>
 
-          <div className='report-box-chart'>
+          <div className='report-box-chart1'>
             <p className='report-title-chart'>Chamados Resolvidos x Criados (Mensal)</p>
             <ResponsiveContainer>
               <AreaChart
@@ -152,9 +201,52 @@ const Report = () => {
       </>)}
 
       {showReport && (
-        <button onClick={handleBack} className='button-back' >
-          Voltar
-        </button>
+        <section className='report-list'>
+          <div className="scroll-lists">
+            <table className="ticket-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Título</th>
+                  <th>Descrição</th>
+                  <th>Prioridade</th>
+                  <th>Data</th>
+                  <th>Status</th>
+                  <th>Usuário</th>
+                </tr>
+              </thead>
+              <tbody>
+                {viewReportTickets.map((ticket) => (
+                  <tr key={ticket.IdChamado}>
+                    <td>{ticket.IdChamado}</td>
+                    <td>{ticket.Titulo}</td>
+                    <td>{ticket.Descricao}</td>
+                    <td>{ticket.PrioridadeChamado === "Média" ? (
+                      <> <span className="circle-blue">ㅤ</span> {ticket.PrioridadeChamado}</>
+                    ) : ticket.PrioridadeChamado === "Alta" ? (
+                      <> <span className="circle-red">ㅤ</span> {ticket.PrioridadeChamado}</>
+                    ) : (
+                      <> <span className="circle-green">ㅤ</span> {ticket.PrioridadeChamado}</>
+                    )}</td>
+                    <td>{formatDate(ticket.DataChamado)}</td>
+                    <td>{ticket.StatusChamado === "Pendente" ? (
+                      <> <span className="circle-yellow">ㅤ</span> {ticket.StatusChamado}</>
+                    ) : ticket.StatusChamado === "Em andamento" ? (
+                      <> <span className="circle-orange">ㅤ</span> {ticket.StatusChamado}</>
+                    ) : (
+                      <> <span className="circle-green">ㅤ</span> {ticket.StatusChamado}</>
+                    )}</td>
+                    <td>{ticket.FK_IdUsuario}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <button onClick={handleBack} className='button-back' >
+            Voltar
+          </button>
+        </section>
       )}
 
     </main>
