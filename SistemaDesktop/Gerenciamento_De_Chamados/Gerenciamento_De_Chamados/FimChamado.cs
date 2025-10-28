@@ -47,9 +47,7 @@ namespace Gerenciamento_De_Chamados
 
         private void btn_PaginaInicial_Click(object sender, EventArgs e)
         {
-            var telaHome = new HomeAdmin();
-            telaHome.Show();
-            this.Visible = false;
+            Funcoes.BotaoHome(this);
         }
         private void FimChamado_Load(object sender, EventArgs e)
         {
@@ -62,7 +60,17 @@ namespace Gerenciamento_De_Chamados
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHomeAdmin(this);
+            Funcoes.BotaoHome(this);
+        }
+
+        private void PctBox_Logo_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHome(this);
+        }
+
+        private void lbSair_Click(object sender, EventArgs e)
+        {
+            Funcoes.Sair(this);
         }
     }
 }

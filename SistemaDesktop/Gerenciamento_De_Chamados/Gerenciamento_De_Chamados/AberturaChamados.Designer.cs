@@ -36,7 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbSair = new System.Windows.Forms.Label();
             this.lblMconta = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblFaq = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -80,6 +80,7 @@
             // lbl_Inicio
             // 
             this.lbl_Inicio.AutoSize = true;
+            this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME__2_;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -107,7 +108,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.lbSair);
             this.panel1.Controls.Add(this.lblMconta);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lblFaq);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.PctBox_Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -121,6 +122,7 @@
             // lbSair
             // 
             this.lbSair.AutoSize = true;
+            this.lbSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
@@ -135,6 +137,7 @@
             // lblMconta
             // 
             this.lblMconta.AutoSize = true;
+            this.lblMconta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblMconta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMconta.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.lblMconta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,23 +148,26 @@
             this.lblMconta.Text = "      Minha Conta";
             this.lblMconta.Click += new System.EventHandler(this.lblMconta_Click);
             // 
-            // label3
+            // lblFaq
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(23, 411);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 29);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "      FAQ";
+            this.lblFaq.AutoSize = true;
+            this.lblFaq.BackColor = System.Drawing.Color.Transparent;
+            this.lblFaq.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblFaq.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFaq.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.lblFaq.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblFaq.Location = new System.Drawing.Point(23, 411);
+            this.lblFaq.Name = "lblFaq";
+            this.lblFaq.Size = new System.Drawing.Size(98, 29);
+            this.lblFaq.TabIndex = 13;
+            this.lblFaq.Text = "      FAQ";
+            this.lblFaq.Click += new System.EventHandler(this.lblFaq_Click_1);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,11 +180,12 @@
             // PctBox_Logo
             // 
             this.PctBox_Logo.BackColor = System.Drawing.Color.Transparent;
+            this.PctBox_Logo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
-            this.PctBox_Logo.Location = new System.Drawing.Point(-45, -31);
+            this.PctBox_Logo.Location = new System.Drawing.Point(-45, 0);
             this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PctBox_Logo.Name = "PctBox_Logo";
-            this.PctBox_Logo.Size = new System.Drawing.Size(393, 298);
+            this.PctBox_Logo.Size = new System.Drawing.Size(393, 267);
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Logo.TabIndex = 3;
             this.PctBox_Logo.TabStop = false;
@@ -227,6 +234,7 @@
             this.cboxCtgChamado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboxCtgChamado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboxCtgChamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxCtgChamado.FormattingEnabled = true;
             this.cboxCtgChamado.Items.AddRange(new object[] {
@@ -275,6 +283,7 @@
             // 
             this.btnContinuar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnContinuar.BackColor = System.Drawing.Color.White;
+            this.btnContinuar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinuar.Location = new System.Drawing.Point(1544, 889);
             this.btnContinuar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -347,7 +356,7 @@
         private System.Windows.Forms.Label lbl_Inicio;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblFaq;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox PctBox_Logo;
         private System.Windows.Forms.Label label2;

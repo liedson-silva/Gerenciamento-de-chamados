@@ -22,6 +22,7 @@ namespace Gerenciamento_De_Chamados
         {
             if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
                 lbl_NomeUser.Text = ($"Olá, {Funcoes.SessaoUsuario.Nome}");
+                
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
         }
@@ -58,6 +59,11 @@ namespace Gerenciamento_De_Chamados
             {
                 g.FillRectangle(gradiente, this.ClientRectangle);
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Funcoes.FAQ(this);
         }
     }
 }

@@ -317,5 +317,20 @@ namespace Gerenciamento_De_Chamados
             FormRelatorioDetalhado frmDetalhe = new FormRelatorioDetalhado(dataInicio, dataFim);
             frmDetalhe.Show();
         }
+
+        private void lbl_Inicio_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHome(this);
+        }
+
+        private void PctBox_Inicio_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHome(this);
+        }
+
+        private void lbSair_Click(object sender, EventArgs e)
+        {
+            Funcoes.Sair(this);
+        }
     }
 }

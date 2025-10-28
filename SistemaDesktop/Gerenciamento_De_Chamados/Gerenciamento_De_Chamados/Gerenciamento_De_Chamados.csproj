@@ -218,6 +218,12 @@
     <Compile Include="Editar_Usuarios.Designer.cs">
       <DependentUpon>Editar_Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Faq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faq.Designer.cs">
+      <DependentUpon>Faq.cs</DependentUpon>
+    </Compile>
     <Compile Include="FimChamado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editar_Usuarios.resx">
       <DependentUpon>Editar_Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faq.resx">
+      <DependentUpon>Faq.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FimChamado.resx">
       <DependentUpon>FimChamado.cs</DependentUpon>
@@ -477,6 +486,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include="Resources\person_48dp_000000_FILL0_wght400_GRAD0_opsz481.png" />
+    <None Include="Resources\assignment_48dp_000000_FILL0_wght400_GRAD0_opsz481.png" />
+    <None Include="Resources\person_48dp_000000_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Include="Resources\assignment_48dp_000000_FILL0_wght400_GRAD0_opsz48.png" />
     <None Include="Resources\move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
     <None Include="Resources\account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
     <None Include="Resources\folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz481.png" />

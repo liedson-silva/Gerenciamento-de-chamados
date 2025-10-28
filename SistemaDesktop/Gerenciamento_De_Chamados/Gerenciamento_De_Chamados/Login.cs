@@ -185,5 +185,10 @@ namespace Gerenciamento_De_Chamados
 
             #endregion
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Entre em contato com o administrador .", "Ajuda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
