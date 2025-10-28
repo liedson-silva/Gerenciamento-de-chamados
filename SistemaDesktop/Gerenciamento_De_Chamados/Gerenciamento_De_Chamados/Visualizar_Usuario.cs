@@ -22,10 +22,15 @@ namespace Gerenciamento_De_Chamados
         InitializeComponent();
     }
 
+    public Visualizar_Usuario(int idDoUsuario) : this()
+    {
+        this.usuarioId = idDoUsuario;
+        CarregarDadosDoUsuario(); 
+    }
+
     private void Visualizar_Usuario_Load(object sender, EventArgs e)
     {
-        // Este método é chamado quando o formulário é carregado
-        CarregarDadosDoUsuario();
+        
     }
     private void CarregarDadosDoUsuario()
     {
@@ -84,5 +89,20 @@ namespace Gerenciamento_De_Chamados
             this.Close();
         }
     }
-}
+
+        private void lbl_Inicio_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHome(this);
+        }
+
+        private void PctBox_Logo_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHome(this);
+        }
+
+        private void lbSair_Click(object sender, EventArgs e)
+        {
+            Funcoes.Sair(this);
+        }
+    }
 }

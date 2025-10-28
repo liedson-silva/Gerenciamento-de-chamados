@@ -78,10 +78,10 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_Inicio = new System.Windows.Forms.Label();
             this.panelSidebar = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
+            this.lbSair = new System.Windows.Forms.Label();
             this.panelPrincipal.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -122,14 +122,16 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(336, 909);
+            this.panel1.Location = new System.Drawing.Point(336, 946);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1145, 37);
+            this.panel1.Size = new System.Drawing.Size(1164, 37);
             this.panel1.TabIndex = 6;
             // 
             // panelContent
             // 
+            this.panelContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContent.AutoScroll = true;
             this.panelContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelContent.Controls.Add(this.dtpAte);
@@ -145,7 +147,7 @@
             this.panelContent.Margin = new System.Windows.Forms.Padding(4);
             this.panelContent.Name = "panelContent";
             this.panelContent.Padding = new System.Windows.Forms.Padding(20, 18, 20, 18);
-            this.panelContent.Size = new System.Drawing.Size(1145, 755);
+            this.panelContent.Size = new System.Drawing.Size(1124, 755);
             this.panelContent.TabIndex = 2;
             // 
             // dtpAte
@@ -593,22 +595,24 @@
             // 
             // panelDireito
             // 
+            this.panelDireito.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDireito.BackColor = System.Drawing.Color.Transparent;
-            this.panelDireito.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelDireito.Location = new System.Drawing.Point(1481, 154);
             this.panelDireito.Margin = new System.Windows.Forms.Padding(4);
             this.panelDireito.Name = "panelDireito";
-            this.panelDireito.Size = new System.Drawing.Size(40, 792);
+            this.panelDireito.Size = new System.Drawing.Size(19, 792);
             this.panelDireito.TabIndex = 5;
             // 
             // panel9
             // 
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BackColor = System.Drawing.Color.Transparent;
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(336, 113);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1185, 41);
+            this.panel9.Size = new System.Drawing.Size(1164, 41);
             this.panel9.TabIndex = 4;
             // 
             // panelEsquerdo
@@ -618,7 +622,7 @@
             this.panelEsquerdo.Location = new System.Drawing.Point(296, 113);
             this.panelEsquerdo.Margin = new System.Windows.Forms.Padding(4);
             this.panelEsquerdo.Name = "panelEsquerdo";
-            this.panelEsquerdo.Size = new System.Drawing.Size(40, 833);
+            this.panelEsquerdo.Size = new System.Drawing.Size(40, 870);
             this.panelEsquerdo.TabIndex = 3;
             // 
             // panelHeader
@@ -630,14 +634,14 @@
             this.panelHeader.Location = new System.Drawing.Point(296, 0);
             this.panelHeader.Margin = new System.Windows.Forms.Padding(4);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1225, 113);
+            this.panelHeader.Size = new System.Drawing.Size(1204, 113);
             this.panelHeader.TabIndex = 1;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(1117, 14);
+            this.pictureBox4.Location = new System.Drawing.Point(1096, 14);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(68, 62);
@@ -648,6 +652,7 @@
             // lbl_Inicio
             // 
             this.lbl_Inicio.AutoSize = true;
+            this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME__2_;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -657,11 +662,12 @@
             this.lbl_Inicio.Size = new System.Drawing.Size(120, 31);
             this.lbl_Inicio.TabIndex = 6;
             this.lbl_Inicio.Text = "      Início";
+            this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
             // 
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.Transparent;
-            this.panelSidebar.Controls.Add(this.label2);
+            this.panelSidebar.Controls.Add(this.lbSair);
             this.panelSidebar.Controls.Add(this.label3);
             this.panelSidebar.Controls.Add(this.label1);
             this.panelSidebar.Controls.Add(this.PctBox_Inicio);
@@ -670,30 +676,18 @@
             this.panelSidebar.Margin = new System.Windows.Forms.Padding(4);
             this.panelSidebar.Name = "panelSidebar";
             this.panelSidebar.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
-            this.panelSidebar.Size = new System.Drawing.Size(296, 946);
+            this.panelSidebar.Size = new System.Drawing.Size(296, 983);
             this.panelSidebar.TabIndex = 0;
             this.panelSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSidebar_Paint);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(4, 298);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 29);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "      Serviços";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Suporte;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(4, 426);
+            this.label3.Location = new System.Drawing.Point(20, 419);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 29);
@@ -704,10 +698,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(4, 351);
+            this.label1.Location = new System.Drawing.Point(14, 351);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(230, 29);
@@ -725,6 +720,22 @@
             this.PctBox_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Inicio.TabIndex = 11;
             this.PctBox_Inicio.TabStop = false;
+            this.PctBox_Inicio.Click += new System.EventHandler(this.PctBox_Inicio_Click);
+            // 
+            // lbSair
+            // 
+            this.lbSair.AutoSize = true;
+            this.lbSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbSair.Location = new System.Drawing.Point(20, 477);
+            this.lbSair.Name = "lbSair";
+            this.lbSair.Size = new System.Drawing.Size(92, 29);
+            this.lbSair.TabIndex = 18;
+            this.lbSair.Text = "      Sair";
+            this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
             // 
             // Relatorio
             // 
@@ -734,6 +745,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1529, 903);
             this.Controls.Add(this.panelPrincipal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Relatorio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -779,7 +791,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelHeader;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_Inicio;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panelDireito;
@@ -826,5 +837,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnGerarRelatorio;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbSair;
     }
 }

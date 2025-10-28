@@ -164,6 +164,29 @@ namespace Gerenciamento_De_Chamados
             homeTecnico.Show();
             formAtual.Hide();
         }
+        public static void BotaoHome(Form formAtual)
+        {
+            switch (SessaoUsuario.FuncaoUsuario)
+            {
+                case "Administrador":
+                    BotaoHomeAdmin(formAtual);
+                    break;
+                case "Funcionario":
+                    BotaoHomeFuncionario(formAtual);
+                    break;
+                case "Tecnico":
+                    BotaoHomeTecnico(formAtual);
+                    break;
+                default:
+                    // Opcional: Lidar com caso onde a função não é reconhecida
+                    // Por exemplo, redirecionar para a tela de login ou mostrar um erro.
+                    // Por enquanto, vamos redirecionar para a tela de login como padrão.
+                    var loginForm = new Login();
+                    loginForm.Show();
+                    formAtual.Hide();
+                    break;
+            }
+            }
         public static string bolinhadeprioridade(string prioridade)
         {
             string indicadorPrioridadeHtml = "";
@@ -196,7 +219,7 @@ namespace Gerenciamento_De_Chamados
         public static void EnviarEmailChamado(
             string titulo, string descricao, string categoria, int idChamado,
             string prioridadeIA, string status, string pessoasAfetadas,
-            string impedeTrabalho, string ocorreuAnteriormente,string problemaIA, string solucaoIA,
+            string impedeTrabalho, string ocorreuAnteriormente, string problemaIA, string solucaoIA,
             byte[] anexo, string nomeAnexo
         )
         {
@@ -292,11 +315,11 @@ namespace Gerenciamento_De_Chamados
                         MemoryStream msUser = null;
                         if (anexo != null && anexo.Length > 0)
                         {
-                            msUser = new MemoryStream(anexo); 
+                            msUser = new MemoryStream(anexo);
                             attachmentUser = new Attachment(msUser, nomeAnexo);
                             mailUsuario.Attachments.Add(attachmentUser);
                         }
-                        
+
 
                         using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                         {
@@ -320,7 +343,7 @@ namespace Gerenciamento_De_Chamados
                 MessageBox.Show(mensagemErro, "Falha no Envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-     
+
         private static string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
 
         public static async Task<List<string>> BuscarSolucoesAnteriores(string categoria)
@@ -362,6 +385,25 @@ namespace Gerenciamento_De_Chamados
             }
             return solucoes;
         }
+        //  Botão para Sair do sistema
+        public static void Sair(Form formAtual)
+        {
+            if (MessageBox.Show("Você realmente deseja sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                var telaLogin = new Login();
+                telaLogin.Show();
+                formAtual.Hide();
+            }
+
+        }
+        // Botão para acessar a tela FAQ
+        public static void FAQ(Form formAtual)
+        {
+            var telaFaq = new Faq();
+            telaFaq.Show();
+            formAtual.Hide();
+        }
+
     }
 }
 

@@ -184,7 +184,17 @@ namespace Gerenciamento_De_Chamados
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHomeAdmin(this);
+            Funcoes.BotaoHome(this);
+        }
+
+        private void PctBox_Logo_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHome(this);
+        }
+
+        private void lbSair_Click(object sender, EventArgs e)
+        {
+            Funcoes.Sair(this);
         }
     }
 }

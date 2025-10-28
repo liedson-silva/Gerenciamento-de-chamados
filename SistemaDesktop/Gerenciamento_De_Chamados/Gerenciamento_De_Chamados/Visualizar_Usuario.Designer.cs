@@ -54,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.lbSair = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
@@ -242,6 +243,7 @@
             this.lbl_Inicio.Size = new System.Drawing.Size(120, 31);
             this.lbl_Inicio.TabIndex = 2;
             this.lbl_Inicio.Text = "      Início";
+            this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
             // 
             // pictureBox4
             // 
@@ -304,6 +306,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lbSair);
             this.panel1.Controls.Add(this.lblConta);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
@@ -361,6 +364,7 @@
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Logo.TabIndex = 10;
             this.PctBox_Logo.TabStop = false;
+            this.PctBox_Logo.Click += new System.EventHandler(this.PctBox_Logo_Click);
             // 
             // btnCancelar
             // 
@@ -374,6 +378,20 @@
             this.btnCancelar.TabIndex = 90;
             this.btnCancelar.Text = "Fechar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // lbSair
+            // 
+            this.lbSair.AutoSize = true;
+            this.lbSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbSair.Location = new System.Drawing.Point(18, 431);
+            this.lbSair.Name = "lbSair";
+            this.lbSair.Size = new System.Drawing.Size(92, 29);
+            this.lbSair.TabIndex = 17;
+            this.lbSair.Text = "      Sair";
+            this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
             // 
             // Visualizar_Usuario
             // 
@@ -398,8 +416,10 @@
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Visualizar_Usuario";
             this.Text = "Visualizar_Usuario";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -437,5 +457,6 @@
         private System.Windows.Forms.PictureBox PctBox_Logo;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblConta;
+        private System.Windows.Forms.Label lbSair;
     }
 }

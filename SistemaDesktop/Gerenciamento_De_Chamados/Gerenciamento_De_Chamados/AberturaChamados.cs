@@ -68,12 +68,12 @@ namespace Gerenciamento_De_Chamados
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHomeAdmin(this);
+            Funcoes.BotaoHome(this);
         }
 
         private void PctBox_Logo_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHomeAdmin(this);
+            Funcoes.BotaoHome(this);
         }
 
         private void lblMconta_Click(object sender, EventArgs e)
@@ -85,12 +85,14 @@ namespace Gerenciamento_De_Chamados
 
         private void lbSair_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Você realmente deseja sair ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                var Telalogin = new Login();
-                Telalogin.Show();
-                this.Hide();
-            }
+            Funcoes.Sair(this);
+        }
+
+        
+
+        private void lblFaq_Click_1(object sender, EventArgs e)
+        {
+           Funcoes.FAQ(this);
         }
     }
 }

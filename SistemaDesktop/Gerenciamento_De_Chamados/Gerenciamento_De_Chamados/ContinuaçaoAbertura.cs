@@ -169,5 +169,20 @@ namespace Gerenciamento_De_Chamados
             if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
                 lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
         }
+
+        private void lbl_Inicio_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHome(this);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Funcoes.BotaoHome(this);
+        }
+
+        private void lbSair_Click(object sender, EventArgs e)
+        {
+            Funcoes.Sair(this);
+        }
     }
 }

@@ -16,7 +16,10 @@ namespace Gerenciamento_De_Chamados
         public HomeTecnico()
         {
             InitializeComponent();
+            this.Load += HomeTecnico_Load;
         }
+
+
 
         private void btnResponder_chamado_Click(object sender, EventArgs e)
         {
@@ -49,6 +52,29 @@ namespace Gerenciamento_De_Chamados
                     corFimPanel,
                     LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
+        }
+
+        private void btn_AbrirChamado_Click(object sender, EventArgs e)
+        {
+            var abrir = new AberturaChamados();
+            abrir.Show();
+            this.Hide();
+        }
+        private void HomeTecnico_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome) && !string.IsNullOrEmpty(Funcoes.SessaoUsuario.FuncaoUsuario))
+            {
+                Home_Tecnico.Text = $"Olá, {Funcoes.SessaoUsuario.Nome} ({Funcoes.SessaoUsuario.FuncaoUsuario})";
+            }
+            else
+            {
+                Home_Tecnico.Text = "Usuário não identificado";
+            }
+        }
+
+        private void lbSair_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
