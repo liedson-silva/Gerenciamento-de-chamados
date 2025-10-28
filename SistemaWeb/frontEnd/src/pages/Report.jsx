@@ -49,8 +49,8 @@ const Report = () => {
       }
     } catch (error) {
       console.error("Erro ao buscar relatórios dos chamados:", error);
-        SetReportTickets([]);
-        return []
+      SetReportTickets([]);
+      return []
     }
   }
 
@@ -126,6 +126,11 @@ const Report = () => {
     setShowReport(false)
     setShowCreateReport(true)
   }
+
+  const totalTickets = viewReportTickets.length;
+  const pendenteTickets = viewReportTickets.filter(t => t.StatusChamado === "Pendente").length;
+  const emAndamentoTickets = viewReportTickets.filter(t => t.StatusChamado === "Em andamento").length;
+  const resolvidoTickets = viewReportTickets.filter(t => t.StatusChamado === "Resolvido").length;
 
   return (
     <main>
@@ -243,9 +248,18 @@ const Report = () => {
             </table>
           </div>
 
-          <button onClick={handleBack} className='button-back' >
+          <section className='report-ticket'>
+            <p>Total: <span className='report-title'>{totalTickets}</span></p>
+            <p>Pendente: <span className='report-title'>{pendenteTickets} </span></p>
+            <p>Em andamento: <span className='report-title'>{emAndamentoTickets} </span></p>
+            <p>Resolvido: <span className='report-title'>{resolvidoTickets} </span></p>
+          </section>
+
+          <div className='box-button-back-report'>
+          <button onClick={handleBack} className='button-back-report' >
             Voltar
           </button>
+          </div>
         </section>
       )}
 

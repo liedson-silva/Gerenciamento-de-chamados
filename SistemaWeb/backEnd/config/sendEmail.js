@@ -35,21 +35,12 @@ export default async function sendEmail(email, name, ticketId, date, title, desc
            `
         }
 
-        const proposta = await Gemini(`Você é um sistema de suporte de Nível 1, e eficiente, que pré-analisa chamados técnicos para a equipe de TI. Sua tarefa é analisar a descrição do problema de um usuário e gerar uma **AÇÃO PROPOSTA** clara e concisa para a equipe técnica.
-        A **AÇÃO PROPOSTA** deve:
-        1.  **Retornar apenas as ações sugeridas** de diagnóstico ou solução (ex: "Verificar logs do servidor X", "Reiniciar serviço Y", "Contatar o usuário para acesso remoto").
-        2.  Ser formatada usando **marcadores (bullet points)**.
-        3.  **NÃO** incluir cabeçalhos como "Conclusão Proposta" ou "Causa Raiz".
-        **Descrição do Chamado:**
-        ${description}
-        **Ações Sugeridas:**`)
-
         const mailOptions2 = {
             from: `Fatal System <${process.env.GOOGLE_EMAIL}>`,
             to: `${process.env.GOOGLE_EMAIL}`,
             subject: `Chamado criado pelo(a) ${name}!`,
             html: `<h1>Prezado(a) Equipe de TI,</h1>
-           <p>O chamado do(a) ${name} foi registrado com sucesso! Segui o conteúdo e a ação proposta.</p>
+           <p>O chamado do(a) ${name} foi registrado com sucesso! Segue o conteúdo.</p>
            <hr>
            <p><b>Id:</b> ${ticketId}</p>
            <p><b>Data:</b> ${date}</p>
@@ -61,10 +52,7 @@ export default async function sendEmail(email, name, ticketId, date, title, desc
            <hr>
            <p><b>Pessoas afetadas:</b> ${affectedPeople}</p>
            <p><b>Impede o trabalho:</b> ${stopWork}</p>
-           <p><b>Ocorreu anteriormente:</b> ${happenedBefore}</p>
-           <hr>
-           <p><b>Proposta pela IA:</b> ${proposta}</p>
-           `
+           <p><b>Ocorreu anteriormente:</b> ${happenedBefore}</p>`
         }
         await transport.sendMail(mailOptions)
         await transport.sendMail(mailOptions2)

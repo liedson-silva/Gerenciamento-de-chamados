@@ -8,6 +8,7 @@ const ReplyTicket = () => {
     const user = location.state?.user
     const navigate = useNavigate()
     const [ViewTickets, SetViewTickets] = useState([])
+    const [ViewSolution, setViewSolution] = useState("")
     const [successMessage, setSuccessMessage] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [showForm, setShowForm] = useState(false)
@@ -17,6 +18,7 @@ const ReplyTicket = () => {
         title: "",
         description: "",
         priority: "",
+        status: "",
         date: "",
     })
 
@@ -41,6 +43,27 @@ const ReplyTicket = () => {
         getTicket()
     }, [])
 
+    async function getSolution(idTicket) {
+        try {
+            const response = await api.get(`/reply-ticket/${idTicket}`)
+            const solutionsArray = response.data.Tickets || response.data.Solucoes
+            if (response.data.success && solutionsArray && solutionsArray.length > 0) {
+                const solutionText = solutionsArray[0].Solucao
+                setViewSolution(solutionText)
+            } else {
+                setErrorMessage("Erro ao carregar solução.")
+            }
+        } catch (error) {
+            console.error("Erro ao buscar solução:", error)
+            setErrorMessage("Erro ao buscar solução.")
+            setViewSolution("Nenhuma proposta de solução automática encontrada.")
+        }
+        setTimeout(() => {
+            setSuccessMessage("");
+            setErrorMessage("");
+        }, 3000);
+    }
+
     const handleReplyTicket = (ticket) => {
         setFormData({
             idTicket: ticket.IdChamado,
@@ -48,9 +71,11 @@ const ReplyTicket = () => {
             title: ticket.Titulo,
             description: ticket.Descricao,
             priority: ticket.PrioridadeChamado,
+            status: ticket.StatusChamado,
             date: ticket.DataChamado
         })
         setShowForm(true)
+        getSolution(ticket.IdChamado)
     }
 
     const handleBack = () => {
@@ -120,17 +145,30 @@ const ReplyTicket = () => {
                         <p>Id do Solicitante: {formData.idUser}</p>
                         <p>Data de Abertura: {formatDate(formData.date)}</p>
                         <p>Prioridade: {formData.priority}</p>
+                        <p>Status: {formData.status}</p>
                         <p>Titulo: {formData.title}</p>
                         <p>Descrição: {formData.description}</p>
                     </div>
-                    <input name="name" className="form-reply-ticket" placeholder="Resposta:" value={""} onChange={""} required />
-                    <button className="button-confirm-reply" type="submit">Enviar</button>
+                    <div className="form-group">
+                        <textarea
+                            id="reply"
+                            className="input-create-user"
+                            value={ViewSolution}
+                            required
+                        />
+                        <label htmlFor="reply">Resposta</label>
+                    </div>
                 </section>
             )}
 
-            <button onClick={handleBack} className='button-back' >
-                Voltar
-            </button>
+            <div className="box-button-back-reply">
+                <button onClick={handleBack} className='button-back' >
+                    Voltar
+                </button>
+                {showForm && (
+                    <button className="button-confirm-reply" type="submit">Enviar</button>
+                )}
+            </div>
 
         </main>
     )

@@ -38,7 +38,7 @@ export class TicketsController {
                 .query("INSERT INTO Chamado (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente) OUTPUT INSERTED.* VALUES (@title, @priority, @description, @ticketDate, @ticketStatus, @category, @userId, @affectedPeople, @stopWork, @happenedBefore)")
 
             const newTicket = result.recordset[0]
-            this.updatePriorityByAI(newTicket.IdChamado, description, affectedPeople, stopWork, happenedBefore)
+            this.updatePriorityAndSolutionByAI(newTicket.IdChamado, dateforSQL, description, affectedPeople, stopWork, happenedBefore)
 
             const userResult = await this.pool.request()
                 .input("userId", this.sql.Int, userId)
@@ -57,7 +57,7 @@ export class TicketsController {
         }
     }
 
-    async updatePriorityByAI(ticketId, description, affectedPeople, stopWork, happenedBefore) {
+    async updatePriorityAndSolutionByAI(ticketId, date, description, affectedPeople, stopWork, happenedBefore) {
         try {
             const priority = await Gemini(`Você é um sistema automatizado de triagem de tickets de TI, especializado em definir a PRIORIDADE final de um chamado com base em critérios técnicos e de impacto.
             O NÍVEL DE PRIORIDADE deve ser classificado em um de três níveis: Baixa, Média ou Alta.
@@ -75,14 +75,31 @@ export class TicketsController {
             * **Média:** O problema afeta o **Meu setor** e **Não Impede o Trabalho ou Parcialmente IMPEDE** *ou* afeta **Somente eu** e **Impede o Trabalho (Sim)**. Problemas novos e críticos para um único usuário também se enquadram aqui.
             * **Baixa:** O problema afeta **Somente eu** e **Não Impede o Trabalho** *ou* se a descrição for um pedido de informação/melhoria (não um erro).`)
 
-            await this.pool.request()
-                .input("priority", this.sql.VarChar(20), priority)
-                .input("idChamado", this.sql.Int, ticketId)
-                .query("UPDATE Chamado SET PrioridadeChamado = @priority WHERE IdChamado = @idChamado")
+            const solution = await Gemini(`Você é um sistema de suporte de Nível 1, e eficiente, que pré-analisa chamados técnicos para a equipe de TI. Sua tarefa é analisar a descrição do problema de um usuário e gerar uma **PROPOSTA DE SOLUÇÃO** clara e concisa para a equipe técnica.
+            A **PROPOSTA DE SOLUÇÃO** deve:
+            1.  **Retornar apenas as ações sugeridas** de diagnóstico ou solução (ex: "Verificar logs do servidor X", "Reiniciar serviço Y", "Contatar o usuário para acesso remoto").
+            2.  Conter no máximo 500 caracteres.
+            3.  **NÃO** incluir cabeçalhos como "Conclusão Proposta" ou "Causa Raiz".
+            **Descrição do Chamado:**
+            ${description}
+            **Ações Sugeridas:**`)
 
-            console.log("Prioridade atualizado pela IA")
+            const request = this.pool.request()
+                .input("priority", this.sql.VarChar(20), priority)
+                .input("solution", this.sql.VarChar(500), solution)
+                .input("idChamado", this.sql.Int, ticketId)
+                .input("solutionDate", this.sql.Date, date)
+            await request.query(`
+                UPDATE Chamado SET PrioridadeChamado = @priority WHERE IdChamado = @idChamado;
+                `)
+            await request.query(`
+                INSERT INTO Historico (DataSolucao, Solucao, FK_IdChamado, Acao) 
+                VALUES (@solutionDate, @solution, @idChamado, 'Nota Interna')
+                `)
+
+            console.log("Solução enviada e Prioridade atualizado pela IA")
         } catch (error) {
-            console.error(`Erro ao atualizar a prioridade do chamado ${ticketId} pela IA:`, error)
+            console.error(`Erro ao enviar solução e atualizar a prioridade do chamado ${ticketId} pela IA:`, error)
         }
     }
 
@@ -190,13 +207,32 @@ export class TicketsController {
                 .query("SELECT * FROM Chamado WHERE DataChamado >= @startDate AND DataChamado <= @endDate")
 
             if (result.recordset.length === 0) {
-                return res.status(200).json({ success: true, message: "Nenhum chamado encontrado no período especificado" })
+                return res.json({ success: true, message: "Nenhum chamado encontrado no período especificado" })
             }
 
             res.json({ success: true, Tickets: result.recordset })
         } catch (err) {
             console.error(err)
             res.status(500).json({ success: false, message: "Erro ao buscar chamado" })
+        }
+    }
+
+    async getSolution(req, res) {
+        const { id } = req.params
+
+        try {
+            const result = await this.pool.request()
+                .input("IdChamado", this.sql.Int, id)
+                .query("SELECT Solucao FROM Historico WHERE FK_IdChamado = @IdChamado")
+
+            if (result.recordset.length === 0) {
+                return res.status(401).json({ success: false, message: "Nenhumm solução encontrada" })
+            }
+
+            res.json({ success: true, Tickets: result.recordset })
+        } catch (err) {
+            console.error(err)
+            res.status(500).json({ success: false, message: "Erro ao buscar solução" })
         }
     }
 } 
