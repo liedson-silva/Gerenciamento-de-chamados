@@ -1135,6 +1135,7 @@ input:valid~label {
 
 .reply-info-ticket {
     background-color: #c3c3c3;
+    margin-bottom: 8px;
     border-radius: 8px;
     padding: 20px;
 }
@@ -1145,11 +1146,10 @@ input:valid~label {
     margin-right: 40px;
 }
 
-.form-reply-ticket {
-    margin-top: 1rem;
-    border: solid 2px #c6c6c6;
-    border-radius: 8px;
-    width: 98%;
+.box-button-back-reply{
+    display: flex;
+    gap: 150px;
+    margin-right: 40px;
 }
 
 .button-confirm-reply {
@@ -1301,15 +1301,48 @@ input:valid~label {
     margin-right: 40px;
 }
 
+.report-ticket {
+    display: flex;
+    gap: 40px;
+    margin-bottom: -25px;
+}
+
+.box-button-back-report {
+    display: flex;
+    justify-content: end;
+}
+
+.button-back-report {
+    cursor: pointer;
+    background: linear-gradient(to right, white, rgb(176, 176, 176));
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    padding: 10px 20px;
+    width: 140px;
+    margin-left: 40px;
+    transition: background 0.3s;
+}
+
+.button-back-report:hover {
+    background: linear-gradient(to right, white, rgb(121, 121, 121));
+}
+
 @media (max-width: 768px) {
     .box-button-report {
         margin-top: -40px;
     }
-    .report-box-chart1{
+
+    .report-box-chart1 {
         margin-left: 40px;
         margin-right: 40px;
     }
-    .report-box-chart{
+
+    .report-box-chart {
+        display: none;
+    }
+
+    .report-ticket {
         display: none;
     }
 }
