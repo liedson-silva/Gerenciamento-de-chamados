@@ -2,7 +2,7 @@
 # Fatal System - Gerenciamento de Chamados com Triagem por IA
 
 <p align="center">
-     <img src="docs/img/Fatal_System_Logo_FINAL.png" alt="logo da Fatal System" width="200">
+     <img src="(https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/img/Fatal_System_Logo_FINAL.png)" alt="logo da Fatal System" width="200">
      <h2 align="center"> Fatal System</h2>
 </p>
 
@@ -20,9 +20,9 @@
 
 > Status do Projeto: Em Desenvolvimento 🚧
 >
-> Documentação Completa (Diagramas): [PDF](docs/Links/Diagramas.pdf) 📄 
+> Documentação Completa (Diagramas): [PDF](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/Links/Diagramas.pdf) 📄 
 >
-> Casos de Uso Detalhados: [PDF](docs/Links/UseCaseD.pdf) 📄
+> Casos de Uso Detalhados: [PDF](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/Links/UseCaseD.pdf) 📄
 >
 
 ## 🏅 Desafio <a id="desafio"></a>
@@ -31,19 +31,19 @@ O desafio consiste em criar um sistema de gerenciamento de chamados otimizado po
 
 ## 🏅 Solução <a id="solucao"></a>
 
-➡️ **[Acesse a solução detalhada aqui](docs/solprop.md)**
+➡️ **[Acesse a solução detalhada aqui](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/solprop.md)**
 
 ---
 
 ## 📋 Backlog do Produto <a id="backlog"></a>
 
-➡️ **[Acesse o Backlog do Produto detalhado aqui](docs/backlog.md)**
+➡️ **[Acesse o Backlog do Produto detalhado aqui](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/backlog.md)**
 
 ---
 
 ## 📅 Cronograma de Sprints <a id="sprints"></a>
 
-➡️ **[Acesse o cronograma detalhado aqui](docs/Cronograma_Sprints.md)**
+➡️ **[Acesse o cronograma detalhado aqui](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/Cronograma_Sprints.md)**
 
 ## 💻 Tecnologias <a id="tecnologias"></a>
 
@@ -63,22 +63,22 @@ O desafio consiste em criar um sistema de gerenciamento de chamados otimizado po
 
 ## 🎓 Equipe <a id="equipe"></a>
 
-➡️ **[Acesse as informações dos integrantes aqui](integrantes.md)**
+➡️ **[Acesse as informações dos integrantes aqui](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/integrantes.md)**
 
 
 ## 🏃‍ DoR - Definition of Ready <a id="dor"></a>
 
-➡️ **[Acesse o DoR detalhado aqui](docs/DoR.md)**
+➡️ **[Acesse o DoR detalhado aqui](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/DoR.md)**
 
 
 ## 🏆 DoD - Definition of Done <a id="dod"></a>
 
-➡️ **[Acesse o DoD detalhado aqui](docs/DoD.md)**
+➡️ **[Acesse o DoD detalhado aqui](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/DoD.md)**
 
 
 ## 📖 Manual de Instalação <a id="manual"></a>
 
-➡️ **[Acesse o Manual de Instalação detalhado aqui](docs/Manual_Instalação.md)**
+➡️ **[Acesse o Manual de Instalação detalhado aqui](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/Manual_Instala%C3%A7%C3%A3o.md)**
 
 
 
