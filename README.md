@@ -78,7 +78,7 @@ O desafio consiste em criar um sistema de gerenciamento de chamados otimizado po
 
 ## 📖 Manual de Instalação <a id="manual"></a>
 
-➡️ **[Acesse o Manual de Instalação detalhado aqui](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/Manual_Instala%C3%A7%C3%A3o.md))**
+➡️ **[Acesse o Manual de Instalação detalhado aqui](https://github.com/Frederico-Dellu/UML-Gerenciamento-de-chamados/blob/main/docs/Manual_Instala%C3%A7%C3%A3o.md)**
 
 
 
