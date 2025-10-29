@@ -7,26 +7,33 @@ const ReplyTicket = () => {
     const location = useLocation()
     const user = location.state?.user
     const navigate = useNavigate()
-    const [ViewTickets, SetViewTickets] = useState([])
-    const [ViewSolution, setViewSolution] = useState("")
+
+    const [tickets, setTickets] = useState([])
+    const [replyText, setReplyText] = useState("")
     const [successMessage, setSuccessMessage] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [showForm, setShowForm] = useState(false)
-    const [formData, setFormData] = useState({
-        idTicket: "",
-        idUser: "",
-        title: "",
-        description: "",
-        priority: "",
-        status: "",
-        date: "",
+    const [selectedTicket, setSelectedTicket] = useState({
+        idTicket: "", idUser: "", title: "", description: "",
+        priority: "", status: "", date: "",
     })
 
-    async function getTicket() {
+    // ... código anterior
+
+    async function fetchTickets() {
         try {
             const response = await api.get("/All-tickets")
             if (response.data.success) {
-                SetViewTickets(response.data.Tickets)
+                const allTickets = response.data.Tickets.filter(ticket => ticket.StatusChamado !== "Resolvido")
+                
+                const orderedTickets = allTickets.sort((a, b) => {
+                    const priorityOrder = { "Alta": 1, "Média": 2, "Baixa": 3 }
+                    const priorityA = priorityOrder[a.PrioridadeChamado] || 99
+                    const priorityB = priorityOrder[b.PrioridadeChamado] || 99
+                    
+                    return priorityA - priorityB
+                })
+                setTickets(orderedTickets)
             } else {
                 setErrorMessage("Erro ao carregar chamados.")
             }
@@ -39,24 +46,26 @@ const ReplyTicket = () => {
             setErrorMessage("");
         }, 3000);
     }
+
     useEffect(() => {
-        getTicket()
+        fetchTickets()
     }, [])
 
-    async function getSolution(idTicket) {
+    async function fetchSuggestedSolution(idTicket) {
         try {
-            const response = await api.get(`/reply-ticket/${idTicket}`)
-            const solutionsArray = response.data.Tickets || response.data.Solucoes
-            if (response.data.success && solutionsArray && solutionsArray.length > 0) {
-                const solutionText = solutionsArray[0].Solucao
-                setViewSolution(solutionText)
+            const response = await api.get(`/get-reply-ticket/${idTicket}`)
+            if (response.data.success && response.data.Tickets && response.data.Tickets.length > 0) {
+                if (response.data.Tickets[0].Acao === "Nota Interna") {
+                    const solutionText = response.data.Tickets[0].Solucao
+                    setReplyText(solutionText)
+                }
             } else {
                 setErrorMessage("Erro ao carregar solução.")
+                setReplyText("Nenhuma proposta de solução automática encontrada.")
             }
         } catch (error) {
-            console.error("Erro ao buscar solução:", error)
             setErrorMessage("Erro ao buscar solução.")
-            setViewSolution("Nenhuma proposta de solução automática encontrada.")
+            setReplyText("Nenhuma proposta de solução automática encontrada.")
         }
         setTimeout(() => {
             setSuccessMessage("");
@@ -64,8 +73,33 @@ const ReplyTicket = () => {
         }, 3000);
     }
 
-    const handleReplyTicket = (ticket) => {
-        setFormData({
+    const handleSubmitReply = async () => {
+        const id = selectedTicket.idTicket
+        const solution = replyText
+
+        if (!id || !solution.trim()) {
+            setErrorMessage("O campo de resposta não pode estar vazio.")
+            setTimeout(() => setErrorMessage(""), 3000)
+            return
+        }
+        try {
+            const { data } = await api.post("/reply-ticket", { id, solution })
+
+            if (data.success) {
+                setSuccessMessage("Solução enviada!")
+                setTimeout(() => setSuccessMessage(""), 3000)
+                setShowForm(false)
+                setReplyText("")
+                fetchTickets()
+            }
+        } catch (err) {
+            setErrorMessage("Erro ao conectar com o servidor para enviar a solução.")
+            setTimeout(() => setErrorMessage(""), 3000)
+        }
+    }
+
+    const handleSelectTicket = (ticket) => {
+        setSelectedTicket({
             idTicket: ticket.IdChamado,
             idUser: ticket.FK_IdUsuario,
             title: ticket.Titulo,
@@ -75,7 +109,7 @@ const ReplyTicket = () => {
             date: ticket.DataChamado
         })
         setShowForm(true)
-        getSolution(ticket.IdChamado)
+        fetchSuggestedSolution(ticket.IdChamado)
     }
 
     const handleBack = () => {
@@ -107,7 +141,7 @@ const ReplyTicket = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {ViewTickets.map((ticket) => (
+                            {tickets.map((ticket) => (
                                 <tr key={ticket.IdChamado}>
                                     <td>{ticket.IdChamado}</td>
                                     <td>{ticket.Titulo}</td>
@@ -129,7 +163,7 @@ const ReplyTicket = () => {
                                     )}</td>
                                     <td>{ticket.FK_IdUsuario}</td>
                                     <td>
-                                        <button className="button-reply-ticket" onClick={() => (handleReplyTicket(ticket))}>Responder</button>
+                                        <button className="button-reply-ticket" onClick={() => (handleSelectTicket(ticket))}>Responder</button>
                                     </td>
                                 </tr>
                             ))}
@@ -140,20 +174,21 @@ const ReplyTicket = () => {
 
             {showForm && (
                 <section className="reply-ticket">
-                    <h2>Detalhes do Chamado #{formData.idTicket}</h2>
+                    <h2>Detalhes do Chamado #{selectedTicket.idTicket}</h2>
                     <div className="reply-info-ticket">
-                        <p>Id do Solicitante: {formData.idUser}</p>
-                        <p>Data de Abertura: {formatDate(formData.date)}</p>
-                        <p>Prioridade: {formData.priority}</p>
-                        <p>Status: {formData.status}</p>
-                        <p>Titulo: {formData.title}</p>
-                        <p>Descrição: {formData.description}</p>
+                        <p>Id do Solicitante: {selectedTicket.idUser}</p>
+                        <p>Data de Abertura: {formatDate(selectedTicket.date)}</p>
+                        <p>Prioridade: {selectedTicket.priority}</p>
+                        <p>Status: {selectedTicket.status}</p>
+                        <p>Titulo: {selectedTicket.title}</p>
+                        <p>Descrição: {selectedTicket.description}</p>
                     </div>
                     <div className="form-group">
                         <textarea
                             id="reply"
                             className="input-create-user"
-                            value={ViewSolution}
+                            value={replyText}
+                            onChange={(e) => setReplyText(e.target.value)}
                             required
                         />
                         <label htmlFor="reply">Resposta</label>
@@ -166,7 +201,7 @@ const ReplyTicket = () => {
                     Voltar
                 </button>
                 {showForm && (
-                    <button className="button-confirm-reply" type="submit">Enviar</button>
+                    <button className="button-confirm-reply" onClick={handleSubmitReply} type="submit">Enviar</button>
                 )}
             </div>
 
