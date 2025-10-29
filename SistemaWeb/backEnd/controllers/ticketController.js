@@ -223,16 +223,43 @@ export class TicketsController {
         try {
             const result = await this.pool.request()
                 .input("IdChamado", this.sql.Int, id)
-                .query("SELECT Solucao FROM Historico WHERE FK_IdChamado = @IdChamado")
-
-            if (result.recordset.length === 0) {
-                return res.status(401).json({ success: false, message: "Nenhumm solução encontrada" })
-            }
+                .query("SELECT Solucao, Acao FROM Historico WHERE FK_IdChamado = @IdChamado")
 
             res.json({ success: true, Tickets: result.recordset })
         } catch (err) {
             console.error(err)
             res.status(500).json({ success: false, message: "Erro ao buscar solução" })
+        }
+    }
+
+    async Solution(req, res) {
+        const { id, solution } = req.body
+
+        try {
+
+            const dateforSQL = new Date().toLocaleDateString('en-CA',
+                {
+                    timeZone: 'America/Sao_Paulo',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                }).replace(/\//g, '-')
+
+            const request = this.pool.request()
+                .input("IdChamado", this.sql.Int, id)
+                .input("solutionDate", this.sql.Date, dateforSQL)
+                .input("solution", this.sql.VarChar(500), solution)
+                .input("newStatus", this.sql.VarChar(50), "Resolvido")
+            await request.query(`
+                INSERT INTO Historico (DataSolucao, Solucao, FK_IdChamado, Acao) 
+                VALUES (@solutionDate, @solution, @idChamado, 'Solução Aplicada');
+                UPDATE Chamado SET StatusChamado = @newStatus WHERE IdChamado = @IdChamado;
+                `)
+
+            res.json({ success: true, message: `Solução aplicada e Chamado resolvido.` })
+        } catch (err) {
+            console.error(err)
+            res.status(500).json({ success: false, message: "Erro ao aplicar solução no BD" })
         }
     }
 } 
