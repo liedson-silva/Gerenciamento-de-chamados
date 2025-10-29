@@ -1,136 +1,89 @@
-# Gerenciamento de chamados
 
-Esse trabalho é referente ao Projeto Integrado Multidisciplinar da Faculdade UNIP de São José dos Campos
-  
-## Backlog do Sistema
-Os requisitos do trabalho estão dividos em requisitos funcionais que descrevem funcionalidades do trabalho, e requisitos não funcionais descrevem requisitos como: tecnologia a ser utilizada, arquitetura, ambiente, etc. 
+# Fatal System - Gerenciamento de Chamados com Triagem por IA
 
-## Requisitos Funcionais
+<p align="center">
+     <img src="docs/img/Fatal_System_Logo_FINAL.png" alt="logo da Fatal System" width="200">
+     <h2 align="center"> Fatal System</h2>
+</p>
 
-### 1. Gerenciamento de chamados
+### 🧭 Navegação Rápida
 
-<pre>1.a) Criar chamado:
-O sistema deve permitir que o usuário crie um novo chamado, informando título, descrição, categoria e prioridade.
-O usuário deve poder revisar os dados preenchidos antes de confirmar o envio do chamado.
-O sistema deve permitir anexar um ou mais arquivos ao chamado antes do envio e também após o chamado ter sido criado (enquanto estiver em aberto).<br>
-1.a.a) Checar chamado:
-Antes de enviar o chamado, o sistema realiza uma primeira checagem para garantir que todos os campos obrigatórios estejam preenchidos. 
-Se o sistema identificar um campo em branco, o chamado não é enviado e o funcionário é informado para preencher os dados. 
-Caso a dupla checagem seja concluída com sucesso, o funcionário envia o chamado para a equipe de suporte.<br>
-1.a.b) Anexar mais arquivos:
-Sistema permite anexar mais arquivos em um chamado já existente.<br>
-  
-1.b) Visualizar chamado:
-O sistema deve permitir que o usuário visualize os chamados criados, de acordo com o seu nível de acesso.<br> </pre>
+* [Desafio](#desafio)
+* [Solução](#solucao)
+* [Backlog do Produto](#backlog)
+* [Cronograma de Sprints](#sprints)
+* [Tecnologias](#tecnologias)
+* [Equipe](#equipe)
+* [Definição de Pronto (DoR)](#dor)
+* [Definição de Concluído (DoD)](#dod)
+* [Manual de Instalação](#manual)
 
-### 2. Gerenciamento de Usuário
-<pre>2.a) Cadastrar usuário:
-Admin cadastra novo usuário.
-Sistema gera matrícula.
-Admin cadastra senha.<br>
-  
-2.b) Editar Usuario:
-Adm pode editar usuários já criados<br>
-  
-2.c)Visualizar usuários
-Adm pode visualizar funcionários cadastrados.
-Adm vai denominar quais permissões os usuários possuem</pre>
+> Status do Projeto: Em Desenvolvimento 🚧
+>
+> Documentação Completa (Diagramas): [PDF](docs/Links/Diagramas.pdf) 📄 
+>
+> Casos de Uso Detalhados: [PDF](docs/Links/UseCaseD.pdf) 📄
+>
 
-### 3. Gerenciamento de Relatórios
+## 🏅 Desafio <a id="desafio"></a>
 
-<pre>3.a) Gerar relatórios:
-De acordo com o nível de acesso pode gerar relatórios anuais, mensais e semanais.
-Gerar relatórios baseado em prioridades.
-Gerar relatórios de acordo com o tipo de chamado mais requisitado.<br>
+O desafio consiste em criar um sistema de gerenciamento de chamados otimizado por uma Inteligência Artificial (IA). O objetivo é agilizar o fluxo de atendimento, classificar a prioridade automaticamente com base em regras definidas, propor soluções iniciais consultando o histórico, e reduzir a sobrecarga da equipe de TI, mantendo um registro detalhado para aprendizado contínuo e consultas futuras.
 
-3.b) Buscar relatórios:
-Filtrar os relatórios de acordo com data, prioridade e tipo.<br>
+## 🏅 Solução <a id="solucao"></a>
 
-3.c) Visualizar relatórios:
-Admin pode visualizar os relatórios gerados.</pre>
-</pre>
+➡️ **[Acesse a solução detalhada aqui](docs/solprop.md)**
 
-### 4. Gerenciamento de IA
+---
 
-<pre>4.a) Priorizar e categorizar chamados:
-A IA deve classificar automaticamente os chamados em níveis de prioridade (alta, média, baixa) com base no conteúdo e na urgência relatada.
-A IA vai identificar o chamado e agrupar na sua respectiva categoria.
-A IA também deve encaminhar o chamado para o setor responsável com base na análise feita.
-O administrador poderá revisar e alterar a prioridade, se necessário.<br>
-  
-4.b) Aplicar solução inteligente:
-IA recebe o chamado.
-IA analisa palavras chaves do chamado.
-IA concede solução para setor responsável de TI de acordo com o sugerido pelas palavras chaves.<br>
+## 📋 Backlog do Produto <a id="backlog"></a>
 
-</pre>
-</pre>
+➡️ **[Acesse o Backlog do Produto detalhado aqui](docs/backlog.md)**
 
-## Requisitos Não-Funcionais
-### 1. UML
+---
 
-* Astah UML
+## 📅 Cronograma de Sprints <a id="sprints"></a>
 
-### 2. Banco de Dados Relacionais
-* Br Modelo (DER e MER)
-* SQL Server
+➡️ **[Acesse o cronograma detalhado aqui](docs/Cronograma_Sprints.md)**
 
-### 3. Documentação
-* Word
-* Excel
+## 💻 Tecnologias <a id="tecnologias"></a>
 
-## Solução Proposta
-* Priorização e Categorização de chamados por IA
-* Capacidade de IA propor soluções dos chamados para Equipe de TI
-* Geração de relatórios mensais, semanais e anuais dos chamados
-* Criação de Usuario pelo Admin
+<h4 align="center">
+  <img src="https://img.shields.io/badge/C%23-blueviolet?style=for-the-badge&logo=csharp&logoColor=white" alt="C#">
+  <img src="https://img.shields.io/badge/.NET%20Framework-blue?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET Framework">
+  <img src="https://img.shields.io/badge/Windows%20Forms-lightblue?style=for-the-badge&logo=windows&logoColor=black" alt="Windows Forms">
+  <img src="https://img.shields.io/badge/Azure%20SQL-blue?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" alt="Azure SQL">
+  <img src="https://img.shields.io/badge/Gemini%20API-orange?style=for-the-badge&logo=google&logoColor=white" alt="Gemini API">
+  <img src="https://img.shields.io/badge/ScottPlot-purple?style=for-the-badge" alt="ScottPlot">
+  <img src="https://img.shields.io/badge/iTextSharp-red?style=for-the-badge" alt="iTextSharp">
+  <img src="https://img.shields.io/badge/Astah%20UML-grey?style=for-the-badge" alt="Astah UML">
+  <img src="https://img.shields.io/badge/Git-black?style=for-the-badge&logo=git&logoColor=white" alt="Git">
+  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+</h4>
 
 
-## Sprints 
-![Sprint123](https://github.com/user-attachments/assets/dd97433a-f8aa-4c6b-99a1-0fea97d36438)
+## 🎓 Equipe <a id="equipe"></a>
 
-![Sprint45](https://github.com/user-attachments/assets/1f549682-e81e-44bf-b57e-cef6747683bb)
-
-![Sprint67](https://github.com/user-attachments/assets/42025fbf-abd4-4d4a-b874-ad02d2e729fc)
-
-![Sprint89](https://github.com/user-attachments/assets/2b714eb9-d349-4e3d-89a8-a3a7738d89d6)
+➡️ **[Acesse as informações dos integrantes aqui](integrantes.md)**
 
 
-## Relatorio das Sprints
+## 🏃‍ DoR - Definition of Ready <a id="dor"></a>
 
-- [Relatório Sprint 1](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint1.md)
-  
-- [Relatório Sprint 2](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint2.md)
-  
-- [Relatório Sprint 3](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint3.md)
-  
-- [Relatório Sprint 4](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint4.md)
-  
-- [Relatório Sprint 5](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint5.md)
-  
-- [Relatório Sprint 6](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint6.md)
-  
-- [Relatório Sprint 7](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint7.md)
-  
-- [Relatório Sprint 8](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint8.md)
-  
-- [Relatório Sprint 9](https://github.com/Fatal-System/Gerenciamento-de-chamados/blob/main/Sprint9.md)
+➡️ **[Acesse o DoR detalhado aqui](docs/DoR.md)**
 
 
-## Tecnologias Utilizadas
-* [Figma](https://www.figma.com/)
-* [Astah](https://astah.net/)
-* [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
-* [Br Modelo](https://www.brmodeloweb.com/lang/pt-br/index.html)
+## 🏆 DoD - Definition of Done <a id="dod"></a>
+
+➡️ **[Acesse o DoD detalhado aqui](docs/DoD.md)**
 
 
-## Integrantes do grupo
+## 📖 Manual de Instalação <a id="manual"></a>
 
-Nome | Github | Instagram
------------- | ------------- | -----------
-Allyssan Marie Geraldo Castro| [Acessar Github](https://github.com/allyssanmarie) | [Acessar Instagram](https://www.instagram.com/marieallyyy?igsh=bnJ6NDk4bXB3Mmdr)
-Frederico Barreto Godoi Dellú| [Acessar Github](https://github.com/Fredeavatar) | [Acessar Instagram](https://www.instagram.com/fredericodellu_?igsh=MXcwa3d0djQzZzZ5MQ==)
-Gabriel Chiaramonte Gonçalves| [Acessar Github](https://github.com/Chiaramontee) | [Acessar Instagram](https://www.instagram.com/gabriel__chiaramonte?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
-Liedson de Oliveira Silva| [Acessar Github](https://github.com/liedson-silva) | [Acessar Instagram](https://www.instagram.com/liedsonprx?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
-Natália Chiaramonte Fernandes| [Acessar Github](https://github.com/NataliaChiaramonte) | [Acessar Instagram](https://www.instagram.com/natthyfernandes?igsh=MTRhOWtiaXM3eGM4Yg==_web_button_share_sheet)
-Rodrigo de Oliveira Chaves| [Acessar Github](https://github.com/Rodrigo-Chaves96) | [Acessar Instagram](https://www.instagram.com/rochave.s?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
+➡️ **[Acesse o Manual de Instalação detalhado aqui](docs/Manual_Instalação.md)**
+
+
+
+
+
+
+
+
