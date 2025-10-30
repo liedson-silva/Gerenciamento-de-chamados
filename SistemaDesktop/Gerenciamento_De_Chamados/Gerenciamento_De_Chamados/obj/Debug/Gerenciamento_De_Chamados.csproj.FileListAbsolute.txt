@@ -52,8 +52,6 @@ C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciam
 C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.csproj.CoreCompileInputs.cache
 C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe
 C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.pdb
-C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Gerenciamento_De_Chamados.exe.config
-C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Gerenciamento_De_Chamados.exe
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Gerenciamento_De_Chamados.pdb
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.csproj.AssemblyReference.cache
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.AberturaChamados.resources
@@ -67,7 +65,6 @@ C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.VisualizarChamado.resources
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.csproj.GenerateResource.cache
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.csproj.CoreCompileInputs.cache
-C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.pdb
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.FimChamado.resources
 C:\Users\frede\OneDrive\Área de Trabalho\Faculdade\GitHub FatalSystem\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.FimChamado.resources
@@ -321,11 +318,14 @@ C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\System.Text.Json.xml
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.csproj.SuggestedBindingRedirects.cache
-C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe.config
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.AnaliseChamado.resources
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.FormRelatorioDetalhado.resources
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.Relatorio.resources
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerencia.52AE2C3A.Up2Date
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.Faq.resources
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.Faq.resources
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Gerenciamento_De_Chamados.exe.config
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Gerenciamento_De_Chamados.exe
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe.config
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe

@@ -30,25 +30,25 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_NomeUser = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.roundedPanel1 = new RoundedPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Home_Tecnico = new System.Windows.Forms.Label();
+            this.btn_Chamado = new System.Windows.Forms.Button();
+            this.btn_Relatorio = new System.Windows.Forms.Button();
+            this.btn_Usuario = new System.Windows.Forms.Button();
             this.lbl_Inicio = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lbSair = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
-            this.roundedPanel1 = new RoundedPanel();
-            this.btn_Chamado = new System.Windows.Forms.Button();
-            this.btn_Relatorio = new System.Windows.Forms.Button();
-            this.btn_Usuario = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Home_Tecnico = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
             this.roundedPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -74,32 +74,6 @@
             this.lbl_NomeUser.Size = new System.Drawing.Size(0, 25);
             this.lbl_NomeUser.TabIndex = 9;
             // 
-            // lbl_Inicio
-            // 
-            this.lbl_Inicio.AutoSize = true;
-            this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME__2_;
-            this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Inicio.Location = new System.Drawing.Point(59, 34);
-            this.lbl_Inicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(127, 31);
-            this.lbl_Inicio.TabIndex = 5;
-            this.lbl_Inicio.Text = "       Início";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(1234, 16);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(68, 62);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
@@ -114,6 +88,126 @@
             this.panel1.Size = new System.Drawing.Size(325, 977);
             this.panel1.TabIndex = 30;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.Controls.Add(this.btn_Chamado);
+            this.roundedPanel1.Controls.Add(this.btn_Relatorio);
+            this.roundedPanel1.Controls.Add(this.btn_Usuario);
+            this.roundedPanel1.Controls.Add(this.groupBox1);
+            this.roundedPanel1.Controls.Add(this.groupBox2);
+            this.roundedPanel1.Controls.Add(this.Home_Tecnico);
+            this.roundedPanel1.CornerRadius = 15;
+            this.roundedPanel1.Location = new System.Drawing.Point(359, 144);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Size = new System.Drawing.Size(1236, 809);
+            this.roundedPanel1.TabIndex = 32;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(59, 377);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(420, 426);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox2.Location = new System.Drawing.Point(580, 377);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(424, 426);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // Home_Tecnico
+            // 
+            this.Home_Tecnico.BackColor = System.Drawing.Color.Transparent;
+            this.Home_Tecnico.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Home_Tecnico.Location = new System.Drawing.Point(39, 22);
+            this.Home_Tecnico.Name = "Home_Tecnico";
+            this.Home_Tecnico.Size = new System.Drawing.Size(659, 60);
+            this.Home_Tecnico.TabIndex = 19;
+            // 
+            // btn_Chamado
+            // 
+            this.btn_Chamado.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Chamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Chamado.Image = global::Gerenciamento_De_Chamados.Properties.Resources.person_48dp_000000_FILL0_wght400_GRAD0_opsz481;
+            this.btn_Chamado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Chamado.Location = new System.Drawing.Point(863, 222);
+            this.btn_Chamado.Name = "btn_Chamado";
+            this.btn_Chamado.Size = new System.Drawing.Size(340, 121);
+            this.btn_Chamado.TabIndex = 30;
+            this.btn_Chamado.Text = "Gerenciar \r\nchamados";
+            this.btn_Chamado.UseVisualStyleBackColor = true;
+            this.btn_Chamado.Click += new System.EventHandler(this.btn_Chamado_Click);
+            // 
+            // btn_Relatorio
+            // 
+            this.btn_Relatorio.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Relatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Relatorio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.assignment_48dp_000000_FILL0_wght400_GRAD0_opsz481;
+            this.btn_Relatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Relatorio.Location = new System.Drawing.Point(448, 222);
+            this.btn_Relatorio.Name = "btn_Relatorio";
+            this.btn_Relatorio.Size = new System.Drawing.Size(340, 121);
+            this.btn_Relatorio.TabIndex = 29;
+            this.btn_Relatorio.Text = " Gerar \r\nrelatorio ";
+            this.btn_Relatorio.UseVisualStyleBackColor = true;
+            this.btn_Relatorio.Click += new System.EventHandler(this.btn_Relatorio_Click);
+            // 
+            // btn_Usuario
+            // 
+            this.btn_Usuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Usuario.Image = global::Gerenciamento_De_Chamados.Properties.Resources.folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz48;
+            this.btn_Usuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Usuario.Location = new System.Drawing.Point(36, 222);
+            this.btn_Usuario.Name = "btn_Usuario";
+            this.btn_Usuario.Size = new System.Drawing.Size(340, 121);
+            this.btn_Usuario.TabIndex = 28;
+            this.btn_Usuario.Text = "Gerenciar \r\n usuário";
+            this.btn_Usuario.UseVisualStyleBackColor = true;
+            this.btn_Usuario.Click += new System.EventHandler(this.btn_Usuario_Click);
+            // 
+            // lbl_Inicio
+            // 
+            this.lbl_Inicio.AutoSize = true;
+            this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.home_40dp_000000_FILL1_wght400_GRAD0_opsz40;
+            this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_Inicio.Location = new System.Drawing.Point(59, 34);
+            this.lbl_Inicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Inicio.Name = "lbl_Inicio";
+            this.lbl_Inicio.Size = new System.Drawing.Size(142, 36);
+            this.lbl_Inicio.TabIndex = 5;
+            this.lbl_Inicio.Text = "       Início";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
+            this.pictureBox4.Location = new System.Drawing.Point(1234, 16);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(68, 62);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
             // 
             // lbSair
             // 
@@ -169,100 +263,6 @@
             this.PctBox_Logo.TabIndex = 3;
             this.PctBox_Logo.TabStop = false;
             // 
-            // roundedPanel1
-            // 
-            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.roundedPanel1.BackColor = System.Drawing.Color.White;
-            this.roundedPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.roundedPanel1.BorderWidth = 1F;
-            this.roundedPanel1.Controls.Add(this.btn_Chamado);
-            this.roundedPanel1.Controls.Add(this.btn_Relatorio);
-            this.roundedPanel1.Controls.Add(this.btn_Usuario);
-            this.roundedPanel1.Controls.Add(this.groupBox1);
-            this.roundedPanel1.Controls.Add(this.groupBox2);
-            this.roundedPanel1.Controls.Add(this.Home_Tecnico);
-            this.roundedPanel1.CornerRadius = 15;
-            this.roundedPanel1.Location = new System.Drawing.Point(359, 144);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(1236, 809);
-            this.roundedPanel1.TabIndex = 32;
-            // 
-            // btn_Chamado
-            // 
-            this.btn_Chamado.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Chamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Chamado.Image = global::Gerenciamento_De_Chamados.Properties.Resources.person_48dp_000000_FILL0_wght400_GRAD0_opsz481;
-            this.btn_Chamado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Chamado.Location = new System.Drawing.Point(863, 222);
-            this.btn_Chamado.Name = "btn_Chamado";
-            this.btn_Chamado.Size = new System.Drawing.Size(340, 121);
-            this.btn_Chamado.TabIndex = 30;
-            this.btn_Chamado.Text = "Gerenciar \r\nchamados";
-            this.btn_Chamado.UseVisualStyleBackColor = true;
-            this.btn_Chamado.Click += new System.EventHandler(this.btn_Chamado_Click);
-            // 
-            // btn_Relatorio
-            // 
-            this.btn_Relatorio.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Relatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Relatorio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.assignment_48dp_000000_FILL0_wght400_GRAD0_opsz481;
-            this.btn_Relatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Relatorio.Location = new System.Drawing.Point(448, 222);
-            this.btn_Relatorio.Name = "btn_Relatorio";
-            this.btn_Relatorio.Size = new System.Drawing.Size(340, 121);
-            this.btn_Relatorio.TabIndex = 29;
-            this.btn_Relatorio.Text = " Gerar \r\nrelatorio ";
-            this.btn_Relatorio.UseVisualStyleBackColor = true;
-            this.btn_Relatorio.Click += new System.EventHandler(this.btn_Relatorio_Click);
-            // 
-            // btn_Usuario
-            // 
-            this.btn_Usuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Usuario.Image = global::Gerenciamento_De_Chamados.Properties.Resources.folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz48;
-            this.btn_Usuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Usuario.Location = new System.Drawing.Point(36, 222);
-            this.btn_Usuario.Name = "btn_Usuario";
-            this.btn_Usuario.Size = new System.Drawing.Size(340, 121);
-            this.btn_Usuario.TabIndex = 28;
-            this.btn_Usuario.Text = "Gerenciar \r\n usuário";
-            this.btn_Usuario.UseVisualStyleBackColor = true;
-            this.btn_Usuario.Click += new System.EventHandler(this.btn_Usuario_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(59, 377);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(420, 426);
-            this.groupBox1.TabIndex = 26;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox2.Location = new System.Drawing.Point(580, 377);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(424, 426);
-            this.groupBox2.TabIndex = 27;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
-            // Home_Tecnico
-            // 
-            this.Home_Tecnico.BackColor = System.Drawing.Color.Transparent;
-            this.Home_Tecnico.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Home_Tecnico.Location = new System.Drawing.Point(39, 22);
-            this.Home_Tecnico.Name = "Home_Tecnico";
-            this.Home_Tecnico.Size = new System.Drawing.Size(659, 60);
-            this.Home_Tecnico.TabIndex = 19;
-            // 
             // HomeAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,11 +278,11 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.HomeAdmin_Paint);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).EndInit();
             this.roundedPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).EndInit();
             this.ResumeLayout(false);
 
         }

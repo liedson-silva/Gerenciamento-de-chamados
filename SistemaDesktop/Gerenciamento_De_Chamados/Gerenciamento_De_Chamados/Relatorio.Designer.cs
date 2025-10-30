@@ -78,10 +78,10 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_Inicio = new System.Windows.Forms.Label();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.lbSair = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
-            this.lbSair = new System.Windows.Forms.Label();
             this.panelPrincipal.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -147,7 +147,7 @@
             this.panelContent.Margin = new System.Windows.Forms.Padding(4);
             this.panelContent.Name = "panelContent";
             this.panelContent.Padding = new System.Windows.Forms.Padding(20, 18, 20, 18);
-            this.panelContent.Size = new System.Drawing.Size(1124, 755);
+            this.panelContent.Size = new System.Drawing.Size(1103, 755);
             this.panelContent.TabIndex = 2;
             // 
             // dtpAte
@@ -601,7 +601,7 @@
             this.panelDireito.Location = new System.Drawing.Point(1481, 154);
             this.panelDireito.Margin = new System.Windows.Forms.Padding(4);
             this.panelDireito.Name = "panelDireito";
-            this.panelDireito.Size = new System.Drawing.Size(19, 792);
+            this.panelDireito.Size = new System.Drawing.Size(0, 792);
             this.panelDireito.TabIndex = 5;
             // 
             // panel9
@@ -612,7 +612,7 @@
             this.panel9.Location = new System.Drawing.Point(336, 113);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1164, 41);
+            this.panel9.Size = new System.Drawing.Size(1143, 41);
             this.panel9.TabIndex = 4;
             // 
             // panelEsquerdo
@@ -680,6 +680,21 @@
             this.panelSidebar.TabIndex = 0;
             this.panelSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSidebar_Paint);
             // 
+            // lbSair
+            // 
+            this.lbSair.AutoSize = true;
+            this.lbSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbSair.Location = new System.Drawing.Point(20, 477);
+            this.lbSair.Name = "lbSair";
+            this.lbSair.Size = new System.Drawing.Size(92, 29);
+            this.lbSair.TabIndex = 18;
+            this.lbSair.Text = "      Sair";
+            this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -721,21 +736,6 @@
             this.PctBox_Inicio.TabIndex = 11;
             this.PctBox_Inicio.TabStop = false;
             this.PctBox_Inicio.Click += new System.EventHandler(this.PctBox_Inicio_Click);
-            // 
-            // lbSair
-            // 
-            this.lbSair.AutoSize = true;
-            this.lbSair.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbSair.Location = new System.Drawing.Point(20, 477);
-            this.lbSair.Name = "lbSair";
-            this.lbSair.Size = new System.Drawing.Size(92, 29);
-            this.lbSair.TabIndex = 18;
-            this.lbSair.Text = "      Sair";
-            this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
             // 
             // Relatorio
             // 

@@ -168,7 +168,7 @@ namespace Gerenciamento_De_Chamados
         {
             switch (SessaoUsuario.FuncaoUsuario)
             {
-                case "Administrador":
+                case "Admin":
                     BotaoHomeAdmin(formAtual);
                     break;
                 case "Funcionario":
