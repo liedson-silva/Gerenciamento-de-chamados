@@ -97,9 +97,9 @@ const Report = () => {
   }).reverse();
 
   const data2 = [
-    { name: "Baixa", color: '#50eb89ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "baixa").length },
-    { name: "Média", color: '#5789e0ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "Média").length },
-    { name: "Alta", color: '#ec6258ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "Alta").length }
+    { name: "Baixa", color: '#50eb89ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "Baixa" && ticket.StatusChamado === "Resolvido").length },
+    { name: "Média", color: '#5789e0ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "Média" && ticket.StatusChamado === "Resolvido").length },
+    { name: "Alta", color: '#ec6258ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "Alta" && ticket.StatusChamado === "Resolvido").length }
   ]
 
   const CustomTooltip = ({ active, payload, label }) => {
@@ -131,6 +131,9 @@ const Report = () => {
   const pendenteTickets = viewReportTickets.filter(t => t.StatusChamado === "Pendente").length;
   const emAndamentoTickets = viewReportTickets.filter(t => t.StatusChamado === "Em andamento").length;
   const resolvidoTickets = viewReportTickets.filter(t => t.StatusChamado === "Resolvido").length;
+  const baixaTickets = viewReportTickets.filter(t => t.PrioridadeChamado === "Baixa").length;
+  const mediaTickets = viewReportTickets.filter(t => t.PrioridadeChamado === "Média").length;
+  const altaTickets = viewReportTickets.filter(t => t.PrioridadeChamado === "Alta").length;
 
   return (
     <main>
@@ -253,12 +256,15 @@ const Report = () => {
             <p>Pendente: <span className='report-title'>{pendenteTickets} </span></p>
             <p>Em andamento: <span className='report-title'>{emAndamentoTickets} </span></p>
             <p>Resolvido: <span className='report-title'>{resolvidoTickets} </span></p>
+            <p>Baixa: <span className='report-title'>{baixaTickets} </span></p>
+            <p>Média: <span className='report-title'>{mediaTickets} </span></p>
+            <p>Alta: <span className='report-title'>{altaTickets} </span></p>
           </section>
 
           <div className='box-button-back-report'>
-          <button onClick={handleBack} className='button-back-report' >
-            Voltar
-          </button>
+            <button onClick={handleBack} className='button-back-report' >
+              Voltar
+            </button>
           </div>
         </section>
       )}
