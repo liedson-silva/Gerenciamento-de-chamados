@@ -303,6 +303,26 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap home_40dp_000000_FILL1_wght400_GRAD0_opsz40 {
+            get {
+                object obj = ResourceManager.GetObject("home_40dp_000000_FILL1_wght400_GRAD0_opsz40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_42dp_000000_FILL1_wght400_GRAD0_opsz40 {
+            get {
+                object obj = ResourceManager.GetObject("home_42dp_000000_FILL1_wght400_GRAD0_opsz40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap home_51dp_000000_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("home_51dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
@@ -316,6 +336,26 @@ namespace Gerenciamento_De_Chamados.Properties {
         internal static System.Drawing.Bitmap home_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_ {
             get {
                 object obj = ResourceManager.GetObject("home_51dp_000000_FILL0_wght400_GRAD0_opsz48 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_52dp_000000_FILL1_wght400_GRAD0_opsz48 {
+            get {
+                object obj = ResourceManager.GetObject("home_52dp_000000_FILL1_wght400_GRAD0_opsz48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_52dp_000000_FILL1_wght400_GRAD0_opsz481 {
+            get {
+                object obj = ResourceManager.GetObject("home_52dp_000000_FILL1_wght400_GRAD0_opsz481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -50,6 +50,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
@@ -500,6 +503,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include="Resources\home_40dp_000000_FILL1_wght400_GRAD0_opsz40.png" />
+    <None Include="Resources\home_52dp_000000_FILL1_wght400_GRAD0_opsz481.png" />
+    <None Include="Resources\home_42dp_000000_FILL1_wght400_GRAD0_opsz40.png" />
+    <None Include="Resources\home_52dp_000000_FILL1_wght400_GRAD0_opsz48.png" />
     <None Include="Resources\person_48dp_000000_FILL0_wght400_GRAD0_opsz481.png" />
     <None Include="Resources\assignment_48dp_000000_FILL0_wght400_GRAD0_opsz481.png" />
     <None Include="Resources\person_48dp_000000_FILL0_wght400_GRAD0_opsz48.png" />
