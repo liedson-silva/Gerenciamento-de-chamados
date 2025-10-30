@@ -1,4 +1,5 @@
-﻿using System;
+﻿// ContinuaçaoAbertura.cs (Refatorado com Interfaces e Async)
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Gerenciamento_De_Chamados.Models;
+using Gerenciamento_De_Chamados.Repositories;
 
 namespace Gerenciamento_De_Chamados
 {
@@ -17,11 +19,20 @@ namespace Gerenciamento_De_Chamados
     {
         private AberturaChamados aberturaChamados;
 
-        // Recebe a tela de abertura de chamados já preenchida
+        // Declara as INTERFACES do repositório
+        private readonly IChamadoRepository _chamadoRepository;
+        private readonly IArquivoRepository _arquivoRepository;
+
+
         public ContinuaçaoAbertura(AberturaChamados abertura)
         {
             InitializeComponent();
             aberturaChamados = abertura;
+
+            // Instancia as CLASSES CONCRETAS que implementam as interfaces
+            _chamadoRepository = new ChamadoRepository();
+            _arquivoRepository = new ArquivoRepository();
+
             this.Load += ContinuaçaoAbertura_Load;
         }
 
@@ -37,120 +48,99 @@ namespace Gerenciamento_De_Chamados
             byte[] AnexarArquivo = aberturaChamados.arquivoAnexado;
 
             string status = "Pendente";
-                        
             string problemaIA = "Pendente";
             string solucaoIA = "Pendente";
             string prioridadeIA = "Analise";
             try
             {
-                List<string> solucoesAnteriores = await Funcoes.BuscarSolucoesAnteriores(CategoriaChamado);
-                AIService aiService = new AIService(); 
-                var (problema,prioridade, solucao) = await aiService.AnalisarChamado(TituloChamado,PessoasAfetadas,
+                //Busca soluções anteriores usando o REPOSITÓRIO
+                List<string> solucoesAnteriores = await _chamadoRepository.BuscarSolucoesAnterioresAsync(CategoriaChamado);
+
+                AIService aiService = new AIService();
+                var (problema, prioridade, solucao) = await aiService.AnalisarChamado(TituloChamado, PessoasAfetadas,
                     OcorreuAnteriormente, ImpedeTrabalho, DescricaoChamado, CategoriaChamado, solucoesAnteriores);
+
                 problemaIA = problema;
                 solucaoIA = solucao;
                 prioridadeIA = prioridade;
             }
-
-
-
             catch (Exception aiEx)
             {
                 MessageBox.Show($"Erro ao analisar chamado com IA: {aiEx.Message}. O chamado será criado sem sugestão.", "Aviso IA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
             }
 
-            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
+            // --- Lógica de Banco de Dados Removida Daqui ---
 
             int idUsuario = Funcoes.SessaoUsuario.IdUsuario;
-            string sql = @"INSERT INTO Chamado
-                                    (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria,
-                                    FK_IdUsuario, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente,
-                                    PrioridadeSugeridaIA, ProblemaSugeridoIA, SolucaoSugeridaIA)
-                   OUTPUT INSERTED.IdChamado
-                   VALUES (@Titulo, @PrioridadeChamado, @Descricao, @DataChamado,
-                            @StatusChamado, @Categoria, @FK_IdUsuario, @PessoasAfetadas,
-                            @ImpedeTrabalho, @OcorreuAnteriormente, @PrioridadeSugeridaIA, @ProblemaSugeridoIA, @SolucaoSugeridaIA)";
 
-            using (SqlConnection conexao = new SqlConnection(connectionString))
+            try
             {
-                try
+                // Prepara o objeto Modelo
+                TimeZoneInfo brasilTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+                DateTime horaDeBrasilia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasilTimeZone);
+
+                Chamado novoChamado = new Chamado
                 {
-                    conexao.Open();
+                    Titulo = TituloChamado,
+                    PrioridadeChamado = "Análise", // Lógica original mantida
+                    Descricao = DescricaoChamado,
+                    DataChamado = horaDeBrasilia,
+                    StatusChamado = status,
+                    Categoria = CategoriaChamado,
+                    FK_IdUsuario = idUsuario,
+                    PessoasAfetadas = PessoasAfetadas,
+                    ImpedeTrabalho = ImpedeTrabalho,
+                    OcorreuAnteriormente = OcorreuAnteriormente,
+                    PrioridadeSugeridaIA = prioridadeIA,
+                    ProblemaSugeridoIA = problemaIA,
+                    SolucaoSugeridaIA = solucaoIA
+                };
 
-                    int idChamado;
-                    string prioridade = "Análise";
-                    
+                // Adiciona o chamado usando o REPOSITÓRIO
+                int idChamado = await _chamadoRepository.AdicionarAsync(novoChamado);
 
-                    using (SqlCommand cmd = new SqlCommand(sql, conexao))
-                    {
-                        TimeZoneInfo brasilTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
-                        DateTime horaDeBrasilia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasilTimeZone);
-
-
-                        cmd.Parameters.AddWithValue("@Titulo", TituloChamado);
-                        cmd.Parameters.AddWithValue("@PrioridadeChamado", prioridade);
-                        cmd.Parameters.AddWithValue("@Descricao", DescricaoChamado);
-                        cmd.Parameters.AddWithValue("@DataChamado", horaDeBrasilia);
-                        cmd.Parameters.AddWithValue("@StatusChamado", status);
-                        cmd.Parameters.AddWithValue("@Categoria", CategoriaChamado);
-                        cmd.Parameters.AddWithValue("@FK_IdUsuario", idUsuario);
-                        cmd.Parameters.AddWithValue("@PessoasAfetadas", PessoasAfetadas);
-                        cmd.Parameters.AddWithValue("@ImpedeTrabalho", ImpedeTrabalho);
-                        cmd.Parameters.AddWithValue("@OcorreuAnteriormente", OcorreuAnteriormente);
-
-                        cmd.Parameters.AddWithValue("@PrioridadeSugeridaIA", prioridadeIA);
-                        cmd.Parameters.AddWithValue("@ProblemaSugeridoIA", problemaIA);
-                        cmd.Parameters.AddWithValue("@SolucaoSugeridaIA", solucaoIA);
-                        idChamado = (int)cmd.ExecuteScalar();
-                    }
-
-                    if (AnexarArquivo != null && AnexarArquivo.Length > 0)
-                    {
-                        string sqlArquivo = @"INSERT INTO Arquivo 
-                                              (TipoArquivo, NomeArquivo, Arquivo, FK_IdChamado)
-                                              VALUES (@TipoArquivo, @NomeArquivo, @Arquivo, @FK_IdChamado)";
-                        using (SqlCommand cmdArq = new SqlCommand(sqlArquivo, conexao))
-                        {
-                            cmdArq.Parameters.AddWithValue("@TipoArquivo", "imagem/png");
-                            cmdArq.Parameters.AddWithValue("@NomeArquivo", "anexo.png");
-                            cmdArq.Parameters.AddWithValue("@Arquivo", AnexarArquivo);
-                            cmdArq.Parameters.AddWithValue("@FK_IdChamado", idChamado);
-                            cmdArq.ExecuteNonQuery();
-                        }
-                    }
-
-                    MessageBox.Show("Chamado aberto com sucesso! Número do chamado: " + idChamado);
-                    // Envia o e-mail com os dados do chamado
-                    Funcoes.EnviarEmailChamado(
-                                                 TituloChamado,
-                                                 DescricaoChamado,
-                                                 CategoriaChamado,
-                                                 idChamado,
-                                                 prioridadeIA, 
-                                                 status,     
-                                                 PessoasAfetadas,
-                                                 ImpedeTrabalho,
-                                                 OcorreuAnteriormente,
-                                                 problemaIA,
-                                                 solucaoIA,
-                                                 AnexarArquivo, 
-                                                 "anexo_chamado.png" 
-);
-
-                    var telaFim = new FimChamado(idChamado);
-                    telaFim.ShowDialog();
-
-                    aberturaChamados.Close();
-                    this.Close();
-
-                }
-                catch (Exception ex)
+                if (idChamado == -1) // Verifica se o repositório reportou erro
                 {
-                    MessageBox.Show("Erro ao abrir chamado: " + ex.Message);
+                    MessageBox.Show("Não foi possível criar o chamado. Verifique o log de erros.");
+                    return;
                 }
+
+                //Adiciona o arquivo (se existir) usando o REPOSITÓRIO
+                if (AnexarArquivo != null && AnexarArquivo.Length > 0)
+                {
+                    Arquivo novoArquivo = new Arquivo
+                    {
+                        TipoArquivo = "imagem/png",     // Idealmente, viria do 'aberturaChamados'
+                        NomeArquivo = "anexo.png",      // Idealmente, viria do 'aberturaChamados'
+                        ArquivoBytes = AnexarArquivo,
+                        FK_IdChamado = idChamado
+                    };
+                    await _arquivoRepository.AdicionarAsync(novoArquivo);
+                }
+
+                MessageBox.Show("Chamado aberto com sucesso! Número do chamado: " + idChamado);
+
+                // Envia o e-mail
+                Funcoes.EnviarEmailChamado(
+                    TituloChamado, DescricaoChamado, CategoriaChamado, idChamado,
+                    prioridadeIA, status, PessoasAfetadas, ImpedeTrabalho,
+                    OcorreuAnteriormente, problemaIA, solucaoIA,
+                    AnexarArquivo, "anexo_chamado.png"
+                );
+
+                var telaFim = new FimChamado(idChamado);
+                telaFim.ShowDialog();
+
+                aberturaChamados.Close();
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao gravar chamado no banco: " + ex.Message);
             }
         }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -161,7 +151,7 @@ namespace Gerenciamento_De_Chamados
                      panel1.ClientRectangle,
                     corInicioPanel,
                     corFimPanel,
-                    LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
+                    LinearGradientMode.Vertical);
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
         }
         private void ContinuaçaoAbertura_Load(object sender, EventArgs e)

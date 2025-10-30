@@ -9,12 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gerenciamento_De_Chamados.Repositories;
 
 namespace Gerenciamento_De_Chamados
 {
     public partial class VisualizarChamado : Form
     {
-        string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
+        private IChamadoRepository _chamadoRepository;
         private DataTable chamadosTable = new DataTable();
         public VisualizarChamado()
 
@@ -25,6 +26,8 @@ namespace Gerenciamento_De_Chamados
             this.Load += VisualizarChamado_Load;
 
             ConfigurarGrade();
+
+            _chamadoRepository = new ChamadoRepository();
 
             // evento para pesquisar
             txtPesquisarChamados.TextChanged += TxtPesquisar_TextChanged;
@@ -113,45 +116,18 @@ namespace Gerenciamento_De_Chamados
 
         private void CarregarChamados(string filtro = "")
         {
-            string sql = @"
-                            SELECT 
-                                    u.IdUsuario,
-                                    c.IdChamado, 
-                                    u.Nome AS Usuario, 
-                                    c.Titulo, 
-                                    c.PrioridadeChamado AS Prioridade, 
-                                    c.Descricao, 
-                                    c.DataChamado AS Data, 
-                                    c.StatusChamado AS Status, 
-                                    c.Categoria 
-                                    FROM Chamado c
-                                    JOIN Usuario u ON c.FK_IdUsuario = u.IdUsuario
-                                    WHERE (@filtro = '' OR c.Titulo LIKE '%' + @filtro + '%'
-                                    OR c.PrioridadeChamado LIKE '%' + @filtro + '%'
-                                    OR c.Descricao LIKE '%' + @filtro + '%'
-                                    OR c.StatusChamado LIKE '%' + @filtro + '%'
-                                    OR c.Categoria LIKE '%' + @filtro + '%'
-                                    OR u.Nome LIKE '%' + @filtro + '%')
-                                    ORDER BY c.DataChamado DESC";
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                using (SqlDataAdapter da = new SqlDataAdapter(sql,conn))
-                {
-                    da.SelectCommand.Parameters.AddWithValue("@filtro", filtro ?? string.Empty);
-
-                    chamadosTable.Clear();
-                    da.Fill(chamadosTable);
-
-                    // Atualiza a fonte de dados
-                    dgvChamados.DataSource = chamadosTable;
-                }
+                // A única linha necessária
+                chamadosTable = _chamadoRepository.BuscarTodosFiltrados(filtro);
+                dgvChamados.DataSource = chamadosTable;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao carregar chamados: " + ex.Message);
             }
         }
+        
 
         private void TxtPesquisar_TextChanged(object sender, EventArgs e)
         {

@@ -1,86 +1,76 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using Gerenciamento_De_Chamados.Models; 
+using Gerenciamento_De_Chamados.Repositories; 
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Threading.Tasks; 
 using System.Windows.Forms;
 
 namespace Gerenciamento_De_Chamados
 {
     public partial class Editar_Usuario : Form
     {
-
-        private int usuarioId;
-        string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
+        private readonly int _usuarioId;
+        private readonly IUsuarioRepository _usuarioRepository; // USA O REPOSITÓRIO
 
         // Construtor que recebe o ID do usuário a ser editado
         public Editar_Usuario(int idUsuario)
         {
             InitializeComponent();
-            this.usuarioId = idUsuario;
+            this._usuarioId = idUsuario; 
 
-            // Associa os eventos aos métodos
+            _usuarioRepository = new UsuarioRepository();
+
+           
             this.Load += Editar_Usuario_Load;
             this.btnSalvar.Click += btnSalvar_Click;
             this.btnCancelar.Click += btnCancelar_Click;
+
+           
+            this.btnAlterarSenha.Click += btnAlterarSenha_Click;
         }
 
-        private void Editar_Usuario_Load(object sender, EventArgs e)
+        private async void Editar_Usuario_Load(object sender, EventArgs e)
         {
-            // Este método é chamado quando o formulário é carregado
-            CarregarDadosDoUsuario();
+           
+            await CarregarDadosDoUsuarioAsync();
         }
 
-        private void CarregarDadosDoUsuario()
+        private async Task CarregarDadosDoUsuarioAsync()
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                // Busca o usuário pelo ID usando o repositório
+                Usuario usuario = await _usuarioRepository.BuscarPorIdAsync(this._usuarioId);
+
+                if (usuario != null)
                 {
-                    conn.Open();
-                    // Comando SQL para buscar todos os dados do usuário específico
-                    string sql = "SELECT Nome, CPF, RG, FuncaoUsuario, Sexo, Setor, DataDeNascimento, Email, Login FROM Usuario WHERE IdUsuario = @IdUsuario";
+                  
+                    txtNome.Text = usuario.Nome;
+                    txtCPF.Text = usuario.CPF;
+                    txtRG.Text = usuario.RG;
+                    cmbFuncao.SelectedItem = usuario.FuncaoUsuario;
+                    cmbSexo.SelectedItem = usuario.Sexo;
+                    txtSetor.Text = usuario.Setor; 
+                    txtEmail.Text = usuario.Email;
+                    txtLogin.Text = usuario.Login;
 
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    
+                    txtSenha.Text = "";
+
+                    if (usuario.DataDeNascimento > dtpDataNascimento.MinDate)
                     {
-                        cmd.Parameters.AddWithValue("@IdUsuario", this.usuarioId);
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                // Preenche os campos do formulário com os dados do banco
-                                txtNome.Text = reader["Nome"].ToString();
-                                txtCPF.Text = reader["CPF"].ToString();
-                                txtRG.Text = reader["RG"].ToString();
-                                cmbFuncao.SelectedItem = reader["FuncaoUsuario"].ToString();
-                                cmbSexo.SelectedItem = reader["Sexo"].ToString();
-                                txtSetor.Text = reader["Setor"].ToString();
-                                txtEmail.Text = reader["Email"].ToString();
-                                txtLogin.Text = reader["Login"].ToString();
-
-                                object dataNascimentoObj = reader["DataDeNascimento"];
-                                if (dataNascimentoObj != DBNull.Value)
-                                {
-                                    DateTime dataNascimento;
-                                    if(DateTime.TryParse(dataNascimentoObj.ToString(), out dataNascimento))
-                                    {
-                                        dtpDataNascimento.Value = dataNascimento;
-
-                                    }
-                                        
-                                }
-                                else
-                                {
-                                    dtpDataNascimento.Value = DateTime.Today; // Ou qualquer valor padrão
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Usuário não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                this.Close();
-                            }
-                        }
+                        dtpDataNascimento.Value = usuario.DataDeNascimento;
                     }
+                    else
+                    {
+                        dtpDataNascimento.Value = DateTime.Today; // Ou qualquer valor padrão
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Usuário não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -90,7 +80,8 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+      
+        private async void btnSalvar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNome.Text) || string.IsNullOrWhiteSpace(txtEmail.Text))
             {
@@ -100,60 +91,28 @@ namespace Gerenciamento_De_Chamados
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                
+                Usuario usuario = new Usuario
                 {
-                    conn.Open();
-                    string sql = @"UPDATE Usuario SET
-                              Nome = @Nome, CPF = @CPF, RG = @RG,
-                              FuncaoUsuario = @FuncaoUsuario, Sexo = @Sexo, Setor = @Setor,
-                              DataDeNascimento = @DataDeNascimento, Email = @Email, Login = @Login
-                          WHERE IdUsuario = @IdUsuario";
+                    IdUsuario = this._usuarioId,
+                    Nome = txtNome.Text,
+                    CPF = txtCPF.Text,
+                    RG = txtRG.Text,
+                    Setor = txtSetor.Text, 
+                    DataDeNascimento = dtpDataNascimento.Value,
+                    Email = txtEmail.Text,
+                    Login = txtLogin.Text,
+                    FuncaoUsuario = cmbFuncao.SelectedItem?.ToString(),
+                    Sexo = cmbSexo.SelectedItem?.ToString()
+                    
+                };
 
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
-                    {
-                        
-                        cmd.Parameters.AddWithValue("@Nome", txtNome.Text);
-                        cmd.Parameters.AddWithValue("@CPF", txtCPF.Text);
-                        cmd.Parameters.AddWithValue("@RG", txtRG.Text);
-                        cmd.Parameters.AddWithValue("@Setor", txtSetor.Text);
-                        cmd.Parameters.AddWithValue("@DataDeNascimento", dtpDataNascimento.Value);
-                        cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-                        cmd.Parameters.AddWithValue("@Login", txtLogin.Text);
-                        cmd.Parameters.AddWithValue("@IdUsuario", this.usuarioId);
+                // Chama o método AtualizarAsync do repositório
+                await _usuarioRepository.AtualizarAsync(usuario);
 
-                        if (cmbFuncao.SelectedItem != null)
-                        {
-                            cmd.Parameters.AddWithValue("@FuncaoUsuario", cmbFuncao.SelectedItem.ToString());
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@FuncaoUsuario", DBNull.Value); 
-                        }
-
-                        
-                        if (cmbSexo.SelectedItem != null)
-                        {
-                            cmd.Parameters.AddWithValue("@Sexo", cmbSexo.SelectedItem.ToString());
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@Sexo", DBNull.Value); 
-                        }
-
-                        
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Usuário atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Nenhuma alteração foi realizada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                }
+                MessageBox.Show("Usuário atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK; // Indica que salvou
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -161,22 +120,60 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
+        // --- NOVO MÉTODO PARA O BOTÃO btnAlterarSenha ---
+        private async void btnAlterarSenha_Click(object sender, EventArgs e)
+        {
+            string novaSenha = txtSenha.Text;
+
+            // 1. Validação da Senha
+            if (string.IsNullOrWhiteSpace(novaSenha) || novaSenha.Length < 0)
+            {
+                MessageBox.Show("Por favor, digite uma nova senha de no mínimo 4 caracteres.", "Senha Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSenha.Focus();
+                return;
+            }
+
+            // 2. Confirmação
+            var confirmResult = MessageBox.Show(
+                $"Deseja realmente alterar a senha do usuário '{txtNome.Text}'?",
+                "Confirmar Alteração de Senha",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                try
+                {
+                    // 3. Chama o Repositório
+                    await _usuarioRepository.AlterarSenhaAsync(this._usuarioId, novaSenha);
+
+                    MessageBox.Show("Senha alterada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtSenha.Text = ""; // Limpa a caixa de senha
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao alterar a senha: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-           
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
+        #region Código de Estética (Sem Alterações)
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             Color corInicioPanel = Color.White;
             Color corFimPanel = ColorTranslator.FromHtml("#232325");
             LinearGradientBrush gradientePanel = new LinearGradientBrush(
-                     panel1.ClientRectangle,
-                    corInicioPanel,
-                    corFimPanel,
-                    LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
+                         panel1.ClientRectangle,
+                         corInicioPanel,
+                         corFimPanel,
+                         LinearGradientMode.Vertical);
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
         }
 
@@ -194,5 +191,6 @@ namespace Gerenciamento_De_Chamados
         {
             Funcoes.Sair(this);
         }
+        #endregion
     }
 }

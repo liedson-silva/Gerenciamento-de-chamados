@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gerenciamento_De_Chamados.Models;
+using Gerenciamento_De_Chamados.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,85 +12,71 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gerenciamento_De_Chamados
-{ 
+{
 
     public partial class Visualizar_Usuario : Form
-{
-    private int usuarioId;
-    string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
+    {
+        private int usuarioId;
 
-    public Visualizar_Usuario()
-    {
-        InitializeComponent();
-    }
+        private readonly IUsuarioRepository _usuarioRepository;
 
-    public Visualizar_Usuario(int idDoUsuario) : this()
-    {
-        this.usuarioId = idDoUsuario;
-        CarregarDadosDoUsuario(); 
-    }
-
-    private void Visualizar_Usuario_Load(object sender, EventArgs e)
-    {
-        
-    }
-    private void CarregarDadosDoUsuario()
-    {
-        try
+        public Visualizar_Usuario()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            InitializeComponent();
+            _usuarioRepository = new UsuarioRepository();
+        }
+
+        public Visualizar_Usuario(int idDoUsuario) : this()
+        {
+            this.usuarioId = idDoUsuario;
+
+            this.Load += Visualizar_Usuario_Load;
+        }
+
+       
+        private async void Visualizar_Usuario_Load(object sender, EventArgs e)
+        {
+            await CarregarDadosDoUsuarioAsync();
+        }
+        private async Task CarregarDadosDoUsuarioAsync()
+        {
+            try
             {
-                conn.Open();
-                // Comando SQL para buscar todos os dados do usuário específico
-                string sql = "SELECT Nome, CPF, RG, FuncaoUsuario, Sexo, Setor, DataDeNascimento, Email, Login FROM Usuario WHERE IdUsuario = @IdUsuario";
+                //Busca o usuário no repositório
+                Usuario usuario = await _usuarioRepository.BuscarPorIdAsync(this.usuarioId);
 
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                if (usuario != null)
                 {
-                    cmd.Parameters.AddWithValue("@IdUsuario", this.usuarioId);
+                    // Preenche os campos do formulário com os dados do objeto
+                    txtNome.Text = usuario.Nome;
+                    cmbFuncao.SelectedItem = usuario.FuncaoUsuario;
+                    cmbSexo.SelectedItem = usuario.Sexo; 
+                    txtSetor.Text = usuario.Setor; 
+                    txtEmail.Text = usuario.Email;
+                    txtLogin.Text = usuario.Login;
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    
+                    if (usuario.DataDeNascimento > DateTime.MinValue)
                     {
-                        if (reader.Read())
-                        {
-                            // Preenche os campos do formulário com os dados do banco
-                            txtNome.Text = reader["Nome"].ToString();
-                            cmbFuncao.SelectedItem = reader["FuncaoUsuario"].ToString();
-                            cmbSexo.SelectedItem = reader["Sexo"].ToString();
-                            txtSetor.Text = reader["Setor"].ToString();
-                            txtEmail.Text = reader["Email"].ToString();
-                            txtLogin.Text = reader["Login"].ToString();
-
-                            object dataNascimentoObj = reader["DataDeNascimento"];
-                            if (dataNascimentoObj != DBNull.Value)
-                            {
-                                DateTime dataNascimento;
-                                if (DateTime.TryParse(dataNascimentoObj.ToString(), out dataNascimento))
-                                {
-                                    dtpDataNascimento.Value = dataNascimento;
-
-                                }
-
-                            }
-                            else
-                            {
-                                dtpDataNascimento.Value = DateTime.Today; // Ou qualquer valor padrão
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Usuário não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            this.Close();
-                        }
+                        dtpDataNascimento.Value = usuario.DataDeNascimento;
+                    }
+                    else
+                    {
+                        dtpDataNascimento.Value = DateTime.Today; // Ou um valor padrão
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Usuário não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados do usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Erro ao carregar dados do usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.Close();
-        }
-    }
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
         {

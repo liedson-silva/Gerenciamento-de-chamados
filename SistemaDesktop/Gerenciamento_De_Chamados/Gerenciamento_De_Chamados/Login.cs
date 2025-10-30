@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gerenciamento_De_Chamados.Models;
+using Gerenciamento_De_Chamados.Repositories;
+using System;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -8,113 +10,67 @@ namespace Gerenciamento_De_Chamados
 {
     public partial class Login : Form
     {
-        private readonly string connectionString =
-            "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
-
+        private readonly IUsuarioRepository _usuarioRepository;
         public Login()
         {
             InitializeComponent();
+            _usuarioRepository = new UsuarioRepository();
             this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            string usuario = txtUsuario.Text.Trim();
-            string senhaDigitada = txtSenha.Text.Trim();
-
-            // ✅ Login administrativo padrão
-            if (usuario == "admin" && senhaDigitada == "admin1234")
+            if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtSenha.Text))
             {
-                MessageBox.Show("✅ Login de administrador realizado com sucesso!");
-
-                Funcoes.SessaoUsuario.IdUsuario = 0;
-                Funcoes.SessaoUsuario.Login = "admin";
-                Funcoes.SessaoUsuario.Nome = "Administrador";
-
-                var home = new HomeAdmin();
-                home.Show();
-                this.Hide();
+                MessageBox.Show("Por favor, preencha o login e a senha.", "Campos Vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                using (SqlConnection conexao = new SqlConnection(connectionString))
+                string loginLimpo = txtUsuario.Text.Trim();
+                string senhaLimpa = txtSenha.Text.Trim();
+
+                // Chama o método AutenticarAsync do repositório
+                Usuario usuarioAutenticado = await _usuarioRepository.AutenticarAsync(loginLimpo, senhaLimpa);
+
+                if (usuarioAutenticado != null)
                 {
-                    conexao.Open();
+                    // Preenche a SessaoUsuario com os dados retornados pelo repositório
+                    Funcoes.SessaoUsuario.IdUsuario = usuarioAutenticado.IdUsuario;
+                    Funcoes.SessaoUsuario.Nome = usuarioAutenticado.Nome;
+                    Funcoes.SessaoUsuario.Login = usuarioAutenticado.Login;
+                    Funcoes.SessaoUsuario.FuncaoUsuario = usuarioAutenticado.FuncaoUsuario;
+                    // Preencha outros dados da sessão se necessário
 
-                    // Busca hash da senha
-                    string sql = "SELECT Senha FROM Usuario WHERE Login = @usuario";
-                    using (SqlCommand cmd = new SqlCommand(sql, conexao))
+                    MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Lógica para abrir o Form correto baseado na Função
+                    switch (usuarioAutenticado.FuncaoUsuario.ToLower())
                     {
-                        cmd.Parameters.AddWithValue("@usuario", usuario);
-                        object resultado = cmd.ExecuteScalar();
-
-                        if (resultado == null)
-                        {
-                            MessageBox.Show($"❌ Usuário '{usuario}' não encontrado.");
-                            return;
-                        }
-
-                        string hashSalvo = resultado.ToString();
-
-                        // Validação da senha
-                        if (SenhaHelper.ValidarSenha(senhaDigitada, hashSalvo))
-                        {
-                            // ✅ Preenche sessão global do usuário logado
-                            try
-                            {
-                                Funcoes.SessaoUsuario.Login = usuario;
-                                Funcoes.SessaoUsuario.Nome = Funcoes.ObterNomeDoUsuario(usuario, conexao);
-                                Funcoes.SessaoUsuario.IdUsuario = Funcoes.ObterIdDoUsuario(usuario, conexao);
-                                Funcoes.SessaoUsuario.Email = Funcoes.ObterEmailDoUsuario(usuario, conexao);
-                                Funcoes.SessaoUsuario.FuncaoUsuario = Funcoes.ObterFuncaoDoUsuario(usuario, conexao);
-
-                                if (!Funcoes.SessaoUsuario.UsuarioIdentificado())
-                                {
-                                    MessageBox.Show("⚠️ Usuário identificado parcialmente. Verifique os dados no banco.");
-                                    return;
-                                }
-
-                                MessageBox.Show($"✅ Login realizado com sucesso!\nBem-vindo, {Funcoes.SessaoUsuario.Nome}");
-
-                                string funcao = Funcoes.SessaoUsuario.FuncaoUsuario.ToLower();
-
-                                if (funcao == "admin")
-                                {
-                                    var homeAdmin = new HomeAdmin();
-                                    homeAdmin.Show();
-                                    this.Hide();
-                                }
-                                else if (funcao == "tecnico")
-                                {
-                                    var homeTecnico = new HomeTecnico();
-                                    homeTecnico.Show();
-                                    this.Hide();
-                                }
-                                else
-                                {
-                                    var homeUser = new HomeFuncionario();
-                                    homeUser.Show();
-                                    this.Hide();
-                                }
-                            }
-                            catch (Exception exSessao)
-                            {
-                                MessageBox.Show("Erro ao carregar informações do usuário: " + exSessao.Message);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("❌ Senha incorreta!");
-                            txtSenha.Focus();
-                        }
+                        case "admin":
+                            HomeAdmin homeAdmin = new HomeAdmin();
+                            homeAdmin.Show();
+                            break;
+                        case "tecnico": // Ou como estiver no seu banco
+                            HomeTecnico homeTecnico = new HomeTecnico();
+                            homeTecnico.Show();
+                            break;
+                        default: // Assume "funcionario" ou outros
+                            HomeFuncionario homeFuncionario = new HomeFuncionario();
+                            homeFuncionario.Show();
+                            break;
                     }
+                    this.Hide(); // Esconde o formulário de login
+                }
+                else
+                {
+                    MessageBox.Show("Login ou senha inválidos.", "Falha na Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro de conexão ou execução: " + ex.Message);
+                MessageBox.Show("Erro durante a autenticação: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
