@@ -14,7 +14,7 @@ namespace Gerenciamento_De_Chamados
 {
     public class Funcoes
     {
-        // 🔒 Criptografia SHA256
+
         public static string Criptografar(string texto)
         {
             using (SHA256 hash = SHA256.Create())
@@ -346,45 +346,7 @@ namespace Gerenciamento_De_Chamados
 
         private static string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
 
-        public static async Task<List<string>> BuscarSolucoesAnteriores(string categoria)
-        {
-            var solucoes = new List<string>();
-
-            // Esta query junta Chamado e Histórico
-            string sql = @"
-            SELECT TOP 5 H.Solucao
-            FROM Historico H
-            INNER JOIN Chamado C ON H.FK_IdChamado = C.IdChamado
-            WHERE C.StatusChamado = 'Resolvido'
-              AND H.Acao = 'Solução Aplicada'
-              AND C.Categoria = @Categoria
-            ORDER BY H.DataSolucao DESC"; // Pega as mais recentes
-
-            using (SqlConnection conexao = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    await conexao.OpenAsync();
-                    using (SqlCommand cmd = new SqlCommand(sql, conexao))
-                    {
-                        cmd.Parameters.AddWithValue("@Categoria", categoria);
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                solucoes.Add(reader["Solucao"].ToString());
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // Se der erro, apenas retorna a lista vazia
-                    Console.WriteLine($"Erro ao buscar histórico: {ex.Message}");
-                }
-            }
-            return solucoes;
-        }
+        
         //  Botão para Sair do sistema
         public static void Sair(Form formAtual)
         {

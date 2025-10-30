@@ -1,9 +1,11 @@
-﻿using System;
-using System.Data;
+﻿using Gerenciamento_De_Chamados.Models; 
+using Gerenciamento_De_Chamados.Repositories; 
+using System;
+using System.Configuration; 
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Threading.Tasks; // Adicionado para operações Async
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gerenciamento_De_Chamados
@@ -11,143 +13,118 @@ namespace Gerenciamento_De_Chamados
     public partial class AnaliseChamado : Form
     {
         private int _chamadoId;
-        string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
+        
+        private readonly string _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
+        
+        private readonly IChamadoRepository _chamadoRepository;
+        private readonly IHistoricoRepository _historicoRepository;
 
         public AnaliseChamado(int chamadoId)
         {
             InitializeComponent();
             _chamadoId = chamadoId;
 
-            // 1. Ligar eventos
+            
+            _chamadoRepository = new ChamadoRepository();
+            _historicoRepository = new HistoricoRepository();
+
+            
             this.Load += AnaliseChamado_Load;
 
-            // Eventos do Panel de Análise
+           
             this.btnSalvarAnalise.Click += new System.EventHandler(this.btnSalvarAnalise_Click);
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
 
-            // Eventos do Panel de Resposta
+           
             this.btnResponderCH.Click += new System.EventHandler(this.btnResponderCH_Click);
-            this.btnCancelar2.Click += new System.EventHandler(this.btnCancelar_Click); // Reutiliza o mesmo método de fechar
+            this.btnCancelar2.Click += new System.EventHandler(this.btnCancelar_Click);
         }
 
-        private void AnaliseChamado_Load(object sender, EventArgs e)
+        private async void AnaliseChamado_Load(object sender, EventArgs e)
         {
-            CarregarDadosChamado();
-            // Esta função controla o layout inteiro
+            await CarregarDadosChamadoAsync(); // MUDADO PARA ASYNC
             ConfigurarLayoutPorStatus();
         }
 
-        private void CarregarDadosChamado()
+    
+        private async Task CarregarDadosChamadoAsync()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
+                // Busca o chamado principal
+                Chamado chamado = await _chamadoRepository.BuscarPorIdAsync(_chamadoId);
+
+                if (chamado == null)
                 {
-                    conn.Open();
-                    string sql = @"SELECT Titulo, Descricao, Categoria, StatusChamado,
-                                          PrioridadeSugeridaIA, ProblemaSugeridoIA, SolucaoSugeridaIA,
-                                          PrioridadeChamado
-                                   FROM Chamado
-                                   WHERE IdChamado = @IdChamado";
+                    MessageBox.Show("Chamado não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                    return;
+                }
 
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                // Preenche os campos de análise
+                txtIdentificacaoProb.Text = !string.IsNullOrEmpty(chamado.ProblemaSugeridoIA) ? chamado.ProblemaSugeridoIA : "N/A";
+                txtSolProp.Text = !string.IsNullOrEmpty(chamado.SolucaoSugeridaIA) ? chamado.SolucaoSugeridaIA : "N/A";
+
+                string prioridade = !string.IsNullOrEmpty(chamado.PrioridadeChamado) ? chamado.PrioridadeChamado :
+                                    (!string.IsNullOrEmpty(chamado.PrioridadeSugeridaIA) ? chamado.PrioridadeSugeridaIA : "Baixa");
+
+                int index = cboxPrioridProp.FindStringExact(prioridade);
+                if (index != -1) cboxPrioridProp.SelectedIndex = index;
+                else cboxPrioridProp.Text = prioridade;
+
+                // Guarda o status atual
+                string statusAtual = chamado.StatusChamado;
+                this.Tag = statusAtual;
+
+                // Se estiver resolvido, busca a última solução
+                if (statusAtual == "Resolvido")
+                {
+                    string solucao = await _historicoRepository.BuscarUltimaSolucaoAsync(_chamadoId);
+                    if (solucao != null)
                     {
-                        cmd.Parameters.AddWithValue("@IdChamado", _chamadoId);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                
-                                txtIdentificacaoProb.Text = reader["ProblemaSugeridoIA"] != DBNull.Value ? reader["ProblemaSugeridoIA"].ToString() : "N/A";
-                                txtSolProp.Text = reader["SolucaoSugeridaIA"] != DBNull.Value ? reader["SolucaoSugeridaIA"].ToString() : "N/A";
-
-                                string prioridade = reader["PrioridadeChamado"] != DBNull.Value ? reader["PrioridadeChamado"].ToString() :
-                                                    (reader["PrioridadeSugeridaIA"] != DBNull.Value ? reader["PrioridadeSugeridaIA"].ToString() : "Baixa");
-
-                                int index = cboxPrioridProp.FindStringExact(prioridade);
-                                if (index != -1) cboxPrioridProp.SelectedIndex = index;
-                                else cboxPrioridProp.Text = prioridade;
-
-                                // Guarda o status atual na Tag do formulário
-                                string statusAtual = reader["StatusChamado"].ToString();
-                                this.Tag = statusAtual;
-
-                                // ---- Popula campos de RESPOSTA (se já resolvido) ----
-                                if (statusAtual == "Resolvido")
-                                {
-                                    reader.Close(); 
-
-                                    // Busca a última solução aplicada no histórico
-                                    string sqlSolucao = @"SELECT TOP 1 Solucao FROM Historico 
-                                                        WHERE FK_IdChamado = @IdChamado AND Acao = 'Solução Aplicada' 
-                                                        ORDER BY DataSolucao DESC";
-
-                                    using (SqlCommand cmdSolucao = new SqlCommand(sqlSolucao, conn))
-                                    {
-                                        cmdSolucao.Parameters.AddWithValue("@IdChamado", _chamadoId);
-                                        object result = cmdSolucao.ExecuteScalar();
-                                        if (result != null && result != DBNull.Value)
-                                        {
-                                            txtSolucaoFinal.Text = result.ToString();
-                                        }
-                                        else
-                                        {
-                                            txtSolucaoFinal.Text = "Solução não registrada no histórico.";
-                                        }
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Chamado não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                this.Close();
-                            }
-                        }
+                        txtSolucaoFinal.Text = solucao;
+                    }
+                    else
+                    {
+                        txtSolucaoFinal.Text = "Solução não registrada no histórico.";
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao carregar dados do chamado: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados do chamado: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
-
         private void ConfigurarLayoutPorStatus()
         {
+            
             string statusAtual = this.Tag as string ?? "Pendente";
 
             switch (statusAtual)
             {
                 case "Pendente":
-                    
-                    panelAnalise.Visible = true;    // Mostra painel de análise
-                    panelResposta.Visible = false;  // Esconde painel de resposta
+                    panelAnalise.Visible = true;
+                    panelResposta.Visible = false;
                     break;
-
                 case "Em Andamento":
-                    panelAnalise.Visible = false;   // Esconde painel de análise
-                    panelResposta.Visible = true;   // Mostra painel de resposta
+                    panelAnalise.Visible = false;
+                    panelResposta.Visible = true;
                     break;
-
                 default: 
-
                     panelAnalise.Visible = true;
                     panelAnalise.Enabled = false;
-
                     panelResposta.Visible = true;
                     panelResposta.Enabled = false;
                     break;
             }
         }
 
-        // --- MÉTODOS DOS BOTÕES ---
-
+        
         private async void btnSalvarAnalise_Click(object sender, EventArgs e)
         {
-            // Pega os dados do panelAnalise
             string prioridadeDefinida = cboxPrioridProp.Text;
             string problemaTecnico = txtIdentificacaoProb.Text;
             string solucaoTecnica = txtSolProp.Text;
@@ -161,61 +138,56 @@ namespace Gerenciamento_De_Chamados
 
             this.Cursor = Cursors.WaitCursor;
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            // Inicia a conexão e a transação AQUI, no formulário
+            using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 await conn.OpenAsync();
                 using (SqlTransaction trans = conn.BeginTransaction())
                 {
                     try
                     {
-                        // 1. Atualiza o Chamado
-                        string sqlUpdateChamado = @"
-                            UPDATE Chamado 
-                            SET StatusChamado = @Status, PrioridadeChamado = @Prioridade,
-                                ProblemaSugeridoIA = @Problema, SolucaoSugeridaIA = @Solucao 
-                            WHERE IdChamado = @IdChamado";
-
-                        using (SqlCommand cmdUpdate = new SqlCommand(sqlUpdateChamado, conn, trans))
+                        // Prepara o objeto Chamado para atualização
+                        Chamado chamadoAtualizado = new Chamado
                         {
-                            cmdUpdate.Parameters.AddWithValue("@Status", novoStatus);
-                            cmdUpdate.Parameters.AddWithValue("@Prioridade", prioridadeDefinida);
-                            cmdUpdate.Parameters.AddWithValue("@Problema", problemaTecnico);
-                            cmdUpdate.Parameters.AddWithValue("@Solucao", solucaoTecnica);
-                            cmdUpdate.Parameters.AddWithValue("@IdChamado", _chamadoId);
-                            await cmdUpdate.ExecuteNonQueryAsync();
-                        }
+                            IdChamado = _chamadoId,
+                            StatusChamado = novoStatus,
+                            PrioridadeChamado = prioridadeDefinida,
+                            ProblemaSugeridoIA = problemaTecnico,
+                            SolucaoSugeridaIA = solucaoTecnica
+                        };
 
-                        // 2. Insere Histórico (Troca de Status)
-                        string sqlInsertStatus = "INSERT INTO Historico (DataSolucao, Solucao, FK_IdChamado, Acao) VALUES (@Data, @Solucao, @IdChamado, @Acao)";
-                        using (SqlCommand cmdStatus = new SqlCommand(sqlInsertStatus, conn, trans))
+                        // Chama o repositório de Chamado
+                        await _chamadoRepository.AtualizarAnaliseAsync(chamadoAtualizado, conn, trans);
+
+                        // Prepara o Histórico (Troca de Status)
+                        Historico histStatus = new Historico
                         {
-                            cmdStatus.Parameters.AddWithValue("@Data", dataAgora);
-                            cmdStatus.Parameters.AddWithValue("@Solucao", "O status foi alterado para Em Andamento");
-                            cmdStatus.Parameters.AddWithValue("@IdChamado", _chamadoId);
-                            cmdStatus.Parameters.AddWithValue("@Acao", "Troca de Status");
-                            await cmdStatus.ExecuteNonQueryAsync();
-                        }
+                            DataSolucao = dataAgora,
+                            Solucao = "O status foi alterado para Em Andamento",
+                            FK_IdChamado = _chamadoId,
+                            Acao = "Troca de Status"
+                        };
+                        await _historicoRepository.AdicionarAsync(histStatus, conn, trans);
 
-                        // 3. Insere Histórico (Nota Interna)
+                        // Prepara o Histórico (Nota Interna)
                         string notaInterna = $"Identificação: {problemaTecnico} | Proposta: {solucaoTecnica}";
-                        string sqlInsertNota = "INSERT INTO Historico (DataSolucao, Solucao, FK_IdChamado, Acao) VALUES (@Data, @Solucao, @IdChamado, @Acao)";
-                        using (SqlCommand cmdNota = new SqlCommand(sqlInsertNota, conn, trans))
+                        Historico histNota = new Historico
                         {
-                            cmdNota.Parameters.AddWithValue("@Data", dataAgora);
-                            cmdNota.Parameters.AddWithValue("@Solucao", notaInterna);
-                            cmdNota.Parameters.AddWithValue("@IdChamado", _chamadoId);
-                            cmdNota.Parameters.AddWithValue("@Acao", "Nota Interna");
-                            await cmdNota.ExecuteNonQueryAsync();
-                        }
+                            DataSolucao = dataAgora,
+                            Solucao = notaInterna,
+                            FK_IdChamado = _chamadoId,
+                            Acao = "Nota Interna"
+                        };
+                        await _historicoRepository.AdicionarAsync(histNota, conn, trans);
 
-                         trans.Commit();
+                        // Se tudo deu certo, COMITA a transação
+                        trans.Commit();
 
                         this.Cursor = Cursors.Default;
                         MessageBox.Show("Análise salva com sucesso. Chamado movido para 'Em Andamento'.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // ---- ATUALIZA A TELA ----
-                        this.Tag = novoStatus;       // Atualiza o status
-                        ConfigurarLayoutPorStatus(); // Reconfigura a UI (vai esconder panelAnalise e mostrar panelResposta)
+                        this.Tag = novoStatus;
+                        ConfigurarLayoutPorStatus();
                     }
                     catch (Exception ex)
                     {
@@ -227,9 +199,9 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
+        
         private async void btnResponderCH_Click(object sender, EventArgs e)
         {
-            // Pega os dados do panelResposta
             string solucaoFinal = txtSolucaoFinal.Text;
             string novoStatus = "Resolvido";
             DateTime dataAgora = ObterHoraBrasilia();
@@ -247,44 +219,38 @@ namespace Gerenciamento_De_Chamados
 
             this.Cursor = Cursors.WaitCursor;
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            
+            using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 await conn.OpenAsync();
                 using (SqlTransaction trans = conn.BeginTransaction())
                 {
                     try
                     {
-                        // 1. Atualiza o Chamado
-                        string sqlUpdateChamado = "UPDATE Chamado SET StatusChamado = @Status WHERE IdChamado = @IdChamado";
-                        using (SqlCommand cmdUpdate = new SqlCommand(sqlUpdateChamado, conn, trans))
-                        {
-                            cmdUpdate.Parameters.AddWithValue("@Status", novoStatus);
-                            cmdUpdate.Parameters.AddWithValue("@IdChamado", _chamadoId);
-                            await cmdUpdate.ExecuteNonQueryAsync();
-                        }
+                        // Chama o repositório de Chamado
+                        await _chamadoRepository.AtualizarStatusAsync(_chamadoId, novoStatus, conn, trans);
 
-                        // 2. Insere Histórico (Troca de Status)
-                        string sqlInsertStatus = "INSERT INTO Historico (DataSolucao, Solucao, FK_IdChamado, Acao) VALUES (@Data, @Solucao, @IdChamado, @Acao)";
-                        using (SqlCommand cmdStatus = new SqlCommand(sqlInsertStatus, conn, trans))
+                        // Prepara o Histórico (Troca de Status)
+                        Historico histStatus = new Historico
                         {
-                            cmdStatus.Parameters.AddWithValue("@Data", dataAgora);
-                            cmdStatus.Parameters.AddWithValue("@Solucao", "O status foi alterado para Resolvido");
-                            cmdStatus.Parameters.AddWithValue("@IdChamado", _chamadoId);
-                            cmdStatus.Parameters.AddWithValue("@Acao", "Troca de Status");
-                            await cmdStatus.ExecuteNonQueryAsync();
-                        }
+                            DataSolucao = dataAgora,
+                            Solucao = "O status foi alterado para Resolvido",
+                            FK_IdChamado = _chamadoId,
+                            Acao = "Troca de Status"
+                        };
+                        await _historicoRepository.AdicionarAsync(histStatus, conn, trans);
 
-                        // 3. Insere Histórico (Solução Aplicada)
-                        string sqlInsertSolucao = "INSERT INTO Historico (DataSolucao, Solucao, FK_IdChamado, Acao) VALUES (@Data, @Solucao, @IdChamado, @Acao)";
-                        using (SqlCommand cmdSolucao = new SqlCommand(sqlInsertSolucao, conn, trans))
+                        // Prepara o Histórico (Solução Aplicada)
+                        Historico histSolucao = new Historico
                         {
-                            cmdSolucao.Parameters.AddWithValue("@Data", dataAgora);
-                            cmdSolucao.Parameters.AddWithValue("@Solucao", solucaoFinal);
-                            cmdSolucao.Parameters.AddWithValue("@IdChamado", _chamadoId);
-                            cmdSolucao.Parameters.AddWithValue("@Acao", "Solução Aplicada");
-                            await cmdSolucao.ExecuteNonQueryAsync();
-                        }
+                            DataSolucao = dataAgora,
+                            Solucao = solucaoFinal,
+                            FK_IdChamado = _chamadoId,
+                            Acao = "Solução Aplicada"
+                        };
+                        await _historicoRepository.AdicionarAsync(histSolucao, conn, trans);
 
+                        // Se tudo deu certo, COMITA
                         trans.Commit();
 
                         this.Cursor = Cursors.Default;
@@ -302,13 +268,12 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
+        #region Métodos Auxiliares e de UI 
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            // Este método é usado por ambos os botões 'btnCancelar' e 'btnCancelar2'
             this.Close();
         }
-
-       
 
         private DateTime ObterHoraBrasilia()
         {
@@ -320,12 +285,10 @@ namespace Gerenciamento_De_Chamados
             catch { return DateTime.Now; }
         }
 
-        // Este é o seu código de gradiente, assumindo que é para um painel de fundo chamado 'panel1'
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
             if (panel == null) return;
-
             Graphics g = e.Graphics;
             Color corInicioPanel = Color.White;
             Color corFimPanel = ColorTranslator.FromHtml("#232325");
@@ -356,5 +319,6 @@ namespace Gerenciamento_De_Chamados
         {
             Funcoes.Sair(this);
         }
+        #endregion
     }
 }

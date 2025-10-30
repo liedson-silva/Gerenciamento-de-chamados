@@ -53,12 +53,17 @@ namespace Gerenciamento_De_Chamados
 
         private void btn_Usuario_Click(object sender, EventArgs e)
         {
+            var telaUsuario = new GerenciarUsuarios();
+            telaUsuario.Show();
+            this.Hide();
 
         }
 
         private void btn_Chamado_Click(object sender, EventArgs e)
         {
-
+            var telaChamado = new VisualizarChamado();
+            telaChamado.Show();
+            this.Hide();
         }
     }
 }
