@@ -1,5 +1,6 @@
 ﻿using Gerenciamento_De_Chamados.Models; 
-using Gerenciamento_De_Chamados.Repositories; 
+using Gerenciamento_De_Chamados.Repositories;
+using Gerenciamento_De_Chamados.Helpers;
 using System;
 using System.Configuration; 
 using System.Data.SqlClient;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Gerenciamento_De_Chamados
 {
@@ -33,8 +35,7 @@ namespace Gerenciamento_De_Chamados
             this.Load += AnaliseChamado_Load;
 
            
-            this.btnSalvarAnalise.Click += new System.EventHandler(this.btnSalvarAnalise_Click);
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+
 
            
             this.btnResponderCH.Click += new System.EventHandler(this.btnResponderCH_Click);
@@ -44,7 +45,7 @@ namespace Gerenciamento_De_Chamados
         private async void AnaliseChamado_Load(object sender, EventArgs e)
         {
             await CarregarDadosChamadoAsync(); // MUDADO PARA ASYNC
-            ConfigurarLayoutPorStatus();
+     
         }
 
     
@@ -63,15 +64,6 @@ namespace Gerenciamento_De_Chamados
                 }
 
                 // Preenche os campos de análise
-                txtIdentificacaoProb.Text = !string.IsNullOrEmpty(chamado.ProblemaSugeridoIA) ? chamado.ProblemaSugeridoIA : "N/A";
-                txtSolProp.Text = !string.IsNullOrEmpty(chamado.SolucaoSugeridaIA) ? chamado.SolucaoSugeridaIA : "N/A";
-
-                string prioridade = !string.IsNullOrEmpty(chamado.PrioridadeChamado) ? chamado.PrioridadeChamado :
-                                    (!string.IsNullOrEmpty(chamado.PrioridadeSugeridaIA) ? chamado.PrioridadeSugeridaIA : "Baixa");
-
-                int index = cboxPrioridProp.FindStringExact(prioridade);
-                if (index != -1) cboxPrioridProp.SelectedIndex = index;
-                else cboxPrioridProp.Text = prioridade;
 
                 // Guarda o status atual
                 string statusAtual = chamado.StatusChamado;
@@ -98,38 +90,12 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-        private void ConfigurarLayoutPorStatus()
-        {
-            
-            string statusAtual = this.Tag as string ?? "Pendente";
 
-            switch (statusAtual)
-            {
-                case "Pendente":
-                    panelAnalise.Visible = true;
-                    panelResposta.Visible = false;
-                    break;
-                case "Em Andamento":
-                    panelAnalise.Visible = false;
-                    panelResposta.Visible = true;
-                    break;
-                default: 
-                    panelAnalise.Visible = true;
-                    panelAnalise.Enabled = false;
-                    panelResposta.Visible = true;
-                    panelResposta.Enabled = false;
-                    break;
-            }
-        }
 
-        
+
+
         private async void btnSalvarAnalise_Click(object sender, EventArgs e)
         {
-            string prioridadeDefinida = cboxPrioridProp.Text;
-            string problemaTecnico = txtIdentificacaoProb.Text;
-            string solucaoTecnica = txtSolProp.Text;
-            string novoStatus = "Em Andamento";
-            DateTime dataAgora = ObterHoraBrasilia();
 
             if (MessageBox.Show("Deseja salvar esta análise e mover o chamado para 'Em Andamento'?", "Confirmar Análise", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
@@ -137,67 +103,9 @@ namespace Gerenciamento_De_Chamados
             }
 
             this.Cursor = Cursors.WaitCursor;
+        }
 
             // Inicia a conexão e a transação AQUI, no formulário
-            using (SqlConnection conn = new SqlConnection(_connectionString))
-            {
-                await conn.OpenAsync();
-                using (SqlTransaction trans = conn.BeginTransaction())
-                {
-                    try
-                    {
-                        // Prepara o objeto Chamado para atualização
-                        Chamado chamadoAtualizado = new Chamado
-                        {
-                            IdChamado = _chamadoId,
-                            StatusChamado = novoStatus,
-                            PrioridadeChamado = prioridadeDefinida,
-                            ProblemaSugeridoIA = problemaTecnico,
-                            SolucaoSugeridaIA = solucaoTecnica
-                        };
-
-                        // Chama o repositório de Chamado
-                        await _chamadoRepository.AtualizarAnaliseAsync(chamadoAtualizado, conn, trans);
-
-                        // Prepara o Histórico (Troca de Status)
-                        Historico histStatus = new Historico
-                        {
-                            DataSolucao = dataAgora,
-                            Solucao = "O status foi alterado para Em Andamento",
-                            FK_IdChamado = _chamadoId,
-                            Acao = "Troca de Status"
-                        };
-                        await _historicoRepository.AdicionarAsync(histStatus, conn, trans);
-
-                        // Prepara o Histórico (Nota Interna)
-                        string notaInterna = $"Identificação: {problemaTecnico} | Proposta: {solucaoTecnica}";
-                        Historico histNota = new Historico
-                        {
-                            DataSolucao = dataAgora,
-                            Solucao = notaInterna,
-                            FK_IdChamado = _chamadoId,
-                            Acao = "Nota Interna"
-                        };
-                        await _historicoRepository.AdicionarAsync(histNota, conn, trans);
-
-                        // Se tudo deu certo, COMITA a transação
-                        trans.Commit();
-
-                        this.Cursor = Cursors.Default;
-                        MessageBox.Show("Análise salva com sucesso. Chamado movido para 'Em Andamento'.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        this.Tag = novoStatus;
-                        ConfigurarLayoutPorStatus();
-                    }
-                    catch (Exception ex)
-                    {
-                        trans.Rollback();
-                        this.Cursor = Cursors.Default;
-                        MessageBox.Show("Erro ao salvar a análise: " + ex.Message, "Erro de Transação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
 
         
         private async void btnResponderCH_Click(object sender, EventArgs e)
@@ -307,17 +215,17 @@ namespace Gerenciamento_De_Chamados
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void PctBox_Logo_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void lbSair_Click(object sender, EventArgs e)
         {
-            Funcoes.Sair(this);
+            FormHelper.Sair(this);
         }
         #endregion
     }

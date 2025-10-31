@@ -1,4 +1,5 @@
-﻿using Gerenciamento_De_Chamados.Models; 
+﻿using Gerenciamento_De_Chamados.Helpers;
+using Gerenciamento_De_Chamados.Models; 
 using Gerenciamento_De_Chamados.Repositories; 
 using System;
 using System.Drawing;
@@ -11,9 +12,9 @@ namespace Gerenciamento_De_Chamados
     public partial class Editar_Usuario : Form
     {
         private readonly int _usuarioId;
-        private readonly IUsuarioRepository _usuarioRepository; // USA O REPOSITÓRIO
+        private readonly IUsuarioRepository _usuarioRepository; 
 
-        // Construtor que recebe o ID do usuário a ser editado
+        
         public Editar_Usuario(int idUsuario)
         {
             InitializeComponent();
@@ -179,17 +180,17 @@ namespace Gerenciamento_De_Chamados
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void PctBox_Logo_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void lbSair_Click(object sender, EventArgs e)
         {
-            Funcoes.Sair(this);
+            FormHelper.Sair(this);
         }
         #endregion
     }

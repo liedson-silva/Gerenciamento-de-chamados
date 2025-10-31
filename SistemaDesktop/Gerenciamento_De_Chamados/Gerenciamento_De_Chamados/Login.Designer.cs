@@ -1,4 +1,6 @@
-﻿        namespace Gerenciamento_De_Chamados
+﻿using Gerenciamento_De_Chamados.Helpers;
+
+namespace Gerenciamento_De_Chamados
         {
             partial class Login
             {

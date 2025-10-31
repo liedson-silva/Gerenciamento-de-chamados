@@ -6,6 +6,7 @@ using System.Drawing.Drawing2D;
 using System.Text;
 using System.Threading.Tasks; 
 using System.Windows.Forms;
+using Gerenciamento_De_Chamados.Helpers;
 
 
 namespace Gerenciamento_De_Chamados
@@ -31,8 +32,8 @@ namespace Gerenciamento_De_Chamados
         
         private async void ChamadoCriado_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = $"Bem vindo {Funcoes.SessaoUsuario.Nome}";
+            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
+                lbl_NomeUser.Text = $"Bem vindo {SessaoUsuario.Nome}";
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
 
@@ -82,7 +83,7 @@ namespace Gerenciamento_De_Chamados
                     {
                         quandoFoiCriado = $"{tempoPassado.Days} dias atrás";
                     }
-                    resumo.AppendLine($"Criado em: {quandoFoiCriado}    por    {Funcoes.SessaoUsuario.Nome.ToUpper()}");
+                    resumo.AppendLine($"Criado em: {quandoFoiCriado}    por    {SessaoUsuario.Nome.ToUpper()}");
                     resumo.AppendLine();
                     resumo.AppendLine($"{categoria} > {titulo}");
                     resumo.AppendLine("==================================================");
@@ -175,17 +176,17 @@ namespace Gerenciamento_De_Chamados
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void PctBox_Logo_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void lbSair_Click(object sender, EventArgs e)
         {
-            Funcoes.Sair(this);
+            FormHelper.Sair(this);
         }
         #endregion
     }

@@ -37,10 +37,10 @@ namespace Gerenciamento_De_Chamados
                 if (usuarioAutenticado != null)
                 {
                     // Preenche a SessaoUsuario com os dados retornados pelo repositório
-                    Funcoes.SessaoUsuario.IdUsuario = usuarioAutenticado.IdUsuario;
-                    Funcoes.SessaoUsuario.Nome = usuarioAutenticado.Nome;
-                    Funcoes.SessaoUsuario.Login = usuarioAutenticado.Login;
-                    Funcoes.SessaoUsuario.FuncaoUsuario = usuarioAutenticado.FuncaoUsuario;
+                    SessaoUsuario.IdUsuario = usuarioAutenticado.IdUsuario;
+                    SessaoUsuario.Nome = usuarioAutenticado.Nome;
+                    SessaoUsuario.Login = usuarioAutenticado.Login;
+                    SessaoUsuario.FuncaoUsuario = usuarioAutenticado.FuncaoUsuario;
                     // Preencha outros dados da sessão se necessário
 
                     MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

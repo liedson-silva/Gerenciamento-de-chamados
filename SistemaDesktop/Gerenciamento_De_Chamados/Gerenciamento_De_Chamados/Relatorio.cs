@@ -1,272 +1,181 @@
-﻿using ScottPlot;
+﻿using Gerenciamento_De_Chamados.Models; 
+using Gerenciamento_De_Chamados.Repositories; 
+using ScottPlot;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq; 
+using System.Threading.Tasks; 
 using System.Windows.Forms;
-
-
+using Gerenciamento_De_Chamados.Helpers;
 
 namespace Gerenciamento_De_Chamados
 {
     public partial class Relatorio : Form
     {
+        
+        private readonly IRelatorioRepository _relatorioRepository;
+
         public Relatorio()
         {
             InitializeComponent();
+
+           
+            _relatorioRepository = new RelatorioRepository();
+
             this.Load += Relatorio_Load;
         }
 
-        private void Relatorio_Load(object sender, EventArgs e)
+       
+        private async void Relatorio_Load(object sender, EventArgs e)
         {
-
-
-
-            // --------------------------------- Grafico de Pizza Visão Geral de Chamados ---------------------------------
-            List<double> valoresDB = new List<double>();
-            List<string> labelsDB = new List<string>();
-            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=fatalsystem;Password=F1234567890m@;";
-            string query = @"
-        SELECT StatusChamado, COUNT(IdChamado) 
-        FROM Chamado 
-        WHERE StatusChamado IN ('Pendente', 'Em Andamento', 'Resolvido') 
-        GROUP BY StatusChamado";
-
-
+           
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                labelsDB.Add(reader.GetString(0));
-                                valoresDB.Add(reader.GetInt32(1));
-                            }
-                        }
-                    }
-                }
+                await CarregarGraficoStatusAsync();
+                await CarregarGraficoPrioridadeAsync();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao conectar ao banco de dados: \n" + ex.Message);
-                return;
+                MessageBox.Show("Erro ao carregar dados dos relatórios: \n" + ex.Message);
             }
+        }
 
-            int indiceResolvidos = labelsDB.FindIndex(s => s.Equals("Resolvido", StringComparison.OrdinalIgnoreCase));
+     
+        private async Task CarregarGraficoStatusAsync()
+        {
+            // Busca os dados do Repositório
+            List<ChartDataPoint> statusData = await _relatorioRepository.GetStatusChartDataAsync();
 
-            if (indiceResolvidos != -1)
-            {
-                // Se encontrou "Pendente", pega o valor (contagem) correspondente
-                double totalAbertos = valoresDB[indiceResolvidos];
-                lblTotalResolvidos.Text = totalAbertos.ToString();
-            }
-            else
-            {
-                // Se não encontrou (ex: 0 chamados pendentes), define o texto como "0"
-                lblTotalResolvidos.Text = "0";
-            }
+            // Prepara os dados para o gráfico
+            double[] valores = statusData.Select(d => d.Value).ToArray();
+            string[] labels = statusData.Select(d => d.Label).ToArray();
+            double total = valores.Sum();
 
-            int indicePendente = labelsDB.FindIndex(s => s.Equals("Pendente", StringComparison.OrdinalIgnoreCase));
+            lblTotalChamados.Text = total.ToString();
 
-            if (indicePendente != -1)
-            {
-                // Se encontrou "Pendente", pega o valor (contagem) correspondente
-                double totalAbertos = valoresDB[indicePendente];
-                lblTotalPendentes.Text = totalAbertos.ToString();
-            }
-            else
-            {
-                // Se não encontrou (ex: 0 chamados pendentes), define o texto como "0"
-                lblTotalPendentes.Text = "0";
-            }
+            // Atualiza os KCards (de forma segura)
+            var pendente = statusData.FirstOrDefault(d => d.Label.Equals("Pendente", StringComparison.OrdinalIgnoreCase));
+            var emAndamento = statusData.FirstOrDefault(d => d.Label.Equals("Em Andamento", StringComparison.OrdinalIgnoreCase));
+            var resolvido = statusData.FirstOrDefault(d => d.Label.Equals("Resolvido", StringComparison.OrdinalIgnoreCase));
 
+            lblTotalPendentes.Text = pendente?.Value.ToString() ?? "0";
+            lblTotalResolvidos.Text = resolvido?.Value.ToString() ?? "0";
 
-            if (valoresDB.Count == 0)
+            // Configura as Legendas
+            // Define cores padrão
+            var corPendente = new ScottPlot.Color(239, 83, 80);
+            var corAndamento = new ScottPlot.Color(126, 87, 194);
+            var corResolvido = new ScottPlot.Color(102, 187, 106);
+
+            pnPendente.BackColor = System.Drawing.Color.FromArgb(corPendente.R, corPendente.G, corPendente.B);
+            pnEmAndamento.BackColor = System.Drawing.Color.FromArgb(corAndamento.R, corAndamento.G, corAndamento.B);
+            pnResolvido.BackColor = System.Drawing.Color.FromArgb(corResolvido.R, corResolvido.G, corResolvido.B);
+
+            lblPendente.Text = $"Pendente ({pendente?.Value / total ?? 0:P1})";
+            lblEmAndamento.Text = $"Em Andamento ({emAndamento?.Value / total ?? 0:P1})";
+            lblResolvido.Text = $"Resolvido ({resolvido?.Value / total ?? 0:P1})";
+
+            // Monta o Gráfico
+            if (valores.Length == 0)
             {
                 formPlotVisaoGeral.Plot.Title("Sem dados para exibir");
                 formPlotVisaoGeral.Plot.Axes.Frameless();
                 formPlotVisaoGeral.Plot.HideGrid();
                 formPlotVisaoGeral.Refresh();
-
-                lblPendente.Text = "Pendente (0.0%)";
-                pnPendente.BackColor = System.Drawing.Color.FromArgb(239, 83, 80);
-                lblEmAndamento.Text = "Em Andamento (0.0%)";
-                pnEmAndamento.BackColor = System.Drawing.Color.FromArgb(126, 87, 194);
-                lblResolvido.Text = "Resolvido (0.0%)";
-                pnResolvido.BackColor = System.Drawing.Color.FromArgb(102, 187, 106);
                 return;
             }
 
-            var piePlot = formPlotVisaoGeral.Plot.Add.Pie(valoresDB.ToArray());
+            var piePlot = formPlotVisaoGeral.Plot.Add.Pie(valores);
             piePlot.DonutFraction = 0.6;
-
-
-
-            lblPendente.Text = "Pendente (0.0%)";
-            pnPendente.BackColor = System.Drawing.Color.FromArgb(239, 83, 80);
-            lblEmAndamento.Text = "Em Andamento (0.0%)";
-            pnEmAndamento.BackColor = System.Drawing.Color.FromArgb(33, 150, 243);
-            lblResolvido.Text = "Resolvido (0.0%)";
-            pnResolvido.BackColor = System.Drawing.Color.FromArgb(102, 187, 106);
-
-
             piePlot.LineWidth = 0;
-            double total = valoresDB.Sum(); // Soma total dos valores
 
-            lblTotalChamados.Text = total.ToString();
-
-            for (int i = 0; i < labelsDB.Count; i++)
+            // Atribui as cores na ordem correta
+            piePlot.Slices = new List<ScottPlot.PieSlice>();
+            for (int i = 0; i < labels.Length; i++)
             {
-                string status = labelsDB[i];
-                double porcentagem = (valoresDB[i] / total);
+                var slice = new ScottPlot.PieSlice { Value = valores[i], Label = "" }; // Label em branco
+                if (labels[i].Equals("Pendente", StringComparison.OrdinalIgnoreCase))
+                    slice.Fill.Color = corPendente;
+                else if (labels[i].Equals("Em Andamento", StringComparison.OrdinalIgnoreCase))
+                    slice.Fill.Color = corAndamento;
+                else if (labels[i].Equals("Resolvido", StringComparison.OrdinalIgnoreCase))
+                    slice.Fill.Color = corResolvido;
 
-
-                piePlot.Slices[i].Label = "";
-
-
-                if (status.Equals("Pendente", StringComparison.OrdinalIgnoreCase))
-                {
-                    var cor = new ScottPlot.Color(239, 83, 80);
-                    piePlot.Slices[i].Fill.Color = cor;
-                    pnPendente.BackColor = System.Drawing.Color.FromArgb(cor.R, cor.G, cor.B);
-                    lblPendente.Text = $"Pendente ({porcentagem:P1})";
-                }
-                else if (status.Equals("Em Andamento", StringComparison.OrdinalIgnoreCase))
-                {
-                    var cor = new ScottPlot.Color(126, 87, 194);
-                    piePlot.Slices[i].Fill.Color = cor;
-                    pnEmAndamento.BackColor = System.Drawing.Color.FromArgb(cor.R, cor.G, cor.B);
-                    lblEmAndamento.Text = $"Em Andamento ({porcentagem:P1})";
-                }
-                else if (status.Equals("Resolvido", StringComparison.OrdinalIgnoreCase))
-                {
-                    var cor = new ScottPlot.Color(102, 187, 106);
-                    piePlot.Slices[i].Fill.Color = cor;
-                    pnResolvido.BackColor = System.Drawing.Color.FromArgb(cor.R, cor.G, cor.B);
-                    lblResolvido.Text = $"Resolvido ({porcentagem:P1})";
-                }
+                piePlot.Slices.Add(slice);
             }
 
-
-            
             formPlotVisaoGeral.Plot.Axes.Frameless();
             formPlotVisaoGeral.Plot.HideGrid();
             formPlotVisaoGeral.Refresh();
+        }
 
+      
+        private async Task CarregarGraficoPrioridadeAsync()
+        {
+            // Busca os dados do Repositório
+            List<ChartDataPoint> priorityData = await _relatorioRepository.GetPriorityChartDataAsync();
 
-            // ------------------------------- Grafico de Pizza Prioridade de Chamados -------------------------------
+            // Prepara os dados
+            double[] valores = priorityData.Select(d => d.Value).ToArray();
+            string[] labels = priorityData.Select(d => d.Label).ToArray();
+            double total = valores.Sum();
 
-
-            List<double> valoresPrioridade = new List<double>();
-            List<string> labelsPrioridade = new List<string>();
-
-            string queryPrioridade = @"
-    SELECT PrioridadeChamado, COUNT(IdChamado) 
-    FROM Chamado 
-    WHERE PrioridadeChamado IN ('Alta', 'Média', 'Baixa') 
-    GROUP BY PrioridadeChamado";
-
-            try
-            {
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(queryPrioridade, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                labelsPrioridade.Add(reader.GetString(0));
-                                valoresPrioridade.Add(reader.GetInt32(1));
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar dados de Prioridade: \n" + ex.Message);
-                return;
-            }
-
+            // Define Cores e Legendas
             var corAlta = new ScottPlot.Color(239, 83, 80);
             var corMedia = new ScottPlot.Color(33, 150, 243);
             var corBaixa = new ScottPlot.Color(102, 187, 106);
 
-            lblAlta.Text = "Alta (0.0%)";
+            var alta = priorityData.FirstOrDefault(d => d.Label.Equals("Alta", StringComparison.OrdinalIgnoreCase));
+            var media = priorityData.FirstOrDefault(d => d.Label.Equals("Média", StringComparison.OrdinalIgnoreCase));
+            var baixa = priorityData.FirstOrDefault(d => d.Label.Equals("Baixa", StringComparison.OrdinalIgnoreCase));
+
             pnAlta.BackColor = System.Drawing.Color.FromArgb(corAlta.R, corAlta.G, corAlta.B);
-            lblMedia.Text = "Média (0.0%)";
             pnMedia.BackColor = System.Drawing.Color.FromArgb(corMedia.R, corMedia.G, corMedia.B);
-            lblBaixa.Text = "Baixa (0.0%)";
             pnBaixa.BackColor = System.Drawing.Color.FromArgb(corBaixa.R, corBaixa.G, corBaixa.B);
 
+            lblAlta.Text = $"Alta ({alta?.Value / total ?? 0:P1})";
+            lblMedia.Text = $"Média ({media?.Value / total ?? 0:P1})";
+            lblBaixa.Text = $"Baixa ({baixa?.Value / total ?? 0:P1})";
 
-
-            if (valoresPrioridade.Count == 0)
+            // Monta o Gráfico
+            if (valores.Length == 0)
             {
-                // Se não houver dados, o gráfico é zerado 
                 fpPrioridades.Plot.Title("Sem dados de prioridade");
                 fpPrioridades.Plot.Axes.Frameless();
                 fpPrioridades.Plot.HideGrid();
                 fpPrioridades.Refresh();
+                return;
             }
-            else
+
+            var piePlotPrioridade = fpPrioridades.Plot.Add.Pie(valores);
+            piePlotPrioridade.DonutFraction = 0.6;
+            piePlotPrioridade.LineWidth = 0;
+
+            // Atribui as cores na ordem correta
+            piePlotPrioridade.Slices = new List<ScottPlot.PieSlice>();
+            for (int i = 0; i < labels.Length; i++)
             {
-                // Se houver dados, preenchemos o gráfico
-                var piePlotPrioridade = fpPrioridades.Plot.Add.Pie(valoresPrioridade.ToArray());
-                piePlotPrioridade.DonutFraction = 0.6; // Estilo Donut
-                piePlotPrioridade.LineWidth = 0;       // Sem contorno
+                var slice = new ScottPlot.PieSlice { Value = valores[i], Label = "" };
+                if (labels[i].Equals("Alta", StringComparison.OrdinalIgnoreCase))
+                    slice.Fill.Color = corAlta;
+                else if (labels[i].Equals("Média", StringComparison.OrdinalIgnoreCase))
+                    slice.Fill.Color = corMedia;
+                else if (labels[i].Equals("Baixa", StringComparison.OrdinalIgnoreCase))
+                    slice.Fill.Color = corBaixa;
 
-                double totalPrioridade = valoresPrioridade.Sum();
-
-                for (int i = 0; i < labelsPrioridade.Count; i++)
-                {
-                    string prioridade = labelsPrioridade[i];
-                    double porcentagem = (valoresPrioridade[i] / totalPrioridade);
-
-
-                    piePlotPrioridade.Slices[i].Label = "";
-
-                    // Atualiza a legenda manual correta
-                    if (prioridade.Equals("Alta", StringComparison.OrdinalIgnoreCase))
-                    {
-                        piePlotPrioridade.Slices[i].Fill.Color = corAlta;
-                        lblAlta.Text = $"Alta ({porcentagem:P1})";
-                    }
-                    else if (prioridade.Equals("Média", StringComparison.OrdinalIgnoreCase))
-                    {
-                        piePlotPrioridade.Slices[i].Fill.Color = corMedia;
-                        lblMedia.Text = $"Média ({porcentagem:P1})";
-                    }
-                    else if (prioridade.Equals("Baixa", StringComparison.OrdinalIgnoreCase))
-                    {
-                        piePlotPrioridade.Slices[i].Fill.Color = corBaixa;
-                        lblBaixa.Text = $"Baixa ({porcentagem:P1})";
-                    }
-                }
-
-
-               
-                fpPrioridades.Plot.Axes.Frameless();
-                fpPrioridades.Plot.HideGrid();
-                fpPrioridades.Plot.Benchmark.IsVisible = false;
-                fpPrioridades.Refresh();
+                piePlotPrioridade.Slices.Add(slice);
             }
+
+            fpPrioridades.Plot.Axes.Frameless();
+            fpPrioridades.Plot.HideGrid();
+            fpPrioridades.Plot.Benchmark.IsVisible = false;
+            fpPrioridades.Refresh();
         }
 
+
+        #region Métodos de UI e Navegação (Sem Alterações)
         private void panelPrincipal_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -274,16 +183,11 @@ namespace Gerenciamento_De_Chamados
             System.Drawing.Color corFim = ColorTranslator.FromHtml("#232325");
 
             using (LinearGradientBrush gradiente = new LinearGradientBrush(
-                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+                   this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
             {
                 g.FillRectangle(gradiente, this.ClientRectangle);
             }
         }
-
-
-
-
-
 
         private void panelSidebar_Paint(object sender, PaintEventArgs e)
         {
@@ -291,46 +195,44 @@ namespace Gerenciamento_De_Chamados
             System.Drawing.Color corInicioPanel = System.Drawing.Color.White;
             System.Drawing.Color corFimPanel = ColorTranslator.FromHtml("#232325");
 
-           
             LinearGradientBrush gradientePanel = new LinearGradientBrush(
-                     panelSidebar.ClientRectangle,
-                     corInicioPanel,
-                     corFimPanel,
-                     System.Drawing.Drawing2D.LinearGradientMode.Vertical); 
-
+                         panelSidebar.ClientRectangle,
+                         corInicioPanel,
+                         corFimPanel,
+                         System.Drawing.Drawing2D.LinearGradientMode.Vertical);
 
             g.FillRectangle(gradientePanel, panelSidebar.ClientRectangle);
         }
 
         private void btnGerarRelatorio_Click(object sender, EventArgs e)
         {
-            // Pega as datas selecionadas pelo usuário (use 'dtpDe' e 'dtpAte' - DateTimePickers)
             DateTime dataInicio = dtpDe.Value;
             DateTime dataFim = dtpAte.Value;
 
-            // Validação simples
             if (dataFim < dataInicio)
             {
                 MessageBox.Show("A data 'Até' não pode ser anterior à data 'De'.");
                 return;
             }
+            
             FormRelatorioDetalhado frmDetalhe = new FormRelatorioDetalhado(dataInicio, dataFim);
             frmDetalhe.Show();
         }
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void PctBox_Inicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void lbSair_Click(object sender, EventArgs e)
         {
-            Funcoes.Sair(this);
+            FormHelper.Sair(this);
         }
+        #endregion
     }
 }
