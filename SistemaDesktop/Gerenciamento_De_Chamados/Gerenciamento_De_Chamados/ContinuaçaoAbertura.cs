@@ -1,4 +1,4 @@
-﻿// ContinuaçaoAbertura.cs (Refatorado com Interfaces e Async)
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,29 +10,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gerenciamento_De_Chamados.Helpers;
 using Gerenciamento_De_Chamados.Models;
 using Gerenciamento_De_Chamados.Repositories;
+using Gerenciamento_De_Chamados.Services;
 
 namespace Gerenciamento_De_Chamados
 {
     public partial class ContinuaçaoAbertura : Form
     {
         private AberturaChamados aberturaChamados;
-
-        // Declara as INTERFACES do repositório
+        private readonly ImageHelper _imageHelper;
+        private readonly IEmailService _emailService;
         private readonly IChamadoRepository _chamadoRepository;
         private readonly IArquivoRepository _arquivoRepository;
 
 
-        public ContinuaçaoAbertura(AberturaChamados abertura)
+        public ContinuaçaoAbertura(AberturaChamados abertura, ImageHelper imageHelper)
         {
             InitializeComponent();
             aberturaChamados = abertura;
 
-            // Instancia as CLASSES CONCRETAS que implementam as interfaces
+            _imageHelper = imageHelper;
             _chamadoRepository = new ChamadoRepository();
             _arquivoRepository = new ArquivoRepository();
-
+            _emailService = new EmailService();
             this.Load += ContinuaçaoAbertura_Load;
         }
 
@@ -69,20 +71,20 @@ namespace Gerenciamento_De_Chamados
                 MessageBox.Show($"Erro ao analisar chamado com IA: {aiEx.Message}. O chamado será criado sem sugestão.", "Aviso IA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            // --- Lógica de Banco de Dados Removida Daqui ---
+         
 
-            int idUsuario = Funcoes.SessaoUsuario.IdUsuario;
+            int idUsuario = SessaoUsuario.IdUsuario;
 
             try
             {
-                // Prepara o objeto Modelo
+              
                 TimeZoneInfo brasilTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
                 DateTime horaDeBrasilia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasilTimeZone);
 
                 Chamado novoChamado = new Chamado
                 {
                     Titulo = TituloChamado,
-                    PrioridadeChamado = "Análise", // Lógica original mantida
+                    PrioridadeChamado = "Análise", 
                     Descricao = DescricaoChamado,
                     DataChamado = horaDeBrasilia,
                     StatusChamado = status,
@@ -96,22 +98,27 @@ namespace Gerenciamento_De_Chamados
                     SolucaoSugeridaIA = solucaoIA
                 };
 
-                // Adiciona o chamado usando o REPOSITÓRIO
+                
                 int idChamado = await _chamadoRepository.AdicionarAsync(novoChamado);
 
-                if (idChamado == -1) // Verifica se o repositório reportou erro
+                if (idChamado == -1) 
                 {
                     MessageBox.Show("Não foi possível criar o chamado. Verifique o log de erros.");
                     return;
                 }
 
-                //Adiciona o arquivo (se existir) usando o REPOSITÓRIO
+
+                string nomeAnexo = "anexo_chamado.png"; 
                 if (AnexarArquivo != null && AnexarArquivo.Length > 0)
                 {
+                   
+                    nomeAnexo = _imageHelper.UltimoNomeArquivo ?? nomeAnexo;
+                    string tipoAnexo = _imageHelper.UltimoTipoArquivo ?? "application/octet-stream";
+
                     Arquivo novoArquivo = new Arquivo
                     {
-                        TipoArquivo = "imagem/png",     // Idealmente, viria do 'aberturaChamados'
-                        NomeArquivo = "anexo.png",      // Idealmente, viria do 'aberturaChamados'
+                        TipoArquivo = tipoAnexo,
+                        NomeArquivo = nomeAnexo,
                         ArquivoBytes = AnexarArquivo,
                         FK_IdChamado = idChamado
                     };
@@ -121,11 +128,11 @@ namespace Gerenciamento_De_Chamados
                 MessageBox.Show("Chamado aberto com sucesso! Número do chamado: " + idChamado);
 
                 // Envia o e-mail
-                Funcoes.EnviarEmailChamado(
+                await _emailService.EnviarEmailChamadoAsync(
                     TituloChamado, DescricaoChamado, CategoriaChamado, idChamado,
                     prioridadeIA, status, PessoasAfetadas, ImpedeTrabalho,
                     OcorreuAnteriormente, problemaIA, solucaoIA,
-                    AnexarArquivo, "anexo_chamado.png"
+                    AnexarArquivo, nomeAnexo
                 );
 
                 var telaFim = new FimChamado(idChamado);
@@ -156,23 +163,23 @@ namespace Gerenciamento_De_Chamados
         }
         private void ContinuaçaoAbertura_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {SessaoUsuario.Nome}");
         }
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void lbSair_Click(object sender, EventArgs e)
         {
-            Funcoes.Sair(this);
+            FormHelper.Sair(this);
         }
     }
 }

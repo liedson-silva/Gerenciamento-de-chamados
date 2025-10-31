@@ -1,4 +1,4 @@
-﻿// Responder_Chamado.cs (REFATORADO)
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,8 +11,10 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Gerenciamento_De_Chamados.Models;       // ADICIONADO
+using Gerenciamento_De_Chamados.Models;      
 using Gerenciamento_De_Chamados.Repositories; 
+using Gerenciamento_De_Chamados.Services;
+using Gerenciamento_De_Chamados.Helpers;
 
 namespace Gerenciamento_De_Chamados
 {
@@ -56,10 +58,10 @@ namespace Gerenciamento_De_Chamados
             dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "IdUsuario", DataPropertyName = "IdUsuario", HeaderText = "Usuario", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
         }
 
-        // MÉTODO REFATORADO
+       
         private void CarregarChamados(string filtro = "")
         {
-            // Lógica SQL movida para o repositório
+            
             try
             {
                 // Chama o repositório
@@ -73,7 +75,7 @@ namespace Gerenciamento_De_Chamados
         }
 
 
-        // --- Métodos de UI (Paint, Clicks de Navegação) permanecem iguais ---
+      
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -101,7 +103,7 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-        // MÉTODO PRINCIPAL REFATORADO
+    
         private async void dgvResponder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -115,7 +117,7 @@ namespace Gerenciamento_De_Chamados
 
                 if (idValue != null && int.TryParse(idValue.ToString(), out int idChamadoSelecionado))
                 {
-                    // 1. Buscar dados do chamado usando o repositório
+                    //Buscar dados do chamado usando o repositório
                     Chamado chamado = await _chamadoRepository.BuscarPorIdAsync(idChamadoSelecionado);
 
                     if (chamado == null)
@@ -124,14 +126,14 @@ namespace Gerenciamento_De_Chamados
                         return;
                     }
 
-                    // 2. Verificar se a IA precisa ser executada
+                    // Verificar se a IA precisa ser executada
                     if (string.IsNullOrEmpty(chamado.PrioridadeSugeridaIA) || chamado.PrioridadeSugeridaIA == "Pendente" || chamado.PrioridadeSugeridaIA == "Análise Pendente")
                     {
                         MessageBox.Show("Este chamado ainda não foi triado. Iniciando análise da IA... Isso pode levar alguns segundos.", "Análise da IA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         try
                         {
-                            // 3. Buscar soluções anteriores (agora pelo repositório)
+                            // Buscar soluções anteriores (agora pelo repositório)
                             List<string> solucoesAnteriores = await _chamadoRepository.BuscarSolucoesAnterioresAsync(chamado.Categoria);
 
                             AIService aiService = new AIService();
@@ -151,7 +153,7 @@ namespace Gerenciamento_De_Chamados
                             }
                             else
                             {
-                                // 4. Atualizar o chamado no BD com os dados da IA, via repositório
+                                // Atualizar o chamado no BD com os dados da IA, via repositório
                                 await _chamadoRepository.AtualizarSugestoesIAAsync(idChamadoSelecionado, novaPrioridade, novoProblema, novaSolucao);
 
                                 // (O código original não atualizava o DataGridView, então mantemos esse comportamento)
@@ -163,7 +165,7 @@ namespace Gerenciamento_De_Chamados
                         }
                     }
 
-                    // 5. Abrir a tela de Análise (lógica original)
+                    // Abrir a tela de Análise 
                     var analisechamado = new AnaliseChamado(idChamadoSelecionado);
                     analisechamado.ShowDialog();
 
@@ -187,17 +189,17 @@ namespace Gerenciamento_De_Chamados
 
         private void lblInicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void PctBox_Logo_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void lbSair_Click(object sender, EventArgs e)
         {
-            Funcoes.Sair(this);
+            FormHelper.Sair(this);
         }
     }
 }

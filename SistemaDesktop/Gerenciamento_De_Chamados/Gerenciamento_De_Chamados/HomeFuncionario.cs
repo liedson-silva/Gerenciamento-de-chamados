@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gerenciamento_De_Chamados.Helpers;
 
 namespace Gerenciamento_De_Chamados
 {
@@ -20,8 +21,8 @@ namespace Gerenciamento_De_Chamados
         }
         private void HomeUsuario_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Olá, {Funcoes.SessaoUsuario.Nome}");
+            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Olá, {SessaoUsuario.Nome}");
                 
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
@@ -63,7 +64,7 @@ namespace Gerenciamento_De_Chamados
 
         private void label3_Click(object sender, EventArgs e)
         {
-            Funcoes.FAQ(this);
+            FormHelper.FAQ(this);
         }
     }
 }

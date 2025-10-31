@@ -118,9 +118,10 @@ namespace Gerenciamento_De_Chamados.Repositories
         public DataTable BuscarTodosFiltrados(string filtro)
         {
             DataTable dt = new DataTable();
-            string sql = @"SELECT IdUsuario, Nome, CPF, FuncaoUsuario, Setor, Email, Login 
+            string sql = @"SELECT IdUsuario, Nome, Login, FuncaoUsuario AS Cargo, Email, Setor 
                          FROM Usuario 
-                         WHERE @filtro = '' OR Nome LIKE @likeFiltro OR CPF LIKE @likeFiltro OR FuncaoUsuario LIKE @likeFiltro OR Setor LIKE @likeFiltro OR Email LIKE @likeFiltro OR Login LIKE @likeFiltro
+                         WHERE @filtro = '' OR Nome LIKE @likeFiltro OR CPF LIKE @likeFiltro OR FuncaoUsuario LIKE @likeFiltro OR Setor 
+                         LIKE @likeFiltro OR Email LIKE @likeFiltro OR Login LIKE @likeFiltro
                          ORDER BY Nome";
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -148,7 +149,7 @@ namespace Gerenciamento_De_Chamados.Repositories
                 {
                     if (await reader.ReadAsync())
                     {
-                        string senhaCriptografada = Funcoes.Criptografar(senha);
+                        
                         string senhaDoBanco = reader["Senha"].ToString().Trim();
 
                         if (SenhaHelper.ValidarSenha(senha, senhaDoBanco))

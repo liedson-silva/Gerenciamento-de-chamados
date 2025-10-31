@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gerenciamento_De_Chamados.Repositories;
+using Gerenciamento_De_Chamados.Helpers;
 
 namespace Gerenciamento_De_Chamados
 {
@@ -37,8 +38,8 @@ namespace Gerenciamento_De_Chamados
         {
             CarregarChamados();
 
-            if (!string.IsNullOrEmpty(Funcoes.SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem vindo {Funcoes.SessaoUsuario.Nome}");
+            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Bem vindo {SessaoUsuario.Nome}");
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
 
@@ -151,7 +152,6 @@ namespace Gerenciamento_De_Chamados
         private void dgvChamados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verifica se o clique foi em uma linha de dados válida (e não no cabeçalho da coluna)
-            // e.RowIndex >= 0 significa que não foi no cabeçalho
             if (e.RowIndex >= 0)
             {
                 // Pega a linha inteira que recebeu o duplo-clique
@@ -175,17 +175,17 @@ namespace Gerenciamento_De_Chamados
 
         private void lblInicio_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void PctBox_Logo_Click(object sender, EventArgs e)
         {
-            Funcoes.BotaoHome(this);
+            FormHelper.BotaoHome(this);
         }
 
         private void lbSair_Click(object sender, EventArgs e)
         {
-            Funcoes.Sair(this);
+            FormHelper.Sair(this);
         }
     }
 }
