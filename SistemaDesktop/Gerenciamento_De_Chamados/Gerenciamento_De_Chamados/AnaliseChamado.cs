@@ -1,61 +1,56 @@
-﻿using Gerenciamento_De_Chamados.Models; 
+﻿using Gerenciamento_De_Chamados.Models;
 using Gerenciamento_De_Chamados.Repositories;
-using Gerenciamento_De_Chamados.Helpers;
+using Gerenciamento_De_Chamados.Helpers; 
 using System;
-using System.Configuration; 
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Text; 
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace Gerenciamento_De_Chamados
 {
     public partial class AnaliseChamado : Form
     {
         private int _chamadoId;
-        
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        
+       
         private readonly IChamadoRepository _chamadoRepository;
         private readonly IHistoricoRepository _historicoRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
 
         public AnaliseChamado(int chamadoId)
         {
             InitializeComponent();
             _chamadoId = chamadoId;
 
-            
+          
             _chamadoRepository = new ChamadoRepository();
             _historicoRepository = new HistoricoRepository();
+            _usuarioRepository = new UsuarioRepository();
 
-            
+          
             this.Load += AnaliseChamado_Load;
-
-           
-
-
-           
-            this.btnResponderCH.Click += new System.EventHandler(this.btnResponderCH_Click);
-            this.btnCancelar2.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
         }
 
         private async void AnaliseChamado_Load(object sender, EventArgs e)
         {
-            await CarregarDadosChamadoAsync(); // MUDADO PARA ASYNC
-     
+            await CarregarDadosChamadoAsync();
+           
         }
 
-    
+ 
         private async Task CarregarDadosChamadoAsync()
         {
             try
             {
                 // Busca o chamado principal
                 Chamado chamado = await _chamadoRepository.BuscarPorIdAsync(_chamadoId);
-
                 if (chamado == null)
                 {
                     MessageBox.Show("Chamado não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -63,24 +58,52 @@ namespace Gerenciamento_De_Chamados
                     return;
                 }
 
-                // Preenche os campos de análise
+                // Busca o usuário que criou o chamado
+                Usuario usuarioCriador = await _usuarioRepository.BuscarPorIdAsync(chamado.FK_IdUsuario);
+                string nomeUsuario = usuarioCriador?.Nome ?? "Usuário Desconhecido";
 
-                // Guarda o status atual
+                // Monta o resumo para 'txtDescricao' (conforme solicitado)
+                StringBuilder resumo = new StringBuilder();
+                resumo.AppendLine($"ID do Chamado: {chamado.IdChamado}");
+                resumo.AppendLine($"Criado por: {nomeUsuario}");
+                resumo.AppendLine($"Data/Hora: {chamado.DataChamado:dd/MM/yyyy 'às' HH:mm:ss}");
+                resumo.AppendLine($"Categoria: {chamado.Categoria}");
+                resumo.AppendLine("---");
+                resumo.AppendLine($"Título: {chamado.Titulo}");
+                resumo.AppendLine("---");
+                resumo.AppendLine($"Descrição do Problema:");
+                resumo.AppendLine(chamado.Descricao);
+                resumo.AppendLine("---");
+                resumo.AppendLine($"Prioridade Sugerida (IA): {chamado.PrioridadeSugeridaIA}"); 
+
+                txtDescricao.Text = resumo.ToString();
+
+                // Preenche a solução e define o estado dos controles
                 string statusAtual = chamado.StatusChamado;
-                this.Tag = statusAtual;
+                this.Tag = statusAtual; 
 
-                // Se estiver resolvido, busca a última solução
                 if (statusAtual == "Resolvido")
                 {
+                    // Se já estiver resolvido, busca a solução final que foi aplicada
                     string solucao = await _historicoRepository.BuscarUltimaSolucaoAsync(_chamadoId);
-                    if (solucao != null)
-                    {
-                        txtSolucaoFinal.Text = solucao;
-                    }
-                    else
-                    {
-                        txtSolucaoFinal.Text = "Solução não registrada no histórico.";
-                    }
+                    txtSolucao.Text = solucao ?? "Solução não registrada no histórico.";
+
+                    // Trava os campos
+                    txtDescricao.ReadOnly = true;
+                    txtSolucao.ReadOnly = true;
+                    btnEnviar.Enabled = false; // Desabilita o botão "Enviar"
+                    btnEnviar.Text = "Resolvido";
+                }
+                else
+                {
+                    // Se está "Pendente", pré-preenche com a sugestão da IA (conforme solicitado)
+                    txtSolucao.Text = chamado.SolucaoSugeridaIA;
+
+                    
+                    txtDescricao.ReadOnly = true; 
+                    txtSolucao.ReadOnly = false; 
+                    btnEnviar.Enabled = true; 
+                    btnEnviar.Text = "Enviar Resposta";
                 }
             }
             catch (Exception ex)
@@ -90,27 +113,10 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-
-
-
-
-        private async void btnSalvarAnalise_Click(object sender, EventArgs e)
+   
+        private async void btnEnviar_Click(object sender, EventArgs e)
         {
-
-            if (MessageBox.Show("Deseja salvar esta análise e mover o chamado para 'Em Andamento'?", "Confirmar Análise", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-                return;
-            }
-
-            this.Cursor = Cursors.WaitCursor;
-        }
-
-            // Inicia a conexão e a transação AQUI, no formulário
-
-        
-        private async void btnResponderCH_Click(object sender, EventArgs e)
-        {
-            string solucaoFinal = txtSolucaoFinal.Text;
+            string solucaoFinal = txtSolucao.Text;
             string novoStatus = "Resolvido";
             DateTime dataAgora = ObterHoraBrasilia();
 
@@ -127,7 +133,6 @@ namespace Gerenciamento_De_Chamados
 
             this.Cursor = Cursors.WaitCursor;
 
-            
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 await conn.OpenAsync();
@@ -135,20 +140,21 @@ namespace Gerenciamento_De_Chamados
                 {
                     try
                     {
-                        // Chama o repositório de Chamado
+                        //Atualiza o Status do Chamado
                         await _chamadoRepository.AtualizarStatusAsync(_chamadoId, novoStatus, conn, trans);
 
-                        // Prepara o Histórico (Troca de Status)
+                        // Insere Histórico 
+                        string statusAntigo = this.Tag?.ToString() ?? "Pendente";
                         Historico histStatus = new Historico
                         {
                             DataSolucao = dataAgora,
-                            Solucao = "O status foi alterado para Resolvido",
+                            Solucao = $"O status foi alterado de '{statusAntigo}' para '{novoStatus}'",
                             FK_IdChamado = _chamadoId,
                             Acao = "Troca de Status"
                         };
                         await _historicoRepository.AdicionarAsync(histStatus, conn, trans);
 
-                        // Prepara o Histórico (Solução Aplicada)
+                        // Insere Histórico 
                         Historico histSolucao = new Historico
                         {
                             DataSolucao = dataAgora,
@@ -158,13 +164,12 @@ namespace Gerenciamento_De_Chamados
                         };
                         await _historicoRepository.AdicionarAsync(histSolucao, conn, trans);
 
-                        // Se tudo deu certo, COMITA
                         trans.Commit();
 
                         this.Cursor = Cursors.Default;
                         MessageBox.Show("Chamado resolvido e registrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        this.Close(); // Fecha o formulário
+                        this.Close();
                     }
                     catch (Exception ex)
                     {
@@ -178,7 +183,7 @@ namespace Gerenciamento_De_Chamados
 
         #region Métodos Auxiliares e de UI 
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -193,6 +198,8 @@ namespace Gerenciamento_De_Chamados
             catch { return DateTime.Now; }
         }
 
+     
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
@@ -206,11 +213,6 @@ namespace Gerenciamento_De_Chamados
                    corFimPanel,
                    LinearGradientMode.Vertical);
             g.FillRectangle(gradientePanel, panel.ClientRectangle);
-        }
-
-        private void btnCancelar2_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void lbl_Inicio_Click(object sender, EventArgs e)

@@ -193,11 +193,11 @@ namespace Gerenciamento_De_Chamados
 
             if (match.Success && match.Groups.Count > 1)
             {
-                // Pega o valor e remove lixo, como asteriscos de markdown
+               
                 string valor = match.Groups[1].Value.Trim();
-                valor = valor.Trim('*'); // Remove asteriscos (ex: **Alta**)
+                valor = valor.Trim('*'); 
 
-                // Se o valor estiver vazio (ex: IA respondeu "Problema: \n Solução: ...")
+               
                 if (string.IsNullOrWhiteSpace(valor))
                 {
                     return "Não identificado";
