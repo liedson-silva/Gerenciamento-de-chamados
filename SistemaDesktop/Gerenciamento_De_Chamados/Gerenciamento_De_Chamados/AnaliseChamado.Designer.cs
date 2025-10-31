@@ -46,12 +46,25 @@ namespace Gerenciamento_De_Chamados
             this.txtSolucaoFinal = new System.Windows.Forms.TextBox();
             this.btnResponderCH = new System.Windows.Forms.Button();
             this.btnCancelar2 = new System.Windows.Forms.Button();
-            this.roundedPanel1 = new RoundedPanel();
+            this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.roundedPanel2 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.roundedPanel3 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.roundedPanel4 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.roundedPanel5 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.roundedPanel6 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSolucao = new System.Windows.Forms.TextBox();
+            this.btnEnviar = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
+            this.roundedPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -233,15 +246,139 @@ namespace Gerenciamento_De_Chamados
             // 
             // roundedPanel1
             // 
-            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
             this.roundedPanel1.BorderColor = System.Drawing.Color.Gray;
             this.roundedPanel1.BorderWidth = 1F;
-            this.roundedPanel1.CornerRadius = 15;
-            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel1.Controls.Add(this.roundedPanel6);
+            this.roundedPanel1.Controls.Add(this.roundedPanel5);
+            this.roundedPanel1.Controls.Add(this.roundedPanel4);
+            this.roundedPanel1.Controls.Add(this.roundedPanel3);
+            this.roundedPanel1.Controls.Add(this.roundedPanel2);
+            this.roundedPanel1.CornerRadius = 15F;
             this.roundedPanel1.Location = new System.Drawing.Point(3, 3);
             this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(0, 635);
+            this.roundedPanel1.Size = new System.Drawing.Size(1002, 667);
             this.roundedPanel1.TabIndex = 0;
+            // 
+            // roundedPanel2
+            // 
+            this.roundedPanel2.BorderColor = System.Drawing.Color.Gray;
+            this.roundedPanel2.BorderWidth = 1F;
+            this.roundedPanel2.CornerRadius = 15F;
+            this.roundedPanel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.roundedPanel2.Location = new System.Drawing.Point(0, 0);
+            this.roundedPanel2.Name = "roundedPanel2";
+            this.roundedPanel2.Size = new System.Drawing.Size(30, 667);
+            this.roundedPanel2.TabIndex = 0;
+            // 
+            // roundedPanel3
+            // 
+            this.roundedPanel3.BorderColor = System.Drawing.Color.Gray;
+            this.roundedPanel3.BorderWidth = 1F;
+            this.roundedPanel3.CornerRadius = 15F;
+            this.roundedPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.roundedPanel3.Location = new System.Drawing.Point(30, 0);
+            this.roundedPanel3.Name = "roundedPanel3";
+            this.roundedPanel3.Size = new System.Drawing.Size(972, 30);
+            this.roundedPanel3.TabIndex = 1;
+            // 
+            // roundedPanel4
+            // 
+            this.roundedPanel4.BorderColor = System.Drawing.Color.Gray;
+            this.roundedPanel4.BorderWidth = 1F;
+            this.roundedPanel4.CornerRadius = 15F;
+            this.roundedPanel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.roundedPanel4.Location = new System.Drawing.Point(972, 30);
+            this.roundedPanel4.Name = "roundedPanel4";
+            this.roundedPanel4.Size = new System.Drawing.Size(30, 637);
+            this.roundedPanel4.TabIndex = 2;
+            // 
+            // roundedPanel5
+            // 
+            this.roundedPanel5.BorderColor = System.Drawing.Color.Gray;
+            this.roundedPanel5.BorderWidth = 1F;
+            this.roundedPanel5.CornerRadius = 15F;
+            this.roundedPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.roundedPanel5.Location = new System.Drawing.Point(30, 637);
+            this.roundedPanel5.Name = "roundedPanel5";
+            this.roundedPanel5.Size = new System.Drawing.Size(942, 30);
+            this.roundedPanel5.TabIndex = 3;
+            // 
+            // roundedPanel6
+            // 
+            this.roundedPanel6.BackColor = System.Drawing.Color.White;
+            this.roundedPanel6.BorderColor = System.Drawing.Color.Gray;
+            this.roundedPanel6.BorderWidth = 1F;
+            this.roundedPanel6.Controls.Add(this.btnVoltar);
+            this.roundedPanel6.Controls.Add(this.btnEnviar);
+            this.roundedPanel6.Controls.Add(this.txtSolucao);
+            this.roundedPanel6.Controls.Add(this.label4);
+            this.roundedPanel6.Controls.Add(this.txtDescricao);
+            this.roundedPanel6.Controls.Add(this.label2);
+            this.roundedPanel6.CornerRadius = 15F;
+            this.roundedPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel6.Location = new System.Drawing.Point(30, 30);
+            this.roundedPanel6.Name = "roundedPanel6";
+            this.roundedPanel6.Size = new System.Drawing.Size(942, 607);
+            this.roundedPanel6.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(16, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(308, 33);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Responder Chamado";
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.BackColor = System.Drawing.Color.DarkGray;
+            this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricao.ForeColor = System.Drawing.Color.Black;
+            this.txtDescricao.Location = new System.Drawing.Point(20, 84);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.ReadOnly = true;
+            this.txtDescricao.Size = new System.Drawing.Size(911, 235);
+            this.txtDescricao.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(17, 361);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(196, 25);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Solução proposta";
+            // 
+            // txtSolucao
+            // 
+            this.txtSolucao.Location = new System.Drawing.Point(20, 389);
+            this.txtSolucao.Multiline = true;
+            this.txtSolucao.Name = "txtSolucao";
+            this.txtSolucao.Size = new System.Drawing.Size(891, 149);
+            this.txtSolucao.TabIndex = 3;
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.Location = new System.Drawing.Point(712, 551);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(199, 50);
+            this.btnEnviar.TabIndex = 4;
+            this.btnEnviar.Text = "Enviar Resposta";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Location = new System.Drawing.Point(490, 551);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(199, 50);
+            this.btnVoltar.TabIndex = 5;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // AnaliseChamado
             // 
@@ -263,6 +400,9 @@ namespace Gerenciamento_De_Chamados
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel6.ResumeLayout(false);
+            this.roundedPanel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,5 +425,16 @@ namespace Gerenciamento_De_Chamados
         private System.Windows.Forms.Label lbSair;
         private System.Windows.Forms.Button btnCancelar2;
         private RoundedPanel roundedPanel1;
+        private RoundedPanel roundedPanel5;
+        private RoundedPanel roundedPanel4;
+        private RoundedPanel roundedPanel3;
+        private RoundedPanel roundedPanel2;
+        private RoundedPanel roundedPanel6;
+        private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.TextBox txtSolucao;
+        private System.Windows.Forms.Label label4;
     }
 }
