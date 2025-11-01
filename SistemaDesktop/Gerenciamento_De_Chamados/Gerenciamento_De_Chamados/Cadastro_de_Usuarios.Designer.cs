@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro_de_Usuarios));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCadastroSenha = new System.Windows.Forms.Label();
             this.txtCadastroNome = new System.Windows.Forms.TextBox();
@@ -43,8 +40,6 @@
             this.btnCadastroCancel = new System.Windows.Forms.Button();
             this.PctBox_Logo = new System.Windows.Forms.Panel();
             this.lbl_NomeUser = new System.Windows.Forms.Label();
-            this.lbl_Inicio = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.CPF = new System.Windows.Forms.Label();
             this.txtCadastroCpf = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -60,11 +55,16 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cBoxCadSetor = new System.Windows.Forms.ComboBox();
             this.cbxCadastroFuncao = new System.Windows.Forms.ComboBox();
+            this.lbl_Inicio = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbSair = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).BeginInit();
             this.PctBox_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,45 +81,6 @@
             this.panel1.Size = new System.Drawing.Size(325, 977);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(23, 371);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 29);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "      FAQ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(23, 315);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 29);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "      Meus Chamados";
-            // 
-            // PctBox_Inicio
-            // 
-            this.PctBox_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PctBox_Inicio.Image = ((System.Drawing.Image)(resources.GetObject("PctBox_Inicio.Image")));
-            this.PctBox_Inicio.Location = new System.Drawing.Point(-34, 0);
-            this.PctBox_Inicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PctBox_Inicio.Name = "PctBox_Inicio";
-            this.PctBox_Inicio.Size = new System.Drawing.Size(387, 294);
-            this.PctBox_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PctBox_Inicio.TabIndex = 10;
-            this.PctBox_Inicio.TabStop = false;
-            this.PctBox_Inicio.Click += new System.EventHandler(this.PctBox_Inicio_Click);
             // 
             // lblNome
             // 
@@ -225,7 +186,7 @@
             this.PctBox_Logo.Location = new System.Drawing.Point(325, 0);
             this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PctBox_Logo.Name = "PctBox_Logo";
-            this.PctBox_Logo.Size = new System.Drawing.Size(1096, 84);
+            this.PctBox_Logo.Size = new System.Drawing.Size(1096, 83);
             this.PctBox_Logo.TabIndex = 10;
             // 
             // lbl_NomeUser
@@ -237,31 +198,6 @@
             this.lbl_NomeUser.Name = "lbl_NomeUser";
             this.lbl_NomeUser.Size = new System.Drawing.Size(0, 25);
             this.lbl_NomeUser.TabIndex = 7;
-            // 
-            // lbl_Inicio
-            // 
-            this.lbl_Inicio.AutoSize = true;
-            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME__2_;
-            this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Inicio.Location = new System.Drawing.Point(49, 28);
-            this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(120, 31);
-            this.lbl_Inicio.TabIndex = 2;
-            this.lbl_Inicio.Text = "      Início";
-            this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(1035, 12);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(51, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
             // 
             // CPF
             // 
@@ -450,6 +386,31 @@
             this.cbxCadastroFuncao.TabIndex = 29;
             this.cbxCadastroFuncao.Text = "Selecione";
             // 
+            // lbl_Inicio
+            // 
+            this.lbl_Inicio.AutoSize = true;
+            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
+            this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_Inicio.Location = new System.Drawing.Point(49, 28);
+            this.lbl_Inicio.Name = "lbl_Inicio";
+            this.lbl_Inicio.Size = new System.Drawing.Size(120, 31);
+            this.lbl_Inicio.TabIndex = 2;
+            this.lbl_Inicio.Text = "      Início";
+            this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
+            this.pictureBox4.Location = new System.Drawing.Point(1035, 12);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
             // lbSair
             // 
             this.lbSair.AutoSize = true;
@@ -464,6 +425,45 @@
             this.lbSair.TabIndex = 17;
             this.lbSair.Text = "      Sair";
             this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(23, 371);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 29);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "      FAQ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(23, 315);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(230, 29);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "      Meus Chamados";
+            // 
+            // PctBox_Inicio
+            // 
+            this.PctBox_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PctBox_Inicio.Image = ((System.Drawing.Image)(resources.GetObject("PctBox_Inicio.Image")));
+            this.PctBox_Inicio.Location = new System.Drawing.Point(-34, 0);
+            this.PctBox_Inicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PctBox_Inicio.Name = "PctBox_Inicio";
+            this.PctBox_Inicio.Size = new System.Drawing.Size(387, 294);
+            this.PctBox_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PctBox_Inicio.TabIndex = 10;
+            this.PctBox_Inicio.TabStop = false;
+            this.PctBox_Inicio.Click += new System.EventHandler(this.PctBox_Inicio_Click);
             // 
             // Cadastro_de_Usuarios
             // 
@@ -504,10 +504,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).EndInit();
             this.PctBox_Logo.ResumeLayout(false);
             this.PctBox_Logo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

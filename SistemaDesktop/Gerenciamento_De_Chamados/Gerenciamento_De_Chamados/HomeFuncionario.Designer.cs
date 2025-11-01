@@ -31,7 +31,8 @@ namespace Gerenciamento_De_Chamados
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeFuncionario));
-            this.roundedPanel1 = new RoundedPanel();
+            this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -41,7 +42,6 @@ namespace Gerenciamento_De_Chamados
             this.lbl_Inicio = new System.Windows.Forms.Label();
             this.lbSair = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
@@ -65,11 +65,23 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.Controls.Add(this.lbl_NomeUser);
             this.roundedPanel1.Controls.Add(this.button1);
             this.roundedPanel1.Controls.Add(this.button2);
-            this.roundedPanel1.CornerRadius = 15;
+            this.roundedPanel1.CornerRadius = 15F;
             this.roundedPanel1.Location = new System.Drawing.Point(332, 132);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.Size = new System.Drawing.Size(1267, 820);
             this.roundedPanel1.TabIndex = 19;
+            // 
+            // lbl_NomeUser
+            // 
+            this.lbl_NomeUser.AutoSize = true;
+            this.lbl_NomeUser.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NomeUser.Location = new System.Drawing.Point(38, 18);
+            this.lbl_NomeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_NomeUser.Name = "lbl_NomeUser";
+            this.lbl_NomeUser.Size = new System.Drawing.Size(267, 39);
+            this.lbl_NomeUser.TabIndex = 9;
+            this.lbl_NomeUser.Text = "                         ";
             // 
             // button1
             // 
@@ -138,7 +150,7 @@ namespace Gerenciamento_De_Chamados
             this.panel2.Location = new System.Drawing.Point(308, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1335, 103);
+            this.panel2.Size = new System.Drawing.Size(1335, 83);
             this.panel2.TabIndex = 11;
             // 
             // pictureBox4
@@ -158,9 +170,9 @@ namespace Gerenciamento_De_Chamados
             this.lbl_Inicio.AutoSize = true;
             this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME__2_;
+            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Inicio.Location = new System.Drawing.Point(29, 47);
+            this.lbl_Inicio.Location = new System.Drawing.Point(32, 30);
             this.lbl_Inicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Inicio.Name = "lbl_Inicio";
             this.lbl_Inicio.Size = new System.Drawing.Size(127, 31);
@@ -195,18 +207,6 @@ namespace Gerenciamento_De_Chamados
             this.panel1.Size = new System.Drawing.Size(308, 977);
             this.panel1.TabIndex = 10;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // lbl_NomeUser
-            // 
-            this.lbl_NomeUser.AutoSize = true;
-            this.lbl_NomeUser.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(38, 18);
-            this.lbl_NomeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(267, 39);
-            this.lbl_NomeUser.TabIndex = 9;
-            this.lbl_NomeUser.Text = "                         ";
             // 
             // label3
             // 

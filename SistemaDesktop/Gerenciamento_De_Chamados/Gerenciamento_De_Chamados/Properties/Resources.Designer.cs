@@ -303,6 +303,16 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HOME_36p {
+            get {
+                object obj = ResourceManager.GetObject("HOME 36p", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap home_40dp_000000_FILL1_wght400_GRAD0_opsz40 {
             get {
                 object obj = ResourceManager.GetObject("home_40dp_000000_FILL1_wght400_GRAD0_opsz40", resourceCulture);
