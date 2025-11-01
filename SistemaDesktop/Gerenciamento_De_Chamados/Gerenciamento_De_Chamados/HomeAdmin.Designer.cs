@@ -63,7 +63,7 @@ namespace Gerenciamento_De_Chamados
             this.panel2.Location = new System.Drawing.Point(325, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1318, 103);
+            this.panel2.Size = new System.Drawing.Size(1318, 83);
             this.panel2.TabIndex = 31;
             // 
             // lbl_NomeUser
@@ -83,7 +83,7 @@ namespace Gerenciamento_De_Chamados
             this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.home_40dp_000000_FILL1_wght400_GRAD0_opsz40;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Inicio.Location = new System.Drawing.Point(59, 34);
+            this.lbl_Inicio.Location = new System.Drawing.Point(57, 28);
             this.lbl_Inicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Inicio.Name = "lbl_Inicio";
             this.lbl_Inicio.Size = new System.Drawing.Size(142, 36);
@@ -130,6 +130,7 @@ namespace Gerenciamento_De_Chamados
             this.lbSair.Size = new System.Drawing.Size(92, 29);
             this.lbSair.TabIndex = 17;
             this.lbSair.Text = "      Sair";
+            this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
             // 
             // label3
             // 

@@ -509,6 +509,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include="Resources\HOME 36p.png" />
     <None Include="Resources\home_40dp_000000_FILL1_wght400_GRAD0_opsz40.png" />
     <None Include="Resources\home_52dp_000000_FILL1_wght400_GRAD0_opsz481.png" />
     <None Include="Resources\home_42dp_000000_FILL1_wght400_GRAD0_opsz40.png" />

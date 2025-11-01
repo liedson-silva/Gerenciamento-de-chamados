@@ -252,7 +252,7 @@
             this.panel2.Location = new System.Drawing.Point(305, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1326, 103);
+            this.panel2.Size = new System.Drawing.Size(1326, 83);
             this.panel2.TabIndex = 11;
             // 
             // lbl_NomeUser
@@ -269,9 +269,9 @@
             // 
             this.lblInicio.AutoSize = true;
             this.lblInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME__2_;
+            this.lblInicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lblInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblInicio.Location = new System.Drawing.Point(77, 42);
+            this.lblInicio.Location = new System.Drawing.Point(49, 28);
             this.lblInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInicio.Name = "lblInicio";
             this.lblInicio.Size = new System.Drawing.Size(120, 31);

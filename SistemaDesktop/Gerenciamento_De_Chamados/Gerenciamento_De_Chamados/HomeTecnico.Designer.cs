@@ -40,7 +40,7 @@ namespace Gerenciamento_De_Chamados
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
-            this.roundedPanel1 = new RoundedPanel();
+            this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Home_Tecnico = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@ namespace Gerenciamento_De_Chamados
             this.panel2.Location = new System.Drawing.Point(325, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1265, 103);
+            this.panel2.Size = new System.Drawing.Size(1265, 83);
             this.panel2.TabIndex = 21;
             // 
             // lbl_NomeUser
@@ -84,9 +84,9 @@ namespace Gerenciamento_De_Chamados
             this.lbl_Inicio.AutoSize = true;
             this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME__2_;
+            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Inicio.Location = new System.Drawing.Point(59, 34);
+            this.lbl_Inicio.Location = new System.Drawing.Point(47, 33);
             this.lbl_Inicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Inicio.Name = "lbl_Inicio";
             this.lbl_Inicio.Size = new System.Drawing.Size(127, 31);
@@ -180,6 +180,7 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
             this.roundedPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.roundedPanel1.BorderWidth = 1F;
             this.roundedPanel1.Controls.Add(this.groupBox1);
@@ -190,7 +191,7 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.Controls.Add(this.button2);
             this.roundedPanel1.Controls.Add(this.btn_AbrirChamado);
             this.roundedPanel1.Controls.Add(this.button1);
-            this.roundedPanel1.CornerRadius = 15;
+            this.roundedPanel1.CornerRadius = 15F;
             this.roundedPanel1.Location = new System.Drawing.Point(348, 131);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.Size = new System.Drawing.Size(1205, 834);
