@@ -242,7 +242,7 @@ namespace Gerenciamento_De_Chamados
             this.btnCancelar2.TabIndex = 9;
             this.btnCancelar2.Text = "Cancelar";
             this.btnCancelar2.UseVisualStyleBackColor = true;
-            this.btnCancelar2.Click += new System.EventHandler(this.btnCancelar2_Click);
+           
             // 
             // roundedPanel1
             // 
@@ -378,7 +378,7 @@ namespace Gerenciamento_De_Chamados
             this.btnVoltar.TabIndex = 5;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnCancelar_Click);
+            
             // 
             // AnaliseChamado
             // 
