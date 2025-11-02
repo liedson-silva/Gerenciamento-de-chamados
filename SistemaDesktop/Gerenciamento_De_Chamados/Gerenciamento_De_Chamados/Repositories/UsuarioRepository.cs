@@ -1,12 +1,11 @@
-﻿// Repositories/UsuarioRepository.cs
-using Gerenciamento_De_Chamados.Models;
+﻿using Gerenciamento_De_Chamados.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
-using System.Windows.Forms; // Para MessageBox (provisório)
+using System.Windows.Forms; 
 
 namespace Gerenciamento_De_Chamados.Repositories
 {
@@ -46,7 +45,7 @@ namespace Gerenciamento_De_Chamados.Repositories
             }
         }
 
-        // Baseado em Editar_Usuarios e Diagramas 
+        
         public async Task AtualizarAsync(Usuario usuario)
         {
             if (await VerificarLoginExistenteAsync(usuario.Login, usuario.IdUsuario))
@@ -79,7 +78,7 @@ namespace Gerenciamento_De_Chamados.Repositories
             }
         }
 
-        // Baseado em Visualizar_Usuario.cs [file: Visualizar_Usuario.cs]
+       
         public async Task<Usuario> BuscarPorIdAsync(int id)
         {
             Usuario usuario = null;
@@ -106,7 +105,7 @@ namespace Gerenciamento_De_Chamados.Repositories
                             DataDeNascimento = reader["DataDeNascimento"] != DBNull.Value ? Convert.ToDateTime(reader["DataDeNascimento"]) : DateTime.MinValue,
                             Email = reader["Email"].ToString(),
                             Login = reader["Login"].ToString(),
-                            // Não carregamos a senha por segurança
+                            
                         };
                     }
                 }
