@@ -30,41 +30,43 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro_de_Usuarios));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbSair = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCadastroSenha = new System.Windows.Forms.Label();
             this.txtCadastroNome = new System.Windows.Forms.TextBox();
             this.txtCadastroEmail = new System.Windows.Forms.TextBox();
             this.txtCadastroSenha = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.btnCadastroAdd = new System.Windows.Forms.Button();
             this.btnCadastroCancel = new System.Windows.Forms.Button();
             this.PctBox_Logo = new System.Windows.Forms.Panel();
             this.lbl_NomeUser = new System.Windows.Forms.Label();
-            this.CPF = new System.Windows.Forms.Label();
-            this.txtCadastroCpf = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dtpCadDN = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxCadastroSexo = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtCadastroLogin = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtCadastroRG = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cBoxCadSetor = new System.Windows.Forms.ComboBox();
-            this.cbxCadastroFuncao = new System.Windows.Forms.ComboBox();
             this.lbl_Inicio = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.lbSair = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
+            this.lblCPF = new System.Windows.Forms.Label();
+            this.txtCadastroCpf = new System.Windows.Forms.TextBox();
+            this.lblDN = new System.Windows.Forms.Label();
+            this.lblSexo = new System.Windows.Forms.Label();
+            this.lblSetor = new System.Windows.Forms.Label();
+            this.lblFuncao = new System.Windows.Forms.Label();
+            this.dtpCadDN = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxCadastroSexo = new System.Windows.Forms.ComboBox();
+            this.lblCadastroUsuario = new System.Windows.Forms.Label();
+            this.txtCadastroLogin = new System.Windows.Forms.TextBox();
+            this.lblLogin = new System.Windows.Forms.Label();
+            this.txtCadastroRG = new System.Windows.Forms.TextBox();
+            this.lblRG = new System.Windows.Forms.Label();
+            this.cBoxCadSetor = new System.Windows.Forms.ComboBox();
+            this.cbxCadastroFuncao = new System.Windows.Forms.ComboBox();
+            this.panelFormularioCriar = new Gerenciamento_De_Chamados.RoundedPanel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).BeginInit();
             this.PctBox_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).BeginInit();
+            this.panelFormularioCriar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,21 +78,77 @@
             this.panel1.Controls.Add(this.PctBox_Inicio);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(325, 977);
+            this.panel1.Size = new System.Drawing.Size(244, 794);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lbSair
+            // 
+            this.lbSair.AutoSize = true;
+            this.lbSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbSair.Location = new System.Drawing.Point(17, 347);
+            this.lbSair.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSair.Name = "lbSair";
+            this.lbSair.Size = new System.Drawing.Size(72, 24);
+            this.lbSair.TabIndex = 17;
+            this.lbSair.Text = "      Sair";
+            this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(17, 301);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 24);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "      FAQ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(17, 256);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(183, 24);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "      Meus Chamados";
+            // 
+            // PctBox_Inicio
+            // 
+            this.PctBox_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PctBox_Inicio.Image = ((System.Drawing.Image)(resources.GetObject("PctBox_Inicio.Image")));
+            this.PctBox_Inicio.Location = new System.Drawing.Point(-26, 0);
+            this.PctBox_Inicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PctBox_Inicio.Name = "PctBox_Inicio";
+            this.PctBox_Inicio.Size = new System.Drawing.Size(290, 239);
+            this.PctBox_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PctBox_Inicio.TabIndex = 10;
+            this.PctBox_Inicio.TabStop = false;
+            this.PctBox_Inicio.Click += new System.EventHandler(this.PctBox_Inicio_Click);
             // 
             // lblNome
             // 
             this.lblNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(333, 199);
-            this.lblNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNome.Location = new System.Drawing.Point(3, 77);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(101, 31);
+            this.lblNome.Size = new System.Drawing.Size(83, 26);
             this.lblNome.TabIndex = 0;
             this.lblNome.Text = "Nome: ";
             // 
@@ -99,10 +157,9 @@
             this.lblCadastroSenha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblCadastroSenha.AutoSize = true;
             this.lblCadastroSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCadastroSenha.Location = new System.Drawing.Point(895, 660);
-            this.lblCadastroSenha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCadastroSenha.Location = new System.Drawing.Point(417, 468);
             this.lblCadastroSenha.Name = "lblCadastroSenha";
-            this.lblCadastroSenha.Size = new System.Drawing.Size(117, 36);
+            this.lblCadastroSenha.Size = new System.Drawing.Size(94, 29);
             this.lblCadastroSenha.TabIndex = 3;
             this.lblCadastroSenha.Text = "Senha: ";
             // 
@@ -110,43 +167,39 @@
             // 
             this.txtCadastroNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtCadastroNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCadastroNome.Location = new System.Drawing.Point(340, 247);
-            this.txtCadastroNome.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCadastroNome.Location = new System.Drawing.Point(1, 116);
             this.txtCadastroNome.Name = "txtCadastroNome";
-            this.txtCadastroNome.Size = new System.Drawing.Size(457, 41);
+            this.txtCadastroNome.Size = new System.Drawing.Size(344, 35);
             this.txtCadastroNome.TabIndex = 4;
             // 
             // txtCadastroEmail
             // 
             this.txtCadastroEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtCadastroEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCadastroEmail.Location = new System.Drawing.Point(901, 481);
-            this.txtCadastroEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCadastroEmail.Location = new System.Drawing.Point(422, 306);
             this.txtCadastroEmail.Name = "txtCadastroEmail";
-            this.txtCadastroEmail.Size = new System.Drawing.Size(457, 41);
+            this.txtCadastroEmail.Size = new System.Drawing.Size(344, 35);
             this.txtCadastroEmail.TabIndex = 5;
             // 
             // txtCadastroSenha
             // 
             this.txtCadastroSenha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtCadastroSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCadastroSenha.Location = new System.Drawing.Point(901, 720);
-            this.txtCadastroSenha.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCadastroSenha.Location = new System.Drawing.Point(422, 500);
             this.txtCadastroSenha.Name = "txtCadastroSenha";
-            this.txtCadastroSenha.Size = new System.Drawing.Size(457, 41);
+            this.txtCadastroSenha.Size = new System.Drawing.Size(344, 35);
             this.txtCadastroSenha.TabIndex = 6;
             // 
-            // label2
+            // lblEmail
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(895, 427);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 36);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Email:";
+            this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(417, 262);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(80, 29);
+            this.lblEmail.TabIndex = 1;
+            this.lblEmail.Text = "Email:";
             // 
             // btnCadastroAdd
             // 
@@ -154,10 +207,9 @@
             this.btnCadastroAdd.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCadastroAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastroAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastroAdd.Location = new System.Drawing.Point(1185, 895);
-            this.btnCadastroAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCadastroAdd.Location = new System.Drawing.Point(889, 727);
             this.btnCadastroAdd.Name = "btnCadastroAdd";
-            this.btnCadastroAdd.Size = new System.Drawing.Size(173, 69);
+            this.btnCadastroAdd.Size = new System.Drawing.Size(130, 56);
             this.btnCadastroAdd.TabIndex = 8;
             this.btnCadastroAdd.Text = "Adicionar novo usuario";
             this.btnCadastroAdd.UseVisualStyleBackColor = false;
@@ -168,10 +220,9 @@
             this.btnCadastroCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCadastroCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastroCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastroCancel.Location = new System.Drawing.Point(968, 895);
-            this.btnCadastroCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCadastroCancel.Location = new System.Drawing.Point(726, 727);
             this.btnCadastroCancel.Name = "btnCadastroCancel";
-            this.btnCadastroCancel.Size = new System.Drawing.Size(173, 69);
+            this.btnCadastroCancel.Size = new System.Drawing.Size(130, 56);
             this.btnCadastroCancel.TabIndex = 9;
             this.btnCadastroCancel.Text = "Cancelar";
             this.btnCadastroCancel.UseVisualStyleBackColor = true;
@@ -183,86 +234,116 @@
             this.PctBox_Logo.Controls.Add(this.lbl_Inicio);
             this.PctBox_Logo.Controls.Add(this.pictureBox4);
             this.PctBox_Logo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PctBox_Logo.Location = new System.Drawing.Point(325, 0);
-            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PctBox_Logo.Location = new System.Drawing.Point(244, 0);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PctBox_Logo.Name = "PctBox_Logo";
-            this.PctBox_Logo.Size = new System.Drawing.Size(1096, 83);
+            this.PctBox_Logo.Size = new System.Drawing.Size(822, 67);
             this.PctBox_Logo.TabIndex = 10;
             // 
             // lbl_NomeUser
             // 
             this.lbl_NomeUser.AutoSize = true;
             this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(169, 34);
-            this.lbl_NomeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_NomeUser.Location = new System.Drawing.Point(127, 28);
             this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 25);
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
             this.lbl_NomeUser.TabIndex = 7;
             // 
-            // CPF
+            // lbl_Inicio
             // 
-            this.CPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.CPF.AutoSize = true;
-            this.CPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CPF.Location = new System.Drawing.Point(341, 315);
-            this.CPF.Name = "CPF";
-            this.CPF.Size = new System.Drawing.Size(77, 31);
-            this.CPF.TabIndex = 11;
-            this.CPF.Text = "CPF:";
+            this.lbl_Inicio.AutoSize = true;
+            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
+            this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_Inicio.Location = new System.Drawing.Point(37, 23);
+            this.lbl_Inicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Inicio.Name = "lbl_Inicio";
+            this.lbl_Inicio.Size = new System.Drawing.Size(99, 26);
+            this.lbl_Inicio.TabIndex = 2;
+            this.lbl_Inicio.Text = "      Início";
+            this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
+            this.pictureBox4.Location = new System.Drawing.Point(776, 10);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(38, 41);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lblCPF
+            // 
+            this.lblCPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblCPF.AutoSize = true;
+            this.lblCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPF.Location = new System.Drawing.Point(6, 176);
+            this.lblCPF.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCPF.Name = "lblCPF";
+            this.lblCPF.Size = new System.Drawing.Size(62, 26);
+            this.lblCPF.TabIndex = 11;
+            this.lblCPF.Text = "CPF:";
             // 
             // txtCadastroCpf
             // 
             this.txtCadastroCpf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtCadastroCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCadastroCpf.Location = new System.Drawing.Point(340, 368);
-            this.txtCadastroCpf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCadastroCpf.Location = new System.Drawing.Point(9, 216);
+            this.txtCadastroCpf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCadastroCpf.Name = "txtCadastroCpf";
-            this.txtCadastroCpf.Size = new System.Drawing.Size(465, 41);
+            this.txtCadastroCpf.Size = new System.Drawing.Size(350, 35);
             this.txtCadastroCpf.TabIndex = 12;
             // 
-            // label4
+            // lblDN
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(332, 550);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(263, 31);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Data de nascimento:";
+            this.lblDN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblDN.AutoSize = true;
+            this.lblDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDN.Location = new System.Drawing.Point(6, 365);
+            this.lblDN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDN.Name = "lblDN";
+            this.lblDN.Size = new System.Drawing.Size(212, 26);
+            this.lblDN.TabIndex = 13;
+            this.lblDN.Text = "Data de nascimento:";
             // 
-            // label5
+            // lblSexo
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(333, 665);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 31);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Sexo:";
+            this.lblSexo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblSexo.AutoSize = true;
+            this.lblSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSexo.Location = new System.Drawing.Point(6, 472);
+            this.lblSexo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSexo.Name = "lblSexo";
+            this.lblSexo.Size = new System.Drawing.Size(68, 26);
+            this.lblSexo.TabIndex = 14;
+            this.lblSexo.Text = "Sexo:";
             // 
-            // label6
+            // lblSetor
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(895, 199);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 31);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Setor:";
+            this.lblSetor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblSetor.AutoSize = true;
+            this.lblSetor.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSetor.Location = new System.Drawing.Point(417, 77);
+            this.lblSetor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSetor.Name = "lblSetor";
+            this.lblSetor.Size = new System.Drawing.Size(70, 26);
+            this.lblSetor.TabIndex = 15;
+            this.lblSetor.Text = "Setor:";
             // 
-            // label7
+            // lblFuncao
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(895, 321);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 31);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Função:";
+            this.lblFuncao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblFuncao.AutoSize = true;
+            this.lblFuncao.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFuncao.Location = new System.Drawing.Point(417, 176);
+            this.lblFuncao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFuncao.Name = "lblFuncao";
+            this.lblFuncao.Size = new System.Drawing.Size(90, 26);
+            this.lblFuncao.TabIndex = 16;
+            this.lblFuncao.Text = "Função:";
             // 
             // dtpCadDN
             // 
@@ -270,10 +351,10 @@
             this.dtpCadDN.CustomFormat = "dd/MM/yyyy";
             this.dtpCadDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCadDN.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpCadDN.Location = new System.Drawing.Point(340, 599);
-            this.dtpCadDN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpCadDN.Location = new System.Drawing.Point(11, 402);
+            this.dtpCadDN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpCadDN.Name = "dtpCadDN";
-            this.dtpCadDN.Size = new System.Drawing.Size(465, 41);
+            this.dtpCadDN.Size = new System.Drawing.Size(350, 35);
             this.dtpCadDN.TabIndex = 17;
             this.dtpCadDN.Tag = "";
             this.dtpCadDN.Value = new System.DateTime(1900, 1, 1, 11, 45, 0, 0);
@@ -287,67 +368,67 @@
             "Feminino",
             "Masculino",
             "Outros"});
-            this.comboBoxCadastroSexo.Location = new System.Drawing.Point(340, 720);
-            this.comboBoxCadastroSexo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxCadastroSexo.Location = new System.Drawing.Point(11, 500);
+            this.comboBoxCadastroSexo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCadastroSexo.Name = "comboBoxCadastroSexo";
-            this.comboBoxCadastroSexo.Size = new System.Drawing.Size(465, 44);
+            this.comboBoxCadastroSexo.Size = new System.Drawing.Size(350, 37);
             this.comboBoxCadastroSexo.TabIndex = 19;
             this.comboBoxCadastroSexo.Text = "Selecione";
             // 
-            // label8
+            // lblCadastroUsuario
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label8.AutoSize = true;
-            this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(332, 105);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(379, 46);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Cadastro de usuário";
+            this.lblCadastroUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblCadastroUsuario.AutoSize = true;
+            this.lblCadastroUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCadastroUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCadastroUsuario.Location = new System.Drawing.Point(4, 25);
+            this.lblCadastroUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCadastroUsuario.Name = "lblCadastroUsuario";
+            this.lblCadastroUsuario.Size = new System.Drawing.Size(307, 37);
+            this.lblCadastroUsuario.TabIndex = 22;
+            this.lblCadastroUsuario.Text = "Cadastro de usuário";
             // 
             // txtCadastroLogin
             // 
             this.txtCadastroLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtCadastroLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCadastroLogin.Location = new System.Drawing.Point(901, 599);
-            this.txtCadastroLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCadastroLogin.Location = new System.Drawing.Point(422, 402);
             this.txtCadastroLogin.Name = "txtCadastroLogin";
-            this.txtCadastroLogin.Size = new System.Drawing.Size(457, 41);
+            this.txtCadastroLogin.Size = new System.Drawing.Size(344, 35);
             this.txtCadastroLogin.TabIndex = 24;
             // 
-            // label10
+            // lblLogin
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(907, 550);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 36);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Login: ";
+            this.lblLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Location = new System.Drawing.Point(417, 362);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(85, 29);
+            this.lblLogin.TabIndex = 23;
+            this.lblLogin.Text = "Login: ";
             // 
             // txtCadastroRG
             // 
             this.txtCadastroRG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtCadastroRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCadastroRG.Location = new System.Drawing.Point(339, 481);
-            this.txtCadastroRG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCadastroRG.Location = new System.Drawing.Point(9, 306);
+            this.txtCadastroRG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCadastroRG.Name = "txtCadastroRG";
-            this.txtCadastroRG.Size = new System.Drawing.Size(465, 41);
+            this.txtCadastroRG.Size = new System.Drawing.Size(350, 35);
             this.txtCadastroRG.TabIndex = 26;
             // 
-            // label11
+            // lblRG
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(333, 432);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 31);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "RG:";
+            this.lblRG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblRG.AutoSize = true;
+            this.lblRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRG.Location = new System.Drawing.Point(6, 278);
+            this.lblRG.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRG.Name = "lblRG";
+            this.lblRG.Size = new System.Drawing.Size(51, 26);
+            this.lblRG.TabIndex = 25;
+            this.lblRG.Text = "RG:";
             // 
             // cBoxCadSetor
             // 
@@ -359,10 +440,10 @@
             "Financeiro",
             "Administrativo",
             "Operador"});
-            this.cBoxCadSetor.Location = new System.Drawing.Point(901, 252);
-            this.cBoxCadSetor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cBoxCadSetor.Location = new System.Drawing.Point(422, 120);
+            this.cBoxCadSetor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cBoxCadSetor.Name = "cBoxCadSetor";
-            this.cBoxCadSetor.Size = new System.Drawing.Size(457, 44);
+            this.cBoxCadSetor.Size = new System.Drawing.Size(344, 37);
             this.cBoxCadSetor.TabIndex = 27;
             this.cBoxCadSetor.Text = "Selecione";
             // 
@@ -379,137 +460,70 @@
             "Operador",
             "Terceirizado",
             "Outros.."});
-            this.cbxCadastroFuncao.Location = new System.Drawing.Point(901, 356);
-            this.cbxCadastroFuncao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxCadastroFuncao.Location = new System.Drawing.Point(422, 204);
+            this.cbxCadastroFuncao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxCadastroFuncao.Name = "cbxCadastroFuncao";
-            this.cbxCadastroFuncao.Size = new System.Drawing.Size(457, 44);
+            this.cbxCadastroFuncao.Size = new System.Drawing.Size(344, 37);
             this.cbxCadastroFuncao.TabIndex = 29;
             this.cbxCadastroFuncao.Text = "Selecione";
             // 
-            // lbl_Inicio
+            // panelFormularioCriar
             // 
-            this.lbl_Inicio.AutoSize = true;
-            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
-            this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Inicio.Location = new System.Drawing.Point(49, 28);
-            this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(120, 31);
-            this.lbl_Inicio.TabIndex = 2;
-            this.lbl_Inicio.Text = "      Início";
-            this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(1035, 12);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(51, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // lbSair
-            // 
-            this.lbSair.AutoSize = true;
-            this.lbSair.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbSair.Location = new System.Drawing.Point(23, 427);
-            this.lbSair.Name = "lbSair";
-            this.lbSair.Size = new System.Drawing.Size(92, 29);
-            this.lbSair.TabIndex = 17;
-            this.lbSair.Text = "      Sair";
-            this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(23, 371);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 29);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "      FAQ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(23, 315);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 29);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "      Meus Chamados";
-            // 
-            // PctBox_Inicio
-            // 
-            this.PctBox_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PctBox_Inicio.Image = ((System.Drawing.Image)(resources.GetObject("PctBox_Inicio.Image")));
-            this.PctBox_Inicio.Location = new System.Drawing.Point(-34, 0);
-            this.PctBox_Inicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PctBox_Inicio.Name = "PctBox_Inicio";
-            this.PctBox_Inicio.Size = new System.Drawing.Size(387, 294);
-            this.PctBox_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PctBox_Inicio.TabIndex = 10;
-            this.PctBox_Inicio.TabStop = false;
-            this.PctBox_Inicio.Click += new System.EventHandler(this.PctBox_Inicio_Click);
+            this.panelFormularioCriar.BackColor = System.Drawing.Color.White;
+            this.panelFormularioCriar.BorderColor = System.Drawing.Color.White;
+            this.panelFormularioCriar.BorderWidth = 1F;
+            this.panelFormularioCriar.Controls.Add(this.lblDN);
+            this.panelFormularioCriar.Controls.Add(this.lblCadastroSenha);
+            this.panelFormularioCriar.Controls.Add(this.lblNome);
+            this.panelFormularioCriar.Controls.Add(this.lblSexo);
+            this.panelFormularioCriar.Controls.Add(this.lblCadastroUsuario);
+            this.panelFormularioCriar.Controls.Add(this.lblRG);
+            this.panelFormularioCriar.Controls.Add(this.cbxCadastroFuncao);
+            this.panelFormularioCriar.Controls.Add(this.cBoxCadSetor);
+            this.panelFormularioCriar.Controls.Add(this.txtCadastroRG);
+            this.panelFormularioCriar.Controls.Add(this.txtCadastroLogin);
+            this.panelFormularioCriar.Controls.Add(this.lblLogin);
+            this.panelFormularioCriar.Controls.Add(this.comboBoxCadastroSexo);
+            this.panelFormularioCriar.Controls.Add(this.dtpCadDN);
+            this.panelFormularioCriar.Controls.Add(this.lblFuncao);
+            this.panelFormularioCriar.Controls.Add(this.lblSetor);
+            this.panelFormularioCriar.Controls.Add(this.txtCadastroCpf);
+            this.panelFormularioCriar.Controls.Add(this.lblCPF);
+            this.panelFormularioCriar.Controls.Add(this.txtCadastroNome);
+            this.panelFormularioCriar.Controls.Add(this.txtCadastroEmail);
+            this.panelFormularioCriar.Controls.Add(this.lblEmail);
+            this.panelFormularioCriar.Controls.Add(this.txtCadastroSenha);
+            this.panelFormularioCriar.CornerRadius = 15F;
+            this.panelFormularioCriar.Location = new System.Drawing.Point(262, 89);
+            this.panelFormularioCriar.Name = "panelFormularioCriar";
+            this.panelFormularioCriar.Size = new System.Drawing.Size(792, 588);
+            this.panelFormularioCriar.TabIndex = 30;
             // 
             // Cadastro_de_Usuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1421, 977);
-            this.Controls.Add(this.cbxCadastroFuncao);
-            this.Controls.Add(this.cBoxCadSetor);
-            this.Controls.Add(this.txtCadastroRG);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.txtCadastroLogin);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBoxCadastroSexo);
-            this.Controls.Add(this.dtpCadDN);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtCadastroCpf);
-            this.Controls.Add(this.CPF);
+            this.ClientSize = new System.Drawing.Size(1066, 794);
+            this.Controls.Add(this.panelFormularioCriar);
             this.Controls.Add(this.PctBox_Logo);
-            this.Controls.Add(this.txtCadastroNome);
-            this.Controls.Add(this.txtCadastroEmail);
-            this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCadastroCancel);
-            this.Controls.Add(this.txtCadastroSenha);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCadastroAdd);
-            this.Controls.Add(this.lblCadastroSenha);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Cadastro_de_Usuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro_de_Usuarios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).EndInit();
             this.PctBox_Logo.ResumeLayout(false);
             this.PctBox_Logo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).EndInit();
+            this.panelFormularioCriar.ResumeLayout(false);
+            this.panelFormularioCriar.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -523,28 +537,29 @@
         private System.Windows.Forms.TextBox txtCadastroNome;
         private System.Windows.Forms.TextBox txtCadastroEmail;
         private System.Windows.Forms.TextBox txtCadastroSenha;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Button btnCadastroAdd;
         private System.Windows.Forms.Button btnCadastroCancel;
         private System.Windows.Forms.Panel PctBox_Logo;
-        private System.Windows.Forms.Label CPF;
+        private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.TextBox txtCadastroCpf;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblDN;
+        private System.Windows.Forms.Label lblSexo;
+        private System.Windows.Forms.Label lblSetor;
+        private System.Windows.Forms.Label lblFuncao;
         private System.Windows.Forms.DateTimePicker dtpCadDN;
         private System.Windows.Forms.ComboBox comboBoxCadastroSexo;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblCadastroUsuario;
         private System.Windows.Forms.Label lbl_Inicio;
         private System.Windows.Forms.TextBox txtCadastroLogin;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.TextBox txtCadastroRG;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblRG;
         private System.Windows.Forms.ComboBox cBoxCadSetor;
         private System.Windows.Forms.Label lbl_NomeUser;
         private System.Windows.Forms.ComboBox cbxCadastroFuncao;
         private System.Windows.Forms.Label lbSair;
+        private RoundedPanel panelFormularioCriar;
     }
 }

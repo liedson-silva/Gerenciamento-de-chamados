@@ -1,6 +1,9 @@
-﻿using Gerenciamento_De_Chamados.Models; 
+﻿using Gerenciamento_De_Chamados.Helpers;
+using Gerenciamento_De_Chamados.Models; 
 using Gerenciamento_De_Chamados.Repositories; 
 using ScottPlot;
+using ScottPlot.Interactivity;
+using ScottPlot.Interactivity.UserActionResponses;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,7 +11,6 @@ using System.Drawing.Drawing2D;
 using System.Linq; 
 using System.Threading.Tasks; 
 using System.Windows.Forms;
-using Gerenciamento_De_Chamados.Helpers;
 
 namespace Gerenciamento_De_Chamados
 {
@@ -30,7 +32,19 @@ namespace Gerenciamento_De_Chamados
        
         private async void Relatorio_Load(object sender, EventArgs e)
         {
-           
+            //Trava o primeiro gráfico (Visão Geral)
+            formPlotVisaoGeral.UserInputProcessor.IsEnabled = true;
+            formPlotVisaoGeral.UserInputProcessor.UserActionResponses.Clear(); // Remove as ações (Dar zoom, arrastar)
+
+            // Trava o segundo gráfico (Prioridades)
+            fpPrioridades.UserInputProcessor.IsEnabled = true;
+            fpPrioridades.UserInputProcessor.UserActionResponses.Clear(); // Remove TODAS as ações do grafico 2
+
+            var menuButton = StandardMouseButtons.Right;
+            var menuResponse = new SingleClickContextMenu(menuButton);
+            formPlotVisaoGeral.UserInputProcessor.UserActionResponses.Add(menuResponse);
+            fpPrioridades.UserInputProcessor.UserActionResponses.Add(new SingleClickContextMenu(menuButton)); 
+
             try
             {
                 await CarregarGraficoStatusAsync();
@@ -106,8 +120,10 @@ namespace Gerenciamento_De_Chamados
                 piePlot.Slices.Add(slice);
             }
 
-            formPlotVisaoGeral.Plot.Axes.Frameless();
+            //formPlotVisaoGeral.Plot.Axes.Frameless();
             formPlotVisaoGeral.Plot.HideGrid();
+            formPlotVisaoGeral.Plot.Axes.SetLimits(-1.5, 1.5, -1.5, 1.5);
+            formPlotVisaoGeral.Plot.Layout.Frameless();
             formPlotVisaoGeral.Refresh();
         }
 
@@ -168,7 +184,8 @@ namespace Gerenciamento_De_Chamados
                 piePlotPrioridade.Slices.Add(slice);
             }
 
-            fpPrioridades.Plot.Axes.Frameless();
+            fpPrioridades.Plot.Axes.SetLimits(-1.5, 1.5, -1.5, 1.5);
+            fpPrioridades.Plot.Layout.Frameless();
             fpPrioridades.Plot.HideGrid();
             fpPrioridades.Plot.Benchmark.IsVisible = false;
             fpPrioridades.Refresh();

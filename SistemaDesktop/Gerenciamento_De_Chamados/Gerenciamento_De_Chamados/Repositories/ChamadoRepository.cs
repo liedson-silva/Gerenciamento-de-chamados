@@ -206,13 +206,19 @@ namespace Gerenciamento_De_Chamados.Repositories
                 await cmd.ExecuteNonQueryAsync();
             }
         }
-        public async Task AtualizarStatusAsync(int idChamado, string novoStatus, SqlConnection conn, SqlTransaction trans)
+        public async Task AtualizarStatusAsync(int idChamado, string novoStatus, string novaPrioridade, string novaCategoria, SqlConnection conn, SqlTransaction trans)
         {
-            string sql = "UPDATE Chamado SET StatusChamado = @Status WHERE IdChamado = @IdChamado";
+            string sql = @"UPDATE Chamado SET 
+                       StatusChamado = @Status, 
+                       PrioridadeChamado = @Prioridade, 
+                       Categoria = @Categoria 
+                   WHERE IdChamado = @IdChamado";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn, trans))
             {
                 cmd.Parameters.AddWithValue("@Status", novoStatus);
+                cmd.Parameters.AddWithValue("@Prioridade", (object)novaPrioridade ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Categoria", (object)novaCategoria ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@IdChamado", idChamado);
 
                 await cmd.ExecuteNonQueryAsync();
