@@ -19,7 +19,7 @@ namespace Gerenciamento_De_Chamados.Repositories
         
         Task AtualizarAnaliseAsync(Chamado chamado, SqlConnection conn, SqlTransaction trans);
 
-        
-        Task AtualizarStatusAsync(int idChamado, string novoStatus, SqlConnection conn, SqlTransaction trans);
+
+        Task AtualizarStatusAsync(int idChamado, string novoStatus, string novaPrioridade, string novaCategoria, SqlConnection conn, SqlTransaction trans);
     }
 }

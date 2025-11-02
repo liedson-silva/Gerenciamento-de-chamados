@@ -201,5 +201,10 @@ namespace Gerenciamento_De_Chamados
         {
             FormHelper.Sair(this);
         }
+
+        private void btnVisualizarCh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

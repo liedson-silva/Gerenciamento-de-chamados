@@ -154,17 +154,17 @@ namespace Gerenciamento_De_Chamados
             // Verifica se o clique foi em uma linha de dados válida (e não no cabeçalho da coluna)
             if (e.RowIndex >= 0)
             {
-                // Pega a linha inteira que recebeu o duplo-clique
+               
                 DataGridViewRow row = dgvChamados.Rows[e.RowIndex];
 
-                // Pega o valor da célula que contém o ID. 
+                
                 object idValue = row.Cells["IdChamado"].Value;
                 int idChamadoSelecionado;
 
                 // Tenta converter o ID para um número inteiro de forma segura
                 if (idValue != null && int.TryParse(idValue.ToString(), out idChamadoSelecionado))
                 {
-                    // Se a conversão funcionou, cria e abre a tela de detalhes, passando o ID
+                    
                     var telaDetalhes = new ChamadoCriado(idChamadoSelecionado);
                     telaDetalhes.ShowDialog();
 
