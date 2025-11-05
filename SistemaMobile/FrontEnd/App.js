@@ -5,11 +5,23 @@ import logo from "./assets/logo.png"
 import { FontAwesome6 } from '@expo/vector-icons'
 import Home from './src/pages/Home.js'
 import Faq from './src/pages/Faq.js'
-import ProfileScreen from './src/pages/Profile.js';
+import Profile from './src/pages/Profile.js';
+import CreateTicket from './src/pages/CreateTicket.js';
+import ImpactTicket from './src/pages/ImpactTicket.js';
+import SuccessTicket from './src/pages/SuccessTicket.js';
+import ShowTicket from './src/pages/ShowTicket.js';
+import Ticket from './src/pages/Ticket.js';
+import Login from './src/pages/Login.js';
+
 
 const DropdownMenu = ({ onClose, onLogout, onNavigate }) => (
 
   <View style={styles.dropdownMenu}>
+
+    <TouchableOpacity style={styles.dropdownItem} onPress={() => { onClose(); onNavigate('Ticket'); }}>
+      <FontAwesome6 name="ticket" size={16} color="#02356c" style={styles.dropdownIcon} />
+      <Text style={styles.dropdownText}>Chamados</Text>
+    </TouchableOpacity>
 
     <TouchableOpacity style={styles.dropdownItem} onPress={() => { onClose(); onNavigate('FAQ'); }}>
       <FontAwesome6 name="circle-info" size={16} color="#02356c" style={styles.dropdownIcon} />
@@ -30,46 +42,69 @@ const DropdownMenu = ({ onClose, onLogout, onNavigate }) => (
 )
 
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [activeTab, setActiveTab] = useState('Home')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true)
+    setActiveTab('Home')
+  }
+
   const handleLogout = () => {
-    alert("Usuário Desconectado com sucesso!")
+    setIsLoggedIn(false)
+    setActiveTab('Home')
   }
 
   const renderScreen = () => {
+
+    if (!isLoggedIn) {
+      return <Login setActiveTab={handleLoginSuccess} />
+    }
+
     if (activeTab === 'Home') {
-      return <Home />;
+      return <Home setActiveTab={setActiveTab} />;
     } else if (activeTab === 'FAQ') {
       return <Faq />;
-
     } else if (activeTab === 'Perfil') {
-      return <ProfileScreen />;
+      return <Profile />;
+    } else if (activeTab === 'Ticket') {
+      return <Ticket setActiveTicket={setActiveTab} />;
+    } else if (activeTab === 'CreateTicket') {
+      return <CreateTicket setActiveTab={setActiveTab} />;
+    } else if (activeTab === 'ImpactTicket') {
+      return <ImpactTicket setActiveTab={setActiveTab} />;
+    } else if (activeTab === 'SuccessTicket') {
+      return <SuccessTicket setActiveTab={setActiveTab} />;
+    } else if (activeTab === 'ShowTicket') {
+      return <ShowTicket setActiveTab={setActiveTab} />;
     }
   }
 
   return (
     <View style={styles.container}>
 
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => setActiveTab('Home')}>
-          <Image source={logo} style={styles.logo} />
-        </TouchableOpacity>
+      {isLoggedIn && (
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => setActiveTab('Home')}>
+            <Image source={logo} style={styles.logo} />
+          </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => setIsMenuOpen(!isMenuOpen)}>
-          <FontAwesome6 name="bars" size={24} color="#02356c" />
-        </TouchableOpacity>
+          <TouchableOpacity onPress={() => setIsMenuOpen(!isMenuOpen)}>
+            <FontAwesome6 name="bars" size={24} color="#02356c" />
+          </TouchableOpacity>
 
-        {isMenuOpen && (
-          <DropdownMenu
-            onClose={() => setIsMenuOpen(false)}
-            onLogout={handleLogout}
-            onNavigate={setActiveTab}
-          />
-        )}
-      </View>
+          {isMenuOpen && (
+            <DropdownMenu
+              onClose={() => setIsMenuOpen(false)}
+              onLogout={handleLogout}
+              onNavigate={setActiveTab}
+            />
+          )}
+        </View>
+      )}
 
-      <View style={styles.boxMainContent}>
+      <View style={[styles.boxMainContent, !isLoggedIn && { backgroundColor: '#fff' }]}>
         <View style={styles.mainContent}>
           {renderScreen()}
         </View>
@@ -92,8 +127,8 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     flex: 1,
-    backgroundColor: '#ffffffff',
-    borderRadius: 16,
+    backgroundColor: '#fff',
+    borderRadius: 8,
   },
   header: {
     flexDirection: 'row',

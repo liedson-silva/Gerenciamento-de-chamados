@@ -41,14 +41,19 @@ const SummaryCard = ({ title, value, color }) => (
     </View>
 )
 
-export default function HomeScreen() {
+export default function HomeScreen({ setActiveTab }) {
+
+    const handleNewTicket = () => {
+        setActiveTab('CreateTicket');
+    };
+
     return (
         <View>
             <View style={styles.screen}>
                 <Text style={styles.title}>Olá! Liedson Silva</Text>
             </View>
 
-            <TouchableOpacity style={styles.newTicketButton} onPress={() => alert('Abrir Novo Chamado')}>
+            <TouchableOpacity style={styles.newTicketButton} onPress={handleNewTicket}>
                 <Text style={styles.newTicketButtonText}>+ NOVO CHAMADO</Text>
             </TouchableOpacity>
 

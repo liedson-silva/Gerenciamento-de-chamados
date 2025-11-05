@@ -13,10 +13,6 @@ const DUMMY_USER_DATA = {
 
 export default function Profile({ user = DUMMY_USER_DATA, onNavigate }) {
 
-    const handleHome = () => {
-        onNavigate('Home');
-    };
-
     if (!user) {
         return <View style={styles.loadingContainer}><Text>Carregando dados do usuário...</Text></View>;
     }
@@ -50,12 +46,6 @@ export default function Profile({ user = DUMMY_USER_DATA, onNavigate }) {
 
             </View>
 
-            <View style={styles.buttonBox}>
-                <TouchableOpacity style={styles.buttonBackHome} onPress={handleHome}>
-                    <Text style={styles.buttonText}>Voltar</Text>
-                </TouchableOpacity>
-            </View>
-
         </ScrollView>
     );
 }
@@ -72,7 +62,7 @@ const styles = StyleSheet.create({
         fontSize: 26,
         fontWeight: 'bold',
         color: '#02356c',
-        marginBottom: 30,
+        marginBottom: 50,
     },
     dataSection: {
         flexDirection: 'row',
@@ -95,31 +85,15 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '500',
         color: '#666',
-        marginBottom: 24,
+        marginBottom: 32,
         paddingVertical: 2,
     },
     userData: {
         fontSize: 16,
         fontWeight: 'bold',
         color: '#333',
-        marginBottom: 24,
+        marginBottom: 32,
         paddingVertical: 2,
-    },
-    buttonBox: {
-        width: '100%',
-        maxWidth: 400,
-        marginTop: 20,
-    },
-    buttonBackHome: {
-        backgroundColor: '#02356c',
-        padding: 12,
-        borderRadius: 8,
-        alignItems: 'center',
-    },
-    buttonText: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold',
     },
     loadingContainer: {
         flex: 1,
