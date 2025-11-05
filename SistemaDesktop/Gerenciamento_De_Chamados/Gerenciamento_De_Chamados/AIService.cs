@@ -52,9 +52,9 @@ namespace Gerenciamento_De_Chamados
                 {baseConhecimento}
                 --- FIM DA BASE DE CONHECIMENTO ---
 
-                Com base nessas informações, forneça:
-                1. Identificação do Problema: (Descreva o problema principal em poucas palavras)
-                2. Proposta de Solução: (Sugira uma solução inicial ou próximos passos. SE HOUVER SIMILARIDADE, baseie-se fortemente nas soluções da Base de Conhecimento.)
+                Com base nessas informações, forneça uma resposta CONCISA:
+                1. Identificação do Problema: (Descreva o problema principal em 1 frase)
+                2. Proposta de Solução: (Sugira uma solução em no máximo 3 frases. SE HOUVER SIMILARIDADE, baseie-se fortemente nas soluções da Base de Conhecimento.)
                 3. Prioridade Definida: [Baixa, Média ou Alta]             
 
                 Responda APENAS com o texto solicitado para cada item, um em cada linha, começando EXATAMENTE com '1. Identificação do Problema:',
@@ -73,7 +73,7 @@ namespace Gerenciamento_De_Chamados
                     generationConfig = new
                     {
                         temperature = 0.2,
-                        maxOutputTokens = 2048,
+                        maxOutputTokens = 8192,
                         topP = 0.95,
                         topK = 40
                     }
