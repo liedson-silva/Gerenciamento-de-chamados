@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar'
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import logo from "./assets/logo.png"
+import logo from "./src/assets/logo.png"
 import { FontAwesome6 } from '@expo/vector-icons'
 import Home from './src/pages/Home.js'
 import Faq from './src/pages/Faq.js'
@@ -23,14 +23,14 @@ const DropdownMenu = ({ onClose, onLogout, onNavigate }) => (
       <Text style={styles.dropdownText}>Chamados</Text>
     </TouchableOpacity>
 
-    <TouchableOpacity style={styles.dropdownItem} onPress={() => { onClose(); onNavigate('FAQ'); }}>
-      <FontAwesome6 name="circle-info" size={16} color="#02356c" style={styles.dropdownIcon} />
-      <Text style={styles.dropdownText}>FAQ</Text>
-    </TouchableOpacity>
-
     <TouchableOpacity style={styles.dropdownItem} onPress={() => { onClose(); onNavigate('Perfil'); }}>
       <FontAwesome6 name="user" size={16} color="#02356c" style={styles.dropdownIcon} />
       <Text style={styles.dropdownText}>Perfil</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity style={styles.dropdownItem} onPress={() => { onClose(); onNavigate('FAQ'); }}>
+      <FontAwesome6 name="circle-info" size={16} color="#02356c" style={styles.dropdownIcon} />
+      <Text style={styles.dropdownText}>FAQ</Text>
     </TouchableOpacity>
 
     <TouchableOpacity style={[styles.dropdownItem, styles.logoutItem]} onPress={() => { onClose(); onLogout(); }}>
@@ -44,6 +44,7 @@ const DropdownMenu = ({ onClose, onLogout, onNavigate }) => (
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [activeTab, setActiveTab] = useState('Home')
+  const [user, setUser] = useState(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleLoginSuccess = () => {
@@ -54,22 +55,23 @@ export default function App() {
   const handleLogout = () => {
     setIsLoggedIn(false)
     setActiveTab('Home')
+    setUser(null)
   }
 
   const renderScreen = () => {
 
     if (!isLoggedIn) {
-      return <Login setActiveTab={handleLoginSuccess} />
+      return <Login setActiveTab={handleLoginSuccess} setUser={setUser} />;
     }
 
     if (activeTab === 'Home') {
-      return <Home setActiveTab={setActiveTab} />;
+      return <Home setActiveTab={setActiveTab} user={user} />;
     } else if (activeTab === 'FAQ') {
       return <Faq />;
     } else if (activeTab === 'Perfil') {
-      return <Profile />;
+      return <Profile user={user} onNavigate={setActiveTab} />;
     } else if (activeTab === 'Ticket') {
-      return <Ticket setActiveTicket={setActiveTab} />;
+      return <Ticket user={user} setActiveTicket={setActiveTab} />;
     } else if (activeTab === 'CreateTicket') {
       return <CreateTicket setActiveTab={setActiveTab} />;
     } else if (activeTab === 'ImpactTicket') {
