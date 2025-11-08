@@ -1,6 +1,5 @@
 import nodemailer from "nodemailer"
 import "dotenv/config"
-import Gemini from "./connectIA.js"
 
 const transport = nodemailer.createTransport({
     host: "smtp.gmail.com",

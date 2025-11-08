@@ -1,21 +1,7 @@
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import { formatDate } from '../components/FormatDate'
 
-const DUMMY_USER_DATA = {
-    Nome: "Liedson Silva",
-    Email: "liedson@example.com",
-    FuncaoUsuario: "Admin",
-    Setor: "TI / Suporte",
-    Login: "liedson.ti",
-    Sexo: "Masculino",
-    DataDeNascimento: "1990-05-15T00:00:00"
-};
-
-export default function Profile({ user = DUMMY_USER_DATA, onNavigate }) {
-
-    if (!user) {
-        return <View style={styles.loadingContainer}><Text>Carregando dados do usuário...</Text></View>;
-    }
+export default function Profile({ user }) {
 
     return (
         <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
@@ -26,22 +12,22 @@ export default function Profile({ user = DUMMY_USER_DATA, onNavigate }) {
 
                 <View>
                     <Text style={styles.userConfig}>Nome:</Text>
-                    <Text style={styles.userConfig}>Email:</Text>
                     <Text style={styles.userConfig}>Função:</Text>
                     <Text style={styles.userConfig}>Setor:</Text>
                     <Text style={styles.userConfig}>Login:</Text>
                     <Text style={styles.userConfig}>Sexo:</Text>
                     <Text style={styles.userConfig}>Data de Nasc:</Text>
+                    <Text style={styles.userConfig}>Email:</Text>
                 </View>
 
                 <View style={styles.dataColumn}>
                     <Text style={styles.userData}>{user.Nome}</Text>
-                    <Text style={styles.userData}>{user.Email}</Text>
                     <Text style={styles.userData}>{user.FuncaoUsuario}</Text>
                     <Text style={styles.userData}>{user.Setor}</Text>
                     <Text style={styles.userData}>{user.Login}</Text>
                     <Text style={styles.userData}>{user.Sexo}</Text>
                     <Text style={styles.userData}>{formatDate(user.DataDeNascimento)}</Text>
+                    <Text style={styles.userData}>{user.Email}</Text>
                 </View>
 
             </View>
@@ -80,6 +66,7 @@ const styles = StyleSheet.create({
     },
     dataColumn: {
         marginLeft: 20,
+        flex: 1,
     },
     userConfig: {
         fontSize: 16,
