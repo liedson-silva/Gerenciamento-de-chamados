@@ -1,4 +1,4 @@
-﻿// Repositories/ChamadoRepository.cs
+﻿using Gerenciamento_De_Chamados.Services;
 using Gerenciamento_De_Chamados.Models;
 using System;
 using System.Collections.Generic;
@@ -126,7 +126,7 @@ namespace Gerenciamento_De_Chamados.Repositories
             string sqlSelect = @"
         SELECT Titulo, Descricao, Categoria, StatusChamado,
                PrioridadeSugeridaIA, ProblemaSugeridoIA, SolucaoSugeridaIA,
-               PrioridadeChamado, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente, FK_IdUsuario
+               PrioridadeChamado, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente, FK_IdUsuario, DataChamado
         FROM Chamado 
         WHERE IdChamado = @IdChamado";
 
@@ -146,15 +146,16 @@ namespace Gerenciamento_De_Chamados.Repositories
                             Titulo = reader["Titulo"].ToString(),
                             Descricao = reader["Descricao"].ToString(),
                             Categoria = reader["Categoria"].ToString(),
-                            StatusChamado = reader["StatusChamado"].ToString(), // CAMPO ADICIONADO
-                            PrioridadeChamado = reader["PrioridadeChamado"]?.ToString(), // CAMPO ADICIONADO
+                            StatusChamado = reader["StatusChamado"].ToString(), 
+                            PrioridadeChamado = reader["PrioridadeChamado"]?.ToString(), 
                             PessoasAfetadas = reader["PessoasAfetadas"]?.ToString(),
                             ImpedeTrabalho = reader["ImpedeTrabalho"]?.ToString(),
                             OcorreuAnteriormente = reader["OcorreuAnteriormente"]?.ToString(),
                             PrioridadeSugeridaIA = reader["PrioridadeSugeridaIA"]?.ToString(),
                             ProblemaSugeridoIA = reader["ProblemaSugeridoIA"]?.ToString(),
                             SolucaoSugeridaIA = reader["SolucaoSugeridaIA"]?.ToString(),
-                            FK_IdUsuario = (int)reader["FK_IdUsuario"] // CAMPO ADICIONADO
+                            FK_IdUsuario = (int)reader["FK_IdUsuario"],
+                            DataChamado = (DateTime)reader["DataChamado"]
                         };
                     }
                 }

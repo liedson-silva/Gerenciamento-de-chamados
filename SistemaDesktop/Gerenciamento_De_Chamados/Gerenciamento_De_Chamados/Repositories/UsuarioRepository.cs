@@ -159,6 +159,7 @@ namespace Gerenciamento_De_Chamados.Repositories
                                 Nome = reader["Nome"].ToString(),
                                 FuncaoUsuario = reader["FuncaoUsuario"].ToString(),
                                 Login = reader["Login"].ToString(),
+                                Email = reader["Email"].ToString()
                             };
                         }
                     }

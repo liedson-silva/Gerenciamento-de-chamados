@@ -1,4 +1,9 @@
 ﻿
+using Gerenciamento_De_Chamados.Helpers;
+using Gerenciamento_De_Chamados.Models;
+using Gerenciamento_De_Chamados.Repositories;
+using Gerenciamento_De_Chamados.Services;
+using Gerenciamento_De_Chamados.Validacao;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,10 +15,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Gerenciamento_De_Chamados.Helpers;
-using Gerenciamento_De_Chamados.Models;
-using Gerenciamento_De_Chamados.Repositories;
-using Gerenciamento_De_Chamados.Services;
 
 namespace Gerenciamento_De_Chamados
 {
@@ -24,6 +25,7 @@ namespace Gerenciamento_De_Chamados
         private readonly IEmailService _emailService;
         private readonly IChamadoRepository _chamadoRepository;
         private readonly IArquivoRepository _arquivoRepository;
+        private readonly ChamadoService _chamadoService;
 
 
         public ContinuaçaoAbertura(AberturaChamados abertura, ImageHelper imageHelper)
@@ -35,6 +37,14 @@ namespace Gerenciamento_De_Chamados
             _chamadoRepository = new ChamadoRepository();
             _arquivoRepository = new ArquivoRepository();
             _emailService = new EmailService();
+
+            _chamadoService = new ChamadoService(
+            _chamadoRepository,
+            _arquivoRepository,
+            _emailService,
+            new AIService()
+            );
+
             this.Load += ContinuaçaoAbertura_Load;
         }
 
@@ -49,91 +59,78 @@ namespace Gerenciamento_De_Chamados
             string CategoriaChamado = aberturaChamados.cboxCtgChamado.Text;
             byte[] AnexarArquivo = aberturaChamados.arquivoAnexado;
 
-            string status = "Pendente";
-            string problemaIA = "Pendente";
-            string solucaoIA = "Pendente";
-            string prioridadeIA = "Analise";
-            try
+            // ValidadorChamado para título e descrição
+            if (!ValidadorChamado.IsTituloValido(TituloChamado))
             {
-                //Busca soluções anteriores usando o REPOSITÓRIO
-                List<string> solucoesAnteriores = await _chamadoRepository.BuscarSolucoesAnterioresAsync(CategoriaChamado);
-
-                AIService aiService = new AIService();
-                var (problema, prioridade, solucao) = await aiService.AnalisarChamado(TituloChamado, PessoasAfetadas,
-                    OcorreuAnteriormente, ImpedeTrabalho, DescricaoChamado, CategoriaChamado, solucoesAnteriores);
-
-                problemaIA = problema;
-                solucaoIA = solucao;
-                prioridadeIA = prioridade;
-            }
-            catch (Exception aiEx)
-            {
-                MessageBox.Show($"Erro ao analisar chamado com IA: {aiEx.Message}. O chamado será criado sem sugestão.", "Aviso IA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("O título é obrigatório e deve ter mais de 5 caracteres.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Para a execução, não continua
             }
 
+            if (!ValidadorChamado.IsDescricaoValida(DescricaoChamado))
+            {
+                MessageBox.Show("A descrição é obrigatória e deve ter mais de 10 caracteres.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Para a execução
+            }
+
+            if (!ValidadorChamado.IsPessoasAfetadasValido(PessoasAfetadas))
+            {
+                MessageBox.Show("Por favor, selecione o número de pessoas afetadas.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validação simples para os ComboBox (apenas para saber se algo foi selecionado)
+            if (string.IsNullOrWhiteSpace(PessoasAfetadas))
+            {
+                MessageBox.Show("Por favor, selecione o número de pessoas afetadas.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(ImpedeTrabalho))
+            {
+                MessageBox.Show("Por favor, informe se o problema impede o trabalho.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(OcorreuAnteriormente))
+            {
+                MessageBox.Show("Por favor, informe se o problema ocorreu anteriormente.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(CategoriaChamado))
+            {
+                MessageBox.Show("Por favor, selecione uma categoria.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
          
 
             int idUsuario = SessaoUsuario.IdUsuario;
 
             try
             {
-              
-                TimeZoneInfo brasilTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
-                DateTime horaDeBrasilia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasilTimeZone);
+
+                DateTime horaDeBrasilia = DateTime.Now;
 
                 Chamado novoChamado = new Chamado
                 {
                     Titulo = TituloChamado,
-                    PrioridadeChamado = "Análise", 
+                    PrioridadeChamado = "Análise", // Valor padrão
                     Descricao = DescricaoChamado,
                     DataChamado = horaDeBrasilia,
-                    StatusChamado = status,
+                    StatusChamado = "Pendente",
                     Categoria = CategoriaChamado,
-                    FK_IdUsuario = idUsuario,
+                    FK_IdUsuario = SessaoUsuario.IdUsuario,
                     PessoasAfetadas = PessoasAfetadas,
                     ImpedeTrabalho = ImpedeTrabalho,
-                    OcorreuAnteriormente = OcorreuAnteriormente,
-                    PrioridadeSugeridaIA = prioridadeIA,
-                    ProblemaSugeridoIA = problemaIA,
-                    SolucaoSugeridaIA = solucaoIA
+                    OcorreuAnteriormente = OcorreuAnteriormente
                 };
 
+
                 
-                int idChamado = await _chamadoRepository.AdicionarAsync(novoChamado);
+                string tipoAnexo = _imageHelper.UltimoTipoArquivo ?? "application/octet-stream";
+                string nomeAnexo = _imageHelper.UltimoNomeArquivo ?? "anexo_chamado.png";
 
-                if (idChamado == -1) 
-                {
-                    MessageBox.Show("Não foi possível criar o chamado. Verifique o log de erros.");
-                    return;
-                }
+                int idChamado = await _chamadoService.CriarNovoChamadoAsync(novoChamado, AnexarArquivo, nomeAnexo, tipoAnexo);
 
-
-                string nomeAnexo = "anexo_chamado.png"; 
-                if (AnexarArquivo != null && AnexarArquivo.Length > 0)
-                {
-                   
-                    nomeAnexo = _imageHelper.UltimoNomeArquivo ?? nomeAnexo;
-                    string tipoAnexo = _imageHelper.UltimoTipoArquivo ?? "application/octet-stream";
-
-                    Arquivo novoArquivo = new Arquivo
-                    {
-                        TipoArquivo = tipoAnexo,
-                        NomeArquivo = nomeAnexo,
-                        ArquivoBytes = AnexarArquivo,
-                        FK_IdChamado = idChamado
-                    };
-                    await _arquivoRepository.AdicionarAsync(novoArquivo);
-                }
 
                 MessageBox.Show("Chamado aberto com sucesso! Número do chamado: " + idChamado);
-
-                // Envia o e-mail
-                await _emailService.EnviarEmailChamadoAsync(
-                    TituloChamado, DescricaoChamado, CategoriaChamado, idChamado,
-                    prioridadeIA, status, PessoasAfetadas, ImpedeTrabalho,
-                    OcorreuAnteriormente, problemaIA, solucaoIA,
-                    AnexarArquivo, nomeAnexo
-                );
 
                 var telaFim = new FimChamado(idChamado);
                 telaFim.ShowDialog();
