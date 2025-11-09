@@ -1,6 +1,7 @@
 ﻿using Gerenciamento_De_Chamados.Helpers;
 using Gerenciamento_De_Chamados.Models; 
 using Gerenciamento_De_Chamados.Repositories;
+using Gerenciamento_De_Chamados.Services;
 using Gerenciamento_De_Chamados.Validacao;
 using System;
 using System.Drawing;
@@ -13,15 +14,19 @@ namespace Gerenciamento_De_Chamados
     public partial class Cadastro_de_Usuarios : Form
     {
        
-        private readonly IUsuarioRepository _usuarioRepository;
+        
+        private readonly IUsuarioService _usuarioService;
 
         public Cadastro_de_Usuarios()
         {
             InitializeComponent();
             this.Load += Cadastro_de_Usuarios_Load;
+            dtpCadDN.Value = DateTime.Now;
 
-            
-            _usuarioRepository = new UsuarioRepository();
+
+            IUsuarioRepository usuarioRepository = new UsuarioRepository();
+            // Instancia o serviço REAL, injetando o repositório
+            _usuarioService = new UsuarioService(usuarioRepository);
         }
 
         
@@ -115,8 +120,8 @@ namespace Gerenciamento_De_Chamados
             // Chama o Repositório e trata a resposta
             try
             {
-                
-                await _usuarioRepository.AdicionarAsync(novoUsuario);
+                // Esta única linha agora faz a validação E o salvamento
+                await _usuarioService.AdicionarUsuarioAsync(novoUsuario);
 
                 MessageBox.Show("✅ Usuário cadastrado com sucesso!");
                 this.Close();
@@ -165,5 +170,21 @@ namespace Gerenciamento_De_Chamados
             FormHelper.Sair(this);
         }
         #endregion
+
+        private void txtCadastroCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ignora a tecla (não deixa ela aparecer no textbox)
+            }
+        }
+
+        private void txtCadastroRG_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
     }
 }

@@ -225,5 +225,65 @@ namespace Gerenciamento_De_Chamados.Repositories
                 await cmd.ExecuteNonQueryAsync();
             }
         }
+        public async Task<List<ChartDataPoint>> ContarPorStatusAsync(int idUsuario)
+        {
+            var list = new List<ChartDataPoint>();
+            // CORREÇÃO: Mudado de 'AS Count' para 'AS Value'
+            string sql = @"
+                SELECT StatusChamado AS Label, COUNT(IdChamado) AS Value
+                FROM Chamado
+                WHERE FK_IdUsuario = @IdUsuario
+                GROUP BY StatusChamado";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                await conn.OpenAsync();
+                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        list.Add(new ChartDataPoint
+                        {
+                            Label = reader["Label"].ToString(),
+                            // CORREÇÃO: Usando 'Value' e convertendo para double
+                            Value = Convert.ToDouble(reader["Value"])
+                        });
+                    }
+                }
+            }
+            return list;
+        }
+        public async Task<List<ChartDataPoint>> ContarPorCategoriaAsync(int idUsuario)
+        {
+            var list = new List<ChartDataPoint>();
+            // CORREÇÃO: Mudado de 'AS Count' para 'AS Value'
+            string sql = @"
+                SELECT Categoria AS Label, COUNT(IdChamado) AS Value
+                FROM Chamado
+                WHERE FK_IdUsuario = @IdUsuario
+                GROUP BY Categoria";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                await conn.OpenAsync();
+                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        list.Add(new ChartDataPoint
+                        {
+                            Label = reader["Label"].ToString(),
+                            // CORREÇÃO: Usando 'Value' e convertendo para double
+                            Value = Convert.ToDouble(reader["Value"])
+                        });
+                    }
+                }
+            }
+            return list;
+        }
     }
 }

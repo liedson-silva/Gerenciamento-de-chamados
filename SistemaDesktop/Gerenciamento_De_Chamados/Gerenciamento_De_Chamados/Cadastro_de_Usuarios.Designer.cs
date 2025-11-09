@@ -36,7 +36,6 @@
             this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCadastroSenha = new System.Windows.Forms.Label();
-            this.txtCadastroNome = new System.Windows.Forms.TextBox();
             this.txtCadastroEmail = new System.Windows.Forms.TextBox();
             this.txtCadastroSenha = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             this.lbl_Inicio = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblCPF = new System.Windows.Forms.Label();
-            this.txtCadastroCpf = new System.Windows.Forms.TextBox();
             this.lblDN = new System.Windows.Forms.Label();
             this.lblSexo = new System.Windows.Forms.Label();
             this.lblSetor = new System.Windows.Forms.Label();
@@ -57,11 +55,13 @@
             this.lblCadastroUsuario = new System.Windows.Forms.Label();
             this.txtCadastroLogin = new System.Windows.Forms.TextBox();
             this.lblLogin = new System.Windows.Forms.Label();
-            this.txtCadastroRG = new System.Windows.Forms.TextBox();
             this.lblRG = new System.Windows.Forms.Label();
             this.cBoxCadSetor = new System.Windows.Forms.ComboBox();
             this.cbxCadastroFuncao = new System.Windows.Forms.ComboBox();
             this.panelFormularioCriar = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.txtCadastroNome = new System.Windows.Forms.TextBox();
+            this.txtCadastroCpf = new System.Windows.Forms.MaskedTextBox();
+            this.txtCadastroRG = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).BeginInit();
             this.PctBox_Logo.SuspendLayout();
@@ -78,7 +78,7 @@
             this.panel1.Controls.Add(this.PctBox_Inicio);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(244, 794);
             this.panel1.TabIndex = 5;
@@ -133,7 +133,7 @@
             this.PctBox_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PctBox_Inicio.Image = ((System.Drawing.Image)(resources.GetObject("PctBox_Inicio.Image")));
             this.PctBox_Inicio.Location = new System.Drawing.Point(-26, 0);
-            this.PctBox_Inicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PctBox_Inicio.Margin = new System.Windows.Forms.Padding(2);
             this.PctBox_Inicio.Name = "PctBox_Inicio";
             this.PctBox_Inicio.Size = new System.Drawing.Size(290, 239);
             this.PctBox_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -162,15 +162,6 @@
             this.lblCadastroSenha.Size = new System.Drawing.Size(94, 29);
             this.lblCadastroSenha.TabIndex = 3;
             this.lblCadastroSenha.Text = "Senha: ";
-            // 
-            // txtCadastroNome
-            // 
-            this.txtCadastroNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtCadastroNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCadastroNome.Location = new System.Drawing.Point(1, 116);
-            this.txtCadastroNome.Name = "txtCadastroNome";
-            this.txtCadastroNome.Size = new System.Drawing.Size(344, 35);
-            this.txtCadastroNome.TabIndex = 4;
             // 
             // txtCadastroEmail
             // 
@@ -235,7 +226,7 @@
             this.PctBox_Logo.Controls.Add(this.pictureBox4);
             this.PctBox_Logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PctBox_Logo.Location = new System.Drawing.Point(244, 0);
-            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(2);
             this.PctBox_Logo.Name = "PctBox_Logo";
             this.PctBox_Logo.Size = new System.Drawing.Size(822, 67);
             this.PctBox_Logo.TabIndex = 10;
@@ -268,7 +259,7 @@
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
             this.pictureBox4.Location = new System.Drawing.Point(776, 10);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(38, 41);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -286,16 +277,6 @@
             this.lblCPF.Size = new System.Drawing.Size(62, 26);
             this.lblCPF.TabIndex = 11;
             this.lblCPF.Text = "CPF:";
-            // 
-            // txtCadastroCpf
-            // 
-            this.txtCadastroCpf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtCadastroCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCadastroCpf.Location = new System.Drawing.Point(9, 216);
-            this.txtCadastroCpf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtCadastroCpf.Name = "txtCadastroCpf";
-            this.txtCadastroCpf.Size = new System.Drawing.Size(350, 35);
-            this.txtCadastroCpf.TabIndex = 12;
             // 
             // lblDN
             // 
@@ -350,9 +331,9 @@
             this.dtpCadDN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dtpCadDN.CustomFormat = "dd/MM/yyyy";
             this.dtpCadDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpCadDN.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpCadDN.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpCadDN.Location = new System.Drawing.Point(11, 402);
-            this.dtpCadDN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpCadDN.Margin = new System.Windows.Forms.Padding(2);
             this.dtpCadDN.Name = "dtpCadDN";
             this.dtpCadDN.Size = new System.Drawing.Size(350, 35);
             this.dtpCadDN.TabIndex = 17;
@@ -369,7 +350,7 @@
             "Masculino",
             "Outros"});
             this.comboBoxCadastroSexo.Location = new System.Drawing.Point(11, 500);
-            this.comboBoxCadastroSexo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCadastroSexo.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCadastroSexo.Name = "comboBoxCadastroSexo";
             this.comboBoxCadastroSexo.Size = new System.Drawing.Size(350, 37);
             this.comboBoxCadastroSexo.TabIndex = 19;
@@ -408,22 +389,12 @@
             this.lblLogin.TabIndex = 23;
             this.lblLogin.Text = "Login: ";
             // 
-            // txtCadastroRG
-            // 
-            this.txtCadastroRG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtCadastroRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCadastroRG.Location = new System.Drawing.Point(9, 306);
-            this.txtCadastroRG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtCadastroRG.Name = "txtCadastroRG";
-            this.txtCadastroRG.Size = new System.Drawing.Size(350, 35);
-            this.txtCadastroRG.TabIndex = 26;
-            // 
             // lblRG
             // 
             this.lblRG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblRG.AutoSize = true;
             this.lblRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRG.Location = new System.Drawing.Point(6, 278);
+            this.lblRG.Location = new System.Drawing.Point(6, 262);
             this.lblRG.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRG.Name = "lblRG";
             this.lblRG.Size = new System.Drawing.Size(51, 26);
@@ -441,7 +412,7 @@
             "Administrativo",
             "Operador"});
             this.cBoxCadSetor.Location = new System.Drawing.Point(422, 120);
-            this.cBoxCadSetor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cBoxCadSetor.Margin = new System.Windows.Forms.Padding(2);
             this.cBoxCadSetor.Name = "cBoxCadSetor";
             this.cBoxCadSetor.Size = new System.Drawing.Size(344, 37);
             this.cBoxCadSetor.TabIndex = 27;
@@ -461,7 +432,7 @@
             "Terceirizado",
             "Outros.."});
             this.cbxCadastroFuncao.Location = new System.Drawing.Point(422, 204);
-            this.cbxCadastroFuncao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxCadastroFuncao.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCadastroFuncao.Name = "cbxCadastroFuncao";
             this.cbxCadastroFuncao.Size = new System.Drawing.Size(344, 37);
             this.cbxCadastroFuncao.TabIndex = 29;
@@ -472,6 +443,8 @@
             this.panelFormularioCriar.BackColor = System.Drawing.Color.White;
             this.panelFormularioCriar.BorderColor = System.Drawing.Color.White;
             this.panelFormularioCriar.BorderWidth = 1F;
+            this.panelFormularioCriar.Controls.Add(this.txtCadastroRG);
+            this.panelFormularioCriar.Controls.Add(this.txtCadastroCpf);
             this.panelFormularioCriar.Controls.Add(this.lblDN);
             this.panelFormularioCriar.Controls.Add(this.lblCadastroSenha);
             this.panelFormularioCriar.Controls.Add(this.lblNome);
@@ -480,14 +453,12 @@
             this.panelFormularioCriar.Controls.Add(this.lblRG);
             this.panelFormularioCriar.Controls.Add(this.cbxCadastroFuncao);
             this.panelFormularioCriar.Controls.Add(this.cBoxCadSetor);
-            this.panelFormularioCriar.Controls.Add(this.txtCadastroRG);
             this.panelFormularioCriar.Controls.Add(this.txtCadastroLogin);
             this.panelFormularioCriar.Controls.Add(this.lblLogin);
             this.panelFormularioCriar.Controls.Add(this.comboBoxCadastroSexo);
             this.panelFormularioCriar.Controls.Add(this.dtpCadDN);
             this.panelFormularioCriar.Controls.Add(this.lblFuncao);
             this.panelFormularioCriar.Controls.Add(this.lblSetor);
-            this.panelFormularioCriar.Controls.Add(this.txtCadastroCpf);
             this.panelFormularioCriar.Controls.Add(this.lblCPF);
             this.panelFormularioCriar.Controls.Add(this.txtCadastroNome);
             this.panelFormularioCriar.Controls.Add(this.txtCadastroEmail);
@@ -498,6 +469,33 @@
             this.panelFormularioCriar.Name = "panelFormularioCriar";
             this.panelFormularioCriar.Size = new System.Drawing.Size(792, 588);
             this.panelFormularioCriar.TabIndex = 30;
+            // 
+            // txtCadastroNome
+            // 
+            this.txtCadastroNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtCadastroNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCadastroNome.Location = new System.Drawing.Point(11, 122);
+            this.txtCadastroNome.Name = "txtCadastroNome";
+            this.txtCadastroNome.Size = new System.Drawing.Size(344, 35);
+            this.txtCadastroNome.TabIndex = 4;
+            // 
+            // txtCadastroCpf
+            // 
+            this.txtCadastroCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCadastroCpf.Location = new System.Drawing.Point(11, 212);
+            this.txtCadastroCpf.Mask = "000.000.000-00";
+            this.txtCadastroCpf.Name = "txtCadastroCpf";
+            this.txtCadastroCpf.Size = new System.Drawing.Size(348, 29);
+            this.txtCadastroCpf.TabIndex = 31;
+            // 
+            // txtCadastroRG
+            // 
+            this.txtCadastroRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCadastroRG.Location = new System.Drawing.Point(11, 306);
+            this.txtCadastroRG.Mask = "00.000.000-0";
+            this.txtCadastroRG.Name = "txtCadastroRG";
+            this.txtCadastroRG.Size = new System.Drawing.Size(348, 29);
+            this.txtCadastroRG.TabIndex = 32;
             // 
             // Cadastro_de_Usuarios
             // 
@@ -534,7 +532,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblCadastroSenha;
-        private System.Windows.Forms.TextBox txtCadastroNome;
         private System.Windows.Forms.TextBox txtCadastroEmail;
         private System.Windows.Forms.TextBox txtCadastroSenha;
         private System.Windows.Forms.Label lblEmail;
@@ -542,7 +539,6 @@
         private System.Windows.Forms.Button btnCadastroCancel;
         private System.Windows.Forms.Panel PctBox_Logo;
         private System.Windows.Forms.Label lblCPF;
-        private System.Windows.Forms.TextBox txtCadastroCpf;
         private System.Windows.Forms.Label lblDN;
         private System.Windows.Forms.Label lblSexo;
         private System.Windows.Forms.Label lblSetor;
@@ -554,12 +550,14 @@
         private System.Windows.Forms.Label lbl_Inicio;
         private System.Windows.Forms.TextBox txtCadastroLogin;
         private System.Windows.Forms.Label lblLogin;
-        private System.Windows.Forms.TextBox txtCadastroRG;
         private System.Windows.Forms.Label lblRG;
         private System.Windows.Forms.ComboBox cBoxCadSetor;
         private System.Windows.Forms.Label lbl_NomeUser;
         private System.Windows.Forms.ComboBox cbxCadastroFuncao;
         private System.Windows.Forms.Label lbSair;
         private RoundedPanel panelFormularioCriar;
+        private System.Windows.Forms.MaskedTextBox txtCadastroCpf;
+        private System.Windows.Forms.TextBox txtCadastroNome;
+        private System.Windows.Forms.MaskedTextBox txtCadastroRG;
     }
 }

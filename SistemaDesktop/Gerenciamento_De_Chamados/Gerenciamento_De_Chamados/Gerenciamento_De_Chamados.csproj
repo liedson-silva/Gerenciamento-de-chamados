@@ -321,6 +321,8 @@
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\IAIService.cs" />
     <Compile Include="Services\IEmailService.cs" />
+    <Compile Include="Services\IUsuarioService.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
     <Compile Include="SessaoUsuario.cs" />
     <Compile Include="Validacao\ValidadorChamado.cs" />
     <Compile Include="Validacao\ValidadorUsuario.cs" />

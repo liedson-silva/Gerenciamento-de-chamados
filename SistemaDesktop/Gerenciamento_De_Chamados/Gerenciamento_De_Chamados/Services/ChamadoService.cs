@@ -30,7 +30,7 @@ namespace Gerenciamento_De_Chamados.Services
         // Movemos a lógica do seu "btnConcluirCH_Click" para cá
         public async Task<int> CriarNovoChamadoAsync(Chamado novoChamado, byte[] arquivoBytes, string nomeAnexo, string tipoAnexo)
         {
-            // 1. Lógica da IA (simplificada)
+            // 1. Lógica da IA 
             try
             {
                 var solucoesAnteriores = await _chamadoRepo.BuscarSolucoesAnterioresAsync(novoChamado.Categoria);
@@ -44,7 +44,7 @@ namespace Gerenciamento_De_Chamados.Services
             }
             catch (Exception)
             {
-                // Não para o processo, só registra que IA falhou (no teste, podemos simular isso)
+                // Não para o processo, só registra que IA falhou 
                 novoChamado.PrioridadeSugeridaIA = "Falha IA";
                 novoChamado.ProblemaSugeridoIA = "Falha IA";
                 novoChamado.SolucaoSugeridaIA = "Falha IA";
