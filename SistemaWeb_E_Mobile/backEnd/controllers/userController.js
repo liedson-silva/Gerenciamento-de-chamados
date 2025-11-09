@@ -43,6 +43,7 @@ export class UserController {
           VALUES (@name, @cpf, @rg, @functionUser, @sex, @sector, @date, @email, @passwordhash, @login)`);
 
       const newUser = result.recordset[0];
+      console.log("Usuário criado com sucesso.");
       return res.status(201).json({ success: true, user: newUser });
 
     } catch (err) {
