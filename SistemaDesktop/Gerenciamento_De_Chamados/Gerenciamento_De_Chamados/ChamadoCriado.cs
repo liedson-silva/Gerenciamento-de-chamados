@@ -62,26 +62,36 @@ namespace Gerenciamento_De_Chamados
 
                     StringBuilder resumo = new StringBuilder();
 
-                    
-                    DateTime horaDeBrasiliaAtual = ObterHoraBrasilia();
 
-                    TimeSpan tempoPassado = horaDeBrasiliaAtual - dataCriacao;
                     string quandoFoiCriado;
-                    if (tempoPassado.TotalMinutes < 2)
+
+                    // 1. Verifica se a data é inválida (menor que o ano 2000, por exemplo)
+                    if (dataCriacao < new DateTime(2000, 1, 1))
                     {
-                        quandoFoiCriado = "poucos segundos atrás";
-                    }
-                    else if (tempoPassado.TotalHours < 1)
-                    {
-                        quandoFoiCriado = $"{Math.Round(tempoPassado.TotalMinutes)} minutos atrás";
-                    }
-                    else if (tempoPassado.TotalDays < 1)
-                    {
-                        quandoFoiCriado = $"{Math.Round(tempoPassado.TotalHours)} horas atrás";
+                        quandoFoiCriado = "data indisponível";
                     }
                     else
                     {
-                        quandoFoiCriado = $"{tempoPassado.Days} dias atrás";
+                        // 2. Simplifica a hora atual
+                        DateTime horaAtual = DateTime.Now;
+                        TimeSpan tempoPassado = horaAtual - dataCriacao;
+
+                        if (tempoPassado.TotalMinutes < 2)
+                        {
+                            quandoFoiCriado = "poucos segundos atrás";
+                        }
+                        else if (tempoPassado.TotalHours < 1)
+                        {
+                            quandoFoiCriado = $"{Math.Round(tempoPassado.TotalMinutes)} minutos atrás";
+                        }
+                        else if (tempoPassado.TotalDays < 1)
+                        {
+                            quandoFoiCriado = $"{Math.Round(tempoPassado.TotalHours)} horas atrás";
+                        }
+                        else
+                        {
+                            quandoFoiCriado = $"{tempoPassado.Days} dias atrás";
+                        }
                     }
                     resumo.AppendLine($"Criado em: {quandoFoiCriado}    por    {SessaoUsuario.Nome.ToUpper()}");
                     resumo.AppendLine();

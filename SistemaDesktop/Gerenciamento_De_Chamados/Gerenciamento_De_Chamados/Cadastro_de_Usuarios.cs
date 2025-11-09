@@ -1,6 +1,7 @@
 ﻿using Gerenciamento_De_Chamados.Helpers;
 using Gerenciamento_De_Chamados.Models; 
-using Gerenciamento_De_Chamados.Repositories; 
+using Gerenciamento_De_Chamados.Repositories;
+using Gerenciamento_De_Chamados.Validacao;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -29,6 +30,57 @@ namespace Gerenciamento_De_Chamados
             // Coleta e validação simples
             string login = txtCadastroLogin.Text.Trim();
             string senhaDigitada = txtCadastroSenha.Text.Trim();
+            string nome = txtCadastroNome.Text.Trim();
+            string cpf = txtCadastroCpf.Text.Trim();
+            string rg = txtCadastroRG.Text.Trim();
+            string funcao = cbxCadastroFuncao.Text;
+            string sexo = comboBoxCadastroSexo.Text;
+            string setor = cBoxCadSetor.Text;
+            DateTime dataNascimento = dtpCadDN.Value;
+            string email = txtCadastroEmail.Text.Trim();
+
+            if (!ValidadorUsuario.IsNomeValido(nome))
+            {
+                MessageBox.Show("O campo 'Nome' é obrigatório.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!ValidadorUsuario.IsEmailValido(email))
+            {
+                MessageBox.Show("O formato do 'Email' é inválido.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!ValidadorUsuario.IsCPFValido(cpf))
+            {
+                MessageBox.Show("O formato do 'CPF' é inválido. Deve conter 11 dígitos.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validação de Login (pode usar a mesma regra do nome)
+            if (!ValidadorUsuario.IsNomeValido(login) || login == "Digite seu usuário, apenas letras ou números.")
+            {
+                MessageBox.Show("O campo 'Login' é obrigatório.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!ValidadorUsuario.IsSenhaForte(senhaDigitada))
+            {
+                MessageBox.Show("A 'Senha' é inválida. Requisitos: \n- Mínimo 8 caracteres\n- Pelo menos 1 letra maiúscula\n- Pelo menos 1 número", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validações simples para ComboBoxes
+            if (string.IsNullOrWhiteSpace(funcao))
+            {
+                MessageBox.Show("Selecione uma 'Função'.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(setor))
+            {
+                MessageBox.Show("Selecione um 'Setor'.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (string.IsNullOrWhiteSpace(login) ||
                 login == "Digite seu usuário, apenas letras ou números.")
@@ -43,6 +95,7 @@ namespace Gerenciamento_De_Chamados
                 return;
             }
 
+
             // 2. Cria o Objeto Model
             Usuario novoUsuario = new Usuario
             {
@@ -55,8 +108,9 @@ namespace Gerenciamento_De_Chamados
                 DataDeNascimento = dtpCadDN.Value,
                 Email = txtCadastroEmail.Text.Trim(),
                 Login = login,
-                Senha = senhaDigitada // Passa a senha em texto puro. O REPOSITÓRIO irá criptografar.
+                Senha = senhaDigitada 
             };
+
 
             // Chama o Repositório e trata a resposta
             try

@@ -41,6 +41,7 @@ namespace Gerenciamento_De_Chamados
                     SessaoUsuario.Nome = usuarioAutenticado.Nome;
                     SessaoUsuario.Login = usuarioAutenticado.Login;
                     SessaoUsuario.FuncaoUsuario = usuarioAutenticado.FuncaoUsuario;
+                    SessaoUsuario.Email = usuarioAutenticado.Email;
                     // Preencha outros dados da sessão se necessário
 
                     MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

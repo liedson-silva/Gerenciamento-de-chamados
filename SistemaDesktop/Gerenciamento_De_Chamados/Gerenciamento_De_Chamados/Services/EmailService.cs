@@ -34,7 +34,8 @@ namespace Gerenciamento_De_Chamados.Services
         public async Task EnviarEmailChamadoAsync(
             string titulo, string descricao, string categoria, int idChamado,
             string prioridadeIA, string status, string pessoasAfetadas,
-            string impedeTrabalho, string ocorreuAnteriormente, string problemaIA, string solucaoIA,
+            string impedeTrabalho, string ocorreuAnteriormente, string problemaIA, string solucaoIA, 
+            DateTime dataAbertura,
             byte[] anexo, string nomeAnexo)
         {
 

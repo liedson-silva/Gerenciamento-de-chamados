@@ -1,4 +1,4 @@
-﻿// Repositories/IChamadoRepository.cs
+﻿
 using Gerenciamento_De_Chamados.Models;
 using System.Collections.Generic;
 using System.Data;

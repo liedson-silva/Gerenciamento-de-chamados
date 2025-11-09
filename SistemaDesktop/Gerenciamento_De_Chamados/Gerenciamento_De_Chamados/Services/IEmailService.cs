@@ -12,7 +12,7 @@ namespace Gerenciamento_De_Chamados.Services
             string titulo, string descricao, string categoria, int idChamado,
             string prioridadeIA, string status, string pessoasAfetadas,
             string impedeTrabalho, string ocorreuAnteriormente, string problemaIA, string solucaoIA,
-            byte[] anexo, string nomeAnexo
+            DateTime dataAbertura, byte[] anexo, string nomeAnexo
         );
     }
 }
