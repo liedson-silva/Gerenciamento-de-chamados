@@ -10,5 +10,7 @@ namespace Gerenciamento_De_Chamados.Models
     {
         public string Label { get; set; }
         public double Value { get; set; }
+
+        public int Count { get; set; }
     }
 }

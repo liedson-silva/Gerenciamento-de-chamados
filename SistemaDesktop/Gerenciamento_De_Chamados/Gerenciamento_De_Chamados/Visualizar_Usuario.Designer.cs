@@ -49,12 +49,12 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbSair = new System.Windows.Forms.Label();
             this.lblConta = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lbSair = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
@@ -66,9 +66,10 @@
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(349, 136);
+            this.label12.Location = new System.Drawing.Point(262, 110);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(443, 46);
+            this.label12.Size = new System.Drawing.Size(357, 37);
             this.label12.TabIndex = 88;
             this.label12.Text = "Vizualização de usuario";
             // 
@@ -85,10 +86,10 @@
             "Operador",
             "Terceirizado",
             "Outros.."});
-            this.cmbFuncao.Location = new System.Drawing.Point(887, 422);
-            this.cmbFuncao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbFuncao.Location = new System.Drawing.Point(665, 343);
+            this.cmbFuncao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbFuncao.Name = "cmbFuncao";
-            this.cmbFuncao.Size = new System.Drawing.Size(457, 44);
+            this.cmbFuncao.Size = new System.Drawing.Size(344, 37);
             this.cmbFuncao.TabIndex = 87;
             this.cmbFuncao.Text = "Selecione";
             // 
@@ -103,10 +104,10 @@
             "Financeiro",
             "Administrativo",
             "Operador"});
-            this.txtSetor.Location = new System.Drawing.Point(887, 325);
-            this.txtSetor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSetor.Location = new System.Drawing.Point(665, 264);
+            this.txtSetor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSetor.Name = "txtSetor";
-            this.txtSetor.Size = new System.Drawing.Size(457, 44);
+            this.txtSetor.Size = new System.Drawing.Size(344, 37);
             this.txtSetor.TabIndex = 86;
             this.txtSetor.Text = "Selecione";
             // 
@@ -115,10 +116,9 @@
             this.txtLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtLogin.Enabled = false;
             this.txtLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogin.Location = new System.Drawing.Point(347, 626);
-            this.txtLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLogin.Location = new System.Drawing.Point(260, 509);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(465, 41);
+            this.txtLogin.Size = new System.Drawing.Size(350, 35);
             this.txtLogin.TabIndex = 83;
             // 
             // label10
@@ -126,10 +126,9 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(341, 586);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(256, 476);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 36);
+            this.label10.Size = new System.Drawing.Size(85, 29);
             this.label10.TabIndex = 82;
             this.label10.Text = "Login: ";
             // 
@@ -143,10 +142,10 @@
             "Feminino",
             "Masculino",
             "Outros"});
-            this.cmbSexo.Location = new System.Drawing.Point(347, 526);
-            this.cmbSexo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbSexo.Location = new System.Drawing.Point(260, 427);
+            this.cmbSexo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbSexo.Name = "cmbSexo";
-            this.cmbSexo.Size = new System.Drawing.Size(465, 44);
+            this.cmbSexo.Size = new System.Drawing.Size(350, 37);
             this.cmbSexo.TabIndex = 81;
             this.cmbSexo.Text = "Selecione";
             // 
@@ -157,10 +156,10 @@
             this.dtpDataNascimento.Enabled = false;
             this.dtpDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDataNascimento.Location = new System.Drawing.Point(347, 425);
-            this.dtpDataNascimento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpDataNascimento.Location = new System.Drawing.Point(260, 345);
+            this.dtpDataNascimento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpDataNascimento.Name = "dtpDataNascimento";
-            this.dtpDataNascimento.Size = new System.Drawing.Size(465, 41);
+            this.dtpDataNascimento.Size = new System.Drawing.Size(350, 35);
             this.dtpDataNascimento.TabIndex = 80;
             this.dtpDataNascimento.Tag = "";
             this.dtpDataNascimento.Value = new System.DateTime(1900, 1, 1, 11, 45, 0, 0);
@@ -170,9 +169,10 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(881, 386);
+            this.label7.Location = new System.Drawing.Point(661, 314);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 31);
+            this.label7.Size = new System.Drawing.Size(90, 26);
             this.label7.TabIndex = 79;
             this.label7.Text = "Função:";
             // 
@@ -181,9 +181,10 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(881, 277);
+            this.label6.Location = new System.Drawing.Point(661, 225);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 31);
+            this.label6.Size = new System.Drawing.Size(70, 26);
             this.label6.TabIndex = 78;
             this.label6.Text = "Setor:";
             // 
@@ -192,9 +193,10 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(341, 489);
+            this.label5.Location = new System.Drawing.Point(256, 397);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 31);
+            this.label5.Size = new System.Drawing.Size(68, 26);
             this.label5.TabIndex = 77;
             this.label5.Text = "Sexo:";
             // 
@@ -203,9 +205,10 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(351, 386);
+            this.label4.Location = new System.Drawing.Point(263, 314);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(263, 31);
+            this.label4.Size = new System.Drawing.Size(212, 26);
             this.label4.TabIndex = 76;
             this.label4.Text = "Data de nascimento:";
             // 
@@ -216,20 +219,19 @@
             this.panel2.Controls.Add(this.lbl_Inicio);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(325, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(244, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1097, 103);
+            this.panel2.Size = new System.Drawing.Size(822, 84);
             this.panel2.TabIndex = 73;
             // 
             // lbl_NomeUser
             // 
             this.lbl_NomeUser.AutoSize = true;
             this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(169, 34);
-            this.lbl_NomeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_NomeUser.Location = new System.Drawing.Point(127, 28);
             this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 25);
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
             this.lbl_NomeUser.TabIndex = 7;
             // 
             // lbl_Inicio
@@ -238,9 +240,10 @@
             this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME__2_;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Inicio.Location = new System.Drawing.Point(49, 34);
+            this.lbl_Inicio.Location = new System.Drawing.Point(37, 28);
+            this.lbl_Inicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(120, 31);
+            this.lbl_Inicio.Size = new System.Drawing.Size(99, 26);
             this.lbl_Inicio.TabIndex = 2;
             this.lbl_Inicio.Text = "      Início";
             this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
@@ -249,10 +252,10 @@
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(1036, 12);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(776, 10);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox4.Size = new System.Drawing.Size(38, 41);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
@@ -260,23 +263,22 @@
             // txtNome
             // 
             this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtNome.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(347, 325);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNome.Location = new System.Drawing.Point(260, 264);
             this.txtNome.Name = "txtNome";
             this.txtNome.ReadOnly = true;
-            this.txtNome.Size = new System.Drawing.Size(457, 41);
+            this.txtNome.Size = new System.Drawing.Size(344, 35);
             this.txtNome.TabIndex = 69;
             // 
             // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(887, 526);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Location = new System.Drawing.Point(665, 427);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(457, 41);
+            this.txtEmail.Size = new System.Drawing.Size(344, 35);
             this.txtEmail.TabIndex = 71;
             // 
             // lblNome
@@ -284,10 +286,9 @@
             this.lblNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(341, 277);
-            this.lblNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNome.Location = new System.Drawing.Point(256, 225);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(101, 31);
+            this.lblNome.Size = new System.Drawing.Size(83, 26);
             this.lblNome.TabIndex = 66;
             this.lblNome.Text = "Nome: ";
             // 
@@ -296,10 +297,9 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(881, 486);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(661, 395);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 36);
+            this.label2.Size = new System.Drawing.Size(80, 29);
             this.label2.TabIndex = 67;
             this.label2.Text = "Email:";
             // 
@@ -313,10 +313,25 @@
             this.panel1.Controls.Add(this.PctBox_Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(325, 977);
+            this.panel1.Size = new System.Drawing.Size(244, 794);
             this.panel1.TabIndex = 70;
+            // 
+            // lbSair
+            // 
+            this.lbSair.AutoSize = true;
+            this.lbSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbSair.Location = new System.Drawing.Point(14, 350);
+            this.lbSair.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSair.Name = "lbSair";
+            this.lbSair.Size = new System.Drawing.Size(72, 24);
+            this.lbSair.TabIndex = 17;
+            this.lbSair.Text = "      Sair";
+            this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
             // 
             // lblConta
             // 
@@ -324,9 +339,10 @@
             this.lblConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConta.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.lblConta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblConta.Location = new System.Drawing.Point(12, 277);
+            this.lblConta.Location = new System.Drawing.Point(9, 225);
+            this.lblConta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConta.Name = "lblConta";
-            this.lblConta.Size = new System.Drawing.Size(183, 29);
+            this.lblConta.Size = new System.Drawing.Size(146, 24);
             this.lblConta.TabIndex = 11;
             this.lblConta.Text = "      Minha Conta";
             // 
@@ -336,9 +352,10 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(12, 376);
+            this.label3.Location = new System.Drawing.Point(9, 306);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 29);
+            this.label3.Size = new System.Drawing.Size(80, 24);
             this.label3.TabIndex = 10;
             this.label3.Text = "      FAQ";
             // 
@@ -348,19 +365,20 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 325);
+            this.label1.Location = new System.Drawing.Point(9, 264);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 29);
+            this.label1.Size = new System.Drawing.Size(183, 24);
             this.label1.TabIndex = 10;
             this.label1.Text = "      Meus Chamados";
             // 
             // PctBox_Logo
             // 
             this.PctBox_Logo.Image = ((System.Drawing.Image)(resources.GetObject("PctBox_Logo.Image")));
-            this.PctBox_Logo.Location = new System.Drawing.Point(-35, -57);
-            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PctBox_Logo.Location = new System.Drawing.Point(-26, -46);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PctBox_Logo.Name = "PctBox_Logo";
-            this.PctBox_Logo.Size = new System.Drawing.Size(393, 298);
+            this.PctBox_Logo.Size = new System.Drawing.Size(295, 242);
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Logo.TabIndex = 10;
             this.PctBox_Logo.TabStop = false;
@@ -371,33 +389,19 @@
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(1199, 878);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(899, 713);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(173, 69);
+            this.btnCancelar.Size = new System.Drawing.Size(130, 56);
             this.btnCancelar.TabIndex = 90;
             this.btnCancelar.Text = "Fechar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // lbSair
-            // 
-            this.lbSair.AutoSize = true;
-            this.lbSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbSair.Location = new System.Drawing.Point(18, 431);
-            this.lbSair.Name = "lbSair";
-            this.lbSair.Size = new System.Drawing.Size(92, 29);
-            this.lbSair.TabIndex = 17;
-            this.lbSair.Text = "      Sair";
-            this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
-            // 
             // Visualizar_Usuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1422, 977);
+            this.ClientSize = new System.Drawing.Size(1066, 794);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.cmbFuncao);
@@ -417,6 +421,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Visualizar_Usuario";
             this.Text = "Visualizar_Usuario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
