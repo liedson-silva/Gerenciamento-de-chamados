@@ -30,6 +30,7 @@ namespace Gerenciamento_De_Chamados
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeAdmin));
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.lbl_Inicio = new System.Windows.Forms.Label();
@@ -187,9 +188,9 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.Controls.Add(this.groupBox2);
             this.roundedPanel1.Controls.Add(this.Home_Tecnico);
             this.roundedPanel1.CornerRadius = 15F;
-            this.roundedPanel1.Location = new System.Drawing.Point(359, 144);
+            this.roundedPanel1.Location = new System.Drawing.Point(359, 113);
             this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(1236, 809);
+            this.roundedPanel1.Size = new System.Drawing.Size(1236, 840);
             this.roundedPanel1.TabIndex = 32;
             // 
             // btn_Chamado
@@ -275,9 +276,11 @@ namespace Gerenciamento_De_Chamados
             this.Controls.Add(this.roundedPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HomeAdmin";
             this.Text = "HomeAdmin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.HomeAdmin_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.HomeAdmin_Paint);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

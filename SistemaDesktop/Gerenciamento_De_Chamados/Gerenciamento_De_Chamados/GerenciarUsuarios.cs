@@ -57,7 +57,7 @@ namespace Gerenciamento_De_Chamados
         private void GerenciarUsuarios_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = $"Olá: {SessaoUsuario.Nome}";
+                lbl_NomeUser.Text = $" {SessaoUsuario.Nome}";
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
 
@@ -189,5 +189,23 @@ namespace Gerenciamento_De_Chamados
             FormHelper.Sair(this);
         }
         #endregion
+
+        private void GerenciarUsuarios_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicio = Color.White;
+            Color corFim = ColorTranslator.FromHtml("#232325");
+
+            using (LinearGradientBrush gradiente = new LinearGradientBrush(
+                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+            {
+                g.FillRectangle(gradiente, this.ClientRectangle);
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
+        }
     }
 }

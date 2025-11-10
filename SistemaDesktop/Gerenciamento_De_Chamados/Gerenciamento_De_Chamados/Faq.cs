@@ -110,5 +110,15 @@ namespace Gerenciamento_De_Chamados
         {
             FormHelper.Sair(this);
         }
+
+        private void lbl_Inicio_Click(object sender, EventArgs e)
+        {
+            FormHelper.BotaoHome(this);
+        }
+
+        private void PctBox_Logo_Click(object sender, EventArgs e)
+        {
+            FormHelper.BotaoHome(this);
+        }
     }
 }

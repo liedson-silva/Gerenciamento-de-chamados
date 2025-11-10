@@ -36,22 +36,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.Panel();
             this.lbl_NomeUser = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cBoxPessoasAfeta = new System.Windows.Forms.ComboBox();
-            this.cBoxAcontAntes = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
             this.lbl_Inicio = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lbSair = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cBoxPessoasAfeta = new System.Windows.Forms.ComboBox();
+            this.cBoxAcontAntes = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
             this.PctBox_Logo.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConcluirCH
@@ -60,7 +60,7 @@
             this.btnConcluirCH.BackColor = System.Drawing.Color.White;
             this.btnConcluirCH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConcluirCH.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConcluirCH.Location = new System.Drawing.Point(826, 747);
+            this.btnConcluirCH.Location = new System.Drawing.Point(882, 747);
             this.btnConcluirCH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConcluirCH.Name = "btnConcluirCH";
             this.btnConcluirCH.Size = new System.Drawing.Size(163, 46);
@@ -76,7 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 338);
+            this.label5.Location = new System.Drawing.Point(19, 338);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(362, 36);
             this.label5.TabIndex = 26;
@@ -108,7 +108,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 173);
+            this.label4.Location = new System.Drawing.Point(19, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(634, 36);
             this.label4.TabIndex = 24;
@@ -121,7 +121,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 23);
+            this.label2.Location = new System.Drawing.Point(19, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(412, 36);
             this.label2.TabIndex = 22;
@@ -150,86 +150,6 @@
             this.lbl_NomeUser.Size = new System.Drawing.Size(0, 25);
             this.lbl_NomeUser.TabIndex = 8;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.lbSair);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(325, 977);
-            this.panel1.TabIndex = 20;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // cBoxPessoasAfeta
-            // 
-            this.cBoxPessoasAfeta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cBoxPessoasAfeta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cBoxPessoasAfeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBoxPessoasAfeta.FormattingEnabled = true;
-            this.cBoxPessoasAfeta.Items.AddRange(new object[] {
-            "Somente eu ",
-            "Meu setor ",
-            "A empresa inteira"});
-            this.cBoxPessoasAfeta.Location = new System.Drawing.Point(371, 182);
-            this.cBoxPessoasAfeta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cBoxPessoasAfeta.Name = "cBoxPessoasAfeta";
-            this.cBoxPessoasAfeta.Size = new System.Drawing.Size(361, 44);
-            this.cBoxPessoasAfeta.TabIndex = 30;
-            this.cBoxPessoasAfeta.Text = "Selecione...";
-            // 
-            // cBoxAcontAntes
-            // 
-            this.cBoxAcontAntes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cBoxAcontAntes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cBoxAcontAntes.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBoxAcontAntes.FormattingEnabled = true;
-            this.cBoxAcontAntes.Items.AddRange(new object[] {
-            "Sim",
-            "Não",
-            "Não sei "});
-            this.cBoxAcontAntes.Location = new System.Drawing.Point(371, 506);
-            this.cBoxAcontAntes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cBoxAcontAntes.Name = "cBoxAcontAntes";
-            this.cBoxAcontAntes.Size = new System.Drawing.Size(361, 44);
-            this.cBoxAcontAntes.TabIndex = 31;
-            this.cBoxAcontAntes.Text = "Selecione...";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(370, 864);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 46);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Voltar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // roundedPanel1
-            // 
-            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.roundedPanel1.BackColor = System.Drawing.Color.White;
-            this.roundedPanel1.BorderColor = System.Drawing.Color.White;
-            this.roundedPanel1.BorderWidth = 1F;
-            this.roundedPanel1.Controls.Add(this.label2);
-            this.roundedPanel1.Controls.Add(this.label4);
-            this.roundedPanel1.Controls.Add(this.label5);
-            this.roundedPanel1.Controls.Add(this.btnConcluirCH);
-            this.roundedPanel1.CornerRadius = 15F;
-            this.roundedPanel1.Location = new System.Drawing.Point(364, 117);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(1007, 819);
-            this.roundedPanel1.TabIndex = 33;
-            // 
             // lbl_Inicio
             // 
             this.lbl_Inicio.AutoSize = true;
@@ -255,6 +175,21 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lbSair);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(325, 977);
+            this.panel1.TabIndex = 20;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lbSair
             // 
@@ -309,6 +244,73 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // cBoxPessoasAfeta
+            // 
+            this.cBoxPessoasAfeta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cBoxPessoasAfeta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBoxPessoasAfeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxPessoasAfeta.FormattingEnabled = true;
+            this.cBoxPessoasAfeta.Items.AddRange(new object[] {
+            "Somente eu ",
+            "Meu setor ",
+            "A empresa inteira"});
+            this.cBoxPessoasAfeta.Location = new System.Drawing.Point(371, 182);
+            this.cBoxPessoasAfeta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cBoxPessoasAfeta.Name = "cBoxPessoasAfeta";
+            this.cBoxPessoasAfeta.Size = new System.Drawing.Size(361, 44);
+            this.cBoxPessoasAfeta.TabIndex = 30;
+            this.cBoxPessoasAfeta.Text = "Selecione...";
+            // 
+            // cBoxAcontAntes
+            // 
+            this.cBoxAcontAntes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cBoxAcontAntes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBoxAcontAntes.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxAcontAntes.FormattingEnabled = true;
+            this.cBoxAcontAntes.Items.AddRange(new object[] {
+            "Sim",
+            "Não",
+            "Não sei "});
+            this.cBoxAcontAntes.Location = new System.Drawing.Point(371, 506);
+            this.cBoxAcontAntes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cBoxAcontAntes.Name = "cBoxAcontAntes";
+            this.cBoxAcontAntes.Size = new System.Drawing.Size(361, 44);
+            this.cBoxAcontAntes.TabIndex = 31;
+            this.cBoxAcontAntes.Text = "Selecione...";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(370, 864);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(163, 46);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Voltar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.Controls.Add(this.label2);
+            this.roundedPanel1.Controls.Add(this.label4);
+            this.roundedPanel1.Controls.Add(this.label5);
+            this.roundedPanel1.Controls.Add(this.btnConcluirCH);
+            this.roundedPanel1.CornerRadius = 15F;
+            this.roundedPanel1.Location = new System.Drawing.Point(346, 117);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Size = new System.Drawing.Size(1063, 819);
+            this.roundedPanel1.TabIndex = 33;
+            // 
             // ContinuaçaoAbertura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -330,12 +332,12 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ContinuaçaoAbertura_Paint);
             this.PctBox_Logo.ResumeLayout(false);
             this.PctBox_Logo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.roundedPanel1.ResumeLayout(false);
             this.roundedPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

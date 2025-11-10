@@ -12,28 +12,28 @@ namespace Gerenciamento_De_Chamados
     public partial class Editar_Usuario : Form
     {
         private readonly int _usuarioId;
-        private readonly IUsuarioRepository _usuarioRepository; 
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        
+
         public Editar_Usuario(int idUsuario)
         {
             InitializeComponent();
-            this._usuarioId = idUsuario; 
+            this._usuarioId = idUsuario;
 
             _usuarioRepository = new UsuarioRepository();
 
-           
+
             this.Load += Editar_Usuario_Load;
             this.btnSalvar.Click += btnSalvar_Click;
             this.btnCancelar.Click += btnCancelar_Click;
 
-           
+
             this.btnAlterarSenha.Click += btnAlterarSenha_Click;
         }
 
         private async void Editar_Usuario_Load(object sender, EventArgs e)
         {
-           
+
             await CarregarDadosDoUsuarioAsync();
         }
 
@@ -46,17 +46,17 @@ namespace Gerenciamento_De_Chamados
 
                 if (usuario != null)
                 {
-                  
+
                     txtNome.Text = usuario.Nome;
                     txtCPF.Text = usuario.CPF;
                     txtRG.Text = usuario.RG;
                     cmbFuncao.SelectedItem = usuario.FuncaoUsuario;
                     cmbSexo.SelectedItem = usuario.Sexo;
-                    txtSetor.Text = usuario.Setor; 
+                    txtSetor.Text = usuario.Setor;
                     txtEmail.Text = usuario.Email;
                     txtLogin.Text = usuario.Login;
 
-                    
+
                     txtSenha.Text = "";
 
                     if (usuario.DataDeNascimento > dtpDataNascimento.MinDate)
@@ -81,7 +81,7 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-      
+
         private async void btnSalvar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNome.Text) || string.IsNullOrWhiteSpace(txtEmail.Text))
@@ -92,20 +92,20 @@ namespace Gerenciamento_De_Chamados
 
             try
             {
-                
+
                 Usuario usuario = new Usuario
                 {
                     IdUsuario = this._usuarioId,
                     Nome = txtNome.Text,
                     CPF = txtCPF.Text,
                     RG = txtRG.Text,
-                    Setor = txtSetor.Text, 
+                    Setor = txtSetor.Text,
                     DataDeNascimento = dtpDataNascimento.Value,
                     Email = txtEmail.Text,
                     Login = txtLogin.Text,
                     FuncaoUsuario = cmbFuncao.SelectedItem?.ToString(),
                     Sexo = cmbSexo.SelectedItem?.ToString()
-                    
+
                 };
 
                 // Chama o método AtualizarAsync do repositório
@@ -193,5 +193,23 @@ namespace Gerenciamento_De_Chamados
             FormHelper.Sair(this);
         }
         #endregion
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
+        }
+
+        private void Editar_Usuario_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicio = Color.White;
+            Color corFim = ColorTranslator.FromHtml("#232325");
+
+            using (LinearGradientBrush gradiente = new LinearGradientBrush(
+                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+            {
+                g.FillRectangle(gradiente, this.ClientRectangle);
+            }
+        }
     }
 }

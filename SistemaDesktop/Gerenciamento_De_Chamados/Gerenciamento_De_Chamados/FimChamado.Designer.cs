@@ -44,11 +44,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -174,7 +176,7 @@
             this.btnVerChamado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnVerChamado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVerChamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerChamado.Location = new System.Drawing.Point(367, 878);
+            this.btnVerChamado.Location = new System.Drawing.Point(26, 767);
             this.btnVerChamado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVerChamado.Name = "btnVerChamado";
             this.btnVerChamado.Size = new System.Drawing.Size(205, 49);
@@ -188,7 +190,7 @@
             this.btn_PaginaInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_PaginaInicial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_PaginaInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_PaginaInicial.Location = new System.Drawing.Point(1239, 878);
+            this.btn_PaginaInicial.Location = new System.Drawing.Point(863, 767);
             this.btn_PaginaInicial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_PaginaInicial.Name = "btn_PaginaInicial";
             this.btn_PaginaInicial.Size = new System.Drawing.Size(157, 49);
@@ -202,7 +204,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 34F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(364, 164);
+            this.label2.Location = new System.Drawing.Point(53, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(859, 65);
             this.label2.TabIndex = 36;
@@ -214,7 +216,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label4.Location = new System.Drawing.Point(468, 245);
+            this.label4.Location = new System.Drawing.Point(157, 127);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(629, 31);
             this.label4.TabIndex = 37;
@@ -232,12 +234,31 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox2.Image = global::Gerenciamento_De_Chamados.Properties.Resources.check_circle_350dp_9DC384_FILL0_wght400_GRAD0_opsz48;
-            this.pictureBox2.Location = new System.Drawing.Point(591, 334);
+            this.pictureBox2.Location = new System.Drawing.Point(257, 223);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(452, 419);
             this.pictureBox2.TabIndex = 38;
             this.pictureBox2.TabStop = false;
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.Controls.Add(this.label2);
+            this.roundedPanel1.Controls.Add(this.btn_PaginaInicial);
+            this.roundedPanel1.Controls.Add(this.pictureBox2);
+            this.roundedPanel1.Controls.Add(this.btnVerChamado);
+            this.roundedPanel1.Controls.Add(this.label4);
+            this.roundedPanel1.CornerRadius = 15F;
+            this.roundedPanel1.Location = new System.Drawing.Point(346, 111);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Size = new System.Drawing.Size(1050, 854);
+            this.roundedPanel1.TabIndex = 40;
             // 
             // FimChamado
             // 
@@ -245,18 +266,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1421, 977);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn_PaginaInicial);
-            this.Controls.Add(this.btnVerChamado);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.roundedPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FimChamado";
             this.Text = "FimChamado";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FimChamado_Paint);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -264,6 +282,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,5 +306,6 @@
         private System.Windows.Forms.Label lbl_NomeUser;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbSair;
+        private RoundedPanel roundedPanel1;
     }
 }

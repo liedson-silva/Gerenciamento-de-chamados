@@ -161,7 +161,7 @@ namespace Gerenciamento_De_Chamados
         private void ContinuaçaoAbertura_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem vindo {SessaoUsuario.Nome}");
+                lbl_NomeUser.Text = ($" {SessaoUsuario.Nome}");
         }
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
@@ -190,6 +190,11 @@ namespace Gerenciamento_De_Chamados
             {
                 g.FillRectangle(gradiente, this.ClientRectangle);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

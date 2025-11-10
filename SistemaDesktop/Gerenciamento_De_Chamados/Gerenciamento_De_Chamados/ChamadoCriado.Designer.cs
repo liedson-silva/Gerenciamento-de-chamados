@@ -136,6 +136,7 @@
             this.label3.Size = new System.Drawing.Size(98, 29);
             this.label3.TabIndex = 13;
             this.label3.Text = "      FAQ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // lbl_MeusCha
             // 

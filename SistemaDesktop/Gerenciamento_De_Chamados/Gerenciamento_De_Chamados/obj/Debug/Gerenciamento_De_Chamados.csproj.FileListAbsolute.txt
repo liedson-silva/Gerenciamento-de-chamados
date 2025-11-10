@@ -332,3 +332,6 @@ C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Ge
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerencia.52AE2C3A.Up2Date
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.pdb
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Castle.Core.dll
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Moq.dll
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Castle.Core.xml

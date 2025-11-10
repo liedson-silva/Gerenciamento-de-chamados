@@ -288,5 +288,31 @@ namespace Gerenciamento_De_Chamados
         private void lbSair_Click(object sender, EventArgs e) { FormHelper.Sair(this); }
 
         #endregion
+
+        private void AnaliseChamado_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicio = Color.White;
+            Color corFim = ColorTranslator.FromHtml("#232325");
+
+            using (LinearGradientBrush gradiente = new LinearGradientBrush(
+                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+            {
+                g.FillRectangle(gradiente, this.ClientRectangle);
+            }
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicioPanel = Color.White;
+            Color corFimPanel = ColorTranslator.FromHtml("#232325");
+            LinearGradientBrush gradientePanel = new LinearGradientBrush(
+                     panel1.ClientRectangle,
+                    corInicioPanel,
+                    corFimPanel,
+                    LinearGradientMode.Vertical);
+            g.FillRectangle(gradientePanel, panel1.ClientRectangle);
+        }
     }
 }

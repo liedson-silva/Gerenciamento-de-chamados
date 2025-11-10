@@ -46,7 +46,6 @@ namespace Gerenciamento_De_Chamados
             this.lbSair = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PctBox_Inicio = new System.Windows.Forms.PictureBox();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_Inicio = new System.Windows.Forms.Label();
@@ -80,12 +79,12 @@ namespace Gerenciamento_De_Chamados
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.roundedPanel2 = new Gerenciamento_De_Chamados.RoundedPanel();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panelSidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).BeginInit();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -97,6 +96,7 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
             this.roundedPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGerarRelatorio
@@ -234,16 +234,16 @@ namespace Gerenciamento_De_Chamados
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.Transparent;
+            this.panelSidebar.Controls.Add(this.pictureBox1);
             this.panelSidebar.Controls.Add(this.lbSair);
             this.panelSidebar.Controls.Add(this.label3);
             this.panelSidebar.Controls.Add(this.label1);
-            this.panelSidebar.Controls.Add(this.PctBox_Inicio);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Margin = new System.Windows.Forms.Padding(4);
             this.panelSidebar.Name = "panelSidebar";
             this.panelSidebar.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
-            this.panelSidebar.Size = new System.Drawing.Size(296, 1005);
+            this.panelSidebar.Size = new System.Drawing.Size(308, 1005);
             this.panelSidebar.TabIndex = 0;
             this.panelSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSidebar_Paint);
             // 
@@ -275,6 +275,7 @@ namespace Gerenciamento_De_Chamados
             this.label3.Size = new System.Drawing.Size(98, 29);
             this.label3.TabIndex = 15;
             this.label3.Text = "      FAQ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -291,36 +292,23 @@ namespace Gerenciamento_De_Chamados
             this.label1.TabIndex = 16;
             this.label1.Text = "      Meus Chamados";
             // 
-            // PctBox_Inicio
-            // 
-            this.PctBox_Inicio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PctBox_Inicio.Image = ((System.Drawing.Image)(resources.GetObject("PctBox_Inicio.Image")));
-            this.PctBox_Inicio.Location = new System.Drawing.Point(0, 0);
-            this.PctBox_Inicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PctBox_Inicio.Name = "PctBox_Inicio";
-            this.PctBox_Inicio.Size = new System.Drawing.Size(283, 267);
-            this.PctBox_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PctBox_Inicio.TabIndex = 11;
-            this.PctBox_Inicio.TabStop = false;
-            this.PctBox_Inicio.Click += new System.EventHandler(this.PctBox_Inicio_Click);
-            // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.White;
             this.panelHeader.Controls.Add(this.pictureBox4);
             this.panelHeader.Controls.Add(this.lbl_Inicio);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(296, 0);
+            this.panelHeader.Location = new System.Drawing.Point(308, 0);
             this.panelHeader.Margin = new System.Windows.Forms.Padding(4);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1323, 113);
+            this.panelHeader.Size = new System.Drawing.Size(1311, 113);
             this.panelHeader.TabIndex = 1;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(1198, 14);
+            this.pictureBox4.Location = new System.Drawing.Point(1186, 14);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(68, 62);
@@ -332,13 +320,13 @@ namespace Gerenciamento_De_Chamados
             // 
             this.lbl_Inicio.AutoSize = true;
             this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME__2_;
+            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.home_40dp_000000_FILL1_wght400_GRAD0_opsz40;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Inicio.Location = new System.Drawing.Point(23, 39);
+            this.lbl_Inicio.Location = new System.Drawing.Point(38, 40);
             this.lbl_Inicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(120, 31);
+            this.lbl_Inicio.Size = new System.Drawing.Size(134, 36);
             this.lbl_Inicio.TabIndex = 6;
             this.lbl_Inicio.Text = "      Início";
             this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
@@ -679,9 +667,9 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel2.Controls.Add(this.label8);
             this.roundedPanel2.Controls.Add(this.btnGerarRelatorio);
             this.roundedPanel2.CornerRadius = 15F;
-            this.roundedPanel2.Location = new System.Drawing.Point(316, 136);
+            this.roundedPanel2.Location = new System.Drawing.Point(331, 136);
             this.roundedPanel2.Name = "roundedPanel2";
-            this.roundedPanel2.Size = new System.Drawing.Size(1221, 840);
+            this.roundedPanel2.Size = new System.Drawing.Size(1240, 840);
             this.roundedPanel2.TabIndex = 13;
             // 
             // label2
@@ -693,6 +681,16 @@ namespace Gerenciamento_De_Chamados
             this.label2.Size = new System.Drawing.Size(135, 36);
             this.label2.TabIndex = 0;
             this.label2.Text = "Relatorio";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
+            this.pictureBox1.Location = new System.Drawing.Point(-62, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(412, 281);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
             // 
             // Relatorio
             // 
@@ -718,7 +716,6 @@ namespace Gerenciamento_De_Chamados
             this.panel4.PerformLayout();
             this.panelSidebar.ResumeLayout(false);
             this.panelSidebar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).EndInit();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -736,6 +733,7 @@ namespace Gerenciamento_De_Chamados
             this.panelPrincipal.ResumeLayout(false);
             this.roundedPanel2.ResumeLayout(false);
             this.roundedPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -757,7 +755,6 @@ namespace Gerenciamento_De_Chamados
         private System.Windows.Forms.Label lbSair;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox PctBox_Inicio;
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lbl_Inicio;
@@ -791,5 +788,6 @@ namespace Gerenciamento_De_Chamados
         private System.Windows.Forms.Panel panelPrincipal;
         private RoundedPanel roundedPanel2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
