@@ -1,19 +1,7 @@
-import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-
-const data = {
-    id: 234,
-    userId: 31,
-    title: 'problema na internet',
-    date: '05/11/2025',
-    status: 'Pendente',
-    priority: 'Análise',
-    description: 'internet não esta funcionando',
-    affectedPeople: 'Empresa inteira',
-    impedingWork: 'Sim',
-    occurredBefore: 'Sim',
-    solution: 'O ticket ainda não foi resolvido.',
-};
+import { formatDate } from '../components/FormatDate';
+import api from '../services/api';
+import { useEffect, useState } from 'react';
 
 const DetailRow = ({ label, value }) => {
     return (
@@ -26,12 +14,40 @@ const DetailRow = ({ label, value }) => {
     );
 };
 
-const ShowTicket = ({ setActiveTab }) => {
+const ShowTicket = ({ setActiveTab, state }) => {
 
+    const { user, ticket } = state;
+    const [replyText, setReplyText] = useState(null);
+
+    async function fetchSuggestedSolution(idTicket) {
+        try {
+            const response = await api.get(`/get-reply-ticket/${idTicket}`)
+            if (response.data.success) {
+                const solutionRecord = response.data.Tickets.find(
+                    (record) => record.Acao === "Solução Aplicada"
+                )
+                if (solutionRecord) {
+                    const solutionText = solutionRecord.Solucao
+                    setReplyText(solutionText)
+                } else {
+                    setReplyText("O ticket ainda não foi resolvido.");
+                }
+            } else {
+                setReplyText("Falha ao buscar o histórico do ticket.")
+            }
+        } catch (error) {
+            setReplyText("Erro de conexão. Tente novamente mais tarde.")
+        }
+    }
+    useEffect(() => {
+        if (ticket && ticket.IdChamado) {
+            fetchSuggestedSolution(ticket.IdChamado)
+        }
+    }, [ticket])
+ 
     const handleGoHome = () => {
         setActiveTab('Home');
     };
-
 
     return (
         <ScrollView style={styles.container}>
@@ -39,14 +55,14 @@ const ShowTicket = ({ setActiveTab }) => {
                 <View style={styles.greenBlock}>
                     <Text style={styles.sectionHeader}>Dados do formulário</Text>
 
-                    <DetailRow label="Id do chamado" value={data.id} />
-                    <DetailRow label="Id do usuário" value={data.userId} />
-                    <DetailRow label="Título" value={data.title} />
-                    <DetailRow label="Data" value={data.date} />
-                    <DetailRow label="Status" value={data.status} />
-                    <DetailRow label="Prioridade" value={data.priority} />
-                    <DetailRow label="Descrição do problema" value={data.description} />
-                    <DetailRow label="Solução Sugerida/Aplicada" value={data.solution} />
+                    <DetailRow label="Id do chamado" value={ticket?.IdChamado} />
+                    <DetailRow label="Id do usuário" value={ticket?.FK_IdUsuario} />
+                    <DetailRow label="Título" value={ticket?.Titulo} />
+                    <DetailRow label="Data" value={formatDate(ticket?.DataChamado)} />
+                    <DetailRow label="Status" value={ticket?.StatusChamado} />
+                    <DetailRow label="Prioridade" value={ticket?.PrioridadeChamado} />
+                    <DetailRow label="Descrição do problema" value={ticket?.Descricao} />
+                    <DetailRow label="Solução Sugerida/Aplicada" value={replyText}/>
 
                 </View>
 
@@ -102,7 +118,7 @@ const styles = StyleSheet.create({
     },
     detailValue: {
         fontSize: 16,
-        color: '#43AE70', 
+        color: '#43AE70',
         flex: 1,
         flexWrap: 'wrap',
     },

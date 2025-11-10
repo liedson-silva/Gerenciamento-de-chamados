@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
-import api from '../services/api'; 
+import { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import api from '../services/api';
 
 const statusColors = {
     'Resolvido': '#50eb89ff',
     'Pendente': 'yellow',
-    'Em Andamento': 'orange',
+    'Em andamento': 'orange',
     'Análise': '#6c757d',
 };
 
 const TicketItem = ({ ticket, onPress }) => {
-    const statusColor = statusColors[ticket.StatusChamado] || '#6c757d'; 
+    const statusColor = statusColors[ticket.StatusChamado] || '#6c757d';
 
     return (
-        <TouchableOpacity style={styles.itemContainer} onPress={() => onPress(ticket.IdChamado)}>
+        <TouchableOpacity style={styles.itemContainer} onPress={() => onPress(ticket)}>
             <View style={styles.titleColumn}>
                 <Text style={styles.itemTitle} numberOfLines={1}>{ticket.Titulo}</Text>
             </View>
@@ -26,19 +26,16 @@ const TicketItem = ({ ticket, onPress }) => {
     );
 };
 
-const Ticket = ({ setActiveTicket, user, setSelectedTicketId }) => { 
-    
+const Ticket = ({ setActiveTicket, user }) => {
+
     const [tickets, setTickets] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-
         const fetchTickets = async () => {
+            setError(null);
             try {
-                setError(null);
-                
                 const response = await api.get(`/tickets/${user.IdUsuario}`);
-                
                 if (response.data.success) {
                     setTickets(response.data.Tickets || []);
                 } else {
@@ -50,16 +47,14 @@ const Ticket = ({ setActiveTicket, user, setSelectedTicketId }) => {
                 }
             } catch (err) {
                 console.error("Erro no fetch:", err);
-                setError(err.message);
+                setError("Falha ao carregar chamados.");
             }
         };
-
         fetchTickets();
     }, [user]);
 
-    const handleTicketPress = (ticketId) => {
-        setSelectedTicketId(ticketId);
-        setActiveTicket('ShowTicket');
+    const handleTicketPress = (ticket) => {
+        setActiveTicket('ShowTicket', { user: user, ticket: ticket });
     };
 
     return (
@@ -70,7 +65,11 @@ const Ticket = ({ setActiveTicket, user, setSelectedTicketId }) => {
             </View>
 
             <View style={styles.whiteBlock}>
-                {tickets.length === 0 ? (
+                {error ? (
+                    <View style={styles.centeredContainer}>
+                        <Text style={styles.errorText}>{error}</Text>
+                    </View>
+                ) : tickets.length === 0 ? (
                     <View style={styles.centeredContainer}>
                         <Text>Você ainda não abriu nenhum chamado.</Text>
                     </View>

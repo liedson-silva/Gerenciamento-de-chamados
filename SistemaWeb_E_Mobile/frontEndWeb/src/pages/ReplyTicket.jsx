@@ -18,19 +18,17 @@ const ReplyTicket = () => {
         priority: "", status: "", date: "",
     })
 
-    // ... código anterior
-
     async function fetchTickets() {
         try {
             const response = await api.get("/All-tickets")
             if (response.data.success) {
-                const allTickets = response.data.Tickets.filter(ticket => ticket.StatusChamado !== "Resolvido")
-                
+                const allTickets = response.data.Tickets.filter(ticket => ticket.StatusChamado === "Pendente")
+
                 const orderedTickets = allTickets.sort((a, b) => {
                     const priorityOrder = { "Alta": 1, "Média": 2, "Baixa": 3 }
                     const priorityA = priorityOrder[a.PrioridadeChamado] || 99
                     const priorityB = priorityOrder[b.PrioridadeChamado] || 99
-                    
+
                     return priorityA - priorityB
                 })
                 setTickets(orderedTickets)
@@ -73,7 +71,7 @@ const ReplyTicket = () => {
         }, 3000);
     }
 
-    const handleSubmitReply = async () => {
+    const handleSubmitReply = async ( { status } ) => {
         const id = selectedTicket.idTicket
         const solution = replyText
 
@@ -83,7 +81,7 @@ const ReplyTicket = () => {
             return
         }
         try {
-            const { data } = await api.post("/reply-ticket", { id, solution })
+            const { data } = await api.post("/reply-ticket", { id, solution, status })
 
             if (data.success) {
                 setSuccessMessage("Solução enviada!")
@@ -186,7 +184,7 @@ const ReplyTicket = () => {
                     <div className="form-group">
                         <textarea
                             id="reply"
-                            className="input-create-user"
+                            className="input-reply-ticket"
                             value={replyText}
                             onChange={(e) => setReplyText(e.target.value)}
                             required
@@ -200,9 +198,11 @@ const ReplyTicket = () => {
                 <button onClick={handleBack} className='button-back' >
                     Voltar
                 </button>
-                {showForm && (
-                    <button className="button-confirm-reply" onClick={handleSubmitReply} type="submit">Enviar</button>
-                )}
+                {showForm && (<>
+                    <button className="button-confirm-reply" onClick={() => handleSubmitReply({ status: 'Resolvido' })} type="submit">Enviar</button>
+
+                    <button className="button-confirm-reply" onClick={() => handleSubmitReply({ status: 'Em andamento' })}>Enviar/Alterar status</button>
+                </>)}
             </div>
 
         </main>

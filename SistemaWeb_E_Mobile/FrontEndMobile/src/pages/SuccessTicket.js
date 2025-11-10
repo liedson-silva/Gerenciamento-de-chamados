@@ -1,16 +1,13 @@
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
+import { formatDate } from '../components/FormatDate';
 
-const data = {
-    id: 234,
-    date: '04/11/2025',
-    email: 'liedsonsilva987@gmail.com',
-};
+const SuccessTicket = ({ setActiveTab, state }) => {
 
-const SuccessTicket = ({ setActiveTab }) => {
+    const { user, ticket } = state;
 
     const handleViewTicket = () => {
-        setActiveTab('ShowTicket');
+        setActiveTab('ShowTicket', { user: user, ticket: ticket });
     };
 
     return (
@@ -28,13 +25,13 @@ const SuccessTicket = ({ setActiveTab }) => {
 
                 <View style={styles.infoContainer}>
                     <Text style={styles.infoLine}>
-                        <Text style={styles.infoLabel}>ID do chamado:</Text> {data.id}
+                        <Text style={styles.infoLabel}>ID do chamado:</Text> {ticket?.IdChamado}
                     </Text>
                     <Text style={styles.infoLine}>
-                        <Text style={styles.infoLabel}>Data chamado:</Text> {data.date}
+                        <Text style={styles.infoLabel}>Data chamado:</Text> {formatDate(ticket?.DataChamado)}
                     </Text>
                     <Text style={styles.infoLine}>
-                        <Text style={styles.infoLabel}>Email enviado para:</Text> {data.email}
+                        <Text style={styles.infoLabel}>Email enviado para:</Text> {user?.Email}
                     </Text>
                 </View>
 
@@ -97,7 +94,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         paddingVertical: 12,
         paddingHorizontal: 30,
-        width: '70%', 
+        width: '70%',
         alignItems: 'center',
         marginTop: 20,
         shadowColor: '#000',
@@ -109,7 +106,7 @@ const styles = StyleSheet.create({
     viewTicketButtonText: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#fff', 
+        color: '#fff',
     },
 });
 

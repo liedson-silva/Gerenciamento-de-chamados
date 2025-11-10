@@ -1,6 +1,7 @@
 import correct from "../assets/correct.svg"
 import { useNavigate, useLocation } from "react-router-dom"
-
+import { formatDate } from "../components/FormatDate"
+ 
 const SuccesTicket = () => {
     const location = useLocation()
     const { user, ticket } = location.state || {}
@@ -25,7 +26,7 @@ const SuccesTicket = () => {
 
             <div className="success-details">
                 <p>ID do chamado: {ticket.IdChamado}</p>
-                <p>Data chamado: {new Date(ticket.DataChamado).toLocaleDateString('pt-BR')}</p>
+                <p>Data chamado: {formatDate(ticket.DataChamado)}</p>
                 <p>Email enviado para: {user.Email}</p>
             </div>
 

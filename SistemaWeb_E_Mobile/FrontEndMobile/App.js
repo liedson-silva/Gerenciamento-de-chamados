@@ -7,7 +7,6 @@ import Home from './src/pages/Home.js'
 import Faq from './src/pages/Faq.js'
 import Profile from './src/pages/Profile.js';
 import CreateTicket from './src/pages/CreateTicket.js';
-import ImpactTicket from './src/pages/ImpactTicket.js';
 import SuccessTicket from './src/pages/SuccessTicket.js';
 import ShowTicket from './src/pages/ShowTicket.js';
 import Ticket from './src/pages/Ticket.js';
@@ -46,15 +45,21 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('Home')
   const [user, setUser] = useState(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [navState, setNavState] = useState(null)
+
+  const handleNavigate = (tabName, data = null) => {
+    setActiveTab(tabName);
+    setNavState(data); 
+  };
 
   const handleLoginSuccess = () => {
     setIsLoggedIn(true)
-    setActiveTab('Home')
+    handleNavigate('Home')
   }
 
   const handleLogout = () => {
     setIsLoggedIn(false)
-    setActiveTab('Home')
+    handleNavigate('Home')
     setUser(null)
   }
 
@@ -65,21 +70,19 @@ export default function App() {
     }
 
     if (activeTab === 'Home') {
-      return <Home setActiveTab={setActiveTab} user={user} />;
+      return <Home setActiveTab={handleNavigate} user={user} />;
     } else if (activeTab === 'FAQ') {
       return <Faq />;
     } else if (activeTab === 'Perfil') {
-      return <Profile user={user} onNavigate={setActiveTab} />;
+      return <Profile user={user} onNavigate={handleNavigate} />;
     } else if (activeTab === 'Ticket') {
-      return <Ticket user={user} setActiveTicket={setActiveTab} />;
+      return <Ticket user={user} setActiveTicket={handleNavigate} />;
     } else if (activeTab === 'CreateTicket') {
-      return <CreateTicket setActiveTab={setActiveTab} />;
-    } else if (activeTab === 'ImpactTicket') {
-      return <ImpactTicket setActiveTab={setActiveTab} />;
+      return <CreateTicket user={user} setActiveTab={handleNavigate} />;
     } else if (activeTab === 'SuccessTicket') {
-      return <SuccessTicket setActiveTab={setActiveTab} />;
+      return <SuccessTicket setActiveTab={handleNavigate} state={navState}/>;
     } else if (activeTab === 'ShowTicket') {
-      return <ShowTicket setActiveTab={setActiveTab} />;
+      return <ShowTicket setActiveTab={handleNavigate} state={navState}/>;
     }
   }
 
@@ -88,7 +91,7 @@ export default function App() {
 
       {isLoggedIn && (
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => setActiveTab('Home')}>
+          <TouchableOpacity onPress={() => handleNavigate('Home')}>
             <Image source={logo} style={styles.logo} />
           </TouchableOpacity>
 
@@ -100,7 +103,7 @@ export default function App() {
             <DropdownMenu
               onClose={() => setIsMenuOpen(false)}
               onLogout={handleLogout}
-              onNavigate={setActiveTab}
+              onNavigate={handleNavigate}
             />
           )}
         </View>
