@@ -8,7 +8,6 @@ const Login = ({ setActiveTab, setUser }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [forgetPassword, setForgetPassword] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
 
     const handleLogin = async () => {
         if (!login || !password) {
@@ -16,11 +15,9 @@ const Login = ({ setActiveTab, setUser }) => {
             setTimeout(() => setError(""), 2000);
             return;
         }
-        setIsLoading(true);
 
         try {
             const response = await api.post("/login", { login, password });
-            setIsLoading(false);
 
             if (response.data.success) {
                 const user = response.data.user;
@@ -35,7 +32,6 @@ const Login = ({ setActiveTab, setUser }) => {
             }
 
         } catch (err) {
-            setIsLoading(false);
             const errorMessage = err.response?.data?.message || "Usuário ou senha inválidos!";
             console.error("Erro na requisição de login:", err.message);
             setError(errorMessage);
@@ -98,13 +94,8 @@ const Login = ({ setActiveTab, setUser }) => {
                 <TouchableOpacity
                     style={styles.loginButton}
                     onPress={handleLogin}
-                    disabled={isLoading}
                 >
-                    {isLoading ? (
-                        <ActivityIndicator color="#fff" />
-                    ) : (
-                        <Text style={styles.loginButtonText}>Entrar</Text>
-                    )}
+                    <Text style={styles.loginButtonText}>Entrar</Text>
                 </TouchableOpacity>
             </View>
         </View>

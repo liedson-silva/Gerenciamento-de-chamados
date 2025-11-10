@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import Layout from "./pages/Layout"
 import UserConfig from "./pages/UserConfig"
 import CreateTicket from "./pages/CreateTicket";
-import ImpactTicket from "./pages/ImpactTicket";
 import SuccesTicket from "./pages/SuccesTicket";
 import ViewTicketForm from "./pages/ViewTicketForm";
 import Tickets from "./pages/Tickets";
@@ -27,8 +26,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/user-configuration" element={<UserConfig />} />
           <Route path="/create-ticket" element={<CreateTicket />} />
-          <Route path="/create-ticket/impact" element={<ImpactTicket />} />
-          <Route path="/create-ticket/impact/success" element={<SuccesTicket />} />
+          <Route path="/create-ticket/success" element={<SuccesTicket />} />
           <Route path="/view-ticket-form" element={<ViewTicketForm />} />
           <Route path="/tickets" element={<Tickets />} />
           <Route path="/status-ticket" element={<StatusTicket />} />

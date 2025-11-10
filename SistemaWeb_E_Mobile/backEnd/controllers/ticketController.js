@@ -25,14 +25,14 @@ export class TicketsController {
                 }).replace(/\//g, '-')
 
             const result = await this.pool.request()
-                .input("title", this.sql.VarChar(30), title)
-                .input("priority", this.sql.VarChar(7), "Análise")
+                .input("title", this.sql.VarChar(150), title)
+                .input("priority", this.sql.VarChar(20), "Análise")
                 .input("description", this.sql.VarChar(500), description)
                 .input("ticketDate", this.sql.Date, dateforSQL)
                 .input("ticketStatus", this.sql.VarChar(12), "Pendente")
                 .input("category", this.sql.VarChar(16), category)
                 .input("userId", this.sql.Int, userId)
-                .input("affectedPeople", this.sql.VarChar(15), affectedPeople)
+                .input("affectedPeople", this.sql.VarChar(50), affectedPeople)
                 .input("stopWork", this.sql.VarChar(12), stopWork)
                 .input("happenedBefore", this.sql.VarChar(7), happenedBefore)
                 .query("INSERT INTO Chamado (Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria, FK_IdUsuario, PessoasAfetadas, ImpedeTrabalho, OcorreuAnteriormente) OUTPUT INSERTED.* VALUES (@title, @priority, @description, @ticketDate, @ticketStatus, @category, @userId, @affectedPeople, @stopWork, @happenedBefore)")
@@ -233,7 +233,7 @@ export class TicketsController {
     }
 
     async Solution(req, res) {
-        const { id, solution } = req.body
+        const { id, solution, status } = req.body
 
         try {
 
@@ -249,7 +249,7 @@ export class TicketsController {
                 .input("IdChamado", this.sql.Int, id)
                 .input("solutionDate", this.sql.Date, dateforSQL)
                 .input("solution", this.sql.VarChar(500), solution)
-                .input("newStatus", this.sql.VarChar(50), "Resolvido")
+                .input("newStatus", this.sql.VarChar(50), status)
             await request.query(`
                 INSERT INTO Historico (DataSolucao, Solucao, FK_IdChamado, Acao) 
                 VALUES (@solutionDate, @solution, @idChamado, 'Solução Aplicada');

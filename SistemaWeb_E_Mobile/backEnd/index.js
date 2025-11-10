@@ -1,7 +1,7 @@
 import { connectDB, sql } from "./config/connectDB.js"
 import express from "express"
 import cors from "cors"
-import userRouter from "./route/user.route.js"
+import userRouter from "./routes/user.route.js"
 
 
 const app = express()
