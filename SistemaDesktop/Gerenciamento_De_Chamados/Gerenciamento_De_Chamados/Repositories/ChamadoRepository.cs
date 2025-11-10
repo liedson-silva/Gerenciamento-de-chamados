@@ -285,5 +285,35 @@ namespace Gerenciamento_De_Chamados.Repositories
             }
             return list;
         }
+        public async Task<DataTable> BuscarMeusChamadosFiltrados(int idUsuario, string status, string filtroPesquisa)
+        {
+            var dt = new DataTable();
+            string sql = @"
+        SELECT IdChamado, Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria
+        FROM Chamado
+        WHERE FK_IdUsuario = @IdUsuario
+        AND (@Status = '' OR StatusChamado = @Status)
+        AND (@FiltroPesquisa = '' 
+             OR Titulo LIKE @LikeFiltro 
+             OR Descricao LIKE @LikeFiltro 
+             OR Categoria LIKE @LikeFiltro)
+        ORDER BY DataChamado DESC";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                cmd.Parameters.AddWithValue("@Status", status ?? ""); // Se 'status' for nulo, usa string vazia
+                cmd.Parameters.AddWithValue("@FiltroPesquisa", filtroPesquisa ?? "");
+                cmd.Parameters.AddWithValue("@LikeFiltro", $"%{filtroPesquisa ?? ""}%");
+
+                await conn.OpenAsync();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
+            }
+            return dt;
+        }
     }
 }

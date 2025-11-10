@@ -1,191 +1,164 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gerenciamento_De_Chamados.Repositories;
 using Gerenciamento_De_Chamados.Helpers;
+using Gerenciamento_De_Chamados.Models;
 
 namespace Gerenciamento_De_Chamados
 {
     public partial class VisualizarChamado : Form
     {
-        private IChamadoRepository _chamadoRepository;
-        private DataTable chamadosTable = new DataTable();
-        public VisualizarChamado()
+        private readonly IChamadoRepository _chamadoRepository;
+        private readonly string _filtroStatusInicial;
+        private bool _isLoading = true;
 
+        public VisualizarChamado(string filtroStatus = "")
         {
             InitializeComponent();
-
-            // evento para carregar os dados ao abrir o form
             this.Load += VisualizarChamado_Load;
-
             ConfigurarGrade();
 
             _chamadoRepository = new ChamadoRepository();
+            _filtroStatusInicial = filtroStatus;
 
-            // evento para pesquisar
-            txtPesquisarChamados.TextChanged += TxtPesquisar_TextChanged;
         }
 
-        private void VisualizarChamado_Load(object sender, EventArgs e)
+        private async void VisualizarChamado_Load(object sender, EventArgs e)
         {
-            CarregarChamados();
-
             if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
                 lbl_NomeUser.Text = ($"Bem vindo {SessaoUsuario.Nome}");
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
 
 
+            await CarregarChamados();
+            _isLoading = false;
+
+            txtPesquisarChamados.TextChanged += TxtPesquisar_TextChanged;
         }
+
         private void ConfigurarGrade()
         {
-
             dgvChamados.RowTemplate.Height = 30;
-
             dgvChamados.ColumnHeadersHeight = 30;
-
             dgvChamados.AutoGenerateColumns = false;
-
             dgvChamados.Columns.Clear();
 
-
-            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "IdChamado",
-                DataPropertyName = "IdChamado",
-                HeaderText = "ID",
-                Width = 60
-            });
-            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "Titulo",
-                DataPropertyName = "Titulo",
-                HeaderText = "Titulo",
-                Width = 200
-            });
-            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "Prioridade",
-                DataPropertyName = "Prioridade",
-                HeaderText = "Prioridade",
-                Width = 200
-            });
-            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "Descricao",
-                DataPropertyName = "Descricao",
-                HeaderText = "Descricao",
-                Width = 300
-            });
-            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "data",
-                DataPropertyName = "data",
-                HeaderText = "data",
-                Width = 100
-            });
-            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "Status",
-                DataPropertyName = "Status",
-                HeaderText = "Status",
-                Width = 120
-            });
-            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "Categoria",
-                DataPropertyName = "Categoria",
-                HeaderText = "Categoria",
-                Width = 120
-            });
-            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "IdUsuario",
-                DataPropertyName = "IdUsuario",
-                HeaderText = "IdUsuario",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { Name = "IdChamado", DataPropertyName = "IdChamado", HeaderText = "ID", Width = 60 });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { Name = "Titulo", DataPropertyName = "Titulo", HeaderText = "Titulo", Width = 200 });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { Name = "Prioridade", DataPropertyName = "PrioridadeChamado", HeaderText = "Prioridade", Width = 100 });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { Name = "Descricao", DataPropertyName = "Descricao", HeaderText = "Descricao", Width = 300 });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { Name = "Data", DataPropertyName = "DataChamado", HeaderText = "Data", Width = 100 });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { Name = "Status", DataPropertyName = "StatusChamado", HeaderText = "Status", Width = 120 });
+            dgvChamados.Columns.Add(new DataGridViewTextBoxColumn { Name = "Categoria", DataPropertyName = "Categoria", HeaderText = "Categoria", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
         }
 
-        private void CarregarChamados(string filtro = "")
+        private async Task CarregarChamados()
         {
             try
             {
-                // A única linha necessária
-                chamadosTable = _chamadoRepository.BuscarTodosFiltrados(filtro);
-                dgvChamados.DataSource = chamadosTable;
+                string status = "";
+                string pesquisa = "";
+
+                if (_isLoading && !string.IsNullOrEmpty(_filtroStatusInicial))
+                {
+                    status = _filtroStatusInicial;
+                    pesquisa = "";
+                }
+              
+                else if (!_isLoading)
+                {
+                    status = "";
+                    pesquisa = txtPesquisarChamados.Text;
+                }
+             
+
+                DataTable dt = await _chamadoRepository.BuscarMeusChamadosFiltrados(
+                    SessaoUsuario.IdUsuario,
+                    status,
+                    pesquisa
+                );
+
+                // --- CORREÇÃO 4: Verificar se a Form foi fechada antes de atualizar a UI ---
+                if (this.IsDisposed) return;
+
+                dgvChamados.DataSource = dt;
+
+                if (dt.Rows.Count == 0)
+                {
+                    // Se foi a carga inicial (vinda do Home) que não achou nada
+                    if (_isLoading && !string.IsNullOrEmpty(_filtroStatusInicial))
+                    {
+                        MessageBox.Show($"Não há chamados com o status '{_filtroStatusInicial}'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Fecha a tela com segurança DEPOIS que tudo terminar
+                        this.BeginInvoke(new Action(() => this.Close()));
+                    }
+                    // Se foi uma pesquisa manual do usuário que não achou nada
+                    else if (!_isLoading)
+                    {
+                        string msgPesquisa = string.IsNullOrEmpty(pesquisa) ? "disponíveis" : $"para a pesquisa '{pesquisa}'";
+                        MessageBox.Show($"Não há chamados {msgPesquisa} para exibir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (ObjectDisposedException)
+            {
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar chamados: " + ex.Message);
+                if (!this.IsDisposed)
+                {
+                    MessageBox.Show("Erro ao carregar chamados: " + ex.Message);
+                }
             }
         }
-        
 
-        private void TxtPesquisar_TextChanged(object sender, EventArgs e)
+        private async void TxtPesquisar_TextChanged(object sender, EventArgs e)
         {
-            CarregarChamados(txtPesquisarChamados.Text);
+
+
+            await Task.Delay(300); 
+            await CarregarChamados();
         }
 
+        private async void dgvChamados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvChamados.Rows[e.RowIndex];
+                object idValue = row.Cells["IdChamado"].Value;
+
+                if (idValue != null && int.TryParse(idValue.ToString(), out int idChamadoSelecionado))
+                {
+                    var telaDetalhes = new ChamadoCriado(idChamadoSelecionado);
+                    telaDetalhes.ShowDialog();
+
+                    await CarregarChamados();
+                }
+            }
+        }
+
+        // (Restante do seu código: lblInicio_Click, PctBox_Logo_Click, etc.)
+        private void lblInicio_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
+        private void PctBox_Logo_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
+        private void lbSair_Click(object sender, EventArgs e) { FormHelper.Sair(this); }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             Color corInicioPanel = Color.White;
             Color corFimPanel = ColorTranslator.FromHtml("#232325");
             LinearGradientBrush gradientePanel = new LinearGradientBrush(
-                     panel1.ClientRectangle,
-                    corInicioPanel,
-                    corFimPanel,
-                    LinearGradientMode.Vertical); // Exemplo com gradiente horizontal
+                           panel1.ClientRectangle,
+                           corInicioPanel,
+                           corFimPanel,
+                           LinearGradientMode.Vertical);
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
-
-        }
-
-        private void dgvChamados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Verifica se o clique foi em uma linha de dados válida (e não no cabeçalho da coluna)
-            if (e.RowIndex >= 0)
-            {
-               
-                DataGridViewRow row = dgvChamados.Rows[e.RowIndex];
-
-                
-                object idValue = row.Cells["IdChamado"].Value;
-                int idChamadoSelecionado;
-
-                // Tenta converter o ID para um número inteiro de forma segura
-                if (idValue != null && int.TryParse(idValue.ToString(), out idChamadoSelecionado))
-                {
-                    
-                    var telaDetalhes = new ChamadoCriado(idChamadoSelecionado);
-                    telaDetalhes.ShowDialog();
-
-                    CarregarChamados();
-                }
-            }
-        }
-
-        private void lblInicio_Click(object sender, EventArgs e)
-        {
-            FormHelper.BotaoHome(this);
-        }
-
-        private void PctBox_Logo_Click(object sender, EventArgs e)
-        {
-            FormHelper.BotaoHome(this);
-        }
-
-        private void lbSair_Click(object sender, EventArgs e)
-        {
-            FormHelper.Sair(this);
         }
     }
 }

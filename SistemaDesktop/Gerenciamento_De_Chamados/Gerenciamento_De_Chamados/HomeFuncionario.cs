@@ -272,5 +272,38 @@ namespace Gerenciamento_De_Chamados
         {
             FormHelper.FAQ(this);
         }
+
+        private void btnChamadosPendentes_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado("Pendente");
+            this.Hide();
+            verChamado.ShowDialog(); 
+            this.Show(); 
+        }
+
+        private void btnChamadosEmAndamento_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado("Em Andamento");
+            this.Hide();
+            verChamado.ShowDialog(); 
+            this.Show(); 
+        }
+
+        private void btnChamadosResolvidos_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado("Resolvido"); 
+            this.Hide();
+            verChamado.ShowDialog(); 
+            this.Show(); 
+        }
+
+        
+        private void btnMeusChamados_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado(); 
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
     }
 }

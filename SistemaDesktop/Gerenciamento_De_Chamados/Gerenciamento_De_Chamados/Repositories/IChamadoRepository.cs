@@ -22,5 +22,6 @@ namespace Gerenciamento_De_Chamados.Repositories
         Task AtualizarStatusAsync(int idChamado, string novoStatus, string novaPrioridade, string novaCategoria, SqlConnection conn, SqlTransaction trans);
         Task<List<ChartDataPoint>> ContarPorStatusAsync(int idUsuario);
         Task<List<ChartDataPoint>> ContarPorCategoriaAsync(int idUsuario);
+        Task<DataTable> BuscarMeusChamadosFiltrados(int idUsuario, string status, string filtroPesquisa);
     }
 }
