@@ -1,70 +1,69 @@
-import {
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  BarChart, Bar
-} from 'recharts';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import api from "../services/api.js"
+import api from "../services/api.js";
 import { formatDate } from '../components/FormatDate.jsx';
+import StageChart3 from '../components/StageCharts3.jsx';
+import StageChart4 from '../components/StageCharts4.jsx';
+import ExcelJS from 'exceljs';
+import { saveAs } from 'file-saver';
 
 const Report = () => {
-  const location = useLocation()
-  const user = location.state?.user
-  const navigate = useNavigate()
-  const [viewTickets, SetViewTickets] = useState([])
-  const [viewReportTickets, SetReportTickets] = useState([])
+  const location = useLocation();
+  const user = location.state?.user;
+  const navigate = useNavigate();
+  const [viewTickets, SetViewTickets] = useState([]);
+  const [viewReportTickets, SetReportTickets] = useState([]);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [error, setError] = useState("");
-  const [showCreateReport, setShowCreateReport] = useState(true)
-  const [showReport, setShowReport] = useState(false)
+  const [showCreateReport, setShowCreateReport] = useState(true);
+  const [showReport, setShowReport] = useState(false);
 
   async function getTicket() {
     try {
-      const response = await api.get("/All-tickets")
+      const response = await api.get("/All-tickets");
       if (response.data.success) {
-        SetViewTickets(response.data.Tickets)
+        SetViewTickets(response.data.Tickets);
       } else {
-        console.log("Erro ao carregar chamados.")
+        console.log("Erro ao carregar chamados.");
       }
     } catch (error) {
-      console.error("Erro ao buscar chamados:", error)
+      console.error("Erro ao buscar chamados:", error);
     }
   }
+
   useEffect(() => {
-    getTicket()
-  }, [])
+    getTicket();
+  }, []);
 
   async function getReportTicket(startDate, endDate) {
     try {
-      const response = await api.get(`/report-ticket?startDate=${startDate}&endDate=${endDate}`)
+      const response = await api.get(`/report-ticket?startDate=${startDate}&endDate=${endDate}`);
       if (response.data.success && response.data.Tickets) {
         const fetchedTickets = response.data.Tickets;
         SetReportTickets(fetchedTickets);
         return fetchedTickets;
       } else {
-        console.log("Erro ao carregar chamados ou sucesso falso da API.");
         SetReportTickets([]);
-        return []
+        return [];
       }
     } catch (error) {
       console.error("Erro ao buscar relatórios dos chamados:", error);
       SetReportTickets([]);
-      return []
+      return [];
     }
   }
 
   const createReport = async () => {
-
     if (!startDate || !endDate) {
-      setError("Por favor, selecione as datas de início e fim para gerar o relatório.")
+      setError("Por favor, selecione as datas de início e fim para gerar o relatório.");
       setTimeout(() => setError(""), 4000);
-      return
+      return;
     }
-    setShowCreateReport(false)
-    setShowReport(true)
+    setShowCreateReport(false);
+    setShowReport(true);
 
-    const tickets = await getReportTicket(startDate, endDate)
+    const tickets = await getReportTicket(startDate, endDate);
 
     if (tickets.length === 0) {
       setShowReport(false);
@@ -72,60 +71,17 @@ const Report = () => {
       setError("Nenhum chamado encontrado no período especificado.");
       setTimeout(() => setError(""), 4000);
     }
-  }
-
-  const monthNames = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
-
-  const data = Array.from({ length: 4 }, (_, i) => {
-    const today = new Date();
-    const targetDate = new Date(today.getFullYear(), today.getMonth() - i, 1);
-
-    const monthIndex = targetDate.getMonth();
-    const year = targetDate.getFullYear();
-    const monthName = monthNames[monthIndex];
-
-    const ticketsInMonth = viewTickets.filter(ticket => {
-      const d = new Date(ticket.DataChamado);
-      return d.getUTCFullYear() === year && d.getUTCMonth() === monthIndex;
-    });
-
-    return {
-      "name": monthName,
-      "uv": ticketsInMonth.filter(t => t.StatusChamado === "Resolvido").length,
-      "pv": ticketsInMonth.length
-    };
-  }).reverse();
-
-  const data2 = [
-    { name: "Baixa", color: '#50eb89ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "Baixa" && ticket.StatusChamado === "Resolvido").length },
-    { name: "Média", color: '#5789e0ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "Média" && ticket.StatusChamado === "Resolvido").length },
-    { name: "Alta", color: '#ec6258ff', uv: viewTickets.filter(ticket => ticket.PrioridadeChamado === "Alta" && ticket.StatusChamado === "Resolvido").length }
-  ]
-
-  const CustomTooltip = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.9)',
-          border: '1px solid #ccc',
-          padding: '10px',
-          borderRadius: '5px'
-        }}>
-          <p className="label">{`${label} : ${payload[0].value}`}</p>
-        </div>
-      );
-    }
-    return null;
   };
 
   const handleHome = () => {
     navigate("/admin-home", { state: { user } });
-  }
+  };
 
   const handleBack = () => {
-    setShowReport(false)
-    setShowCreateReport(true)
-  }
+    setShowReport(false);
+    setShowCreateReport(true);
+    SetReportTickets([]);
+  };
 
   const totalTickets = viewReportTickets.length;
   const pendenteTickets = viewReportTickets.filter(t => t.StatusChamado === "Pendente").length;
@@ -134,6 +90,100 @@ const Report = () => {
   const baixaTickets = viewReportTickets.filter(t => t.PrioridadeChamado === "Baixa").length;
   const mediaTickets = viewReportTickets.filter(t => t.PrioridadeChamado === "Média").length;
   const altaTickets = viewReportTickets.filter(t => t.PrioridadeChamado === "Alta").length;
+
+  const handleDownloadExcel = async () => {
+    if (viewReportTickets.length === 0) {
+      setError("Não há dados para baixar.");
+      setTimeout(() => setError(""), 4000);
+      return;
+    }
+
+    const workbook = new ExcelJS.Workbook();
+    workbook.creator = "Seu Sistema";
+    workbook.lastModifiedBy = user?.nome || "Usuário";
+    workbook.created = new Date();
+    workbook.modified = new Date();
+
+    const worksheet = workbook.addWorksheet("Relatório de Chamados");
+
+    worksheet.columns = [
+      { header: "ID", key: "IdChamado", width: 10 },
+      { header: "Título", key: "Titulo", width: 30 },
+      { header: "Descrição", key: "Descricao", width: 45 },
+      { header: "Prioridade", key: "PrioridadeChamado", width: 15 },
+      { header: "Data", key: "DataChamado", width: 15 },
+      { header: "Status", key: "StatusChamado", width: 18 },
+      { header: "ID Usuário", key: "FK_IdUsuario", width: 12 },
+    ];
+
+    worksheet.getRow(1).eachCell((cell) => {
+      cell.font = { bold: true, color: { argb: "FFFFFFFF" } };
+      cell.fill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: "FF007B5E" },
+      };
+      cell.alignment = { vertical: 'middle', horizontal: 'center' };
+    });
+
+    const dataForExcel = viewReportTickets.map(ticket => ({
+      ...ticket,
+      DataChamado: formatDate(ticket.DataChamado)
+    }));
+
+    worksheet.addRows(dataForExcel);
+
+    const cores = {
+      prioridade: {
+        Alta: "FFFFC7CE",
+        Média: "FFC6E0FF",
+        Baixa: "FFD8EAD3",
+      },
+      status: {
+        Pendente: "FFFFEB9C",
+        "Em andamento": "FFFFD9C4",
+        Resolvido: "FFD8EAD3"
+      },
+      fontes: {
+        Alta: "FF9C0006",
+        Média: "FF006100",
+        Baixa: "FF006100",
+        Pendente: "FF9C6500",
+        "Em andamento": "FF9C4A00",
+        Resolvido: "FF006100"
+      }
+    };
+
+    worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
+      if (rowNumber > 1) {
+        const prioridadeCell = row.getCell("PrioridadeChamado");
+        const statusCell = row.getCell("StatusChamado");
+
+        if (cores.prioridade[prioridadeCell.value]) {
+          prioridadeCell.fill = {
+            type: "pattern", pattern: "solid",
+            fgColor: { argb: cores.prioridade[prioridadeCell.value] }
+          };
+          prioridadeCell.font = { color: { argb: cores.fontes[prioridadeCell.value] } };
+        }
+
+        if (cores.status[statusCell.value]) {
+          statusCell.fill = {
+            type: "pattern", pattern: "solid",
+            fgColor: { argb: cores.status[statusCell.value] }
+          };
+          statusCell.font = { color: { argb: cores.fontes[statusCell.value] } };
+        }
+      }
+    });
+
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    });
+    const fileName = `Relatorio_Chamados_${startDate}_a_${endDate}.xlsx`;
+    saveAs(blob, fileName);
+  };
 
   return (
     <main>
@@ -157,56 +207,34 @@ const Report = () => {
         <div className='box-button-report'>
           <button className="button-report" onClick={createReport}>Gerar relatório</button>
         </div>
+
+        {showReport && (
+          <div className='box-button-report'>
+            <button
+              className="button-report"
+              onClick={handleDownloadExcel}
+            >
+              Baixar
+            </button>
+          </div>
+        )}
       </section>
 
-      {showCreateReport && (<>
-        <section className='report-chart'>
-
-          <div className='report-box-chart1'>
-            <p className='report-title-chart'>Chamados Resolvidos x Criados (Mensal)</p>
-            <ResponsiveContainer>
-              <AreaChart
-                data={data}
-                margin={{ top: 10, right: 30, left: 0, bottom: 40 }}
-              >
-                <defs>
-                  <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#00b0ff" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="#00b0ff" stopOpacity={0} />
-                  </linearGradient>
-                  <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#00e676" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="#00e676" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <XAxis dataKey="name" />
-                <YAxis width={60} />
-                <CartesianGrid strokeDasharray="3 3" />
-                <Tooltip />
-                <Area type="monotone" dataKey="uv" stroke="#00b0ff" fillOpacity={1} fill="url(#colorUv)" name="Resolvidos" />
-                <Area type="monotone" dataKey="pv" stroke="#00e676" fillOpacity={1} fill="url(#colorPv)" name="Criados" />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className='report-box-chart'>
-            <p className='report-title-chart'>Chamados Resolvidos (Prioridade)</p>
-            <ResponsiveContainer>
-              <BarChart data={data2} margin={{ top: 10, right: 30, left: 0, bottom: 40 }}>
-                <XAxis dataKey="name" />
-                <YAxis width={60} />
-                <Tooltip content={<CustomTooltip />} />
-                <Bar dataKey="uv" radius={[10, 10, 0, 0]} fill="currentColor" />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-
-        </section>
-
-        <button onClick={handleHome} className='button-back' >
-          Voltar
-        </button>
-      </>)}
+      {showCreateReport && (
+        <>
+          <section className='report-chart'>
+            <div>
+              <StageChart3 viewTickets={viewTickets} />
+            </div>
+            <div>
+              <StageChart4 viewTickets={viewTickets} />
+            </div>
+          </section>
+          <button onClick={handleHome} className='button-back' >
+            Voltar
+          </button>
+        </>
+      )}
 
       {showReport && (
         <section className='report-list'>
@@ -268,9 +296,8 @@ const Report = () => {
           </div>
         </section>
       )}
-
     </main>
-  )
-}
+  );
+};
 
-export default Report
+export default Report;
