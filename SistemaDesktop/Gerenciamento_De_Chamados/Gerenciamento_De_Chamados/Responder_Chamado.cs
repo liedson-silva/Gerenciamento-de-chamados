@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -205,6 +204,18 @@ namespace Gerenciamento_De_Chamados
         private void btnVisualizarCh_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
+        }
+
+        private void bt_Criar_Click(object sender, EventArgs e)
+        {
+            var criarchamado = new AberturaChamados();
+            criarchamado.Show();
+            this.Hide();
         }
     }
 }

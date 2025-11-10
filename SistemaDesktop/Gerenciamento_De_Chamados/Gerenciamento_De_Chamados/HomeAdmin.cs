@@ -71,5 +71,17 @@ namespace Gerenciamento_De_Chamados
         {
             FormHelper.Sair(this);
         }
+
+        private void HomeAdmin_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SessaoUsuario.Nome) && !string.IsNullOrEmpty(SessaoUsuario.FuncaoUsuario))
+            {
+                Home_Tecnico.Text = $"Olá, {SessaoUsuario.Nome} ({SessaoUsuario.FuncaoUsuario})";
+            }
+            else
+            {
+                Home_Tecnico.Text = "Usuário não identificado";
+            }
+        }
     }
 }

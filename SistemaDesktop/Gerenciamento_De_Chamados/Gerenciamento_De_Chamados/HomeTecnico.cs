@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gerenciamento_De_Chamados.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -74,7 +75,7 @@ namespace Gerenciamento_De_Chamados
 
         private void lbSair_Click(object sender, EventArgs e)
         {
-
+            FormHelper.Sair(this);
         }
     }
 }

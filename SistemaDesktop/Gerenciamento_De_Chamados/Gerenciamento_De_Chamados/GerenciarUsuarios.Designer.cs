@@ -52,6 +52,7 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funcaoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -59,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
+            this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,7 +73,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(229, 754);
+            this.panel1.Size = new System.Drawing.Size(281, 754);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -102,6 +104,7 @@
             this.label3.Size = new System.Drawing.Size(98, 29);
             this.label3.TabIndex = 13;
             this.label3.Text = "      FAQ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -110,7 +113,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(3, 298);
+            this.label1.Location = new System.Drawing.Point(12, 294);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(230, 29);
             this.label1.TabIndex = 14;
@@ -122,7 +125,7 @@
             this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
             this.PctBox_Logo.Location = new System.Drawing.Point(-35, 0);
             this.PctBox_Logo.Name = "PctBox_Logo";
-            this.PctBox_Logo.Size = new System.Drawing.Size(295, 236);
+            this.PctBox_Logo.Size = new System.Drawing.Size(316, 224);
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Logo.TabIndex = 3;
             this.PctBox_Logo.TabStop = false;
@@ -135,9 +138,9 @@
             this.panel2.Controls.Add(this.lbl_Inicio);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(229, 0);
+            this.panel2.Location = new System.Drawing.Point(281, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1048, 84);
+            this.panel2.Size = new System.Drawing.Size(1167, 84);
             this.panel2.TabIndex = 2;
             // 
             // lbl_NomeUser
@@ -167,7 +170,7 @@
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(985, 13);
+            this.pictureBox4.Location = new System.Drawing.Point(1104, 13);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(51, 50);
@@ -177,11 +180,10 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(265, 115);
+            this.label2.Location = new System.Drawing.Point(26, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(344, 46);
             this.label2.TabIndex = 5;
@@ -189,11 +191,10 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(268, 211);
+            this.label4.Location = new System.Drawing.Point(63, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 25);
             this.label4.TabIndex = 6;
@@ -201,13 +202,12 @@
             // 
             // txtPesquisarUser
             // 
-            this.txtPesquisarUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisarUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtPesquisarUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisarUser.Location = new System.Drawing.Point(379, 211);
+            this.txtPesquisarUser.Location = new System.Drawing.Point(177, 108);
             this.txtPesquisarUser.Multiline = true;
             this.txtPesquisarUser.Name = "txtPesquisarUser";
-            this.txtPesquisarUser.Size = new System.Drawing.Size(776, 35);
+            this.txtPesquisarUser.Size = new System.Drawing.Size(808, 35);
             this.txtPesquisarUser.TabIndex = 7;
             // 
             // btnEditarUsuario
@@ -217,7 +217,7 @@
             this.btnEditarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarUsuario.Image = global::Gerenciamento_De_Chamados.Properties.Resources.edit_44dp_000000_FILL0_wght400_GRAD0_opsz48;
             this.btnEditarUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarUsuario.Location = new System.Drawing.Point(514, 664);
+            this.btnEditarUsuario.Location = new System.Drawing.Point(328, 555);
             this.btnEditarUsuario.Name = "btnEditarUsuario";
             this.btnEditarUsuario.Size = new System.Drawing.Size(159, 55);
             this.btnEditarUsuario.TabIndex = 4;
@@ -227,6 +227,7 @@
             // 
             // btnCadastroUser
             // 
+            this.btnCadastroUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCadastroUser.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnCadastroUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastroUser.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
@@ -235,7 +236,7 @@
             this.btnCadastroUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCadastroUser.Image = global::Gerenciamento_De_Chamados.Properties.Resources.add_44dp_F3F3F3_FILL0_wght400_GRAD0_opsz48;
             this.btnCadastroUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastroUser.Location = new System.Drawing.Point(273, 664);
+            this.btnCadastroUser.Location = new System.Drawing.Point(68, 555);
             this.btnCadastroUser.Name = "btnCadastroUser";
             this.btnCadastroUser.Size = new System.Drawing.Size(204, 55);
             this.btnCadastroUser.TabIndex = 0;
@@ -254,8 +255,7 @@
             this.dgvUsuarios.AllowUserToDeleteRows = false;
             this.dgvUsuarios.AllowUserToResizeColumns = false;
             this.dgvUsuarios.AllowUserToResizeRows = false;
-            this.dgvUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dgvUsuarios.BackgroundColor = System.Drawing.Color.White;
             this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -282,11 +282,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvUsuarios.Location = new System.Drawing.Point(272, 309);
+            this.dgvUsuarios.Location = new System.Drawing.Point(68, 203);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersVisible = false;
             this.dgvUsuarios.RowHeadersWidth = 51;
-            this.dgvUsuarios.Size = new System.Drawing.Size(885, 309);
+            this.dgvUsuarios.Size = new System.Drawing.Size(917, 309);
             this.dgvUsuarios.TabIndex = 8;
             // 
             // nomeDataGridViewTextBoxColumn
@@ -318,23 +318,39 @@
             this.usuarioBindingSource.DataMember = "Usuario";
             this.usuarioBindingSource.DataSource = this._DbaFatal_SystemDataSet;
             // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.Controls.Add(this.btnEditarUsuario);
+            this.roundedPanel1.Controls.Add(this.dgvUsuarios);
+            this.roundedPanel1.Controls.Add(this.label2);
+            this.roundedPanel1.Controls.Add(this.txtPesquisarUser);
+            this.roundedPanel1.Controls.Add(this.btnCadastroUser);
+            this.roundedPanel1.Controls.Add(this.label4);
+            this.roundedPanel1.CornerRadius = 15F;
+            this.roundedPanel1.Location = new System.Drawing.Point(302, 103);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Size = new System.Drawing.Size(1123, 639);
+            this.roundedPanel1.TabIndex = 9;
+            // 
             // GerenciarUsuarios
             // 
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1277, 754);
-            this.Controls.Add(this.dgvUsuarios);
-            this.Controls.Add(this.txtPesquisarUser);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnEditarUsuario);
+            this.ClientSize = new System.Drawing.Size(1448, 754);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnCadastroUser);
+            this.Controls.Add(this.roundedPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GerenciarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.GerenciarUsuarios_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GerenciarUsuarios_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).EndInit();
@@ -344,8 +360,9 @@
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -372,5 +389,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn funcaoUsuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource usuarioBindingSource;
         private System.Windows.Forms.Label lbSair;
+        private RoundedPanel roundedPanel1;
     }
 }

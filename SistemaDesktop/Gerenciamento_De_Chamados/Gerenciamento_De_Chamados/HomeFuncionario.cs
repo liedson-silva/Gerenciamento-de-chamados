@@ -32,7 +32,7 @@ namespace Gerenciamento_De_Chamados
             plotCategoria.UserInputProcessor.UserActionResponses.Clear();
 
             if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Olá, {SessaoUsuario.Nome}");
+                lbl_NomeUser.Text = $"Olá, {SessaoUsuario.Nome} ({SessaoUsuario.FuncaoUsuario})";
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
 
@@ -304,6 +304,11 @@ namespace Gerenciamento_De_Chamados
             this.Hide();
             verChamado.ShowDialog();
             this.Show();
+        }
+
+        private void lbSair_Click(object sender, EventArgs e)
+        {
+            FormHelper.Sair(this);
         }
     }
 }

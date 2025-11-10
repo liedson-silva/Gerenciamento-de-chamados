@@ -192,9 +192,9 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.Controls.Add(this.btn_AbrirChamado);
             this.roundedPanel1.Controls.Add(this.button1);
             this.roundedPanel1.CornerRadius = 15F;
-            this.roundedPanel1.Location = new System.Drawing.Point(348, 131);
+            this.roundedPanel1.Location = new System.Drawing.Point(348, 116);
             this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(1205, 834);
+            this.roundedPanel1.Size = new System.Drawing.Size(1205, 849);
             this.roundedPanel1.TabIndex = 29;
             // 
             // groupBox1

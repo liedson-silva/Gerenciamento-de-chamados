@@ -58,6 +58,7 @@
             this._DbaFatal_SystemDataSet = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSet();
             this.dbaFatalSystemDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chamadoTableAdapter = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSet1TableAdapters.ChamadoTableAdapter();
+            this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChamados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chamadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet1)).BeginInit();
@@ -67,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbaFatalSystemDataSetBindingSource)).BeginInit();
+            this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvChamados
@@ -111,12 +113,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvChamados.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvChamados.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvChamados.Location = new System.Drawing.Point(238, 350);
+            this.dgvChamados.Location = new System.Drawing.Point(22, 342);
+            this.dgvChamados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvChamados.Name = "dgvChamados";
             this.dgvChamados.RowHeadersVisible = false;
             this.dgvChamados.RowHeadersWidth = 51;
             this.dgvChamados.RowTemplate.Height = 40;
-            this.dgvChamados.Size = new System.Drawing.Size(963, 261);
+            this.dgvChamados.Size = new System.Drawing.Size(1246, 375);
             this.dgvChamados.TabIndex = 17;
             this.dgvChamados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChamados_CellDoubleClick);
             // 
@@ -129,7 +132,7 @@
             this.idChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idChamadoDataGridViewTextBoxColumn.Name = "idChamadoDataGridViewTextBoxColumn";
             this.idChamadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idChamadoDataGridViewTextBoxColumn.Width = 111;
+            this.idChamadoDataGridViewTextBoxColumn.Width = 131;
             // 
             // tituloDataGridViewTextBoxColumn
             // 
@@ -139,7 +142,7 @@
             this.tituloDataGridViewTextBoxColumn.HeaderText = "Titulo";
             this.tituloDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tituloDataGridViewTextBoxColumn.Name = "tituloDataGridViewTextBoxColumn";
-            this.tituloDataGridViewTextBoxColumn.Width = 72;
+            this.tituloDataGridViewTextBoxColumn.Width = 86;
             // 
             // prioridadeChamadoDataGridViewTextBoxColumn
             // 
@@ -148,7 +151,7 @@
             this.prioridadeChamadoDataGridViewTextBoxColumn.HeaderText = "Prioridade";
             this.prioridadeChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.prioridadeChamadoDataGridViewTextBoxColumn.Name = "prioridadeChamadoDataGridViewTextBoxColumn";
-            this.prioridadeChamadoDataGridViewTextBoxColumn.Width = 106;
+            this.prioridadeChamadoDataGridViewTextBoxColumn.Width = 123;
             // 
             // descricaoDataGridViewTextBoxColumn
             // 
@@ -166,7 +169,7 @@
             this.dataChamadoDataGridViewTextBoxColumn.HeaderText = "Data";
             this.dataChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dataChamadoDataGridViewTextBoxColumn.Name = "dataChamadoDataGridViewTextBoxColumn";
-            this.dataChamadoDataGridViewTextBoxColumn.Width = 65;
+            this.dataChamadoDataGridViewTextBoxColumn.Width = 77;
             // 
             // statusChamadoDataGridViewTextBoxColumn
             // 
@@ -175,7 +178,7 @@
             this.statusChamadoDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusChamadoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.statusChamadoDataGridViewTextBoxColumn.Name = "statusChamadoDataGridViewTextBoxColumn";
-            this.statusChamadoDataGridViewTextBoxColumn.Width = 74;
+            this.statusChamadoDataGridViewTextBoxColumn.Width = 89;
             // 
             // categoriaDataGridViewTextBoxColumn
             // 
@@ -184,6 +187,7 @@
             this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
             this.categoriaDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
+            this.categoriaDataGridViewTextBoxColumn.Width = 117;
             // 
             // fKIdUsuarioDataGridViewTextBoxColumn
             // 
@@ -192,7 +196,7 @@
             this.fKIdUsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario";
             this.fKIdUsuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.fKIdUsuarioDataGridViewTextBoxColumn.Name = "fKIdUsuarioDataGridViewTextBoxColumn";
-            this.fKIdUsuarioDataGridViewTextBoxColumn.Width = 85;
+            this.fKIdUsuarioDataGridViewTextBoxColumn.Width = 99;
             // 
             // chamadoBindingSource
             // 
@@ -209,10 +213,11 @@
             this.txtPesquisarChamados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPesquisarChamados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisarChamados.Location = new System.Drawing.Point(347, 236);
+            this.txtPesquisarChamados.Location = new System.Drawing.Point(158, 182);
+            this.txtPesquisarChamados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPesquisarChamados.Multiline = true;
             this.txtPesquisarChamados.Name = "txtPesquisarChamados";
-            this.txtPesquisarChamados.Size = new System.Drawing.Size(776, 35);
+            this.txtPesquisarChamados.Size = new System.Drawing.Size(1119, 42);
             this.txtPesquisarChamados.TabIndex = 16;
             // 
             // label4
@@ -221,9 +226,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(236, 236);
+            this.label4.Location = new System.Drawing.Point(26, 182);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 20);
+            this.label4.Size = new System.Drawing.Size(105, 25);
             this.label4.TabIndex = 15;
             this.label4.Text = "Pesquisar:";
             // 
@@ -231,9 +237,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(248, 99);
+            this.label2.Location = new System.Drawing.Point(48, 27);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(293, 37);
+            this.label2.Size = new System.Drawing.Size(362, 46);
             this.label2.TabIndex = 14;
             this.label2.Text = "Chamados Criados";
             // 
@@ -244,18 +251,20 @@
             this.panel2.Controls.Add(this.lblInicio);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(229, 0);
+            this.panel2.Location = new System.Drawing.Point(305, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(994, 67);
+            this.panel2.Size = new System.Drawing.Size(1386, 82);
             this.panel2.TabIndex = 11;
             // 
             // lbl_NomeUser
             // 
             this.lbl_NomeUser.AutoSize = true;
             this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(163, 40);
+            this.lbl_NomeUser.Location = new System.Drawing.Point(217, 49);
+            this.lbl_NomeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 25);
             this.lbl_NomeUser.TabIndex = 9;
             // 
             // lblInicio
@@ -264,9 +273,10 @@
             this.lblInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lblInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblInicio.Location = new System.Drawing.Point(37, 23);
+            this.lblInicio.Location = new System.Drawing.Point(49, 28);
+            this.lblInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInicio.Name = "lblInicio";
-            this.lblInicio.Size = new System.Drawing.Size(99, 26);
+            this.lblInicio.Size = new System.Drawing.Size(120, 31);
             this.lblInicio.TabIndex = 5;
             this.lblInicio.Text = "      Início";
             this.lblInicio.Click += new System.EventHandler(this.lblInicio_Click);
@@ -275,10 +285,10 @@
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(933, 13);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(1305, 16);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox4.Size = new System.Drawing.Size(68, 62);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
@@ -292,8 +302,9 @@
             this.panel1.Controls.Add(this.PctBox_Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(229, 778);
+            this.panel1.Size = new System.Drawing.Size(305, 889);
             this.panel1.TabIndex = 10;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -304,10 +315,9 @@
             this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbSair.Location = new System.Drawing.Point(48, 368);
-            this.lbSair.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSair.Location = new System.Drawing.Point(29, 415);
             this.lbSair.Name = "lbSair";
-            this.lbSair.Size = new System.Drawing.Size(72, 24);
+            this.lbSair.Size = new System.Drawing.Size(92, 29);
             this.lbSair.TabIndex = 17;
             this.lbSair.Text = "      Sair";
             this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
@@ -318,9 +328,10 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(48, 312);
+            this.label3.Location = new System.Drawing.Point(29, 366);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 24);
+            this.label3.Size = new System.Drawing.Size(98, 29);
             this.label3.TabIndex = 13;
             this.label3.Text = "      FAQ";
             // 
@@ -330,18 +341,20 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(43, 247);
+            this.label1.Location = new System.Drawing.Point(29, 303);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 24);
+            this.label1.Size = new System.Drawing.Size(230, 29);
             this.label1.TabIndex = 14;
             this.label1.Text = "      Meus Chamados";
             // 
             // PctBox_Logo
             // 
             this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
-            this.PctBox_Logo.Location = new System.Drawing.Point(-35, -51);
+            this.PctBox_Logo.Location = new System.Drawing.Point(-47, 0);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PctBox_Logo.Name = "PctBox_Logo";
-            this.PctBox_Logo.Size = new System.Drawing.Size(295, 242);
+            this.PctBox_Logo.Size = new System.Drawing.Size(393, 249);
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Logo.TabIndex = 3;
             this.PctBox_Logo.TabStop = false;
@@ -361,22 +374,36 @@
             // 
             this.chamadoTableAdapter.ClearBeforeFill = true;
             // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.Controls.Add(this.label2);
+            this.roundedPanel1.Controls.Add(this.dgvChamados);
+            this.roundedPanel1.Controls.Add(this.label4);
+            this.roundedPanel1.Controls.Add(this.txtPesquisarChamados);
+            this.roundedPanel1.CornerRadius = 15F;
+            this.roundedPanel1.Location = new System.Drawing.Point(329, 110);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Size = new System.Drawing.Size(1332, 767);
+            this.roundedPanel1.TabIndex = 18;
+            // 
             // VisualizarChamado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1223, 778);
-            this.Controls.Add(this.dgvChamados);
-            this.Controls.Add(this.txtPesquisarChamados);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(1691, 889);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.roundedPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "VisualizarChamado";
             this.Text = "VisualizarChamado";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.VisualizarChamado_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.VisualizarChamado_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChamados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chamadoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet1)).EndInit();
@@ -388,8 +415,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbaFatalSystemDataSetBindingSource)).EndInit();
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -421,5 +449,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fKIdUsuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lbSair;
+        private RoundedPanel roundedPanel1;
     }
 }

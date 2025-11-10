@@ -13,8 +13,8 @@ namespace Gerenciamento_De_Chamados
 {
     public partial class Cadastro_de_Usuarios : Form
     {
-       
-        
+
+
         private readonly IUsuarioService _usuarioService;
 
         public Cadastro_de_Usuarios()
@@ -29,7 +29,7 @@ namespace Gerenciamento_De_Chamados
             _usuarioService = new UsuarioService(usuarioRepository);
         }
 
-        
+
         private async void btnCadastroAdd_Click(object sender, EventArgs e)
         {
             // Coleta e validação simples
@@ -113,7 +113,7 @@ namespace Gerenciamento_De_Chamados
                 DataDeNascimento = dtpCadDN.Value,
                 Email = txtCadastroEmail.Text.Trim(),
                 Login = login,
-                Senha = senhaDigitada 
+                Senha = senhaDigitada
             };
 
 
@@ -128,7 +128,7 @@ namespace Gerenciamento_De_Chamados
             }
             catch (Exception ex)
             {
-                
+
                 MessageBox.Show("❌ Erro ao cadastrar: " + ex.Message);
             }
         }
@@ -150,7 +150,7 @@ namespace Gerenciamento_De_Chamados
         private void Cadastro_de_Usuarios_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Bem vindo {SessaoUsuario.Nome}");
+                lbl_NomeUser.Text = ($" {SessaoUsuario.Nome}");
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
         }
@@ -183,8 +183,26 @@ namespace Gerenciamento_De_Chamados
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
+        }
+
+        private void Cadastro_de_Usuarios_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicio = Color.White;
+            Color corFim = ColorTranslator.FromHtml("#232325");
+
+            using (LinearGradientBrush gradiente = new LinearGradientBrush(
+                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+            {
+                g.FillRectangle(gradiente, this.ClientRectangle);
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
         }
     }
 }

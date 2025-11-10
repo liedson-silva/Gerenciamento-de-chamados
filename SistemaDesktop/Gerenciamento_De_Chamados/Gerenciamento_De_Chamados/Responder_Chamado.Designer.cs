@@ -43,6 +43,7 @@ namespace Gerenciamento_De_Chamados
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
             this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.bt_Criar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnVisualizarCh = new System.Windows.Forms.Button();
             this.btnEditarCH = new System.Windows.Forms.Button();
@@ -64,19 +65,20 @@ namespace Gerenciamento_De_Chamados
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.lblInicio);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(231, 0);
+            this.panel2.Location = new System.Drawing.Point(308, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1001, 67);
+            this.panel2.Size = new System.Drawing.Size(1335, 82);
             this.panel2.TabIndex = 22;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(939, 13);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(1252, 16);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox4.Size = new System.Drawing.Size(68, 62);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
@@ -87,9 +89,10 @@ namespace Gerenciamento_De_Chamados
             this.lblInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lblInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblInicio.Location = new System.Drawing.Point(21, 26);
+            this.lblInicio.Location = new System.Drawing.Point(28, 32);
+            this.lblInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInicio.Name = "lblInicio";
-            this.lblInicio.Size = new System.Drawing.Size(105, 26);
+            this.lblInicio.Size = new System.Drawing.Size(127, 31);
             this.lblInicio.TabIndex = 5;
             this.lblInicio.Text = "       Início";
             this.lblInicio.Click += new System.EventHandler(this.lblInicio_Click);
@@ -103,8 +106,9 @@ namespace Gerenciamento_De_Chamados
             this.panel1.Controls.Add(this.PctBox_Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(231, 794);
+            this.panel1.Size = new System.Drawing.Size(308, 977);
             this.panel1.TabIndex = 21;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -115,10 +119,9 @@ namespace Gerenciamento_De_Chamados
             this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbSair.Location = new System.Drawing.Point(20, 352);
-            this.lbSair.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSair.Location = new System.Drawing.Point(27, 433);
             this.lbSair.Name = "lbSair";
-            this.lbSair.Size = new System.Drawing.Size(72, 24);
+            this.lbSair.Size = new System.Drawing.Size(92, 29);
             this.lbSair.TabIndex = 17;
             this.lbSair.Text = "      Sair";
             this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
@@ -129,11 +132,13 @@ namespace Gerenciamento_De_Chamados
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Suporte;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(20, 306);
+            this.label3.Location = new System.Drawing.Point(27, 364);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 24);
+            this.label3.Size = new System.Drawing.Size(98, 29);
             this.label3.TabIndex = 13;
             this.label3.Text = "      FAQ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -142,18 +147,20 @@ namespace Gerenciamento_De_Chamados
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(20, 245);
+            this.label1.Location = new System.Drawing.Point(27, 302);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 24);
+            this.label1.Size = new System.Drawing.Size(230, 29);
             this.label1.TabIndex = 14;
             this.label1.Text = "      Meus Chamados";
             // 
             // PctBox_Logo
             // 
             this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
-            this.PctBox_Logo.Location = new System.Drawing.Point(-28, 0);
+            this.PctBox_Logo.Location = new System.Drawing.Point(-37, 0);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(4);
             this.PctBox_Logo.Name = "PctBox_Logo";
-            this.PctBox_Logo.Size = new System.Drawing.Size(295, 202);
+            this.PctBox_Logo.Size = new System.Drawing.Size(393, 249);
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Logo.TabIndex = 3;
             this.PctBox_Logo.TabStop = false;
@@ -163,9 +170,10 @@ namespace Gerenciamento_De_Chamados
             // 
             this.lbl_NomeUser.AutoSize = true;
             this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(289, 119);
+            this.lbl_NomeUser.Location = new System.Drawing.Point(385, 146);
+            this.lbl_NomeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 31);
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 39);
             this.lbl_NomeUser.TabIndex = 20;
             // 
             // roundedPanel1
@@ -175,36 +183,48 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.BackColor = System.Drawing.Color.White;
             this.roundedPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.Controls.Add(this.bt_Criar);
             this.roundedPanel1.Controls.Add(this.label2);
             this.roundedPanel1.Controls.Add(this.btnVisualizarCh);
             this.roundedPanel1.Controls.Add(this.btnEditarCH);
             this.roundedPanel1.Controls.Add(this.btnResponderCH);
             this.roundedPanel1.Controls.Add(this.dgvResponder);
             this.roundedPanel1.CornerRadius = 15F;
-            this.roundedPanel1.Location = new System.Drawing.Point(250, 106);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.roundedPanel1.Location = new System.Drawing.Point(333, 130);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(950, 666);
+            this.roundedPanel1.Size = new System.Drawing.Size(1267, 820);
             this.roundedPanel1.TabIndex = 28;
+            // 
+            // bt_Criar
+            // 
+            this.bt_Criar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_Criar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Criar.Location = new System.Drawing.Point(1019, 705);
+            this.bt_Criar.Name = "bt_Criar";
+            this.bt_Criar.Size = new System.Drawing.Size(204, 55);
+            this.bt_Criar.TabIndex = 23;
+            this.bt_Criar.Text = "Criar Chamado";
+            this.bt_Criar.UseVisualStyleBackColor = true;
+            this.bt_Criar.Click += new System.EventHandler(this.bt_Criar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 24);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(59, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(293, 37);
+            this.label2.Size = new System.Drawing.Size(362, 46);
             this.label2.TabIndex = 0;
             this.label2.Text = "Chamados Criados";
             // 
             // btnVisualizarCh
             // 
             this.btnVisualizarCh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVisualizarCh.Location = new System.Drawing.Point(54, 573);
-            this.btnVisualizarCh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVisualizarCh.Location = new System.Drawing.Point(72, 705);
+            this.btnVisualizarCh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVisualizarCh.Name = "btnVisualizarCh";
-            this.btnVisualizarCh.Size = new System.Drawing.Size(153, 45);
+            this.btnVisualizarCh.Size = new System.Drawing.Size(204, 55);
             this.btnVisualizarCh.TabIndex = 21;
             this.btnVisualizarCh.Text = "Visualizar";
             this.btnVisualizarCh.UseVisualStyleBackColor = true;
@@ -213,10 +233,10 @@ namespace Gerenciamento_De_Chamados
             // btnEditarCH
             // 
             this.btnEditarCH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarCH.Location = new System.Drawing.Point(445, 573);
-            this.btnEditarCH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditarCH.Location = new System.Drawing.Point(593, 705);
+            this.btnEditarCH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditarCH.Name = "btnEditarCH";
-            this.btnEditarCH.Size = new System.Drawing.Size(153, 45);
+            this.btnEditarCH.Size = new System.Drawing.Size(204, 55);
             this.btnEditarCH.TabIndex = 22;
             this.btnEditarCH.Text = "Editar";
             this.btnEditarCH.UseVisualStyleBackColor = true;
@@ -224,10 +244,10 @@ namespace Gerenciamento_De_Chamados
             // btnResponderCH
             // 
             this.btnResponderCH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResponderCH.Location = new System.Drawing.Point(254, 573);
-            this.btnResponderCH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnResponderCH.Location = new System.Drawing.Point(339, 705);
+            this.btnResponderCH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnResponderCH.Name = "btnResponderCH";
-            this.btnResponderCH.Size = new System.Drawing.Size(153, 45);
+            this.btnResponderCH.Size = new System.Drawing.Size(204, 55);
             this.btnResponderCH.TabIndex = 19;
             this.btnResponderCH.Text = "Responder";
             this.btnResponderCH.UseVisualStyleBackColor = true;
@@ -264,15 +284,15 @@ namespace Gerenciamento_De_Chamados
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvResponder.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvResponder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.dgvResponder.Location = new System.Drawing.Point(30, 93);
-            this.dgvResponder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvResponder.Location = new System.Drawing.Point(40, 114);
+            this.dgvResponder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvResponder.Name = "dgvResponder";
             this.dgvResponder.ReadOnly = true;
             this.dgvResponder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvResponder.RowHeadersVisible = false;
             this.dgvResponder.RowHeadersWidth = 51;
             this.dgvResponder.RowTemplate.Height = 24;
-            this.dgvResponder.Size = new System.Drawing.Size(887, 433);
+            this.dgvResponder.Size = new System.Drawing.Size(1183, 533);
             this.dgvResponder.StandardTab = true;
             this.dgvResponder.TabIndex = 20;
             this.dgvResponder.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResponder_CellDoubleClick);
@@ -295,15 +315,15 @@ namespace Gerenciamento_De_Chamados
             // 
             // Responder_Chamado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 794);
+            this.ClientSize = new System.Drawing.Size(1643, 977);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_NomeUser);
             this.Controls.Add(this.roundedPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Responder_Chamado";
             this.Text = "Responder_Chamado";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -342,5 +362,6 @@ namespace Gerenciamento_De_Chamados
         private System.Windows.Forms.Button btnVisualizarCh;
         private System.Windows.Forms.Button btnEditarCH;
         private System.Windows.Forms.Label lbSair;
+        private System.Windows.Forms.Button bt_Criar;
     }
 }
