@@ -315,5 +315,57 @@ namespace Gerenciamento_De_Chamados.Repositories
             }
             return dt;
         }
+        public async Task<List<ChartDataPoint>> ContarPorStatusGeralAsync()
+        {
+            var list = new List<ChartDataPoint>();
+            string sql = @"SELECT StatusChamado, COUNT(IdChamado) 
+                   FROM Chamado 
+                   GROUP BY StatusChamado";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                await conn.OpenAsync();
+                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        list.Add(new ChartDataPoint
+                        {
+                            Label = reader.GetString(0),
+                            Value = reader.GetInt32(1)
+                        });
+                    }
+                }
+            }
+            return list;
+        }
+
+        // método para o gráfico de Categoria GERAL (Admin/Tecnico)
+        public async Task<List<ChartDataPoint>> ContarPorCategoriaGeralAsync()
+        {
+            var list = new List<ChartDataPoint>();
+            string sql = @"SELECT Categoria, COUNT(IdChamado) 
+                   FROM Chamado 
+                   GROUP BY Categoria";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                await conn.OpenAsync();
+                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        list.Add(new ChartDataPoint
+                        {
+                            Label = reader.GetString(0),
+                            Value = reader.GetInt32(1)
+                        });
+                    }
+                }
+            }
+            return list;
+        }
     }
 }

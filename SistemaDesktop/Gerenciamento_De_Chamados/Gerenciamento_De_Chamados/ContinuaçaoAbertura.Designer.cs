@@ -234,7 +234,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
+            this.pictureBox1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.logo_empresa;
             this.pictureBox1.Location = new System.Drawing.Point(-35, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";

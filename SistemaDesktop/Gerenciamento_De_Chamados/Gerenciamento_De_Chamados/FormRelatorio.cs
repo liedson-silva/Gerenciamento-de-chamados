@@ -1,4 +1,6 @@
-﻿using Gerenciamento_De_Chamados.Repositories; 
+﻿using Gerenciamento_De_Chamados.Helpers;
+using Gerenciamento_De_Chamados.Properties;
+using Gerenciamento_De_Chamados.Repositories; 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
@@ -8,7 +10,6 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks; 
 using System.Windows.Forms;
-using Gerenciamento_De_Chamados.Helpers;
 
 namespace Gerenciamento_De_Chamados
 {
@@ -114,7 +115,7 @@ namespace Gerenciamento_De_Chamados
 
         private void btnExportarPDF_Click(object sender, EventArgs e)
         {
-            // Este método também não muda
+           
             if (relatorioDataTable == null || relatorioDataTable.Rows.Count == 0)
             {
                 MessageBox.Show("Não há dados para exportar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -133,6 +134,24 @@ namespace Gerenciamento_De_Chamados
                     Document doc = new Document(PageSize.A4.Rotate());
                     PdfWriter.GetInstance(doc, new FileStream(saveDialog.FileName, FileMode.Create));
                     doc.Open();
+
+                 
+                    System.Drawing.Image logoSys = Resources.logo_empresa1;
+
+                   
+                    iTextSharp.text.Image logoPdf = iTextSharp.text.Image.GetInstance(logoSys, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                    // 3. Define o tamanho da logo no PDF (ex: 140 pontos de largura)
+                    logoPdf.ScaleToFit(140f, 70f); // Ajuste o tamanho (largura, altura) se necessário
+                    float x = doc.LeftMargin;
+
+
+                    // doc.PageSize.Height (595f) - margem superior - altura da imagem
+                    float y = doc.PageSize.Height - doc.TopMargin - logoPdf.ScaledHeight + 15;
+
+
+                    logoPdf.SetAbsolutePosition(x, y);
+                    doc.Add(logoPdf);
 
                     Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK);
                     Paragraph title = new Paragraph("Relatório Detalhado de Chamados", titleFont);

@@ -161,7 +161,7 @@
             // PctBox_Logo
             // 
             this.PctBox_Logo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
+            this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.logo_empresa;
             this.PctBox_Logo.Location = new System.Drawing.Point(-35, 0);
             this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PctBox_Logo.Name = "PctBox_Logo";

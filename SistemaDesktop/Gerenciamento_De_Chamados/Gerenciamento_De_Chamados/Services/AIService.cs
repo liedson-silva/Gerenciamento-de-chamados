@@ -24,9 +24,10 @@ namespace Gerenciamento_De_Chamados.Services
             {
                 throw new InvalidOperationException("API Key do Gemini não encontrada no App.config.");
             }
+            _httpClient.Timeout = TimeSpan.FromSeconds(300);
         }
 
-
+        
         public virtual async Task<(string problema, string prioridade, string solucao)> AnalisarChamado(string titulo, 
             string pessoaAfetadas, string ocorreuAnteriormente, string impedeTrabalho, string descricao, string categoria,
             List<string> solucoesAnteriores)
