@@ -63,6 +63,7 @@ namespace Gerenciamento_De_Chamados.Helpers
         {
             if (MessageBox.Show("Você realmente deseja sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                SessaoUsuario.EncerrarSessao();
                 var telaLogin = new Login();
                 telaLogin.Show();
                 formAtual.Hide();

@@ -65,7 +65,7 @@ namespace Gerenciamento_De_Chamados
         private void AberturaChamados_Load(object sender, EventArgs e)
         {
             
-            if (SessaoUsuario.UsuarioIdentificado())
+            if (SessaoUsuario.SessaoEstaValida())
                 lbl_NomeUser.Text = ($"{SessaoUsuario.Nome}");
             else
                 lbl_NomeUser.Text = "Usuário não identificado";

@@ -22,7 +22,7 @@ namespace Gerenciamento_De_Chamados.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         ///   Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Gerenciamento_De_Chamados.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         ///   pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24 {
+        public static System.Drawing.Bitmap account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_ {
+        public static System.Drawing.Bitmap account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_ {
             get {
                 object obj = ResourceManager.GetObject("account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_44dp_000000_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap add_44dp_000000_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("add_44dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_44dp_F3F3F3_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap add_44dp_F3F3F3_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("add_44dp_F3F3F3_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap assignment_48dp_000000_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap assignment_48dp_000000_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("assignment_48dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap assignment_48dp_000000_FILL0_wght400_GRAD0_opsz481 {
+        public static System.Drawing.Bitmap assignment_48dp_000000_FILL0_wght400_GRAD0_opsz481 {
             get {
                 object obj = ResourceManager.GetObject("assignment_48dp_000000_FILL0_wght400_GRAD0_opsz481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_250dp_9DC384_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap check_circle_250dp_9DC384_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("check_circle_250dp_9DC384_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +143,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_26dp_9DC384_FILL0_wght400_GRAD0_opsz24 {
+        public static System.Drawing.Bitmap check_circle_26dp_9DC384_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("check_circle_26dp_9DC384_FILL0_wght400_GRAD0_opsz24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +153,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_350dp_9DC384_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap check_circle_350dp_9DC384_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("check_circle_350dp_9DC384_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +163,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_46dp_9DC384_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap check_circle_46dp_9DC384_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("check_circle_46dp_9DC384_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +173,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24 {
+        public static System.Drawing.Bitmap contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +183,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap delete_44dp_000000_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap delete_44dp_000000_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("delete_44dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +193,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit_44dp_000000_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap edit_44dp_000000_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("edit_44dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +203,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap error_48dp_0000F5_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap error_48dp_0000F5_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("error_48dp_0000F5_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +213,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap error_48dp_75FB4C_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap error_48dp_75FB4C_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("error_48dp_75FB4C_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +223,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap error_48dp_EA3323_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap error_48dp_EA3323_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("error_48dp_EA3323_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +233,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap error_48dp_F19E39_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap error_48dp_F19E39_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("error_48dp_F19E39_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +243,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap folder_46dp_EAC452_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap folder_46dp_EAC452_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("folder_46dp_EAC452_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -253,7 +253,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -263,7 +263,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz481 {
+        public static System.Drawing.Bitmap folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz481 {
             get {
                 object obj = ResourceManager.GetObject("folder_copy_48dp_F19E39_FILL0_wght400_GRAD0_opsz481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,7 +273,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap HOME__2_ {
+        public static System.Drawing.Bitmap HOME__2_ {
             get {
                 object obj = ResourceManager.GetObject("HOME (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -283,7 +283,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_12615770 {
+        public static System.Drawing.Bitmap home_12615770 {
             get {
                 object obj = ResourceManager.GetObject("home_12615770", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -293,7 +293,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24 {
+        public static System.Drawing.Bitmap home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -303,7 +303,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap HOME_36p {
+        public static System.Drawing.Bitmap HOME_36p {
             get {
                 object obj = ResourceManager.GetObject("HOME 36p", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -313,7 +313,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_40dp_000000_FILL1_wght400_GRAD0_opsz40 {
+        public static System.Drawing.Bitmap home_40dp_000000_FILL1_wght400_GRAD0_opsz40 {
             get {
                 object obj = ResourceManager.GetObject("home_40dp_000000_FILL1_wght400_GRAD0_opsz40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -323,7 +323,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_42dp_000000_FILL1_wght400_GRAD0_opsz40 {
+        public static System.Drawing.Bitmap home_42dp_000000_FILL1_wght400_GRAD0_opsz40 {
             get {
                 object obj = ResourceManager.GetObject("home_42dp_000000_FILL1_wght400_GRAD0_opsz40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -333,7 +333,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_51dp_000000_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap home_51dp_000000_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("home_51dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -343,7 +343,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_ {
+        public static System.Drawing.Bitmap home_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_ {
             get {
                 object obj = ResourceManager.GetObject("home_51dp_000000_FILL0_wght400_GRAD0_opsz48 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -353,7 +353,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_52dp_000000_FILL1_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap home_52dp_000000_FILL1_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("home_52dp_000000_FILL1_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -363,7 +363,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_52dp_000000_FILL1_wght400_GRAD0_opsz481 {
+        public static System.Drawing.Bitmap home_52dp_000000_FILL1_wght400_GRAD0_opsz481 {
             get {
                 object obj = ResourceManager.GetObject("home_52dp_000000_FILL1_wght400_GRAD0_opsz481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -373,7 +373,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_5616506 {
+        public static System.Drawing.Bitmap home_5616506 {
             get {
                 object obj = ResourceManager.GetObject("home_5616506", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -383,7 +383,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hourglass_empty_46dp_000000_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap hourglass_empty_46dp_000000_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("hourglass_empty_46dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -393,9 +393,9 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d {
+        public static System.Drawing.Bitmap logo_empresa {
             get {
-                object obj = ResourceManager.GetObject("Imagem do WhatsApp de 2025-09-09 à(s) 21.56.18_5730b37d", resourceCulture);
+                object obj = ResourceManager.GetObject("logo_empresa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,9 +403,9 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado {
+        public static System.Drawing.Bitmap logo_empresa1 {
             get {
-                object obj = ResourceManager.GetObject("Imagem do WhatsApp de 2025-09-09 à(s) 21.56.18_5730b37d - Editado", resourceCulture);
+                object obj = ResourceManager.GetObject("logo_empresa1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,7 +413,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap menu {
+        public static System.Drawing.Bitmap menu {
             get {
                 object obj = ResourceManager.GetObject("menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -423,7 +423,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_ {
+        public static System.Drawing.Bitmap menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_ {
             get {
                 object obj = ResourceManager.GetObject("menu_24dp_000000_FILL0_wght400_GRAD0_opsz24 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -433,7 +433,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap menu_4204600 {
+        public static System.Drawing.Bitmap menu_4204600 {
             get {
                 object obj = ResourceManager.GetObject("menu_4204600", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -443,7 +443,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24 {
+        public static System.Drawing.Bitmap move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -453,7 +453,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person_48dp_000000_FILL0_wght400_GRAD0_opsz48 {
+        public static System.Drawing.Bitmap person_48dp_000000_FILL0_wght400_GRAD0_opsz48 {
             get {
                 object obj = ResourceManager.GetObject("person_48dp_000000_FILL0_wght400_GRAD0_opsz48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -463,7 +463,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person_48dp_000000_FILL0_wght400_GRAD0_opsz481 {
+        public static System.Drawing.Bitmap person_48dp_000000_FILL0_wght400_GRAD0_opsz481 {
             get {
                 object obj = ResourceManager.GetObject("person_48dp_000000_FILL0_wght400_GRAD0_opsz481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -473,7 +473,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap profile_7310896 {
+        public static System.Drawing.Bitmap profile_7310896 {
             get {
                 object obj = ResourceManager.GetObject("profile_7310896", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -483,7 +483,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Suporte {
+        public static System.Drawing.Bitmap Suporte {
             get {
                 object obj = ResourceManager.GetObject("Suporte", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -493,7 +493,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap unknown_5695541 {
+        public static System.Drawing.Bitmap unknown_5695541 {
             get {
                 object obj = ResourceManager.GetObject("unknown_5695541", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -503,7 +503,7 @@ namespace Gerenciamento_De_Chamados.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap user_11908251 {
+        public static System.Drawing.Bitmap user_11908251 {
             get {
                 object obj = ResourceManager.GetObject("user_11908251", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

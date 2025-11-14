@@ -54,7 +54,7 @@ namespace Gerenciamento_De_Chamados
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Imagem_do_WhatsApp_de_2025_09_09_à_s__21_56_18_5730b37d___Editado;
+            this.pictureBox1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.logo_empresa;
             this.pictureBox1.InitialImage = global::Gerenciamento_De_Chamados.Properties.Resources.unknown_5695541;
             this.pictureBox1.Location = new System.Drawing.Point(3, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

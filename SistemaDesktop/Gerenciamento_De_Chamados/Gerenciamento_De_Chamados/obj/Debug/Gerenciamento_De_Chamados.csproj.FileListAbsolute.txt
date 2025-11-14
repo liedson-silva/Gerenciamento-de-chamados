@@ -192,6 +192,9 @@ C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerencia.52AE2C3A.Up2Date
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe
 C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.pdb
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Castle.Core.dll
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Moq.dll
+C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Castle.Core.xml
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\grpc_csharp_ext.x86.dll
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\grpc_csharp_ext.x64.dll
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\libgrpc_csharp_ext.x64.so
@@ -332,6 +335,3 @@ C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Ge
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerencia.52AE2C3A.Up2Date
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.exe
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\obj\Debug\Gerenciamento_De_Chamados.pdb
-C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Castle.Core.dll
-C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Moq.dll
-C:\Users\Gabriel\Desktop\Faculdade\PIM\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados\bin\Debug\Castle.Core.xml

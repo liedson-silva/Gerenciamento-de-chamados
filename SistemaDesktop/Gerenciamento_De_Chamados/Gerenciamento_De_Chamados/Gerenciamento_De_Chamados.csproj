@@ -191,6 +191,11 @@
     <Compile Include="AberturaChamados.Designer.cs">
       <DependentUpon>AberturaChamados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\AIService.cs" />
     <Compile Include="AnaliseChamado.cs">
       <SubType>Form</SubType>
@@ -397,15 +402,10 @@
       <DependentUpon>GerenciarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Relatorio.resx">
       <DependentUpon>Relatorio.cs</DependentUpon>
     </EmbeddedResource>
@@ -457,7 +457,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Imagem do WhatsApp de 2025-09-09 à%28s%29 21.56.18_5730b37d - Editado.png" />
+    <None Include="Resources\logo_empresa.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Imagem do WhatsApp de 2025-09-09 à%28s%29 21.56.18_5730b37d.jpg" />

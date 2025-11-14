@@ -138,13 +138,13 @@ namespace Gerenciamento_De_Chamados
                 return;
             }
 
-            
+
             double valorMaximo = valores.Max() == 0 ? 1 : valores.Max();
 
             var bars = new List<ScottPlot.Bar>();
             for (int i = 0; i < labels.Length; i++)
             {
-                
+
                 bars.Add(new ScottPlot.Bar
                 {
                     Position = i,
@@ -153,31 +153,33 @@ namespace Gerenciamento_De_Chamados
                 });
             }
 
-            
+
             plotCategoria.Plot.Add.Bars(bars);
 
-            plotCategoria.Plot.Axes.Bottom.IsVisible = false;
+
+            plotCategoria.Plot.Layout.Frameless();
+
+            plotCategoria.Plot.Axes.Bottom.FrameLineStyle.IsVisible = false;
+
 
             double[] posicoes = Enumerable.Range(0, labels.Length).Select(i => (double)i).ToArray();
             plotCategoria.Plot.Axes.Bottom.TickGenerator = new ScottPlot.TickGenerators.NumericManual(posicoes, labels);
             plotCategoria.Plot.Axes.Bottom.TickLabelStyle.Rotation = 45;
-            plotCategoria.Plot.Axes.Bottom.MajorTickStyle.Length = 0;
+            plotCategoria.Plot.Axes.Bottom.MajorTickStyle.Length = 0; // Esconde os "tracinhos"
+                                                                      // ---
 
             try
             {
-                // Helper para definir cor e texto
+                // ... (seu código de legenda 'setLegend' continua igual) ...
                 Action<Panel, System.Windows.Forms.Label, string, List<ChartDataPoint>> setLegend =
-            (panel, label, categoriaNome, data) =>
-            {
-                var cor = GetColorForCategoria(categoriaNome);
-                panel.BackColor = System.Drawing.Color.FromArgb(cor.R, cor.G, cor.B);
-                var item = data.FirstOrDefault(d => d.Label.Equals(categoriaNome, StringComparison.OrdinalIgnoreCase));
+                (panel, label, categoriaNome, data) =>
+                {
+                    var cor = GetColorForCategoria(categoriaNome);
+                    panel.BackColor = System.Drawing.Color.FromArgb(cor.R, cor.G, cor.B);
+                    var item = data.FirstOrDefault(d => d.Label.Equals(categoriaNome, StringComparison.OrdinalIgnoreCase));
+                    label.Text = $"{categoriaNome} ({item?.Value ?? 0})";
+                };
 
-                // Mostra o valor (ex: "7") em vez da porcentagem
-                label.Text = $"{categoriaNome} ({item?.Value ?? 0})";
-            };
-
-                // (Seus controles de legenda)
                 setLegend(pnHardware, lblHardware, "Hardware", categoriaData);
                 setLegend(pnSoftware, lblSoftware, "Software", categoriaData);
                 setLegend(pnSeguranca, lblSeguranca, "Segurança", categoriaData);
@@ -185,7 +187,7 @@ namespace Gerenciamento_De_Chamados
                 setLegend(pnServicos, lblServicos, "Serviços", categoriaData);
                 setLegend(pnInfra, lblInfra, "Infraestrutura", categoriaData);
                 setLegend(pnComunica, lblComunica, "Comunicação", categoriaData);
-                setLegend(pnIncidentes, lblIncidentes, "Incidentes", categoriaData);
+                setLegend(pnIncidentes, lblIncidentes, "Incidentes", categoriaData); 
             }
             catch (NullReferenceException)
             {
@@ -193,7 +195,14 @@ namespace Gerenciamento_De_Chamados
             }
 
             plotCategoria.Plot.Title("Meus Chamados por Categoria", size: 14);
-            plotCategoria.Plot.Axes.SetLimitsY(0, valorMaximo * 1.2); // Define o limite Y com folga
+
+            // --- CORREÇÃO 3: Ajustar Limites X e Y ---
+            plotCategoria.Plot.Axes.SetLimitsY(0, valorMaximo * 1.2);
+            // Define o limite X (para dar 0.5 de espaço em cada lado da primeira e última barra)
+            plotCategoria.Plot.Axes.SetLimitsX(-0.5,labels.Length - 0.5);
+            // ---
+
+            // Esconde os outros eixos e a grade
             plotCategoria.Plot.Axes.Left.IsVisible = false;
             plotCategoria.Plot.Axes.Top.IsVisible = false;
             plotCategoria.Plot.Axes.Right.IsVisible = false;
@@ -201,6 +210,7 @@ namespace Gerenciamento_De_Chamados
 
             plotCategoria.Refresh();
         }
+        
 
         private ScottPlot.Color GetColorForStatus(string status)
         {
@@ -309,6 +319,29 @@ namespace Gerenciamento_De_Chamados
         private void lbSair_Click(object sender, EventArgs e)
         {
             FormHelper.Sair(this);
+        }
+
+        private void timerSessao_Tick(object sender, EventArgs e)
+        {
+            // "Valida o Token" a cada minuto
+            if (!SessaoUsuario.SessaoEstaValida())
+            {
+                // Para o timer para não mostrar a mensagem várias vezes
+                timerSessao.Stop();
+
+                MessageBox.Show("Sua sessão expirou por segurança. Por favor, faça o login novamente.",
+                                "Sessão Expirada",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                // "Revoga" o token (garante que está limpo)
+                SessaoUsuario.EncerrarSessao();
+
+                // Envia para o Login
+                var loginForm = new Login();
+                loginForm.Show();
+                this.Close();
+            }
         }
     }
 }
