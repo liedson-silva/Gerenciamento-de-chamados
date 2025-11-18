@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Gerenciamento_De_Chamados.Models;
+using System;
 using System.IO;
+using System.Linq.Expressions;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
@@ -31,129 +33,119 @@ namespace Gerenciamento_De_Chamados.Services
         }
 
 
-        public async Task EnviarEmailChamadoAsync(
-            string titulo, string descricao, string categoria, int idChamado,
-            string prioridadeIA, string status, string pessoasAfetadas,
-            string impedeTrabalho, string ocorreuAnteriormente, string problemaIA, string solucaoIA, 
-            DateTime dataAbertura,
-            byte[] anexo, string nomeAnexo)
+        public async Task EnviarEmailConfirmacaoUsuarioAsync(Chamado chamado, Usuario usuario, int idChamado)
         {
+           
+            if (usuario == null || string.IsNullOrEmpty(usuario.Email) || usuario.Email == "sememail@dominio.com")
+            {
 
+                Console.WriteLine($"Email do usuário (ID: {usuario?.IdUsuario}) inválido ou não fornecido. Pulando envio de confirmação.");
+                return; 
+            }
+
+            string corpoEmailUsuario = $@"
+                <h2>Olá, {usuario.Nome}!</h2>
+                <p>Seu chamado foi registrado com sucesso em nosso sistema.</p>
+                <p><b>Número do Chamado:</b> {idChamado}</p>
+                <p><b>Data:</b> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
+                <hr>
+                <p><b>Título:</b> {chamado.Titulo}</p>
+                <p><b>Descrição Fornecida:</b> {chamado.Descricao}</p>
+                <p><b>Categoria:</b> {chamado.Categoria}</p>
+                <p><b>Prioridade Definida:</b> Em análise</p>
+                <p><b>Status Atual:</b> {chamado.StatusChamado}</p>
+                <hr>
+                <p>Nossa equipe de TI já foi notificada e analisará sua solicitação em breve.</p>
+                <p>Atenciosamente,<br>Equipe Fatal System</p>";
+
+        
             using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+            using (MailMessage mailUsuario = new MailMessage())
             {
                 smtp.Credentials = new NetworkCredential("fatalsystem.unip@gmail.com", "wwtr xdst wpwm lavr");
                 smtp.EnableSsl = true;
 
+                mailUsuario.From = new MailAddress("fatalsystem.unip@gmail.com", "Sistema de Chamados Fatal System");
+                mailUsuario.To.Add(usuario.Email);
+                mailUsuario.Subject = $"Confirmação: Chamado #{idChamado} Registrado - {chamado.Titulo}";
+                mailUsuario.Body = corpoEmailUsuario;
+                mailUsuario.IsBodyHtml = true;
+
                 try
                 {
-                    // Envio para a Equipe de TI 
+                    await smtp.SendMailAsync(mailUsuario);
+                }
+                catch (Exception ex)
+                {
 
-                    string usuario = SessaoUsuario.Nome ?? "Usuário não identificado";
-                    string emailUsuario = SessaoUsuario.Email ?? "sememail@dominio.com";
-                    string emailTecnico = "fatalsystem.unip@gmail.com";
-                    string indicadorPrioridadeHtml = bolinhadeprioridade(prioridadeIA);
+                    Console.WriteLine($"Falha ao enviar email de confirmação para {usuario.Email}: {ex.Message}");
+                }
+            }
+        }
 
-                    string corpoEmailTI = $@"
-                        <h2>Novo Chamado #{idChamado} Recebido - Análise Necessária</h2>
-                        <p>Um novo chamado foi registrado e precisa de análise.</p>
-                        <p><b>Registrado por:</b> {usuario} ({emailUsuario})</p>
-                        <p><b>Número:</b> {idChamado}</p>
-                        <p><b>Data:</b> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
-                        <hr>
-                        <p><b>Título:</b> {titulo}</p>
-                        <p><b>Descrição do Usuário:</b> {descricao}</p>
-                        <p><b>Categoria:</b> {categoria}</p>
-                        <p><b>Status Inicial:</b> {status}</p>
-                        <hr>
-                        <p><b>Pessoas Afetadas:</b> {pessoasAfetadas}</p>
-                        <p><b>Impede o Trabalho:</b> {impedeTrabalho}</p>
-                        <p><b>Ocorreu Anteriormente:</b> {ocorreuAnteriormente}</p>
-                        <hr>
-                        <h3>Sugestões da Análise Preliminar (IA):</h3>
-                        <p><b>Identificação do Problema:</b> {problemaIA}</p>
-                        <p><b>Proposta de Solução:</b> {solucaoIA}</p>
-                        <p><b>Prioridade Sugerida:</b> {prioridadeIA} {indicadorPrioridadeHtml}</p>
-                        <hr>";
+        public async Task EnviarEmailNovoChamadoTIAsync(Chamado chamado, Usuario usuario, int idChamado, byte[] anexo, string nomeAnexo)
+        {
+            string emailTecnico = "fatalsystem.unip@gmail.com";
+            string indicadorPrioridadeHtml = bolinhadeprioridade(chamado.PrioridadeSugeridaIA);
 
-                    using (MailMessage mailTI = new MailMessage())
+            // Note que usamos os dados da IA (chamado.ProblemaSugeridoIA, etc.)
+            string corpoEmailTI = $@"
+                <h2>Novo Chamado #{idChamado} Recebido - Análise Necessária</h2>
+                <p>Um novo chamado foi registrado e precisa de análise.</p>
+                <p><b>Registrado por:</b> {usuario.Nome} ({usuario.Email})</p>
+                <p><b>Número:</b> {idChamado}</p>
+                <p><b>Data:</b> {chamado.DataChamado:dd/MM/yyyy HH:mm:ss}</p>
+                <hr>
+                <p><b>Título:</b> {chamado.Titulo}</p>
+                <p><b>Descrição do Usuário:</b> {chamado.Descricao}</p>
+                <p><b>Categoria:</b> {chamado.Categoria}</p>
+                <p><b>Status Inicial:</b> {chamado.StatusChamado}</p>
+                <hr>
+                <p><b>Pessoas Afetadas:</b> {chamado.PessoasAfetadas}</p>
+                <p><b>Impede o Trabalho:</b> {chamado.ImpedeTrabalho}</p>
+                <p><b>Ocorreu Anteriormente:</b> {chamado.OcorreuAnteriormente}</p>
+                <hr>
+                <h3>Sugestões da Análise Preliminar (IA):</h3>
+                <p><b>Identificação do Problema:</b> {chamado.ProblemaSugeridoIA}</p>
+                <p><b>Proposta de Solução:</b> {chamado.SolucaoSugeridaIA}</p>
+                <p><b>Prioridade Sugerida:</b> {indicadorPrioridadeHtml} {chamado.PrioridadeSugeridaIA}</p>
+                <hr>";
+
+            using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+            using (MailMessage mailTI = new MailMessage())
+            {
+                smtp.Credentials = new NetworkCredential("fatalsystem.unip@gmail.com", "wwtr xdst wpwm lavr");
+                smtp.EnableSsl = true;
+
+                mailTI.From = new MailAddress("fatalsystem.unip@gmail.com", "Sistema de Chamados Fatal System");
+                mailTI.To.Add(emailTecnico);
+                mailTI.Subject = $"[Chamado #{idChamado} - {chamado.PrioridadeSugeridaIA}] Novo Chamado: {chamado.Titulo}";
+                mailTI.Body = corpoEmailTI;
+                mailTI.IsBodyHtml = true;
+
+                try
+                {
+                    if (anexo != null && anexo.Length > 0)
                     {
-                        mailTI.From = new MailAddress("fatalsystem.unip@gmail.com", "Sistema de Chamados Fatal System");
-                        mailTI.To.Add(emailTecnico);
-                        mailTI.Subject = $"[Chamado #{idChamado} - {prioridadeIA}] Novo Chamado: {titulo}";
-                        mailTI.Body = corpoEmailTI;
-                        mailTI.IsBodyHtml = true;
-
-                       
-                        if (anexo != null && anexo.Length > 0)
+                        
+                        using (MemoryStream msTI = new MemoryStream(anexo))
+                        using (Attachment attachmentTI = new Attachment(msTI, nomeAnexo))
                         {
-                            using (MemoryStream msTI = new MemoryStream(anexo))
-                            using (Attachment attachmentTI = new Attachment(msTI, nomeAnexo))
-                            {
-                                mailTI.Attachments.Add(attachmentTI);
-                                await smtp.SendMailAsync(mailTI); 
-                            }
-                        }
-                        else
-                        {
+                            mailTI.Attachments.Add(attachmentTI);
                             await smtp.SendMailAsync(mailTI);
                         }
                     }
-
-                   
-                    if (!string.IsNullOrEmpty(emailUsuario) && emailUsuario != "sememail@dominio.com")
+                    else
                     {
-                        string corpoEmailUsuario = $@"
-                            <h2>Olá, {usuario}!</h2>
-                            <p>Seu chamado foi registrado com sucesso em nosso sistema.</p>
-                            <p><b>Número do Chamado:</b> {idChamado}</p>
-                            <p><b>Data:</b> {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>
-                            <hr>
-                            <p><b>Título:</b> {titulo}</p>
-                            <p><b>Descrição Fornecida:</b> {descricao}</p>
-                            <p><b>Categoria:</b> {categoria}</p>
-                            <p><b>Prioridade Definida: Em análise </b></p>
-                            <p><b>Status Atual:</b> {status}</p>
-                            <hr>
-                            <p>Nossa equipe de TI já foi notificada e analisará sua solicitação em breve.</p>
-                            <p>Atenciosamente,<br>Equipe Fatal System</p>";
-
-                        using (MailMessage mailUsuario = new MailMessage())
-                        {
-                            mailUsuario.From = new MailAddress("fatalsystem.unip@gmail.com", "Sistema de Chamados Fatal System");
-                            mailUsuario.To.Add(emailUsuario); 
-                            mailUsuario.Subject = $"Confirmação: Chamado #{idChamado} Registrado - {titulo}";
-                            mailUsuario.Body = corpoEmailUsuario;
-                            mailUsuario.IsBodyHtml = true;
-
-                            if (anexo != null && anexo.Length > 0)
-                            {
-                             
-                                using (MemoryStream msUser = new MemoryStream(anexo))
-                                using (Attachment attachmentUser = new Attachment(msUser, nomeAnexo))
-                                {
-                                    mailUsuario.Attachments.Add(attachmentUser);
-                                    await smtp.SendMailAsync(mailUsuario); 
-                                }
-                            }
-                            else
-                            {
-                                await smtp.SendMailAsync(mailUsuario);
-                            }
-                        }
+                        await smtp.SendMailAsync(mailTI);
                     }
                 }
-            
                 catch (Exception ex)
                 {
-                    
-                    string mensagemErro = "Erro ao enviar e-mail(s): " + ex.Message;
-                    if (ex.InnerException != null)
-                    {
-                        mensagemErro += "\n\nDetalhes: " + ex.InnerException.Message;
-                    }
-                    MessageBox.Show(mensagemErro, "Falha no Envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Console.WriteLine($"FALHA CRÍTICA: Email para TI (Chamado #{idChamado}) falhou: {ex.Message}");
+                   
                 }
-            } 
+            }
         }
     }
 }
