@@ -1,4 +1,5 @@
 import crypto from "crypto"
+import jwt from "jsonwebtoken"
 
 export class LoginController {
     //'pool' (conexão com o banco de dados) e 'sql' (tipos de dados do SQL)
@@ -39,9 +40,12 @@ export class LoginController {
                 return res.status(401).json({ success: false, message: "Senha incorreta" })
             }
 
-            res.json({
-                success: true, user: user
-            })
+            const token = jwt.sign(
+                { id: user.IdUsuario, name: user.Nome },
+                process.env.JWT_SECRET, { expiresIn: '30s' }
+            );
+
+            res.json({ success: true, user: user, token: token })
 
         } catch (err) {
             console.error("Erro no login:", err);

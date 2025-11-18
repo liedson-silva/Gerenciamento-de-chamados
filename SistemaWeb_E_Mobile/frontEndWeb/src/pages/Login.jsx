@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../Style.css'
 import logo from '../assets/logo.png'
 import { FaRegUser } from "react-icons/fa";
@@ -13,12 +13,23 @@ const Login = () => {
   const [forgetPassword, setForgetPassword] = useState("")
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const authError = sessionStorage.getItem('authError')
+    if (authError) {
+      setError(authError)
+      sessionStorage.removeItem('authError')
+    }
+  }, [])
+
   const handleLogin = async () => {
     try {
       const response = await api.post("/login", { login, password })
 
       if (response.data.success) {
         const user = response.data.user;
+
+        const token = response.data.token;
+        if (token) { localStorage.setItem('token', token) }
 
         if (user.FuncaoUsuario === "Admin") {
           navigate("/admin-home", { state: { user } });
