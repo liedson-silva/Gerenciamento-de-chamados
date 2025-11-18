@@ -1,5 +1,4 @@
-﻿
-using Gerenciamento_De_Chamados.Helpers;
+﻿using Gerenciamento_De_Chamados.Helpers;
 using Gerenciamento_De_Chamados.Models;
 using Gerenciamento_De_Chamados.Repositories;
 using Gerenciamento_De_Chamados.Services;
@@ -26,6 +25,7 @@ namespace Gerenciamento_De_Chamados
         private readonly IChamadoRepository _chamadoRepository;
         private readonly IArquivoRepository _arquivoRepository;
         private readonly ChamadoService _chamadoService;
+        private readonly IAIService _aiService;
 
 
         public ContinuaçaoAbertura(AberturaChamados abertura, ImageHelper imageHelper)
@@ -37,12 +37,13 @@ namespace Gerenciamento_De_Chamados
             _chamadoRepository = new ChamadoRepository();
             _arquivoRepository = new ArquivoRepository();
             _emailService = new EmailService();
+            _aiService = new AIService();
 
             _chamadoService = new ChamadoService(
             _chamadoRepository,
             _arquivoRepository,
-            _emailService,
-            new AIService()
+            _emailService, // <-- ADICIONADO: Passa o serviço de email
+            _aiService
             );
 
             this.Load += ContinuaçaoAbertura_Load;
@@ -51,13 +52,14 @@ namespace Gerenciamento_De_Chamados
 
         private async void btnConcluirCH_Click(object sender, EventArgs e)
         {
+            // --- VALIDAÇÃO ---
             string TituloChamado = aberturaChamados.txtTituloChamado.Text.Trim();
             string DescricaoChamado = aberturaChamados.txtDescriçãoCh.Text.Trim();
             string PessoasAfetadas = cBoxPessoasAfeta.Text.Trim();
             string ImpedeTrabalho = cBoxImpedTrab.Text;
             string OcorreuAnteriormente = cBoxAcontAntes.Text;
             string CategoriaChamado = aberturaChamados.cboxCtgChamado.Text;
-            byte[] AnexarArquivo = aberturaChamados.arquivoAnexado;
+            // byte[] AnexarArquivo = aberturaChamados.arquivoAnexado; // Pego depois
 
             // ValidadorChamado para título e descrição
             if (!ValidadorChamado.IsTituloValido(TituloChamado))
@@ -70,12 +72,6 @@ namespace Gerenciamento_De_Chamados
             {
                 MessageBox.Show("A descrição é obrigatória e deve ter mais de 10 caracteres.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Para a execução
-            }
-
-            if (!ValidadorChamado.IsPessoasAfetadasValido(PessoasAfetadas))
-            {
-                MessageBox.Show("Por favor, selecione o número de pessoas afetadas.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
 
             // Validação simples para os ComboBox (apenas para saber se algo foi selecionado)
@@ -99,41 +95,60 @@ namespace Gerenciamento_De_Chamados
                 MessageBox.Show("Por favor, selecione uma categoria.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-         
 
-            int idUsuario = SessaoUsuario.IdUsuario;
+            // --- PREPARAÇÃO ---
+            this.Cursor = Cursors.WaitCursor;
 
+            byte[] arquivoBytes = aberturaChamados.arquivoAnexado;
+            string nomeAnexo = _imageHelper.UltimoNomeArquivo;
+            string tipoAnexo = _imageHelper.UltimoTipoArquivo;
+
+
+            DateTime horaDeBrasilia = DateTime.Now;
+
+            // OTIMIZAÇÃO 1: Usando as variáveis locais que já foram validadas
+            Chamado novoChamado = new Chamado
+            {
+                Titulo = TituloChamado,
+                Descricao = DescricaoChamado,
+                Categoria = CategoriaChamado,
+                DataChamado = horaDeBrasilia, // OTIMIZAÇÃO 2: Usando a variável
+                StatusChamado = "Pendente",
+                FK_IdUsuario = SessaoUsuario.IdUsuario,
+                PessoasAfetadas = PessoasAfetadas,
+                ImpedeTrabalho = ImpedeTrabalho,
+                OcorreuAnteriormente = OcorreuAnteriormente
+            };
+
+
+            Usuario usuarioLogado = new Usuario
+            {
+                Nome = SessaoUsuario.Nome,
+                Email = SessaoUsuario.Email,
+                IdUsuario = SessaoUsuario.IdUsuario
+            };
+
+            // --- EXECUÇÃO (Fluxo de 3 Etapas) ---
             try
             {
+                // ETAPA 1: Salva o chamado básico no DB (Rápido)
+                int idChamado = await _chamadoService.CriarChamadoBaseAsync(novoChamado, arquivoBytes, nomeAnexo, tipoAnexo);
 
-                DateTime horaDeBrasilia = DateTime.Now;
+                // ETAPA 2: Envia email de confirmação para o usuário (Rápido)
+                await _chamadoService.EnviarConfirmacaoUsuarioAsync(novoChamado, usuarioLogado, idChamado);
 
-                Chamado novoChamado = new Chamado
+                // ETAPA 3: Inicia a IA e o email da TI em background (Lento)
+                Task.Run(async () =>
                 {
-                    Titulo = TituloChamado,
-                    PrioridadeChamado = "Análise", // Valor padrão
-                    Descricao = DescricaoChamado,
-                    DataChamado = horaDeBrasilia,
-                    StatusChamado = "Pendente",
-                    Categoria = CategoriaChamado,
-                    FK_IdUsuario = SessaoUsuario.IdUsuario,
-                    PessoasAfetadas = PessoasAfetadas,
-                    ImpedeTrabalho = ImpedeTrabalho,
-                    OcorreuAnteriormente = OcorreuAnteriormente
-                };
+                    // Passa todos os dados necessários para o método em background
+                    await _chamadoService.ProcessarAnaliseEAtualizarAsync(idChamado, novoChamado, usuarioLogado, arquivoBytes, nomeAnexo, tipoAnexo);
+                });
 
-
-                
-                string tipoAnexo = _imageHelper.UltimoTipoArquivo ?? "application/octet-stream";
-                string nomeAnexo = _imageHelper.UltimoNomeArquivo ?? "anexo_chamado.png";
-
-                int idChamado = await _chamadoService.CriarNovoChamadoAsync(novoChamado, AnexarArquivo, nomeAnexo, tipoAnexo);
-
-
-                MessageBox.Show("Chamado aberto com sucesso! Número do chamado: " + idChamado);
+                // ETAPA 4: Libera a UI imediatamente
+                this.Cursor = Cursors.Default;
 
                 var telaFim = new FimChamado(idChamado);
-                telaFim.ShowDialog();
+                telaFim.Show();
 
                 aberturaChamados.Close();
                 this.Close();
@@ -141,6 +156,8 @@ namespace Gerenciamento_De_Chamados
             }
             catch (Exception ex)
             {
+               
+                this.Cursor = Cursors.Default;
                 MessageBox.Show("Erro ao gravar chamado no banco: " + ex.Message);
             }
         }
@@ -152,16 +169,16 @@ namespace Gerenciamento_De_Chamados
             Color corInicioPanel = Color.White;
             Color corFimPanel = ColorTranslator.FromHtml("#232325");
             LinearGradientBrush gradientePanel = new LinearGradientBrush(
-                     panel1.ClientRectangle,
-                    corInicioPanel,
-                    corFimPanel,
-                    LinearGradientMode.Vertical);
+                         panel1.ClientRectangle,
+                        corInicioPanel,
+                        corFimPanel,
+                        LinearGradientMode.Vertical);
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
         }
         private void ContinuaçaoAbertura_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($" {SessaoUsuario.Nome}");
+                lbl_NomeUser.Text = ($" {SessaoUsuario.Nome}"); 
         }
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
@@ -195,6 +212,7 @@ namespace Gerenciamento_De_Chamados
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
     }
 }

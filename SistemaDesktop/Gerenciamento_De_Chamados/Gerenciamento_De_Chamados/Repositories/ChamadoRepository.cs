@@ -31,7 +31,7 @@ namespace Gerenciamento_De_Chamados.Repositories
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@Titulo", chamado.Titulo);
-                    cmd.Parameters.AddWithValue("@PrioridadeChamado", chamado.PrioridadeChamado);
+                    cmd.Parameters.AddWithValue("@PrioridadeChamado", chamado.PrioridadeChamado ?? "Pendente");
                     cmd.Parameters.AddWithValue("@Descricao", chamado.Descricao);
                     cmd.Parameters.AddWithValue("@DataChamado", chamado.DataChamado);
                     cmd.Parameters.AddWithValue("@StatusChamado", chamado.StatusChamado);
