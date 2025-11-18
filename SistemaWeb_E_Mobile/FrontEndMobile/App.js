@@ -50,7 +50,7 @@ export default function App() {
   const handleNavigate = (tabName, data = null) => {
     setActiveTab(tabName);
     setNavState(data); 
-  };
+  };    
 
   const handleLoginSuccess = () => {
     setIsLoggedIn(true)
