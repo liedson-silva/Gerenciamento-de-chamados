@@ -59,14 +59,34 @@ namespace Gerenciamento_De_Chamados.Helpers
         }
 
 
-        public static void Sair(Form formAtual)
+       public static void Sair(Form formAtual, Timer timerSessao = null)
         {
+
+            if (timerSessao != null)
+            {
+                timerSessao.Stop();
+            }
+
+          
             if (MessageBox.Show("Você realmente deseja sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+               
                 SessaoUsuario.EncerrarSessao();
+
+       
                 var telaLogin = new Login();
                 telaLogin.Show();
-                formAtual.Hide();
+
+               
+                formAtual.Close();
+            }
+            else
+            {
+            
+                if (timerSessao != null)
+                {
+                    timerSessao.Start();
+                }
             }
         }
 

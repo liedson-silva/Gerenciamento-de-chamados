@@ -10,24 +10,22 @@ namespace Gerenciamento_De_Chamados.Services
     {
         private readonly IChamadoRepository _chamadoRepo;
         private readonly IArquivoRepository _arquivoRepo;
-        // O EmailService VAI VOLTAR a ser injetado
         private readonly IEmailService _emailService;
         private readonly IAIService _aiService;
 
         public ChamadoService(
             IChamadoRepository chamadoRepo,
             IArquivoRepository arquivoRepo,
-            IEmailService emailService, // <-- ADICIONADO DE VOLTA
+            IEmailService emailService, 
             IAIService aiService)
         {
             _chamadoRepo = chamadoRepo;
             _arquivoRepo = arquivoRepo;
-            _emailService = emailService; // <-- ADICIONADO DE VOLTA
+            _emailService = emailService; 
             _aiService = aiService;
         }
 
-        // ETAPA 1: Salva o chamado básico (RÁPIDO)
-        // Não chama IA, não envia email.
+
         public async Task<int> CriarChamadoBaseAsync(Chamado novoChamado, byte[] arquivoBytes, string nomeAnexo, string tipoAnexo)
         {
             // O chamado é salvo com status "Pendente" e sem dados da IA
@@ -43,7 +41,7 @@ namespace Gerenciamento_De_Chamados.Services
                 throw new Exception("Não foi possível salvar o chamado no banco de dados.");
             }
 
-            // 2. Salvar o Arquivo (se existir)
+
             if (arquivoBytes != null && arquivoBytes.Length > 0)
             {
                 Arquivo novoArquivo = new Arquivo
@@ -55,8 +53,6 @@ namespace Gerenciamento_De_Chamados.Services
                 };
                 await _arquivoRepo.AdicionarAsync(novoArquivo);
             }
-
-            // 3. Retornar o ID para a UI
             return idChamado;
         }
 

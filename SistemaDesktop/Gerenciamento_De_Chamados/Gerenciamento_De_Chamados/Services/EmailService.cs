@@ -82,7 +82,73 @@ namespace Gerenciamento_De_Chamados.Services
                 }
             }
         }
+        public async Task EnviarEmailResolucaoUsuarioAsync(Chamado chamado, Usuario usuario, string solucao)
+        {
+            if (usuario == null || string.IsNullOrEmpty(usuario.Email) || usuario.Email == "sememail@dominio.com")
+            {
+                Console.WriteLine("Email do usuário inválido para envio de resolução.");
+                return;
+            }
 
+            string corpoEmail = $@"
+                <div style='font-family: Arial, sans-serif; color: #333;'>
+                    <h2 style='color: #4CAF50;'>Chamado #{chamado.IdChamado} Resolvido!</h2>
+                    <p>Olá, <b>{usuario.Nome}</b>.</p>
+                    <p>Informamos que seu chamado foi concluído pela nossa equipe técnica.</p>
+                    <hr style='border: 1px solid #eee;'>
+                    <p><b>Título:</b> {chamado.Titulo}</p>
+                    <p><b>Data Abertura:</b> {chamado.DataChamado:dd/MM/yyyy}</p>
+                    <br>
+                    <div style='background-color: #f9f9f9; padding: 15px; border-left: 5px solid #4CAF50;'>
+                        <p style='margin-top: 0;'><b>Solução Aplicada:</b></p>
+                        <p>{solucao}</p>
+                    </div>
+                    <br>
+                    <p>Se o problema persistir ou precisar de mais ajuda, por favor, abra um novo chamado.</p>
+                    <p>Atenciosamente,<br><b>Equipe Fatal System</b></p>
+                </div>";
+
+            await EnviarEmailGenerico(usuario.Email, $"✔ Resolvido: Chamado #{chamado.IdChamado} - {chamado.Titulo}", corpoEmail);
+        }
+
+        private async Task EnviarEmailGenerico(string destinatario, string assunto, string corpo, byte[] anexo = null, string nomeAnexo = null)
+        {
+            try
+            {
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                using (MailMessage mail = new MailMessage())
+                {
+                    smtp.Credentials = new NetworkCredential("fatalsystem.unip@gmail.com", "wwtr xdst wpwm lavr");
+                    smtp.EnableSsl = true;
+
+                    mail.From = new MailAddress("fatalsystem.unip@gmail.com", "Fatal System Support");
+                    mail.To.Add(destinatario);
+                    mail.Subject = assunto;
+                    mail.Body = corpo;
+                    mail.IsBodyHtml = true;
+
+                    if (anexo != null && anexo.Length > 0)
+                    {
+                        using (MemoryStream ms = new MemoryStream(anexo))
+                        using (Attachment attachment = new Attachment(ms, nomeAnexo ?? "anexo.dat"))
+                        {
+                            mail.Attachments.Add(attachment);
+                            await smtp.SendMailAsync(mail);
+                        }
+                    }
+                    else
+                    {
+                        await smtp.SendMailAsync(mail);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Em produção, logar o erro em arquivo ou banco
+                Console.WriteLine($"Erro ao enviar email para {destinatario}: {ex.Message}");
+                // Não relançamos o erro para não travar o fluxo principal da aplicação
+            }
+        }
         public async Task EnviarEmailNovoChamadoTIAsync(Chamado chamado, Usuario usuario, int idChamado, byte[] anexo, string nomeAnexo)
         {
             string emailTecnico = "fatalsystem.unip@gmail.com";

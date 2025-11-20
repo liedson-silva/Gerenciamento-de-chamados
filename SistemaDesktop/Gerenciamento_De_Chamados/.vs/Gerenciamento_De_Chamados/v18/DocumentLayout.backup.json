@@ -3,12 +3,44 @@
   "WorkspaceRootPath": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\projeto\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\analisechamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\analisechamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\projeto\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\services\\chamadoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\homeadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\homeadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\helpers\\formhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\helpers\\formhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\sessaousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\sessaousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\services\\chamadoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\services\\chamadoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\projeto\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\repositories\\chamadorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,14 +51,6 @@
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\continua\u00E7aoabertura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\projeto\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\projeto\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CEDF3364-E60C-42AF-8648-5B2202CDD5F0}|TestProject1\\Gerenciamento_De_Chamado.Tests.csproj|c:\\projeto\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\testproject1\\chamadoservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEDF3364-E60C-42AF-8648-5B2202CDD5F0}|TestProject1\\Gerenciamento_De_Chamado.Tests.csproj|solutionrelative:testproject1\\chamadoservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,11 +59,7 @@
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\gerenciarusuarios.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\projeto\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|c:\\projeto\\gerenciamento-de-chamados\\sistemadesktop\\gerenciamento_de_chamados\\gerenciamento_de_chamados\\relatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\relatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\relatorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -199,16 +219,8 @@
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\sessaousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\sessaousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\hometecnico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\hometecnico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\homeadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\homeadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\repositories\\ichamadorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -221,14 +233,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\aberturachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\aberturachamados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\helpers\\formhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\helpers\\formhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\helpers\\imagehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -257,10 +261,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\gerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\gerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\analisechamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|solutionrelative:gerenciamento_de_chamados\\analisechamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BB68220-BE10-469E-9EB6-BECE83C2D5EA}|Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados.csproj|C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\gerenciamento_de_chamados\\responder_chamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -314,17 +314,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 8,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Login.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Login.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Login.cs",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Login.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowJIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwDYAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-01T14:07:32.588Z",
               "IsPinned": true,
@@ -344,98 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\App.config",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\App.config",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\App.config",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-11-18T05:14:02.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IEmailService.cs",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\IEmailService.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Services\\IEmailService.cs",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\IEmailService.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\Services\\IEmailService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T03:39:39.412Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ChamadoService.cs",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\ChamadoService.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Services\\ChamadoService.cs",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\ChamadoService.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\Services\\ChamadoService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAADwvyQAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T03:30:02.549Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Continua\u00E7aoAbertura.cs",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
-              "ViewState": "AgIAAK0AAAAAAAAAAAAkwMwAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:07:05.22Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GerenciarUsuarios.Designer.cs",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.Designer.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\GerenciarUsuarios.Designer.cs",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.Designer.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\GerenciarUsuarios.Designer.cs",
-              "ViewState": "AgIAAFkBAAAAAAAAAAAgwHIBAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:35:16.307Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ChamadoRepository.cs",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Repositories\\ChamadoRepository.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Repositories\\ChamadoRepository.cs",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Repositories\\ChamadoRepository.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\Repositories\\ChamadoRepository.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCEAAABsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T17:47:26.141Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ChamadoServiceTests.cs",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\TestProject1\\ChamadoServiceTests.cs",
-              "RelativeDocumentMoniker": "TestProject1\\ChamadoServiceTests.cs",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\TestProject1\\ChamadoServiceTests.cs",
-              "RelativeToolTip": "TestProject1\\ChamadoServiceTests.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAowHwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T22:56:43.968Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "AIService.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\AIService.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Services\\AIService.cs",
@@ -448,20 +357,159 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
+              "Title": "SessaoUsuario.cs",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\SessaoUsuario.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\SessaoUsuario.cs",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\SessaoUsuario.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\SessaoUsuario.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAcwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T16:44:15.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeAdmin.cs",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeAdmin.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeAdmin.cs",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeAdmin.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\HomeAdmin.cs",
+              "ViewState": "AgIAAB4BAAAAAAAAAAAAADQBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:26:43.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormHelper.cs",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Helpers\\FormHelper.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Helpers\\FormHelper.cs",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Helpers\\FormHelper.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\Helpers\\FormHelper.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAcwFQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T17:07:01.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\IEmailService.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Services\\IEmailService.cs",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\IEmailService.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\Services\\IEmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T03:39:39.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Services\\EmailService.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\EmailService.cs",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Services\\EmailService.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAowIMAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAwwNgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T03:41:36.26Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AnaliseChamado.cs",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AnaliseChamado.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\AnaliseChamado.cs",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AnaliseChamado.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\AnaliseChamado.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAQwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T03:25:17.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ChamadoRepository.cs",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Repositories\\ChamadoRepository.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Repositories\\ChamadoRepository.cs",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Repositories\\ChamadoRepository.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\Repositories\\ChamadoRepository.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCEAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T17:47:26.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GerenciarUsuarios.Designer.cs",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.Designer.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\GerenciarUsuarios.Designer.cs",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.Designer.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\GerenciarUsuarios.Designer.cs",
+              "ViewState": "AgIAAFkBAAAAAAAAAAAgwHIBAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T18:35:16.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ChamadoService.cs",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\ChamadoService.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Services\\ChamadoService.cs",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Services\\ChamadoService.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\Services\\ChamadoService.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowDYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T03:30:02.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "Continua\u00E7aoAbertura.cs",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAkwMwAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:07:05.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\App.config",
+              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\App.config",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\App.config",
+              "RelativeToolTip": "Gerenciamento_De_Chamados\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-11-18T05:14:02.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ChamadoServiceTests.cs",
+              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\TestProject1\\ChamadoServiceTests.cs",
+              "RelativeDocumentMoniker": "TestProject1\\ChamadoServiceTests.cs",
+              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\TestProject1\\ChamadoServiceTests.cs",
+              "RelativeToolTip": "TestProject1\\ChamadoServiceTests.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAowHwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T22:56:43.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "Relatorio.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Relatorio.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Relatorio.Designer.cs",
@@ -469,36 +517,33 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Relatorio.Designer.cs",
               "ViewState": "AgIAAGEBAAAAAAAAAIAwwHoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T03:27:38.379Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T03:27:38.379Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "Relatorio.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Relatorio.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Relatorio.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Relatorio.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Relatorio.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:25:17.455Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:25:17.455Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "AberturaChamados.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AberturaChamados.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\AberturaChamados.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AberturaChamados.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\AberturaChamados.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:08:33.085Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:08:33.085Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "Relatorio.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Relatorio.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Relatorio.cs",
@@ -506,12 +551,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Relatorio.cs",
               "ViewState": "AgIAAIwAAAAAAAAAAAAwwAABAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:32:44.823Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T14:32:44.823Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "AnaliseChamado.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AnaliseChamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\AnaliseChamado.cs",
@@ -523,127 +567,117 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "Cadastro_de_Usuarios.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:30:37.885Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-10T13:30:37.885Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "ChamadoCriado.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\ChamadoCriado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\ChamadoCriado.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\ChamadoCriado.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\ChamadoCriado.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:37:36.915Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-10T13:37:36.915Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "Continua\u00E7aoAbertura.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:03:09.74Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:03:09.74Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 22,
               "Title": "Continua\u00E7aoResponderChamado.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoResponderChamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Continua\u00E7aoResponderChamado.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoResponderChamado.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoResponderChamado.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T16:23:18.794Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-14T16:23:18.794Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "Editar_Usuarios.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Editar_Usuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Editar_Usuarios.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Editar_Usuarios.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Editar_Usuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:31:40.062Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-10T13:31:40.062Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 24,
               "Title": "Faq.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Faq.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Faq.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Faq.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Faq.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:19:37.14Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:19:37.14Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "FimChamado.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\FimChamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\FimChamado.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\FimChamado.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\FimChamado.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:19:51.182Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:19:51.182Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "FormRelatorio.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\FormRelatorio.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\FormRelatorio.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\FormRelatorio.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\FormRelatorio.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:20:01.921Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:20:01.921Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "GerenciarChamado.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarChamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\GerenciarChamado.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarChamado.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\GerenciarChamado.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:20:15.053Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:20:15.053Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "GerenciarUsuarios.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\GerenciarUsuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:38:05.023Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-10T13:38:05.023Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "HomeAdmin.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeAdmin.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeAdmin.cs",
@@ -655,79 +689,73 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "HomeFuncionario.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeFuncionario.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeFuncionario.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeFuncionario.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\HomeFuncionario.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:24:08.351Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:24:08.351Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "HomeTecnico.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeTecnico.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeTecnico.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeTecnico.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\HomeTecnico.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:23:09.336Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:23:09.336Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "Login.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Login.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Login.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Login.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T03:36:49.083Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-31T03:36:49.083Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "Responder_Chamado.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Responder_Chamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Responder_Chamado.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Responder_Chamado.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Responder_Chamado.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:25:20.242Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:25:20.242Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "Visualizar_Usuario.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Visualizar_Usuario.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Visualizar_Usuario.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Visualizar_Usuario.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Visualizar_Usuario.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:25:37.995Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:25:37.995Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 35,
               "Title": "VisualizarChamado.cs [Design]",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\VisualizarChamado.cs",
               "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.cs [Design]",
               "RelativeToolTip": "Gerenciamento_De_Chamados\\VisualizarChamado.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:25:40.727Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-01T14:25:40.727Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "FormRelatorio.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\FormRelatorio.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\FormRelatorio.cs",
@@ -735,12 +763,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\FormRelatorio.cs",
               "ViewState": "AgIAAHMAAAAAAAAAAAAcwIQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T14:07:31.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T14:07:31.478Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 37,
               "Title": "Resources.resx",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Properties\\Resources.resx",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Properties\\Resources.resx",
@@ -752,7 +779,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 42,
               "Title": "ChamadoCriado.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\ChamadoCriado.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\ChamadoCriado.Designer.cs",
@@ -760,12 +787,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\ChamadoCriado.Designer.cs",
               "ViewState": "AgIAAIMAAAAAAAAAAAAgwJwAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:35:40.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T18:35:40.965Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 40,
               "Title": "AberturaChamados.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AberturaChamados.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\AberturaChamados.Designer.cs",
@@ -773,12 +799,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\AberturaChamados.Designer.cs",
               "ViewState": "AgIAAKEAAAAAAAAAAAAgwLoAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:35:56.839Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T18:35:56.839Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 38,
               "Title": "ValidadorChamadoTests.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\TestProject1\\ValidadorChamadoTests.cs",
               "RelativeDocumentMoniker": "TestProject1\\ValidadorChamadoTests.cs",
@@ -786,12 +811,11 @@
               "RelativeToolTip": "TestProject1\\ValidadorChamadoTests.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAgwCUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:36:32.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T18:36:32.432Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 39,
               "Title": "Continua\u00E7aoAbertura.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.Designer.cs",
@@ -799,12 +823,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoAbertura.Designer.cs",
               "ViewState": "AgIAANMAAAAAAAAAAAAgwOwAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:36:07.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T18:36:07.884Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 44,
               "Title": "Continua\u00E7aoResponderChamado.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Continua\u00E7aoResponderChamado.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Continua\u00E7aoResponderChamado.Designer.cs",
@@ -812,12 +835,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoResponderChamado.Designer.cs",
               "ViewState": "AgIAAIQAAAAAAAAAAAAgwJ0AAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:35:26.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T18:35:26.94Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 45,
               "Title": "FimChamado.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\FimChamado.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\FimChamado.Designer.cs",
@@ -825,12 +847,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\FimChamado.Designer.cs",
               "ViewState": "AgIAAIoAAAAAAAAAAAAgwKMAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:35:20.648Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T18:35:20.648Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 41,
               "Title": "AnaliseChamado.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AnaliseChamado.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\AnaliseChamado.Designer.cs",
@@ -843,7 +864,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 46,
               "Title": "GerenciarChamado.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarChamado.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\GerenciarChamado.Designer.cs",
@@ -851,12 +872,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\GerenciarChamado.Designer.cs",
               "ViewState": "AgIAAHcAAAAAAAAAAAAgwJAAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:35:18.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T18:35:18.675Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 43,
               "Title": "Faq.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Faq.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Faq.Designer.cs",
@@ -864,12 +884,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Faq.Designer.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAgwFYAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T03:26:44.244Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T03:26:44.244Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 50,
               "Title": "Login.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Login.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Login.Designer.cs",
@@ -877,12 +896,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Login.Designer.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAgwDgAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T03:27:30.592Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T03:27:30.592Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 49,
               "Title": "HomeTecnico.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeTecnico.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeTecnico.Designer.cs",
@@ -890,12 +908,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\HomeTecnico.Designer.cs",
               "ViewState": "AgIAAKoAAAAAAAAAAAAgwMMAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T03:27:19.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T03:27:19.297Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 48,
               "Title": "HomeFuncionario.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeFuncionario.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeFuncionario.Designer.cs",
@@ -903,12 +920,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\HomeFuncionario.Designer.cs",
               "ViewState": "AgIAABUCAAAAAAAAAAAgwC4CAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T03:27:00.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T03:27:00.624Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 47,
               "Title": "HomeAdmin.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeAdmin.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeAdmin.Designer.cs",
@@ -921,7 +937,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 51,
               "Title": "VisualizarChamado.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\VisualizarChamado.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\VisualizarChamado.Designer.cs",
@@ -929,12 +945,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\VisualizarChamado.Designer.cs",
               "ViewState": "AgIAAEcBAAAAAAAAAAAgwGABAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:34:49.625Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T18:34:49.625Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 53,
               "Title": "Resources.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Properties\\Resources.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Properties\\Resources.Designer.cs",
@@ -946,7 +961,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 54,
               "Title": "HomeTecnico.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeTecnico.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeTecnico.cs",
@@ -954,12 +969,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\HomeTecnico.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:38:38.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T13:38:38.521Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 52,
               "Title": "Responder_Chamado.Designer.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Responder_Chamado.Designer.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Responder_Chamado.Designer.cs",
@@ -967,37 +981,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Responder_Chamado.Designer.cs",
               "ViewState": "AgIAAIUAAAAAAAAAAAAgwJ4AAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T03:27:46.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T03:27:46.919Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "SessaoUsuario.cs",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\SessaoUsuario.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\SessaoUsuario.cs",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\SessaoUsuario.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\SessaoUsuario.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T16:44:15.139Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "HomeAdmin.cs",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeAdmin.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeAdmin.cs",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeAdmin.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\HomeAdmin.cs",
-              "ViewState": "AgIAAMsAAAAAAAAAAAAIwPYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:26:43.136Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 56,
               "Title": "HomeFuncionario.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\HomeFuncionario.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\HomeFuncionario.cs",
@@ -1005,12 +993,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\HomeFuncionario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:22:15.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T14:22:15.966Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 55,
               "Title": "IChamadoRepository.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Repositories\\IChamadoRepository.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Repositories\\IChamadoRepository.cs",
@@ -1022,7 +1009,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 57,
               "Title": "AberturaChamados.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AberturaChamados.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\AberturaChamados.cs",
@@ -1030,24 +1017,11 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\AberturaChamados.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAgwDsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T14:10:01.353Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T14:10:01.353Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "FormHelper.cs",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Helpers\\FormHelper.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Helpers\\FormHelper.cs",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Helpers\\FormHelper.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\Helpers\\FormHelper.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAIwEEAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T17:07:01.439Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": "ImageHelper.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Helpers\\ImageHelper.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Helpers\\ImageHelper.cs",
@@ -1059,7 +1033,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "Chamado.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Models\\Chamado.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Models\\Chamado.cs",
@@ -1071,7 +1045,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "Historico.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Models\\Historico.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Models\\Historico.cs",
@@ -1083,7 +1057,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 62,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Models\\Usuario.cs",
@@ -1095,7 +1069,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 63,
               "Title": "Arquivo.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Models\\Arquivo.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Models\\Arquivo.cs",
@@ -1107,7 +1081,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "ChartDataPoint.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\Models\\ChartDataPoint.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\Models\\ChartDataPoint.cs",
@@ -1119,7 +1093,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 64,
               "Title": "GerenciarUsuarios.cs",
               "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
               "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
@@ -1127,8 +1101,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\GerenciarUsuarios.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAgwDsAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T14:34:36.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T14:34:36.963Z"
             },
             {
               "$type": "Document",
@@ -1140,21 +1113,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Responder_Chamado.cs",
               "ViewState": "AgIAALEAAAAAAAAAAAAAwNwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:50:17.584Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "AnaliseChamado.cs",
-              "DocumentMoniker": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AnaliseChamado.cs",
-              "RelativeDocumentMoniker": "Gerenciamento_De_Chamados\\AnaliseChamado.cs",
-              "ToolTip": "C:\\Projeto\\Gerenciamento-de-chamados\\SistemaDesktop\\Gerenciamento_De_Chamados\\Gerenciamento_De_Chamados\\AnaliseChamado.cs",
-              "RelativeToolTip": "Gerenciamento_De_Chamados\\AnaliseChamado.cs",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAgwAwBAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T03:25:17.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T13:50:17.584Z"
             },
             {
               "$type": "Document",
@@ -1178,8 +1137,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Editar_Usuarios.cs",
               "ViewState": "AgIAALgAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T14:10:32.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T14:10:32.915Z"
             },
             {
               "$type": "Document",
@@ -1191,8 +1149,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\FimChamado.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAD4vzcAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:33:20.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T13:33:20.604Z"
             },
             {
               "$type": "Document",
@@ -1204,8 +1161,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Continua\u00E7aoResponderChamado.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:31:18.335Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T13:31:18.335Z"
             },
             {
               "$type": "Document",
@@ -1217,8 +1173,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\ChamadoCriado.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAAwCMAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T14:10:12.939Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T14:10:12.939Z"
             },
             {
               "$type": "Document",
@@ -1230,8 +1185,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Cadastro_de_Usuarios.cs",
               "ViewState": "AgIAAIwAAAAAAAAAAAAlwMwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:31:12.985Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T13:31:12.985Z"
             },
             {
               "$type": "Document",
@@ -1243,8 +1197,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\VisualizarChamado.cs",
               "ViewState": "AgIAAKEAAAAAAAAAAAAUwI4AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:52:43.687Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T13:52:43.687Z"
             },
             {
               "$type": "Document",
@@ -1256,8 +1209,7 @@
               "RelativeToolTip": "Gerenciamento_De_Chamados\\Faq.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAAD4v3gAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T13:31:46.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T13:31:46.147Z"
             },
             {
               "$type": "Document",

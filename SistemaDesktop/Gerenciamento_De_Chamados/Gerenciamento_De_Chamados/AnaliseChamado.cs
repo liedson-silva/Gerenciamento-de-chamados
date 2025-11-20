@@ -1,6 +1,7 @@
 ﻿using Gerenciamento_De_Chamados.Models;
 using Gerenciamento_De_Chamados.Repositories;
 using Gerenciamento_De_Chamados.Helpers;
+using Gerenciamento_De_Chamados.Services;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -17,14 +18,14 @@ namespace Gerenciamento_De_Chamados
         private int _chamadoId;
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        // Repositórios
+        // Repositórios e Serviços
         private readonly IChamadoRepository _chamadoRepository;
         private readonly IHistoricoRepository _historicoRepository;
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IEmailService _emailService;
 
-        // Guarda o chamado original para comparar mudanças
+        // Guarda estado para comparações
         private Chamado _chamadoCarregado;
-        // Guarda a solução original para comparar mudanças
         private string _solucaoCarregada = "";
 
         public AnaliseChamado(int chamadoId)
@@ -35,14 +36,16 @@ namespace Gerenciamento_De_Chamados
             _chamadoRepository = new ChamadoRepository();
             _historicoRepository = new HistoricoRepository();
             _usuarioRepository = new UsuarioRepository();
+            _emailService = new EmailService();
 
             this.Load += AnaliseChamado_Load;
-            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+
         }
 
         private async void AnaliseChamado_Load(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Técnico: {SessaoUsuario.Nome}");
 
             await CarregarDadosChamadoAsync();
         }
@@ -51,7 +54,7 @@ namespace Gerenciamento_De_Chamados
         {
             try
             {
-                // Busca e armazena o chamado
+                // 1. Busca o chamado
                 _chamadoCarregado = await _chamadoRepository.BuscarPorIdAsync(_chamadoId);
                 if (_chamadoCarregado == null)
                 {
@@ -60,11 +63,11 @@ namespace Gerenciamento_De_Chamados
                     return;
                 }
 
-                // Busca o usuário criador
+                // 2. Busca o usuário criador (para exibir o nome)
                 Usuario usuarioCriador = await _usuarioRepository.BuscarPorIdAsync(_chamadoCarregado.FK_IdUsuario);
                 string nomeUsuario = usuarioCriador?.Nome ?? "Usuário Desconhecido";
 
-                // Monta o resumo
+                // 3. Monta o resumo visual (ReadOnly)
                 StringBuilder resumo = new StringBuilder();
                 resumo.AppendLine($"ID do Chamado: {_chamadoCarregado.IdChamado}");
                 resumo.AppendLine($"Criado por: {nomeUsuario}");
@@ -78,25 +81,29 @@ namespace Gerenciamento_De_Chamados
                 resumo.AppendLine(_chamadoCarregado.Descricao);
 
                 txtDescricao.Text = resumo.ToString();
-                txtDescricao.ReadOnly = true; // Descrição é sempre ReadOnly
+                txtDescricao.ReadOnly = true;
 
-                // Preenche os ComboBoxes de Admin
-                cboxCategoria.SelectedItem = _chamadoCarregado.Categoria;
-                cboxPrioridade.SelectedItem = _chamadoCarregado.PrioridadeChamado;
+                // Posiciona o cursor no início do texto para não ficar rolado lá embaixo
+                txtDescricao.SelectionStart = 0;
+                txtDescricao.ScrollToCaret();
 
-                //  Verifica Permissão
+                // 4. Preenche os ComboBoxes (para edição)
+                cboxCategoria.Text = _chamadoCarregado.Categoria;
+                cboxPrioridade.Text = _chamadoCarregado.PrioridadeChamado;
+
+                // 5. Verifica Permissão de Admin
                 bool isAdmin = (SessaoUsuario.FuncaoUsuario?.Equals("Admin", StringComparison.OrdinalIgnoreCase) == true) ||
                                (SessaoUsuario.FuncaoUsuario?.Equals("Administrador", StringComparison.OrdinalIgnoreCase) == true);
 
-                // Mostra/Esconde os controles de Admin
+                // Mostra/Esconde controles exclusivos de Admin
                 lblPrioridade.Visible = isAdmin;
                 cboxPrioridade.Visible = isAdmin;
                 lblCategoria.Visible = isAdmin;
                 cboxCategoria.Visible = isAdmin;
 
-                // Preenche a solução E define o estado dos controles
+                // 6. Configura campos baseado no Status
                 string statusAtual = _chamadoCarregado.StatusChamado;
-                this.Tag = statusAtual;
+                this.Tag = statusAtual; // Guarda o status original na Tag do form
 
                 if (statusAtual == "Resolvido")
                 {
@@ -106,7 +113,7 @@ namespace Gerenciamento_De_Chamados
 
                     if (isAdmin)
                     {
-                        // ADMIN PODE EDITAR CHAMADO RESOLVIDO
+                        // Admin pode reabrir ou editar chamado resolvido
                         txtSolucao.ReadOnly = false;
                         btnEnviar.Enabled = true;
                         btnEnviar.Text = "Salvar Alterações";
@@ -115,7 +122,7 @@ namespace Gerenciamento_De_Chamados
                     }
                     else
                     {
-                        // NÃO-ADMIN VÊ TUDO TRAVADO
+                        // Técnico comum apenas visualiza
                         txtSolucao.ReadOnly = true;
                         btnEnviar.Enabled = false;
                         btnEnviar.Text = "Resolvido";
@@ -123,8 +130,9 @@ namespace Gerenciamento_De_Chamados
                         cboxPrioridade.Enabled = false;
                     }
                 }
-                else // Status é "Pendente" ou "Em Andamento"
+                else // Pendente ou Em Andamento
                 {
+                    // Sugere a solução da IA se o campo estiver vazio
                     _solucaoCarregada = _chamadoCarregado.SolucaoSugeridaIA;
                     txtSolucao.Text = _solucaoCarregada;
 
@@ -132,7 +140,6 @@ namespace Gerenciamento_De_Chamados
                     btnEnviar.Enabled = true;
                     btnEnviar.Text = "Enviar Resposta";
 
-                    // Admin pode editar Categoria/Prioridade
                     cboxCategoria.Enabled = isAdmin;
                     cboxPrioridade.Enabled = isAdmin;
                 }
@@ -144,19 +151,18 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-
         private async void btnEnviar_Click(object sender, EventArgs e)
         {
-            //  Pega todos os valores atuais (editados ou não)
+            // Captura valores da UI
             string solucaoFinal = txtSolucao.Text;
             string novaPrioridade = cboxPrioridade.Text;
             string novaCategoria = cboxCategoria.Text;
 
             string statusAntigo = this.Tag?.ToString() ?? "Pendente";
-            string novoStatus = "Resolvido"; // O status final será sempre "Resolvido"
+            string novoStatus = "Resolvido";
             DateTime dataAgora = ObterHoraBrasilia();
 
-            // Validação
+            // Validação simples
             if (string.IsNullOrWhiteSpace(solucaoFinal))
             {
                 MessageBox.Show("Por favor, descreva a solução aplicada.", "Campo Vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -165,15 +171,15 @@ namespace Gerenciamento_De_Chamados
 
             string confirmMsg = (statusAntigo == "Resolvido")
                 ? "Deseja salvar as alterações neste chamado já resolvido?"
-                : "Deseja aplicar esta solução e marcar o chamado como 'Resolvido'?";
+                : "Deseja aplicar esta solução e marcar o chamado como 'Resolvido'? O usuário será notificado.";
 
-            if (MessageBox.Show(confirmMsg, "Confirmar Alterações", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show(confirmMsg, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }
 
             this.Cursor = Cursors.WaitCursor;
-            bool mudouAlgo = false; // Flag para saber se algo foi alterado
+            bool mudouAlgo = false;
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -182,12 +188,10 @@ namespace Gerenciamento_De_Chamados
                 {
                     try
                     {
-                        // Atualiza o Chamado (sempre atualiza tudo)
+                        // 1. Atualiza tabela Chamado (Status, Categoria, Prioridade)
                         await _chamadoRepository.AtualizarStatusAsync(_chamadoId, novoStatus, novaPrioridade, novaCategoria, conn, trans);
 
-                        // Registra no Histórico (APENAS O QUE MUDOU)
-
-                        // Se o status MUDOU (Pendente -> Resolvido)
+                        // 2. Registra Histórico (Status)
                         if (statusAntigo != "Resolvido")
                         {
                             Historico histStatus = new Historico
@@ -201,7 +205,7 @@ namespace Gerenciamento_De_Chamados
                             mudouAlgo = true;
                         }
 
-                        // Se a PRIORIDADE mudou (e o admin pode ver os controles)
+                        // 3. Registra Histórico (Prioridade - se mudou e é visível)
                         if (_chamadoCarregado.PrioridadeChamado != novaPrioridade && cboxPrioridade.Visible)
                         {
                             Historico histPrioridade = new Historico
@@ -215,7 +219,7 @@ namespace Gerenciamento_De_Chamados
                             mudouAlgo = true;
                         }
 
-                        // Se a CATEGORIA mudou (e o admin pode ver os controles)
+                        // 4. Registra Histórico (Categoria - se mudou e é visível)
                         if (_chamadoCarregado.Categoria != novaCategoria && cboxCategoria.Visible)
                         {
                             Historico histCategoria = new Historico
@@ -229,8 +233,9 @@ namespace Gerenciamento_De_Chamados
                             mudouAlgo = true;
                         }
 
-                        // Se a SOLUÇÃO mudou (ou se é a primeira vez sendo resolvida)
-                        if (solucaoFinal != _solucaoCarregada)
+                        // 5. Registra Histórico (Solução Aplicada)
+                        // Registra se a solução mudou OU se é a primeira vez que está sendo resolvido
+                        if (solucaoFinal != _solucaoCarregada || statusAntigo != "Resolvido")
                         {
                             string acao = (statusAntigo == "Resolvido") ? "Solução Editada" : "Solução Aplicada";
                             Historico histSolucao = new Historico
@@ -244,11 +249,31 @@ namespace Gerenciamento_De_Chamados
                             mudouAlgo = true;
                         }
 
+                        // CONFIRMA NO BANCO
                         trans.Commit();
+
+                        // --- ENVIO DE E-MAIL ---
+                        try
+                        {
+                            // Busca o usuário dono para pegar o e-mail
+                            Usuario usuarioDono = await _usuarioRepository.BuscarPorIdAsync(_chamadoCarregado.FK_IdUsuario);
+
+                            if (usuarioDono != null)
+                            {
+                                await _emailService.EnviarEmailResolucaoUsuarioAsync(_chamadoCarregado, usuarioDono, solucaoFinal);
+                            }
+                        }
+                        catch (Exception exEmail)
+                        {
+                            Console.WriteLine($"Erro ao enviar email de resolução: {exEmail.Message}");
+                            // Não faz rollback, pois o chamado já foi salvo. Apenas loga.
+                        }
+                        // -----------------------
+
                         this.Cursor = Cursors.Default;
 
                         if (mudouAlgo || statusAntigo != "Resolvido")
-                            MessageBox.Show("Alterações salvas com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Alterações salvas e usuário notificado!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                             MessageBox.Show("Nenhuma alteração detectada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -258,13 +283,13 @@ namespace Gerenciamento_De_Chamados
                     {
                         trans.Rollback();
                         this.Cursor = Cursors.Default;
-                        MessageBox.Show("Erro ao salvar as alterações: " + ex.Message, "Erro de Transação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Erro ao salvar: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
 
-        #region Métodos Auxiliares e de UI 
+        #region Métodos Auxiliares (UI e Data)
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
@@ -281,38 +306,23 @@ namespace Gerenciamento_De_Chamados
             catch { return DateTime.Now; }
         }
 
-        // (Métodos de pintura e navegação)
-        private void panel1_Paint(object sender, PaintEventArgs e) { /* ... seu código de gradiente ... */ }
-        private void lbl_Inicio_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
-        private void PctBox_Logo_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
-        private void lbSair_Click(object sender, EventArgs e) { FormHelper.Sair(this); }
-
-        #endregion
-
         private void AnaliseChamado_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             Color corInicio = Color.White;
             Color corFim = ColorTranslator.FromHtml("#232325");
-
-            using (LinearGradientBrush gradiente = new LinearGradientBrush(
-                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+            using (LinearGradientBrush gradiente = new LinearGradientBrush(this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
             {
                 g.FillRectangle(gradiente, this.ClientRectangle);
             }
         }
 
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Color corInicioPanel = Color.White;
-            Color corFimPanel = ColorTranslator.FromHtml("#232325");
-            LinearGradientBrush gradientePanel = new LinearGradientBrush(
-                     panel1.ClientRectangle,
-                    corInicioPanel,
-                    corFimPanel,
-                    LinearGradientMode.Vertical);
-            g.FillRectangle(gradientePanel, panel1.ClientRectangle);
-        }
+        // Outros eventos de UI
+        private void panel1_Paint(object sender, PaintEventArgs e) { /* Gradiente do topo se necessário */ }
+        private void lbl_Inicio_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
+        private void PctBox_Logo_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
+        private void lbSair_Click(object sender, EventArgs e) { FormHelper.Sair(this); }
+
+        #endregion
     }
 }

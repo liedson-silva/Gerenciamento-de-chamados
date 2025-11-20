@@ -19,9 +19,9 @@ namespace Gerenciamento_De_Chamados
         public static string Email { get; private set; }
         public static string FuncaoUsuario { get; private set; }
 
-        // O "Token" de Validade
+
         private static DateTime _horaExpiracao;
-        /// Inicia uma nova sessão de usuário ("Gera o Token").
+
       
         public static void IniciarSessao(Usuario usuario)
         {
@@ -40,11 +40,10 @@ namespace Gerenciamento_De_Chamados
       
         public static bool SessaoEstaValida()
         {
-            // Se o ID for 0, não há sessão.
-            // Se a hora atual for maior que a expiração, a sessão expirou.
+
             if (IdUsuario == 0 || DateTime.Now > _horaExpiracao)
             {
-                EncerrarSessao(); // Garante que tudo seja limpo
+                EncerrarSessao(); 
                 return false;
             }
 
@@ -52,7 +51,6 @@ namespace Gerenciamento_De_Chamados
         }
 
 
-        /// Encerra a sessão do usuário ("Revoga o Token").
 
         public static void EncerrarSessao()
         {
@@ -61,7 +59,7 @@ namespace Gerenciamento_De_Chamados
             Nome = null;
             Email = null;
             FuncaoUsuario = null;
-            _horaExpiracao = DateTime.MinValue; // Expira a sessão
+            _horaExpiracao = DateTime.MinValue; 
         }
     }
 }
