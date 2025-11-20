@@ -296,7 +296,7 @@ namespace Gerenciamento_De_Chamados
 
         private void lbSair_Click(object sender, EventArgs e)
         {
-            FormHelper.Sair(this);
+            FormHelper.Sair(this, timerSessao);
         }
 
         private void HomeAdmin_Load(object sender, EventArgs e)
@@ -316,7 +316,7 @@ namespace Gerenciamento_De_Chamados
             // "Valida o Token" a cada minuto
             if (!SessaoUsuario.SessaoEstaValida())
             {
-                // Para o timer para não mostrar a mensagem várias vezes
+
                 timerSessao.Stop();
 
                 MessageBox.Show("Sua sessão expirou por segurança. Por favor, faça o login novamente.",

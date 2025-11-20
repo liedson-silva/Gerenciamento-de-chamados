@@ -12,8 +12,7 @@ namespace Gerenciamento_De_Chamados.Services
         
         Task EnviarEmailConfirmacaoUsuarioAsync(Chamado chamado, Usuario usuario, int idChamado);
 
-
-       
         Task EnviarEmailNovoChamadoTIAsync(Chamado chamado, Usuario usuario, int idChamado, byte[] anexo, string nomeAnexo);
+        Task EnviarEmailResolucaoUsuarioAsync(Chamado chamado, Usuario usuario, string solucao);
     }
 }
