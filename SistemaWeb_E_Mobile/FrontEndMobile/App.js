@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar'
-import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { Image, StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
 import logo from "./src/assets/logo.png"
 import { FontAwesome6 } from '@expo/vector-icons'
 import Home from './src/pages/Home.js'
@@ -11,9 +11,10 @@ import SuccessTicket from './src/pages/SuccessTicket.js';
 import ShowTicket from './src/pages/ShowTicket.js';
 import Ticket from './src/pages/Ticket.js';
 import Login from './src/pages/Login.js';
+import { registerLogoutCallback } from './src/utils/authUtils.js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-const DropdownMenu = ({ onClose, onLogout, onNavigate }) => (
+const DropdownMenu = ({ onClose, onConfirmLogout, onNavigate }) => (
 
   <View style={styles.dropdownMenu}>
 
@@ -32,7 +33,7 @@ const DropdownMenu = ({ onClose, onLogout, onNavigate }) => (
       <Text style={styles.dropdownText}>FAQ</Text>
     </TouchableOpacity>
 
-    <TouchableOpacity style={[styles.dropdownItem, styles.logoutItem]} onPress={() => { onClose(); onLogout(); }}>
+    <TouchableOpacity style={[styles.dropdownItem, styles.logoutItem]} onPress={() => { onClose(); onConfirmLogout(); }}>
       <FontAwesome6 name="right-from-bracket" size={16} color="#ED6665" style={styles.dropdownIcon} />
       <Text style={[styles.dropdownText, { color: '#ED6665', fontWeight: 'bold' }]}>Sair</Text>
     </TouchableOpacity>
@@ -49,19 +50,41 @@ export default function App() {
 
   const handleNavigate = (tabName, data = null) => {
     setActiveTab(tabName);
-    setNavState(data); 
-  };    
+    setNavState(data);
+  };
 
   const handleLoginSuccess = () => {
     setIsLoggedIn(true)
     handleNavigate('Home')
   }
 
-  const handleLogout = () => {
-    setIsLoggedIn(false)
-    handleNavigate('Home')
-    setUser(null)
-  }
+  const handleLogout = async () => {
+    try {
+      await AsyncStorage.removeItem('token');
+      Alert.alert("Sessão Encerrada", "Token expirado, faça login novamente.");
+    } catch (e) {
+      console.error("Erro ao remover token durante logout:", e);
+    }
+    setIsLoggedIn(false);
+    handleNavigate('Home');
+    setUser(null);
+  };
+  useEffect(() => {
+    registerLogoutCallback(handleLogout);
+  }, []);
+
+  const handleLogoutConfirmation = () => {
+    Alert.alert(
+      "Confirmação",
+      "Tem certeza que deseja sair do aplicativo?",
+      [{ text: "Não", style: "cancel" },
+      { text: "Sim", onPress: handleLogout, style: "destructive" }],
+      { cancelable: true }
+    );
+  };
+  useEffect(() => {
+    registerLogoutCallback(handleLogout);
+  }, []);
 
   const renderScreen = () => {
 
@@ -80,9 +103,9 @@ export default function App() {
     } else if (activeTab === 'CreateTicket') {
       return <CreateTicket user={user} setActiveTab={handleNavigate} />;
     } else if (activeTab === 'SuccessTicket') {
-      return <SuccessTicket setActiveTab={handleNavigate} state={navState}/>;
+      return <SuccessTicket setActiveTab={handleNavigate} state={navState} />;
     } else if (activeTab === 'ShowTicket') {
-      return <ShowTicket setActiveTab={handleNavigate} state={navState}/>;
+      return <ShowTicket setActiveTab={handleNavigate} state={navState} />;
     }
   }
 
@@ -102,7 +125,7 @@ export default function App() {
           {isMenuOpen && (
             <DropdownMenu
               onClose={() => setIsMenuOpen(false)}
-              onLogout={handleLogout}
+              onConfirmLogout={handleLogoutConfirmation}
               onNavigate={handleNavigate}
             />
           )}
