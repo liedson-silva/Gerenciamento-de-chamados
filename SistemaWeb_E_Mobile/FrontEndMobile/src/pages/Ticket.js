@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     itemTitle: {
-        fontSize: 16,
+        fontSize: 15,
         color: '#333',
         fontWeight: '500',
     },
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
         marginRight: 8,
     },
     itemStatus: {
-        fontSize: 16,
+        fontSize: 15,
         color: '#333',
         fontWeight: '600',
     },

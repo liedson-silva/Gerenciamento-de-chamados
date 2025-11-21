@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import api from '../services/api.js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({ setActiveTab, setUser }) => {
     const [login, setLogin] = useState('');
@@ -21,6 +22,11 @@ const Login = ({ setActiveTab, setUser }) => {
 
             if (response.data.success) {
                 const user = response.data.user;
+                const token = response.data.token;
+                if (token) {
+                    await AsyncStorage.setItem('token', token);
+                }
+
                 setUser(user);
                 setActiveTab('Home');
 
@@ -45,6 +51,8 @@ const Login = ({ setActiveTab, setUser }) => {
         setForgetPassword("Entre em contato com o administrador para recuperar a senha");
         setTimeout(() => setForgetPassword(""), 3000);
     };
+
+
 
     return (
         <View style={styles.container}>

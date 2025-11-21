@@ -45,7 +45,7 @@ export default function HomeScreen({ setActiveTab, user }) {
     const summaryCards = useMemo(() => {
         const total = tickets.length;
         const pendentes = tickets.filter(t => t.StatusChamado === 'Pendente').length;
-        const emAndamento = tickets.filter(t => t.StatusChamado === 'Em Andamento').length;
+        const emAndamento = tickets.filter(t => t.StatusChamado === 'Em andamento').length;
         const resolvidos = tickets.filter(t => t.StatusChamado === 'Resolvido').length;
 
         return [
