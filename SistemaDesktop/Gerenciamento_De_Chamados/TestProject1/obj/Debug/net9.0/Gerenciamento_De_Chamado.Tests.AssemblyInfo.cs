@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gerenciamento_De_Chamado.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32aeb7edac36d2fa26d7069100de1b68c03c9936")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a27b8a462976a0fce73347ac048aed63db273ec2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gerenciamento_De_Chamado.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gerenciamento_De_Chamado.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

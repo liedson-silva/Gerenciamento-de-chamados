@@ -1,2 +1,19 @@
-﻿.vs/
-\Gerenciamento-de-chamados\SistemaDesktop\Appparalogin\Appparalogin\Funcoes.cs
+﻿--- Ignorar Arquivos de Configuração Sensíveis ---
+
+Ignora o App.config principal (onde estão as senhas)
+
+App.config
+*.config
+!packages.config
+!OpenTK.dll.config
+
+--- Visual Studio & Build (Padrão) ---
+
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+*.userprefs
+*.lock.json
+TestResults/

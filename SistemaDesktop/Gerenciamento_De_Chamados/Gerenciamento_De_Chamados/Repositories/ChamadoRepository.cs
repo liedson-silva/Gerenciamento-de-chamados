@@ -166,20 +166,20 @@ namespace Gerenciamento_De_Chamados.Repositories
 
         public async Task AtualizarSugestoesIAAsync(int id, string prioridade, string problema, string solucao)
         {
-            string sqlUpdate = @"
-                UPDATE Chamado 
-                SET ProblemaSugeridoIA = @Problema, 
-                    SolucaoSugeridaIA = @Solucao, 
-                    PrioridadeSugeridaIA = @Prioridade 
-                WHERE IdChamado = @IdChamado";
+            string sqlUpdate = @"UPDATE Chamado 
+                           SET PrioridadeSugeridaIA = @Prioridade,
+                               ProblemaSugeridoIA = @Problema, 
+                               SolucaoSugeridaIA = @Solucao,
+                               PrioridadeChamado = @Prioridade
+                           WHERE IdChamado = @Id";
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             using (SqlCommand cmdUpdate = new SqlCommand(sqlUpdate, conn))
             {
-                cmdUpdate.Parameters.AddWithValue("@Problema", (object)problema ?? DBNull.Value);
-                cmdUpdate.Parameters.AddWithValue("@Solucao", (object)solucao ?? DBNull.Value);
-                cmdUpdate.Parameters.AddWithValue("@Prioridade", (object)prioridade ?? DBNull.Value);
-                cmdUpdate.Parameters.AddWithValue("@IdChamado", id);
+                cmdUpdate.Parameters.AddWithValue("@Prioridade", prioridade ?? "Não Definida");
+                cmdUpdate.Parameters.AddWithValue("@Problema", problema ?? "Não identificado");
+                cmdUpdate.Parameters.AddWithValue("@Solucao", solucao ?? "Sem sugestão");
+                cmdUpdate.Parameters.AddWithValue("@Id", id);
 
                 await conn.OpenAsync();
                 await cmdUpdate.ExecuteNonQueryAsync();

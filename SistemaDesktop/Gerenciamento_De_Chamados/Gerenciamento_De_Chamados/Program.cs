@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Sql;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Sql;
-using System.Data.SqlClient;
+
 
 namespace Gerenciamento_De_Chamados
 {
@@ -16,7 +18,7 @@ namespace Gerenciamento_De_Chamados
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            string connectionString = "Server=fatalsystemsrv1.database.windows.net;Database=DbaFatal-System;User Id=frederico;Password=Fred11376@;";
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             // Testar conexão ANTES de abrir o login
             if (TestarConexao(connectionString))
