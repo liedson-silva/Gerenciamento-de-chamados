@@ -32,7 +32,7 @@ namespace Gerenciamento_De_Chamados.Services
             novoChamado.PrioridadeSugeridaIA = "Em análise";
             novoChamado.ProblemaSugeridoIA = "Em análise";
             novoChamado.SolucaoSugeridaIA = "Em análise";
-            novoChamado.PrioridadeChamado = "Pendente";
+            novoChamado.PrioridadeChamado = "Analise";
 
             // 1. Salvar o Chamado
             int idChamado = await _chamadoRepo.AdicionarAsync(novoChamado);
@@ -82,6 +82,7 @@ namespace Gerenciamento_De_Chamados.Services
                 dadosChamado.PrioridadeSugeridaIA = prioridade;
                 dadosChamado.ProblemaSugeridoIA = problema;
                 dadosChamado.SolucaoSugeridaIA = solucao;
+                dadosChamado.PrioridadeChamado = prioridade;
             }
             catch (Exception aiEx)
             {
