@@ -22,7 +22,7 @@ const ReplyTicket = () => {
         try {
             const response = await api.get("/All-tickets")
             if (response.data.success) {
-                const allTickets = response.data.Tickets.filter(ticket => ticket.StatusChamado === "Pendente")
+                const allTickets = response.data.Tickets.filter(ticket => ticket.StatusChamado != "Resolvido")
 
                 const orderedTickets = allTickets.sort((a, b) => {
                     const priorityOrder = { "Alta": 1, "Média": 2, "Baixa": 3 }
