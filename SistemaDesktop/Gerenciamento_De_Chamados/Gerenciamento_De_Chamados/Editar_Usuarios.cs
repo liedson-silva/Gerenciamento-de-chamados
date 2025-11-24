@@ -211,5 +211,20 @@ namespace Gerenciamento_De_Chamados
                 g.FillRectangle(gradiente, this.ClientRectangle);
             }
         }
+
+        private void lblMconta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
+            visualizarUsuario.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado();
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
     }
 }

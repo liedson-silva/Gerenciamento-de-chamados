@@ -107,6 +107,7 @@ namespace Gerenciamento_De_Chamados
             this.label1.Size = new System.Drawing.Size(230, 29);
             this.label1.TabIndex = 14;
             this.label1.Text = "      Meus Chamados";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -121,6 +122,7 @@ namespace Gerenciamento_De_Chamados
             this.label3.Size = new System.Drawing.Size(98, 29);
             this.label3.TabIndex = 13;
             this.label3.Text = "      FAQ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblMconta
             // 
@@ -134,6 +136,7 @@ namespace Gerenciamento_De_Chamados
             this.lblMconta.Size = new System.Drawing.Size(183, 29);
             this.lblMconta.TabIndex = 15;
             this.lblMconta.Text = "      Minha Conta";
+            this.lblMconta.Click += new System.EventHandler(this.lblMconta_Click);
             // 
             // lbSair
             // 
@@ -182,12 +185,12 @@ namespace Gerenciamento_De_Chamados
             // 
             this.lbl_Inicio.AutoSize = true;
             this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_Inicio.Location = new System.Drawing.Point(59, 34);
             this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(120, 31);
+            this.lbl_Inicio.Size = new System.Drawing.Size(134, 36);
             this.lbl_Inicio.TabIndex = 5;
             this.lbl_Inicio.Text = "      Início";
             this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);

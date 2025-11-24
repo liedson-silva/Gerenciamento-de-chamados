@@ -283,7 +283,7 @@ namespace Gerenciamento_De_Chamados
         {
             var telaUsuario = new GerenciarUsuarios();
             telaUsuario.Show();
-            this.Hide();
+            this.Close();
 
         }
 
@@ -291,7 +291,7 @@ namespace Gerenciamento_De_Chamados
         {
             var telaChamado = new Responder_Chamado();
             telaChamado.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void lbSair_Click(object sender, EventArgs e)
@@ -299,17 +299,7 @@ namespace Gerenciamento_De_Chamados
             FormHelper.Sair(this, timerSessao);
         }
 
-        private void HomeAdmin_Load(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(SessaoUsuario.Nome) && !string.IsNullOrEmpty(SessaoUsuario.FuncaoUsuario))
-            {
-                Home_Tecnico.Text = $"Olá, {SessaoUsuario.Nome} ({SessaoUsuario.FuncaoUsuario})";
-            }
-            else
-            {
-                Home_Tecnico.Text = "Usuário não identificado";
-            }
-        }
+        
 
         private void timerSessao_Tick(object sender, EventArgs e)
         {
@@ -332,6 +322,26 @@ namespace Gerenciamento_De_Chamados
                 loginForm.Show();
                 this.Close();
             }
+        }
+
+        private void lblMconta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
+            visualizarUsuario.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado();
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
         }
     }
 }

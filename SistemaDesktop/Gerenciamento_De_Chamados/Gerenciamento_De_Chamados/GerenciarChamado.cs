@@ -77,5 +77,22 @@ namespace Gerenciamento_De_Chamados
         {
             FormHelper.Sair(this);
         }
+
+        private void lblMconta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
+            visualizarUsuario.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
+        }
     }
 }

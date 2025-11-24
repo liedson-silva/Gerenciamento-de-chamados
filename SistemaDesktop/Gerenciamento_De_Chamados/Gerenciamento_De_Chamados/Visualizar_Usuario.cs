@@ -1,4 +1,5 @@
-﻿using Gerenciamento_De_Chamados.Models;
+﻿using Gerenciamento_De_Chamados.Helpers;
+using Gerenciamento_De_Chamados.Models;
 using Gerenciamento_De_Chamados.Repositories;
 using System;
 using System.Collections.Generic;
@@ -6,11 +7,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Gerenciamento_De_Chamados.Helpers;
 
 namespace Gerenciamento_De_Chamados
 {
@@ -93,5 +94,57 @@ namespace Gerenciamento_De_Chamados
         {
             FormHelper.Sair(this);
         }
+
+        private void lblConta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
+            visualizarUsuario.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado();
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
+        }
+
+        private void Visualizar_Usuario_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicio = Color.White;
+            Color corFim = ColorTranslator.FromHtml("#232325");
+
+            using (LinearGradientBrush gradiente = new LinearGradientBrush(
+                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+            {
+                g.FillRectangle(gradiente, this.ClientRectangle);
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicioPanel = Color.White;
+            Color corFimPanel = ColorTranslator.FromHtml("#232325");
+            LinearGradientBrush gradientePanel = new LinearGradientBrush(
+                             panel1.ClientRectangle,
+                             corInicioPanel,
+                             corFimPanel,
+                             LinearGradientMode.Vertical);
+            g.FillRectangle(gradientePanel, panel1.ClientRectangle);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
-}
+    }
+

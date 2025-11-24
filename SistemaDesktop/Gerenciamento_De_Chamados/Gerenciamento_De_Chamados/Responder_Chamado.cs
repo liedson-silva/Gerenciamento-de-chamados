@@ -215,7 +215,22 @@ namespace Gerenciamento_De_Chamados
         {
             var criarchamado = new AberturaChamados();
             criarchamado.Show();
+            this.Close();
+        }
+
+        private void lblMconta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
+            visualizarUsuario.Show();
             this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado();
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
         }
     }
 }

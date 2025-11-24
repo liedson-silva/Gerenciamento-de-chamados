@@ -59,6 +59,7 @@
             this.dbaFatalSystemDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chamadoTableAdapter = new Gerenciamento_De_Chamados._DbaFatal_SystemDataSet1TableAdapters.ChamadoTableAdapter();
             this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.lblMconta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChamados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chamadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._DbaFatal_SystemDataSet1)).BeginInit();
@@ -114,7 +115,7 @@
             this.dgvChamados.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvChamados.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvChamados.Location = new System.Drawing.Point(22, 342);
-            this.dgvChamados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvChamados.Margin = new System.Windows.Forms.Padding(4);
             this.dgvChamados.Name = "dgvChamados";
             this.dgvChamados.RowHeadersVisible = false;
             this.dgvChamados.RowHeadersWidth = 51;
@@ -214,7 +215,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPesquisarChamados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPesquisarChamados.Location = new System.Drawing.Point(158, 182);
-            this.txtPesquisarChamados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPesquisarChamados.Margin = new System.Windows.Forms.Padding(4);
             this.txtPesquisarChamados.Multiline = true;
             this.txtPesquisarChamados.Name = "txtPesquisarChamados";
             this.txtPesquisarChamados.Size = new System.Drawing.Size(1119, 42);
@@ -252,7 +253,7 @@
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(305, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1386, 82);
             this.panel2.TabIndex = 11;
@@ -270,13 +271,13 @@
             // lblInicio
             // 
             this.lblInicio.AutoSize = true;
-            this.lblInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lblInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblInicio.Location = new System.Drawing.Point(49, 28);
             this.lblInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInicio.Name = "lblInicio";
-            this.lblInicio.Size = new System.Drawing.Size(120, 31);
+            this.lblInicio.Size = new System.Drawing.Size(134, 36);
             this.lblInicio.TabIndex = 5;
             this.lblInicio.Text = "      Início";
             this.lblInicio.Click += new System.EventHandler(this.lblInicio_Click);
@@ -296,13 +297,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lblMconta);
             this.panel1.Controls.Add(this.lbSair);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.PctBox_Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(305, 889);
             this.panel1.TabIndex = 10;
@@ -315,7 +317,7 @@
             this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbSair.Location = new System.Drawing.Point(29, 415);
+            this.lbSair.Location = new System.Drawing.Point(29, 452);
             this.lbSair.Name = "lbSair";
             this.lbSair.Size = new System.Drawing.Size(92, 29);
             this.lbSair.TabIndex = 17;
@@ -328,12 +330,13 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(29, 366);
+            this.label3.Location = new System.Drawing.Point(29, 402);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 29);
             this.label3.TabIndex = 13;
             this.label3.Text = "      FAQ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -341,18 +344,19 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(29, 303);
+            this.label1.Location = new System.Drawing.Point(29, 349);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(230, 29);
             this.label1.TabIndex = 14;
             this.label1.Text = "      Meus Chamados";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // PctBox_Logo
             // 
             this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.logo_empresa;
             this.PctBox_Logo.Location = new System.Drawing.Point(-47, 0);
-            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(4);
             this.PctBox_Logo.Name = "PctBox_Logo";
             this.PctBox_Logo.Size = new System.Drawing.Size(393, 249);
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -376,6 +380,9 @@
             // 
             // roundedPanel1
             // 
+            this.roundedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.roundedPanel1.BackColor = System.Drawing.Color.White;
             this.roundedPanel1.BorderColor = System.Drawing.Color.White;
             this.roundedPanel1.BorderWidth = 1F;
@@ -389,6 +396,20 @@
             this.roundedPanel1.Size = new System.Drawing.Size(1332, 767);
             this.roundedPanel1.TabIndex = 18;
             // 
+            // lblMconta
+            // 
+            this.lblMconta.AutoSize = true;
+            this.lblMconta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMconta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMconta.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.lblMconta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMconta.Location = new System.Drawing.Point(29, 292);
+            this.lblMconta.Name = "lblMconta";
+            this.lblMconta.Size = new System.Drawing.Size(183, 29);
+            this.lblMconta.TabIndex = 19;
+            this.lblMconta.Text = "      Minha Conta";
+            this.lblMconta.Click += new System.EventHandler(this.lblMconta_Click);
+            // 
             // VisualizarChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -398,7 +419,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.roundedPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VisualizarChamado";
             this.Text = "VisualizarChamado";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -450,5 +471,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fKIdUsuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lbSair;
         private RoundedPanel roundedPanel1;
+        private System.Windows.Forms.Label lblMconta;
     }
 }
