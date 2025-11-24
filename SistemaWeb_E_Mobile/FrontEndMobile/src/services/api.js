@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { forceLogout } from '../utils/authUtils';
 
 const api = axios.create({
-    baseURL: "http://192.168.1.13:3000"
+    baseURL: "http://192.168.1.11:3000"
 })
 
 // Interceptor para adicionar o token no header `authorization`
