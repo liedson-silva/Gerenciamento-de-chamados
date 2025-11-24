@@ -13,22 +13,29 @@ namespace Gerenciamento_De_Chamados
     public partial class VisualizarChamado : Form
     {
         private readonly IChamadoRepository _chamadoRepository;
-        private readonly string _filtroStatusInicial;
+        private readonly string _filtroInicial;
 
-   
 
-        public VisualizarChamado(string filtroStatus = "")
+        private bool _isFiltroPrioridade = false;
+
+        public VisualizarChamado(string filtro = "")
         {
             InitializeComponent();
             this.Load += VisualizarChamado_Load;
             ConfigurarGrade();
 
             _chamadoRepository = new ChamadoRepository();
-            _filtroStatusInicial = filtroStatus; 
+            _filtroInicial = filtro;
 
-          
-            if (!string.IsNullOrEmpty(filtroStatus))
-                this.Text = $"Visualizando Chamados: {filtroStatus}";
+            if (!string.IsNullOrEmpty(filtro) && (filtro == "Alta" || filtro == "Média" || filtro == "Baixa"))
+            {
+                _isFiltroPrioridade = true;
+                this.Text = $"Visualizando Chamados - Prioridade: {filtro}";
+            }
+            else if (!string.IsNullOrEmpty(filtro))
+            {
+                this.Text = $"Visualizando Chamados - Status: {filtro}";
+            }
         }
 
         private async void VisualizarChamado_Load(object sender, EventArgs e)
@@ -40,7 +47,7 @@ namespace Gerenciamento_De_Chamados
 
             await CarregarChamados();
 
-            // Adiciona o evento SÓ depois de carregar a primeira vez para evitar disparos duplos
+            // Associa o evento de pesquisa apenas após o carregamento inicial
             txtPesquisarChamados.TextChanged += TxtPesquisar_TextChanged;
         }
 
@@ -64,34 +71,32 @@ namespace Gerenciamento_De_Chamados
         {
             try
             {
+                string filtroTexto = txtPesquisarChamados.Text;
+                DataTable dt;
 
-                string status = _filtroStatusInicial;
+                if (_isFiltroPrioridade)
+                {
 
-                string pesquisa = txtPesquisarChamados.Text;
+                    dt = await _chamadoRepository.BuscarPorPrioridadeEFiltrarAsync(_filtroInicial, filtroTexto);
+                }
+                else
+                {
 
-                DataTable dt = await _chamadoRepository.BuscarMeusChamadosFiltrados(
-                    SessaoUsuario.IdUsuario,
-                    status,
-                    pesquisa
-                );
+                    dt = await _chamadoRepository.BuscarMeusChamadosFiltrados(
+                        SessaoUsuario.IdUsuario,
+                        _filtroInicial,
+                        filtroTexto
+                    );
+                }
 
                 if (this.IsDisposed) return;
 
                 dgvChamados.DataSource = dt;
 
-                if (dt.Rows.Count == 0)
+                if (dt.Rows.Count == 0 && string.IsNullOrEmpty(filtroTexto) && !string.IsNullOrEmpty(_filtroInicial))
                 {
-                    // Lógica de aviso melhorada
-                    if (!string.IsNullOrEmpty(pesquisa))
-                    {
-
-                    }
-                    else if (!string.IsNullOrEmpty(status))
-                    {
- 
-                        MessageBox.Show($"Você não possui chamados com status '{status}'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.BeginInvoke(new Action(() => this.Close()));
-                    }
+                   
+                   MessageBox.Show($"Nenhum chamado encontrado com o filtro '{_filtroInicial}'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (ObjectDisposedException) { }
@@ -104,7 +109,7 @@ namespace Gerenciamento_De_Chamados
 
         private async void TxtPesquisar_TextChanged(object sender, EventArgs e)
         {
-            // Pequeno delay para não consultar o banco a cada letra digitada muito rápido
+            // Pequeno delay para não fazer queries a cada letra digitada instantaneamente
             await Task.Delay(300);
             await CarregarChamados();
         }
@@ -118,13 +123,27 @@ namespace Gerenciamento_De_Chamados
 
                 if (idValue != null && int.TryParse(idValue.ToString(), out int idChamadoSelecionado))
                 {
-                    var telaDetalhes = new ChamadoCriado(idChamadoSelecionado);
-                    telaDetalhes.ShowDialog();
+                    // Lógica de Redirecionamento baseada no Perfil
+                    // Se for Tecnico/Admin, abre a tela de Analise/Resposta para TRABALHAR no chamado
+                    if (SessaoUsuario.FuncaoUsuario == "Tecnico" || SessaoUsuario.FuncaoUsuario == "Admin" || SessaoUsuario.FuncaoUsuario == "Administrador")
+                    {
+                        var telaAnalise = new AnaliseChamado(idChamadoSelecionado);
+                        telaAnalise.ShowDialog();
+                    }
+                    else
+                    {
+                        // Se for usuário comum, abre apenas visualização dos detalhes
+                        var telaDetalhes = new ChamadoCriado(idChamadoSelecionado);
+                        telaDetalhes.ShowDialog();
+                    }
+
+                    // Recarrega a lista ao voltar, para atualizar status/alterações
                     await CarregarChamados();
                 }
             }
         }
 
+        #region Navegação e Estética
         private void lblInicio_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
         private void PctBox_Logo_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
         private void lbSair_Click(object sender, EventArgs e) { FormHelper.Sair(this); }
@@ -154,5 +173,6 @@ namespace Gerenciamento_De_Chamados
                 g.FillRectangle(gradiente, this.ClientRectangle);
             }
         }
+        #endregion
     }
 }

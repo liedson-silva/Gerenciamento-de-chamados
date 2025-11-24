@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Linq;
+using System.Windows.Forms;
 
 namespace Gerenciamento_De_Chamados.Helpers
 {
@@ -13,25 +14,49 @@ namespace Gerenciamento_De_Chamados.Helpers
                 : "Usuário não identificado";
         }
 
+        private static void AbrirOuReativarForm<T>(Form formAtual) where T : Form, new()
+        {
+            // 1. Procura na lista de janelas abertas do Windows se já tem uma do tipo T
+            T formExistente = Application.OpenForms.OfType<T>().FirstOrDefault();
+
+            if (formExistente != null)
+            {
+                // 2. Se achou, traz ela para frente e restaura se estiver minimizada
+                formExistente.Show();
+                if (formExistente.WindowState == FormWindowState.Minimized)
+                {
+                    formExistente.WindowState = FormWindowState.Normal;
+                }
+                formExistente.BringToFront();
+            }
+            else
+            {
+                // 3. Se não achou (foi fechada antes), cria uma nova
+                var novoForm = new T();
+                novoForm.Show();
+            }
+
+            // 4. FECHA a janela atual (Feature) em vez de esconder.
+            // A verificação (GetType != typeof(T)) impede de fechar a Home se clicar no botão nela mesma.
+            if (formAtual.GetType() != typeof(T))
+            {
+                formAtual.Close();
+            }
+        }
+
         public static void BotaoHomeAdmin(Form formAtual)
         {
-            var homeAdmin = new HomeAdmin();
-            homeAdmin.Show();
-            formAtual.Hide();
+            AbrirOuReativarForm<HomeAdmin>(formAtual);
         }
 
         public static void BotaoHomeFuncionario(Form formAtual)
         {
-            var homeFuncionario = new HomeFuncionario();
-            homeFuncionario.Show();
-            formAtual.Hide();
+            AbrirOuReativarForm<HomeFuncionario>(formAtual);
         }
 
         public static void BotaoHomeTecnico(Form formAtual)
         {
-            var homeTecnico = new HomeTecnico();
-            homeTecnico.Show();
-            formAtual.Hide();
+            AbrirOuReativarForm<HomeTecnico>(formAtual);
         }
 
         public static void BotaoHome(Form formAtual)
@@ -50,16 +75,17 @@ namespace Gerenciamento_De_Chamados.Helpers
                 case "tecnico":
                     BotaoHomeTecnico(formAtual);
                     break;
-                default: 
+                default:
+                    // Se der erro de perfil, joga pro login e fecha a atual
                     var loginForm = new Login();
                     loginForm.Show();
-                    formAtual.Hide();
+                    formAtual.Close();
                     break;
             }
         }
 
 
-       public static void Sair(Form formAtual, Timer timerSessao = null)
+        public static void Sair(Form formAtual, Timer timerSessao = null)
         {
 
             if (timerSessao != null)

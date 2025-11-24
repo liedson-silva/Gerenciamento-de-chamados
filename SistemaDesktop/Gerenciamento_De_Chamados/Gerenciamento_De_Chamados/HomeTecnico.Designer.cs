@@ -42,13 +42,6 @@ namespace Gerenciamento_De_Chamados
             this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
             this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
-            this.Home_Tecnico = new System.Windows.Forms.Label();
-            this.btnResponder_chamado = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btn_AbrirChamado = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.timerSessao = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.roundedPanel2 = new Gerenciamento_De_Chamados.RoundedPanel();
             this.lblResolvido = new System.Windows.Forms.Label();
@@ -77,6 +70,13 @@ namespace Gerenciamento_De_Chamados
             this.pnHardware = new System.Windows.Forms.Panel();
             this.pnSeguranca = new System.Windows.Forms.Panel();
             this.plotCategoria = new ScottPlot.WinForms.FormsPlot();
+            this.Home_Tecnico = new System.Windows.Forms.Label();
+            this.btnResponder_chamado = new System.Windows.Forms.Button();
+            this.btnMedio = new System.Windows.Forms.Button();
+            this.btnAlto = new System.Windows.Forms.Button();
+            this.btn_AbrirChamado = new System.Windows.Forms.Button();
+            this.btnBaixo = new System.Windows.Forms.Button();
+            this.timerSessao = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
@@ -213,106 +213,16 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.Controls.Add(this.groupBox2);
             this.roundedPanel1.Controls.Add(this.Home_Tecnico);
             this.roundedPanel1.Controls.Add(this.btnResponder_chamado);
-            this.roundedPanel1.Controls.Add(this.button3);
-            this.roundedPanel1.Controls.Add(this.button2);
+            this.roundedPanel1.Controls.Add(this.btnMedio);
+            this.roundedPanel1.Controls.Add(this.btnAlto);
             this.roundedPanel1.Controls.Add(this.btn_AbrirChamado);
-            this.roundedPanel1.Controls.Add(this.button1);
+            this.roundedPanel1.Controls.Add(this.btnBaixo);
             this.roundedPanel1.CornerRadius = 15F;
             this.roundedPanel1.Location = new System.Drawing.Point(261, 94);
             this.roundedPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.Size = new System.Drawing.Size(904, 690);
             this.roundedPanel1.TabIndex = 29;
-            // 
-            // Home_Tecnico
-            // 
-            this.Home_Tecnico.BackColor = System.Drawing.Color.Transparent;
-            this.Home_Tecnico.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Home_Tecnico.Location = new System.Drawing.Point(29, 18);
-            this.Home_Tecnico.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Home_Tecnico.Name = "Home_Tecnico";
-            this.Home_Tecnico.Size = new System.Drawing.Size(494, 49);
-            this.Home_Tecnico.TabIndex = 19;
-            // 
-            // btnResponder_chamado
-            // 
-            this.btnResponder_chamado.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnResponder_chamado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResponder_chamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResponder_chamado.Location = new System.Drawing.Point(22, 98);
-            this.btnResponder_chamado.Margin = new System.Windows.Forms.Padding(2);
-            this.btnResponder_chamado.Name = "btnResponder_chamado";
-            this.btnResponder_chamado.Size = new System.Drawing.Size(183, 57);
-            this.btnResponder_chamado.TabIndex = 28;
-            this.btnResponder_chamado.Text = "Responder chamado";
-            this.btnResponder_chamado.UseVisualStyleBackColor = true;
-            this.btnResponder_chamado.Click += new System.EventHandler(this.btnResponder_chamado_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.error_48dp_0000F5_FILL0_wght400_GRAD0_opsz48;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(312, 180);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(255, 98);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "      Chamados \r\n       Médio\r\n";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::Gerenciamento_De_Chamados.Properties.Resources.error_48dp_EA3323_FILL0_wght400_GRAD0_opsz48;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(612, 180);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(255, 98);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "      Chamados\r\n        Alto";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btn_AbrirChamado
-            // 
-            this.btn_AbrirChamado.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_AbrirChamado.BackColor = System.Drawing.Color.White;
-            this.btn_AbrirChamado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AbrirChamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AbrirChamado.Location = new System.Drawing.Point(684, 106);
-            this.btn_AbrirChamado.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_AbrirChamado.Name = "btn_AbrirChamado";
-            this.btn_AbrirChamado.Size = new System.Drawing.Size(183, 57);
-            this.btn_AbrirChamado.TabIndex = 25;
-            this.btn_AbrirChamado.Text = "Criar chamado";
-            this.btn_AbrirChamado.UseVisualStyleBackColor = false;
-            this.btn_AbrirChamado.Click += new System.EventHandler(this.btn_AbrirChamado_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.error_48dp_75FB4C_FILL0_wght400_GRAD0_opsz48;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(22, 180);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 98);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "    \r\n Chamados \r\n     Baixo\r\n\r\n";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // timerSessao
-            // 
-            this.timerSessao.Enabled = true;
-            this.timerSessao.Interval = 5000;
-            this.timerSessao.Tick += new System.EventHandler(this.timerSessao_Tick);
             // 
             // groupBox1
             // 
@@ -591,6 +501,99 @@ namespace Gerenciamento_De_Chamados
             this.plotCategoria.Size = new System.Drawing.Size(218, 358);
             this.plotCategoria.TabIndex = 0;
             // 
+            // Home_Tecnico
+            // 
+            this.Home_Tecnico.BackColor = System.Drawing.Color.Transparent;
+            this.Home_Tecnico.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Home_Tecnico.Location = new System.Drawing.Point(29, 18);
+            this.Home_Tecnico.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Home_Tecnico.Name = "Home_Tecnico";
+            this.Home_Tecnico.Size = new System.Drawing.Size(494, 49);
+            this.Home_Tecnico.TabIndex = 19;
+            // 
+            // btnResponder_chamado
+            // 
+            this.btnResponder_chamado.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnResponder_chamado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResponder_chamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResponder_chamado.Location = new System.Drawing.Point(22, 98);
+            this.btnResponder_chamado.Margin = new System.Windows.Forms.Padding(2);
+            this.btnResponder_chamado.Name = "btnResponder_chamado";
+            this.btnResponder_chamado.Size = new System.Drawing.Size(183, 57);
+            this.btnResponder_chamado.TabIndex = 28;
+            this.btnResponder_chamado.Text = "Responder chamado";
+            this.btnResponder_chamado.UseVisualStyleBackColor = true;
+            this.btnResponder_chamado.Click += new System.EventHandler(this.btnResponder_chamado_Click);
+            // 
+            // btnMedio
+            // 
+            this.btnMedio.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnMedio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMedio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.error_48dp_0000F5_FILL0_wght400_GRAD0_opsz48;
+            this.btnMedio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMedio.Location = new System.Drawing.Point(312, 180);
+            this.btnMedio.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMedio.Name = "btnMedio";
+            this.btnMedio.Size = new System.Drawing.Size(255, 98);
+            this.btnMedio.TabIndex = 24;
+            this.btnMedio.Text = "      Chamados \r\n       Médio\r\n";
+            this.btnMedio.UseVisualStyleBackColor = true;
+            this.btnMedio.Click += new System.EventHandler(this.btnMedio_Click);
+            // 
+            // btnAlto
+            // 
+            this.btnAlto.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAlto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlto.Image = global::Gerenciamento_De_Chamados.Properties.Resources.error_48dp_EA3323_FILL0_wght400_GRAD0_opsz48;
+            this.btnAlto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlto.Location = new System.Drawing.Point(612, 180);
+            this.btnAlto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAlto.Name = "btnAlto";
+            this.btnAlto.Size = new System.Drawing.Size(255, 98);
+            this.btnAlto.TabIndex = 23;
+            this.btnAlto.Text = "      Chamados\r\n        Alto";
+            this.btnAlto.UseVisualStyleBackColor = true;
+            this.btnAlto.Click += new System.EventHandler(this.btnAlto_Click);
+            // 
+            // btn_AbrirChamado
+            // 
+            this.btn_AbrirChamado.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_AbrirChamado.BackColor = System.Drawing.Color.White;
+            this.btn_AbrirChamado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AbrirChamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AbrirChamado.Location = new System.Drawing.Point(684, 106);
+            this.btn_AbrirChamado.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_AbrirChamado.Name = "btn_AbrirChamado";
+            this.btn_AbrirChamado.Size = new System.Drawing.Size(183, 57);
+            this.btn_AbrirChamado.TabIndex = 25;
+            this.btn_AbrirChamado.Text = "Criar chamado";
+            this.btn_AbrirChamado.UseVisualStyleBackColor = false;
+            this.btn_AbrirChamado.Click += new System.EventHandler(this.btn_AbrirChamado_Click);
+            // 
+            // btnBaixo
+            // 
+            this.btnBaixo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnBaixo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBaixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaixo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.error_48dp_75FB4C_FILL0_wght400_GRAD0_opsz48;
+            this.btnBaixo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBaixo.Location = new System.Drawing.Point(22, 180);
+            this.btnBaixo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBaixo.Name = "btnBaixo";
+            this.btnBaixo.Size = new System.Drawing.Size(255, 98);
+            this.btnBaixo.TabIndex = 22;
+            this.btnBaixo.Text = "    \r\n Chamados \r\n     Baixo\r\n\r\n";
+            this.btnBaixo.UseVisualStyleBackColor = true;
+            this.btnBaixo.Click += new System.EventHandler(this.btnBaixo_Click);
+            // 
+            // timerSessao
+            // 
+            this.timerSessao.Enabled = true;
+            this.timerSessao.Interval = 5000;
+            this.timerSessao.Tick += new System.EventHandler(this.timerSessao_Tick);
+            // 
             // HomeTecnico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -626,9 +629,9 @@ namespace Gerenciamento_De_Chamados
 
         private System.Windows.Forms.Label Home_Tecnico;
         private System.Windows.Forms.Button btn_AbrirChamado;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMedio;
+        private System.Windows.Forms.Button btnAlto;
+        private System.Windows.Forms.Button btnBaixo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbl_NomeUser;
         private System.Windows.Forms.Label lbl_Inicio;

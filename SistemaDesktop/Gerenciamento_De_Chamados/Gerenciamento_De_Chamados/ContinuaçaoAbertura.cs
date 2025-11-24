@@ -4,16 +4,11 @@ using Gerenciamento_De_Chamados.Repositories;
 using Gerenciamento_De_Chamados.Services;
 using Gerenciamento_De_Chamados.Validacao;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient; // Para possíveis exceções de DB
 
 namespace Gerenciamento_De_Chamados
 {
@@ -33,20 +28,24 @@ namespace Gerenciamento_De_Chamados
             InitializeComponent();
             aberturaChamados = abertura;
 
+            // Inicialização das dependências (injetadas ou instanciadas)
             _imageHelper = imageHelper;
             _chamadoRepository = new ChamadoRepository();
             _arquivoRepository = new ArquivoRepository();
             _emailService = new EmailService();
             _aiService = new AIService();
 
+            // Instancia o serviço de chamado com todas as dependências
             _chamadoService = new ChamadoService(
             _chamadoRepository,
             _arquivoRepository,
-            _emailService, // <-- ADICIONADO: Passa o serviço de email
+            _emailService,
             _aiService
             );
 
+            // Assinatura dos eventos para centralização do painel de carregamento
             this.Load += ContinuaçaoAbertura_Load;
+            this.Resize += ContinuaçaoAbertura_Resize;
         }
 
 
@@ -59,109 +58,155 @@ namespace Gerenciamento_De_Chamados
             string ImpedeTrabalho = cBoxImpedTrab.Text;
             string OcorreuAnteriormente = cBoxAcontAntes.Text;
             string CategoriaChamado = aberturaChamados.cboxCtgChamado.Text;
-            // byte[] AnexarArquivo = aberturaChamados.arquivoAnexado; // Pego depois
 
-            // ValidadorChamado para título e descrição
+            // Validações OBRIGATÓRIAS
             if (!ValidadorChamado.IsTituloValido(TituloChamado))
             {
                 MessageBox.Show("O título é obrigatório e deve ter mais de 5 caracteres.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Para a execução, não continua
+                return;
             }
 
             if (!ValidadorChamado.IsDescricaoValida(DescricaoChamado))
             {
                 MessageBox.Show("A descrição é obrigatória e deve ter mais de 10 caracteres.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Para a execução
-            }
-
-            // Validação simples para os ComboBox (apenas para saber se algo foi selecionado)
-            if (string.IsNullOrWhiteSpace(PessoasAfetadas))
-            {
-                MessageBox.Show("Por favor, selecione o número de pessoas afetadas.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(ImpedeTrabalho))
-            {
-                MessageBox.Show("Por favor, informe se o problema impede o trabalho.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(OcorreuAnteriormente))
-            {
-                MessageBox.Show("Por favor, informe se o problema ocorreu anteriormente.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(CategoriaChamado))
-            {
-                MessageBox.Show("Por favor, selecione uma categoria.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // --- PREPARAÇÃO ---
-            this.Cursor = Cursors.WaitCursor;
-
-            byte[] arquivoBytes = aberturaChamados.arquivoAnexado;
-            string nomeAnexo = _imageHelper.UltimoNomeArquivo;
-            string tipoAnexo = _imageHelper.UltimoTipoArquivo;
-
-
-            DateTime horaDeBrasilia = DateTime.Now;
-
-            // OTIMIZAÇÃO 1: Usando as variáveis locais que já foram validadas
-            Chamado novoChamado = new Chamado
+            if (string.IsNullOrWhiteSpace(PessoasAfetadas) || string.IsNullOrWhiteSpace(ImpedeTrabalho) || string.IsNullOrWhiteSpace(OcorreuAnteriormente) || string.IsNullOrWhiteSpace(CategoriaChamado))
             {
-                Titulo = TituloChamado,
-                Descricao = DescricaoChamado,
-                Categoria = CategoriaChamado,
-                DataChamado = horaDeBrasilia, // OTIMIZAÇÃO 2: Usando a variável
-                StatusChamado = "Pendente",
-                FK_IdUsuario = SessaoUsuario.IdUsuario,
-                PessoasAfetadas = PessoasAfetadas,
-                ImpedeTrabalho = ImpedeTrabalho,
-                OcorreuAnteriormente = OcorreuAnteriormente
-            };
+                MessageBox.Show("Por favor, preencha todos os campos da continuação do chamado.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // --- INÍCIO DO CARREGAMENTO VISUAL ---
+            pnlLoading.Visible = true;
+            CentralizarPainelLoading();
+            pnlLoading.BringToFront(); // Traz para frente de todos os controles
+            btnConcluirCH.Enabled = false; // Desabilita botões para evitar cliques duplicados
+            button1.Enabled = false;
+            this.Cursor = Cursors.WaitCursor; // Muda o cursor
+            Application.DoEvents(); // Garante que a UI atualize imediatamente
 
-            Usuario usuarioLogado = new Usuario
-            {
-                Nome = SessaoUsuario.Nome,
-                Email = SessaoUsuario.Email,
-                IdUsuario = SessaoUsuario.IdUsuario
-            };
-
-            // --- EXECUÇÃO (Fluxo de 3 Etapas) ---
             try
             {
-                // ETAPA 1: Salva o chamado básico no DB (Rápido)
+                byte[] arquivoBytes = aberturaChamados.arquivoAnexado;
+                string nomeAnexo = _imageHelper.UltimoNomeArquivo;
+                string tipoAnexo = _imageHelper.UltimoTipoArquivo;
+
+                DateTime horaDeBrasilia = ObterHoraBrasilia();
+
+                Chamado novoChamado = new Chamado
+                {
+                    Titulo = TituloChamado,
+                    Descricao = DescricaoChamado,
+                    Categoria = CategoriaChamado,
+                    DataChamado = horaDeBrasilia,
+                    StatusChamado = "Pendente",
+                    FK_IdUsuario = SessaoUsuario.IdUsuario,
+                    PessoasAfetadas = PessoasAfetadas,
+                    ImpedeTrabalho = ImpedeTrabalho,
+                    OcorreuAnteriormente = OcorreuAnteriormente,
+                    // Deixa as sugestões da IA vazias/nulas por enquanto
+                    PrioridadeSugeridaIA = null,
+                    ProblemaSugeridoIA = null,
+                    SolucaoSugeridaIA = null
+                };
+
+                Usuario usuarioLogado = new Usuario
+                {
+                    Nome = SessaoUsuario.Nome,
+                    Email = SessaoUsuario.Email,
+                    IdUsuario = SessaoUsuario.IdUsuario
+                };
+
+                // ETAPA 1: Cria o chamado base no DB (RÁPIDO)
                 int idChamado = await _chamadoService.CriarChamadoBaseAsync(novoChamado, arquivoBytes, nomeAnexo, tipoAnexo);
 
-                // ETAPA 2: Envia email de confirmação para o usuário (Rápido)
+                // ETAPA 2: Envia email de confirmação para o USUÁRIO (RÁPIDO/SÍNCRONO)
                 await _chamadoService.EnviarConfirmacaoUsuarioAsync(novoChamado, usuarioLogado, idChamado);
 
-                // ETAPA 3: Inicia a IA e o email da TI em background (Lento)
+                // ETAPA 3: Processamento da IA e notificação da TI (LENTO/BACKGROUND)
+                // Usamos Task.Run para que a interface NÃO TRAVE enquanto a IA pensa.
                 Task.Run(async () =>
                 {
-                    // Passa todos os dados necessários para o método em background
                     await _chamadoService.ProcessarAnaliseEAtualizarAsync(idChamado, novoChamado, usuarioLogado, arquivoBytes, nomeAnexo, tipoAnexo);
                 });
 
-                // ETAPA 4: Libera a UI imediatamente
-                this.Cursor = Cursors.Default;
-
+                // Mostra a tela de conclusão imediatamente
                 var telaFim = new FimChamado(idChamado);
                 telaFim.Show();
 
                 aberturaChamados.Close();
                 this.Close();
-
+            }
+            catch (SqlException sqlex)
+            {
+                MessageBox.Show("Erro de Banco de Dados: " + sqlex.Message, "Erro SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-               
-                this.Cursor = Cursors.Default;
-                MessageBox.Show("Erro ao gravar chamado no banco: " + ex.Message);
+                MessageBox.Show("Erro ao gravar chamado ou enviar confirmação: " + ex.Message, "Erro Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+             
+                if (!this.IsDisposed)
+                {
+                    pnlLoading.Visible = false;
+                    btnConcluirCH.Enabled = true;
+                    button1.Enabled = true;
+                    this.Cursor = Cursors.Default;
+                }
             }
         }
 
+        private DateTime ObterHoraBrasilia()
+        {
+            try
+            {
+               
+                TimeZoneInfo brasilTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+                return TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasilTimeZone);
+            }
+            catch
+            {
+               
+                return DateTime.Now;
+            }
+        }
+
+
+        #region Métodos de Centralização do Painel
+
+        private void ContinuaçaoAbertura_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($" {SessaoUsuario.Nome}");
+
+           
+            CentralizarPainelLoading();
+        }
+
+        private void ContinuaçaoAbertura_Resize(object sender, EventArgs e)
+        {
+            
+            CentralizarPainelLoading();
+        }
+
+        private void CentralizarPainelLoading()
+        {
+           
+            if (pnlLoading != null && this.ClientSize.Width > 0 && this.ClientSize.Height > 0)
+            {
+               
+                pnlLoading.Left = (this.ClientSize.Width - pnlLoading.Width) / 2;
+                pnlLoading.Top = (this.ClientSize.Height - pnlLoading.Height) / 2;
+            }
+        }
+
+        #endregion
+
+        #region Código de Estética e Navegação
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -174,11 +219,6 @@ namespace Gerenciamento_De_Chamados
                         corFimPanel,
                         LinearGradientMode.Vertical);
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
-        }
-        private void ContinuaçaoAbertura_Load(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($" {SessaoUsuario.Nome}"); 
         }
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
@@ -211,8 +251,11 @@ namespace Gerenciamento_De_Chamados
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Botão Voltar: reabre a tela anterior
+            aberturaChamados.Show();
             this.Close();
-
         }
+
+        #endregion
     }
 }

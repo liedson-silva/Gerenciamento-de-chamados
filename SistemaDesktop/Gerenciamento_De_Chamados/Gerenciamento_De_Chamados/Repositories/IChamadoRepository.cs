@@ -25,5 +25,6 @@ namespace Gerenciamento_De_Chamados.Repositories
         Task<DataTable> BuscarMeusChamadosFiltrados(int idUsuario, string status, string filtroPesquisa);
         Task<List<ChartDataPoint>> ContarPorStatusGeralAsync();
         Task<List<ChartDataPoint>> ContarPorCategoriaGeralAsync();
+        Task<DataTable> BuscarPorPrioridadeEFiltrarAsync(string prioridade, string filtroPesquisa);
     }
 }
