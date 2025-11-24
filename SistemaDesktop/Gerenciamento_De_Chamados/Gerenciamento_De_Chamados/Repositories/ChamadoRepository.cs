@@ -367,5 +367,34 @@ namespace Gerenciamento_De_Chamados.Repositories
             }
             return list;
         }
+        public async Task<DataTable> BuscarPorPrioridadeEFiltrarAsync(string prioridade, string filtroPesquisa)
+        {
+            var dt = new DataTable();
+            // Nota: Removemos o filtro FK_IdUsuario para mostrar chamados de TODOS
+            string sql = @"
+                SELECT IdChamado, Titulo, PrioridadeChamado, Descricao, DataChamado, StatusChamado, Categoria
+                FROM Chamado
+                WHERE PrioridadeChamado = @Prioridade
+                AND (@FiltroPesquisa = '' 
+                     OR Titulo LIKE @LikeFiltro 
+                     OR Descricao LIKE @LikeFiltro 
+                     OR Categoria LIKE @LikeFiltro)
+                ORDER BY DataChamado DESC";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@Prioridade", prioridade); // Ex: "Alta", "Média", "Baixa"
+                cmd.Parameters.AddWithValue("@FiltroPesquisa", filtroPesquisa ?? "");
+                cmd.Parameters.AddWithValue("@LikeFiltro", $"%{filtroPesquisa ?? ""}%");
+
+                await conn.OpenAsync();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
+            }
+            return dt;
+        }
     }
 }

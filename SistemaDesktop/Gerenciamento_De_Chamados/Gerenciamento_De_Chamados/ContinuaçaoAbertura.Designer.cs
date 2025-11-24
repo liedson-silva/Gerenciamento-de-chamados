@@ -47,11 +47,15 @@
             this.cBoxAcontAntes = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.pnlLoading = new System.Windows.Forms.Panel();
+            this.progressBarLoading = new System.Windows.Forms.ProgressBar();
+            this.lblProcessando = new System.Windows.Forms.Label();
             this.PctBox_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.roundedPanel1.SuspendLayout();
+            this.pnlLoading.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConcluirCH
@@ -60,10 +64,10 @@
             this.btnConcluirCH.BackColor = System.Drawing.Color.White;
             this.btnConcluirCH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConcluirCH.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConcluirCH.Location = new System.Drawing.Point(882, 747);
-            this.btnConcluirCH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConcluirCH.Location = new System.Drawing.Point(662, 607);
+            this.btnConcluirCH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConcluirCH.Name = "btnConcluirCH";
-            this.btnConcluirCH.Size = new System.Drawing.Size(163, 46);
+            this.btnConcluirCH.Size = new System.Drawing.Size(122, 37);
             this.btnConcluirCH.TabIndex = 29;
             this.btnConcluirCH.Text = "Continuar";
             this.btnConcluirCH.UseVisualStyleBackColor = false;
@@ -76,9 +80,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 338);
+            this.label5.Location = new System.Drawing.Point(14, 275);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(362, 36);
+            this.label5.Size = new System.Drawing.Size(294, 29);
             this.label5.TabIndex = 26;
             this.label5.Text = "Já ocorreu anteriormente?";
             // 
@@ -94,10 +99,10 @@
             "Sim",
             "Não",
             "Parcialmente"});
-            this.cBoxImpedTrab.Location = new System.Drawing.Point(371, 334);
-            this.cBoxImpedTrab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cBoxImpedTrab.Location = new System.Drawing.Point(278, 271);
+            this.cBoxImpedTrab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cBoxImpedTrab.Name = "cBoxImpedTrab";
-            this.cBoxImpedTrab.Size = new System.Drawing.Size(361, 44);
+            this.cBoxImpedTrab.Size = new System.Drawing.Size(272, 37);
             this.cBoxImpedTrab.TabIndex = 25;
             this.cBoxImpedTrab.Text = "Selecione...";
             // 
@@ -108,9 +113,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 166);
+            this.label4.Location = new System.Drawing.Point(14, 135);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(634, 36);
+            this.label4.Size = new System.Drawing.Size(518, 29);
             this.label4.TabIndex = 24;
             this.label4.Text = "Esse problema está impedindo meu trabalho ? ";
             // 
@@ -121,9 +127,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 18);
+            this.label2.Location = new System.Drawing.Point(14, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(412, 36);
+            this.label2.Size = new System.Drawing.Size(333, 29);
             this.label2.TabIndex = 22;
             this.label2.Text = "Quais pessoas são afetadas ?";
             // 
@@ -134,20 +141,19 @@
             this.PctBox_Logo.Controls.Add(this.lbl_Inicio);
             this.PctBox_Logo.Controls.Add(this.pictureBox4);
             this.PctBox_Logo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PctBox_Logo.Location = new System.Drawing.Point(325, 0);
-            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PctBox_Logo.Location = new System.Drawing.Point(244, 0);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PctBox_Logo.Name = "PctBox_Logo";
-            this.PctBox_Logo.Size = new System.Drawing.Size(1096, 83);
+            this.PctBox_Logo.Size = new System.Drawing.Size(822, 67);
             this.PctBox_Logo.TabIndex = 21;
             // 
             // lbl_NomeUser
             // 
             this.lbl_NomeUser.AutoSize = true;
             this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(212, 42);
-            this.lbl_NomeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_NomeUser.Location = new System.Drawing.Point(159, 34);
             this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 25);
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
             this.lbl_NomeUser.TabIndex = 8;
             // 
             // lbl_Inicio
@@ -157,21 +163,22 @@
             this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Inicio.Location = new System.Drawing.Point(59, 34);
+            this.lbl_Inicio.Location = new System.Drawing.Point(44, 28);
+            this.lbl_Inicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(120, 31);
+            this.lbl_Inicio.Size = new System.Drawing.Size(99, 26);
             this.lbl_Inicio.TabIndex = 5;
-            this.lbl_Inicio.Text = "      Início";
+            this.lbl_Inicio.Text = "      Início";
             this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(1033, 14);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(775, 11);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox4.Size = new System.Drawing.Size(38, 41);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
@@ -185,9 +192,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(325, 977);
+            this.panel1.Size = new System.Drawing.Size(244, 794);
             this.panel1.TabIndex = 20;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -199,11 +206,12 @@
             this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbSair.Location = new System.Drawing.Point(12, 389);
+            this.lbSair.Location = new System.Drawing.Point(9, 316);
+            this.lbSair.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSair.Name = "lbSair";
-            this.lbSair.Size = new System.Drawing.Size(92, 29);
+            this.lbSair.Size = new System.Drawing.Size(72, 24);
             this.lbSair.TabIndex = 17;
-            this.lbSair.Text = "      Sair";
+            this.lbSair.Text = "      Sair";
             this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
             // 
             // label3
@@ -213,11 +221,12 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(12, 334);
+            this.label3.Location = new System.Drawing.Point(9, 271);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 29);
+            this.label3.Size = new System.Drawing.Size(80, 24);
             this.label3.TabIndex = 13;
-            this.label3.Text = "      FAQ";
+            this.label3.Text = "      FAQ";
             // 
             // label1
             // 
@@ -226,19 +235,20 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 271);
+            this.label1.Location = new System.Drawing.Point(9, 220);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 29);
+            this.label1.Size = new System.Drawing.Size(183, 24);
             this.label1.TabIndex = 14;
-            this.label1.Text = "      Meus Chamados";
+            this.label1.Text = "      Meus Chamados";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.logo_empresa;
-            this.pictureBox1.Location = new System.Drawing.Point(-35, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(-26, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(393, 248);
+            this.pictureBox1.Size = new System.Drawing.Size(295, 202);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -256,10 +266,10 @@
             "Somente eu ",
             "Meu setor ",
             "A empresa inteira"});
-            this.cBoxPessoasAfeta.Location = new System.Drawing.Point(371, 182);
-            this.cBoxPessoasAfeta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cBoxPessoasAfeta.Location = new System.Drawing.Point(278, 148);
+            this.cBoxPessoasAfeta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cBoxPessoasAfeta.Name = "cBoxPessoasAfeta";
-            this.cBoxPessoasAfeta.Size = new System.Drawing.Size(361, 44);
+            this.cBoxPessoasAfeta.Size = new System.Drawing.Size(272, 37);
             this.cBoxPessoasAfeta.TabIndex = 30;
             this.cBoxPessoasAfeta.Text = "Selecione...";
             // 
@@ -275,19 +285,20 @@
             "Sim",
             "Não",
             "Não sei "});
-            this.cBoxAcontAntes.Location = new System.Drawing.Point(371, 506);
-            this.cBoxAcontAntes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cBoxAcontAntes.Location = new System.Drawing.Point(278, 411);
+            this.cBoxAcontAntes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cBoxAcontAntes.Name = "cBoxAcontAntes";
-            this.cBoxAcontAntes.Size = new System.Drawing.Size(361, 44);
+            this.cBoxAcontAntes.Size = new System.Drawing.Size(272, 37);
             this.cBoxAcontAntes.TabIndex = 31;
             this.cBoxAcontAntes.Text = "Selecione...";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(370, 864);
+            this.button1.Location = new System.Drawing.Point(278, 702);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 46);
+            this.button1.Size = new System.Drawing.Size(122, 37);
             this.button1.TabIndex = 32;
             this.button1.Text = "Voltar";
             this.button1.UseVisualStyleBackColor = true;
@@ -306,17 +317,53 @@
             this.roundedPanel1.Controls.Add(this.label5);
             this.roundedPanel1.Controls.Add(this.btnConcluirCH);
             this.roundedPanel1.CornerRadius = 15F;
-            this.roundedPanel1.Location = new System.Drawing.Point(346, 117);
+            this.roundedPanel1.Location = new System.Drawing.Point(260, 95);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(1063, 819);
+            this.roundedPanel1.Size = new System.Drawing.Size(797, 665);
             this.roundedPanel1.TabIndex = 33;
+            // 
+            // pnlLoading
+            // 
+            this.pnlLoading.BackColor = System.Drawing.Color.White;
+            this.pnlLoading.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlLoading.Controls.Add(this.progressBarLoading);
+            this.pnlLoading.Controls.Add(this.lblProcessando);
+            this.pnlLoading.Location = new System.Drawing.Point(420, 349);
+            this.pnlLoading.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLoading.Name = "pnlLoading";
+            this.pnlLoading.Size = new System.Drawing.Size(226, 82);
+            this.pnlLoading.TabIndex = 41;
+            this.pnlLoading.Visible = false;
+            // 
+            // progressBarLoading
+            // 
+            this.progressBarLoading.Location = new System.Drawing.Point(15, 49);
+            this.progressBarLoading.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressBarLoading.Name = "progressBarLoading";
+            this.progressBarLoading.Size = new System.Drawing.Size(195, 19);
+            this.progressBarLoading.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBarLoading.TabIndex = 1;
+            // 
+            // lblProcessando
+            // 
+            this.lblProcessando.AutoSize = true;
+            this.lblProcessando.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblProcessando.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblProcessando.Location = new System.Drawing.Point(15, 20);
+            this.lblProcessando.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblProcessando.Name = "lblProcessando";
+            this.lblProcessando.Size = new System.Drawing.Size(195, 21);
+            this.lblProcessando.TabIndex = 0;
+            this.lblProcessando.Text = "Processando Chamado...";
             // 
             // ContinuaçaoAbertura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1421, 977);
+            this.ClientSize = new System.Drawing.Size(1066, 794);
+            this.Controls.Add(this.pnlLoading);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cBoxAcontAntes);
             this.Controls.Add(this.cBoxPessoasAfeta);
@@ -325,7 +372,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.roundedPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ContinuaçaoAbertura";
             this.Text = "ContinuaçaoAbertura";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -338,6 +385,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.roundedPanel1.ResumeLayout(false);
             this.roundedPanel1.PerformLayout();
+            this.pnlLoading.ResumeLayout(false);
+            this.pnlLoading.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -362,5 +411,9 @@
         private System.Windows.Forms.Label lbSair;
         private System.Windows.Forms.Button button1;
         private RoundedPanel roundedPanel1;
+        // NOVAS DECLARAÇÕES: Adicionadas aqui
+        private System.Windows.Forms.Panel pnlLoading;
+        private System.Windows.Forms.ProgressBar progressBarLoading;
+        private System.Windows.Forms.Label lblProcessando;
     }
 }

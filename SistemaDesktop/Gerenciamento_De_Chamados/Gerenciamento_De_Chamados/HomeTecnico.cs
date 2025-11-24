@@ -326,5 +326,29 @@ namespace Gerenciamento_De_Chamados
                 this.Close();
             }
         }
+
+        private void btnBaixo_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado("Baixa");
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
+
+        private void btnMedio_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado("Média");
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
+
+        private void btnAlto_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado("Alta");
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
     }
 }
