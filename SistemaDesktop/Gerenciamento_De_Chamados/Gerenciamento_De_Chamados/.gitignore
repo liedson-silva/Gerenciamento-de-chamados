@@ -17,3 +17,46 @@ App.config
 *.userprefs
 *.lock.json
 TestResults/
+
+Arquivos de Build/Compilação e Pastas Binárias
+
+Ignora pastas de saída da compilação
+
+[Bb]in/
+[Oo]bj/
+
+Ignora a pasta de pacotes (Packages)
+
+packages/
+
+Arquivos de Configuração de Usuário
+
+Arquivos de configuração específicos do Visual Studio
+
+*.suo
+*.user
+*.userprefs
+*.vs/
+*.[Cc]s.user
+*.[Cc]s.user.bak
+
+Arquivos de Configuração Secreta
+
+O arquivo de configuração gerado que contém a chave da API e a string de conexão
+
+SistemaDesktop/Gerenciamento_De_Chamados/TestProject1/bin/Debug/net9.0/Gerenciamento_De_Chamados.exe.config
+
+Garante que qualquer outro arquivo .config na pasta bin também seja ignorado (melhor segurança)
+
+/bin//.config
+/obj//.config
+
+Arquivos de banco de dados
+
+*.mdf
+*.ldf
+
+Logs e outros
+
+*.log
+*.bak
