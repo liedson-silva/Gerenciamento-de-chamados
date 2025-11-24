@@ -14,7 +14,8 @@ namespace Gerenciamento_De_Chamados
     {
         private readonly IChamadoRepository _chamadoRepository;
         private readonly string _filtroStatusInicial;
-        private bool _isLoading = true;
+
+   
 
         public VisualizarChamado(string filtroStatus = "")
         {
@@ -23,8 +24,11 @@ namespace Gerenciamento_De_Chamados
             ConfigurarGrade();
 
             _chamadoRepository = new ChamadoRepository();
-            _filtroStatusInicial = filtroStatus;
+            _filtroStatusInicial = filtroStatus; 
 
+          
+            if (!string.IsNullOrEmpty(filtroStatus))
+                this.Text = $"Visualizando Chamados: {filtroStatus}";
         }
 
         private async void VisualizarChamado_Load(object sender, EventArgs e)
@@ -34,10 +38,9 @@ namespace Gerenciamento_De_Chamados
             else
                 lbl_NomeUser.Text = "Usuário não identificado";
 
-
             await CarregarChamados();
-            _isLoading = false;
 
+            // Adiciona o evento SÓ depois de carregar a primeira vez para evitar disparos duplos
             txtPesquisarChamados.TextChanged += TxtPesquisar_TextChanged;
         }
 
@@ -61,21 +64,10 @@ namespace Gerenciamento_De_Chamados
         {
             try
             {
-                string status = "";
-                string pesquisa = "";
 
-                if (_isLoading && !string.IsNullOrEmpty(_filtroStatusInicial))
-                {
-                    status = _filtroStatusInicial;
-                    pesquisa = "";
-                }
-              
-                else if (!_isLoading)
-                {
-                    status = "";
-                    pesquisa = txtPesquisarChamados.Text;
-                }
-             
+                string status = _filtroStatusInicial;
+
+                string pesquisa = txtPesquisarChamados.Text;
 
                 DataTable dt = await _chamadoRepository.BuscarMeusChamadosFiltrados(
                     SessaoUsuario.IdUsuario,
@@ -83,47 +75,37 @@ namespace Gerenciamento_De_Chamados
                     pesquisa
                 );
 
-                // --- CORREÇÃO 4: Verificar se a Form foi fechada antes de atualizar a UI ---
                 if (this.IsDisposed) return;
 
                 dgvChamados.DataSource = dt;
 
                 if (dt.Rows.Count == 0)
                 {
-                    // Se foi a carga inicial (vinda do Home) que não achou nada
-                    if (_isLoading && !string.IsNullOrEmpty(_filtroStatusInicial))
+                    // Lógica de aviso melhorada
+                    if (!string.IsNullOrEmpty(pesquisa))
                     {
-                        MessageBox.Show($"Não há chamados com o status '{_filtroStatusInicial}'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Fecha a tela com segurança DEPOIS que tudo terminar
-                        this.BeginInvoke(new Action(() => this.Close()));
                     }
-                    // Se foi uma pesquisa manual do usuário que não achou nada
-                    else if (!_isLoading)
+                    else if (!string.IsNullOrEmpty(status))
                     {
-                        string msgPesquisa = string.IsNullOrEmpty(pesquisa) ? "disponíveis" : $"para a pesquisa '{pesquisa}'";
-                        MessageBox.Show($"Não há chamados {msgPesquisa} para exibir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+ 
+                        MessageBox.Show($"Você não possui chamados com status '{status}'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.BeginInvoke(new Action(() => this.Close()));
                     }
                 }
             }
-            catch (ObjectDisposedException)
-            {
-                
-            }
+            catch (ObjectDisposedException) { }
             catch (Exception ex)
             {
                 if (!this.IsDisposed)
-                {
                     MessageBox.Show("Erro ao carregar chamados: " + ex.Message);
-                }
             }
         }
 
         private async void TxtPesquisar_TextChanged(object sender, EventArgs e)
         {
-
-
-            await Task.Delay(300); 
+            // Pequeno delay para não consultar o banco a cada letra digitada muito rápido
+            await Task.Delay(300);
             await CarregarChamados();
         }
 
@@ -138,17 +120,15 @@ namespace Gerenciamento_De_Chamados
                 {
                     var telaDetalhes = new ChamadoCriado(idChamadoSelecionado);
                     telaDetalhes.ShowDialog();
-
                     await CarregarChamados();
-                    
                 }
             }
         }
 
-        // (Restante do seu código: lblInicio_Click, PctBox_Logo_Click, etc.)
         private void lblInicio_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
         private void PctBox_Logo_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
         private void lbSair_Click(object sender, EventArgs e) { FormHelper.Sair(this); }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
