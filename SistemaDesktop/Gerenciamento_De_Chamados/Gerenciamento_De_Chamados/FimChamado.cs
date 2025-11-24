@@ -32,12 +32,8 @@ namespace Gerenciamento_De_Chamados
 
         private async void FimChamado_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($" {SessaoUsuario.Nome}");
-            else
-                lbl_NomeUser.Text = "Usuário não identificado";
-
-            // Chama o método para buscar e exibir os dados do chamado
+            
+         
             await CarregarResumoChamado();
         }
 
@@ -113,5 +109,25 @@ namespace Gerenciamento_De_Chamados
         private void PctBox_Logo_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
         private void lbSair_Click(object sender, EventArgs e) { FormHelper.Sair(this); }
         #endregion
+
+        private void lblMconta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
+            visualizarUsuario.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado();
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
+        }
     }
 }

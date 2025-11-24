@@ -38,17 +38,11 @@ namespace Gerenciamento_De_Chamados
             _usuarioRepository = new UsuarioRepository();
             _emailService = new EmailService();
 
-            this.Load += AnaliseChamado_Load;
+            
 
         }
 
-        private async void AnaliseChamado_Load(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Técnico: {SessaoUsuario.Nome}");
-
-            await CarregarDadosChamadoAsync();
-        }
+        
 
         private async Task CarregarDadosChamadoAsync()
         {
@@ -318,11 +312,42 @@ namespace Gerenciamento_De_Chamados
         }
 
         // Outros eventos de UI
-        private void panel1_Paint(object sender, PaintEventArgs e) { /* Gradiente do topo se necessário */ }
+        private void panel1_Paint(object sender, PaintEventArgs e) 
+        {
+            Graphics g = e.Graphics;
+            Color corInicioPanel = Color.White;
+            Color corFimPanel = ColorTranslator.FromHtml("#232325");
+            LinearGradientBrush gradientePanel = new LinearGradientBrush(
+                     panel1.ClientRectangle,
+                    corInicioPanel,
+                    corFimPanel,
+                    LinearGradientMode.Vertical);
+            g.FillRectangle(gradientePanel, panel1.ClientRectangle);
+        }
         private void lbl_Inicio_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
         private void PctBox_Logo_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
         private void lbSair_Click(object sender, EventArgs e) { FormHelper.Sair(this); }
 
         #endregion
+
+        private void lblMconta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
+            visualizarUsuario.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado();
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
+        }
     }
 }

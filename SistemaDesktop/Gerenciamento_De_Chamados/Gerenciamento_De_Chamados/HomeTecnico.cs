@@ -252,7 +252,7 @@ namespace Gerenciamento_De_Chamados
         {
             var reschamado = new Responder_Chamado();
             reschamado.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void HomeTecnico_Paint(object sender, PaintEventArgs e)
@@ -285,7 +285,7 @@ namespace Gerenciamento_De_Chamados
         {
             var abrir = new AberturaChamados();
             abrir.Show();
-            this.Hide();
+            this.Close();
         }
         private void HomeTecnico_Load(object sender, EventArgs e)
         {
@@ -349,6 +349,26 @@ namespace Gerenciamento_De_Chamados
             this.Hide();
             verChamado.ShowDialog();
             this.Show();
+        }
+
+        private void lblMconta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
+            visualizarUsuario.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado();
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
         }
     }
 }

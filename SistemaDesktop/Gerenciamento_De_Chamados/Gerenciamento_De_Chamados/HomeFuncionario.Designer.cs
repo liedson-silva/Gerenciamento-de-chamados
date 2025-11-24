@@ -71,6 +71,7 @@ namespace Gerenciamento_De_Chamados
             this.lbl_Inicio = new System.Windows.Forms.Label();
             this.lbSair = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMconta = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnMeusChamados = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
@@ -92,7 +93,7 @@ namespace Gerenciamento_De_Chamados
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.roundedPanel1.BackColor = System.Drawing.Color.White;
-            this.roundedPanel1.BorderColor = System.Drawing.Color.Gray;
+            this.roundedPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.roundedPanel1.BorderWidth = 1F;
             this.roundedPanel1.Controls.Add(this.btn_AbrirChamado);
             this.roundedPanel1.Controls.Add(this.btnChamadosEmAndamento);
@@ -102,10 +103,10 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.Controls.Add(this.btnChamadosPendentes);
             this.roundedPanel1.Controls.Add(this.btnChamadosResolvidos);
             this.roundedPanel1.CornerRadius = 15F;
-            this.roundedPanel1.Location = new System.Drawing.Point(249, 84);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.roundedPanel1.Location = new System.Drawing.Point(332, 103);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(950, 689);
+            this.roundedPanel1.Size = new System.Drawing.Size(1267, 848);
             this.roundedPanel1.TabIndex = 19;
             // 
             // btn_AbrirChamado
@@ -114,10 +115,10 @@ namespace Gerenciamento_De_Chamados
             this.btn_AbrirChamado.BackColor = System.Drawing.Color.White;
             this.btn_AbrirChamado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_AbrirChamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AbrirChamado.Location = new System.Drawing.Point(720, 52);
-            this.btn_AbrirChamado.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_AbrirChamado.Location = new System.Drawing.Point(960, 64);
+            this.btn_AbrirChamado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AbrirChamado.Name = "btn_AbrirChamado";
-            this.btn_AbrirChamado.Size = new System.Drawing.Size(183, 46);
+            this.btn_AbrirChamado.Size = new System.Drawing.Size(244, 57);
             this.btn_AbrirChamado.TabIndex = 16;
             this.btn_AbrirChamado.Text = "Criar chamado";
             this.btn_AbrirChamado.UseVisualStyleBackColor = false;
@@ -130,10 +131,10 @@ namespace Gerenciamento_De_Chamados
             this.btnChamadosEmAndamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChamadosEmAndamento.Image = global::Gerenciamento_De_Chamados.Properties.Resources.hourglass_empty_46dp_000000_FILL0_wght400_GRAD0_opsz48;
             this.btnChamadosEmAndamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChamadosEmAndamento.Location = new System.Drawing.Point(331, 138);
-            this.btnChamadosEmAndamento.Margin = new System.Windows.Forms.Padding(2);
+            this.btnChamadosEmAndamento.Location = new System.Drawing.Point(441, 170);
+            this.btnChamadosEmAndamento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChamadosEmAndamento.Name = "btnChamadosEmAndamento";
-            this.btnChamadosEmAndamento.Size = new System.Drawing.Size(255, 98);
+            this.btnChamadosEmAndamento.Size = new System.Drawing.Size(340, 121);
             this.btnChamadosEmAndamento.TabIndex = 15;
             this.btnChamadosEmAndamento.Text = "      Chamados em \r\n      andamento \r\n";
             this.btnChamadosEmAndamento.UseVisualStyleBackColor = true;
@@ -145,11 +146,11 @@ namespace Gerenciamento_De_Chamados
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.roundedPanel2);
             this.groupBox1.Controls.Add(this.plotStatus);
-            this.groupBox1.Location = new System.Drawing.Point(17, 265);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(23, 326);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(387, 375);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(516, 462);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             // 
@@ -166,68 +167,76 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel2.Controls.Add(this.pnEmAndamento);
             this.roundedPanel2.CornerRadius = 15F;
             this.roundedPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.roundedPanel2.Location = new System.Drawing.Point(249, 15);
+            this.roundedPanel2.Location = new System.Drawing.Point(332, 17);
+            this.roundedPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel2.Name = "roundedPanel2";
-            this.roundedPanel2.Size = new System.Drawing.Size(136, 358);
+            this.roundedPanel2.Size = new System.Drawing.Size(181, 443);
             this.roundedPanel2.TabIndex = 4;
             // 
             // lblResolvido
             // 
             this.lblResolvido.AutoSize = true;
-            this.lblResolvido.Location = new System.Drawing.Point(28, 236);
+            this.lblResolvido.Location = new System.Drawing.Point(37, 290);
+            this.lblResolvido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblResolvido.Name = "lblResolvido";
-            this.lblResolvido.Size = new System.Drawing.Size(54, 13);
+            this.lblResolvido.Size = new System.Drawing.Size(69, 16);
             this.lblResolvido.TabIndex = 7;
             this.lblResolvido.Text = "Resolvido";
             // 
             // pnResolvido
             // 
             this.pnResolvido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnResolvido.Location = new System.Drawing.Point(4, 228);
+            this.pnResolvido.Location = new System.Drawing.Point(5, 281);
+            this.pnResolvido.Margin = new System.Windows.Forms.Padding(4);
             this.pnResolvido.Name = "pnResolvido";
-            this.pnResolvido.Size = new System.Drawing.Size(18, 21);
+            this.pnResolvido.Size = new System.Drawing.Size(23, 25);
             this.pnResolvido.TabIndex = 6;
             // 
             // lblEmAndamento
             // 
             this.lblEmAndamento.AutoSize = true;
-            this.lblEmAndamento.Location = new System.Drawing.Point(28, 143);
+            this.lblEmAndamento.Location = new System.Drawing.Point(37, 176);
+            this.lblEmAndamento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmAndamento.Name = "lblEmAndamento";
-            this.lblEmAndamento.Size = new System.Drawing.Size(78, 13);
+            this.lblEmAndamento.Size = new System.Drawing.Size(98, 16);
             this.lblEmAndamento.TabIndex = 4;
             this.lblEmAndamento.Text = "Em andamento";
             // 
             // lblPendente
             // 
             this.lblPendente.AutoSize = true;
-            this.lblPendente.Location = new System.Drawing.Point(28, 61);
+            this.lblPendente.Location = new System.Drawing.Point(37, 75);
+            this.lblPendente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPendente.Name = "lblPendente";
-            this.lblPendente.Size = new System.Drawing.Size(53, 13);
+            this.lblPendente.Size = new System.Drawing.Size(65, 16);
             this.lblPendente.TabIndex = 3;
             this.lblPendente.Text = "Pendente";
             // 
             // pnPendente
             // 
             this.pnPendente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnPendente.Location = new System.Drawing.Point(4, 53);
+            this.pnPendente.Location = new System.Drawing.Point(5, 65);
+            this.pnPendente.Margin = new System.Windows.Forms.Padding(4);
             this.pnPendente.Name = "pnPendente";
-            this.pnPendente.Size = new System.Drawing.Size(18, 21);
+            this.pnPendente.Size = new System.Drawing.Size(23, 25);
             this.pnPendente.TabIndex = 2;
             // 
             // pnEmAndamento
             // 
             this.pnEmAndamento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnEmAndamento.Location = new System.Drawing.Point(4, 135);
+            this.pnEmAndamento.Location = new System.Drawing.Point(5, 166);
+            this.pnEmAndamento.Margin = new System.Windows.Forms.Padding(4);
             this.pnEmAndamento.Name = "pnEmAndamento";
-            this.pnEmAndamento.Size = new System.Drawing.Size(18, 21);
+            this.pnEmAndamento.Size = new System.Drawing.Size(23, 25);
             this.pnEmAndamento.TabIndex = 0;
             // 
             // plotStatus
             // 
             this.plotStatus.DisplayScale = 0F;
-            this.plotStatus.Location = new System.Drawing.Point(2, 15);
+            this.plotStatus.Location = new System.Drawing.Point(3, 18);
+            this.plotStatus.Margin = new System.Windows.Forms.Padding(4);
             this.plotStatus.Name = "plotStatus";
-            this.plotStatus.Size = new System.Drawing.Size(253, 358);
+            this.plotStatus.Size = new System.Drawing.Size(337, 441);
             this.plotStatus.TabIndex = 0;
             // 
             // groupBox2
@@ -236,11 +245,11 @@ namespace Gerenciamento_De_Chamados
             this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.roundedPanel3);
             this.groupBox2.Controls.Add(this.plotCategoria);
-            this.groupBox2.Location = new System.Drawing.Point(500, 265);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Location = new System.Drawing.Point(667, 326);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(363, 375);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(484, 462);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             // 
@@ -267,153 +276,171 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel3.Controls.Add(this.pnSeguranca);
             this.roundedPanel3.CornerRadius = 15F;
             this.roundedPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.roundedPanel3.Location = new System.Drawing.Point(237, 15);
+            this.roundedPanel3.Location = new System.Drawing.Point(316, 17);
+            this.roundedPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.roundedPanel3.Name = "roundedPanel3";
-            this.roundedPanel3.Size = new System.Drawing.Size(124, 358);
+            this.roundedPanel3.Size = new System.Drawing.Size(165, 443);
             this.roundedPanel3.TabIndex = 4;
             // 
             // lblIncidentes
             // 
             this.lblIncidentes.AutoSize = true;
-            this.lblIncidentes.Location = new System.Drawing.Point(28, 313);
+            this.lblIncidentes.Location = new System.Drawing.Point(37, 385);
+            this.lblIncidentes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIncidentes.Name = "lblIncidentes";
-            this.lblIncidentes.Size = new System.Drawing.Size(56, 13);
+            this.lblIncidentes.Size = new System.Drawing.Size(68, 16);
             this.lblIncidentes.TabIndex = 17;
             this.lblIncidentes.Text = "Incidentes";
             // 
             // pnIncidentes
             // 
             this.pnIncidentes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnIncidentes.Location = new System.Drawing.Point(4, 305);
+            this.pnIncidentes.Location = new System.Drawing.Point(5, 375);
+            this.pnIncidentes.Margin = new System.Windows.Forms.Padding(4);
             this.pnIncidentes.Name = "pnIncidentes";
-            this.pnIncidentes.Size = new System.Drawing.Size(18, 21);
+            this.pnIncidentes.Size = new System.Drawing.Size(23, 25);
             this.pnIncidentes.TabIndex = 16;
             // 
             // lblComunica
             // 
             this.lblComunica.AutoSize = true;
-            this.lblComunica.Location = new System.Drawing.Point(28, 276);
+            this.lblComunica.Location = new System.Drawing.Point(37, 340);
+            this.lblComunica.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblComunica.Name = "lblComunica";
-            this.lblComunica.Size = new System.Drawing.Size(72, 13);
+            this.lblComunica.Size = new System.Drawing.Size(90, 16);
             this.lblComunica.TabIndex = 15;
             this.lblComunica.Text = "Comunicacao";
             // 
             // pnComunica
             // 
             this.pnComunica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnComunica.Location = new System.Drawing.Point(4, 268);
+            this.pnComunica.Location = new System.Drawing.Point(5, 330);
+            this.pnComunica.Margin = new System.Windows.Forms.Padding(4);
             this.pnComunica.Name = "pnComunica";
-            this.pnComunica.Size = new System.Drawing.Size(18, 21);
+            this.pnComunica.Size = new System.Drawing.Size(23, 25);
             this.pnComunica.TabIndex = 14;
             // 
             // lblServicos
             // 
             this.lblServicos.AutoSize = true;
-            this.lblServicos.Location = new System.Drawing.Point(28, 193);
+            this.lblServicos.Location = new System.Drawing.Point(37, 238);
+            this.lblServicos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServicos.Name = "lblServicos";
-            this.lblServicos.Size = new System.Drawing.Size(48, 13);
+            this.lblServicos.Size = new System.Drawing.Size(60, 16);
             this.lblServicos.TabIndex = 13;
             this.lblServicos.Text = "Servicos";
             // 
             // pnServicos
             // 
             this.pnServicos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnServicos.Location = new System.Drawing.Point(4, 185);
+            this.pnServicos.Location = new System.Drawing.Point(5, 228);
+            this.pnServicos.Margin = new System.Windows.Forms.Padding(4);
             this.pnServicos.Name = "pnServicos";
-            this.pnServicos.Size = new System.Drawing.Size(18, 21);
+            this.pnServicos.Size = new System.Drawing.Size(23, 25);
             this.pnServicos.TabIndex = 12;
             // 
             // lblRede
             // 
             this.lblRede.AutoSize = true;
-            this.lblRede.Location = new System.Drawing.Point(28, 154);
+            this.lblRede.Location = new System.Drawing.Point(37, 190);
+            this.lblRede.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRede.Name = "lblRede";
-            this.lblRede.Size = new System.Drawing.Size(33, 13);
+            this.lblRede.Size = new System.Drawing.Size(41, 16);
             this.lblRede.TabIndex = 11;
             this.lblRede.Text = "Rede";
             // 
             // pnRede
             // 
             this.pnRede.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnRede.Location = new System.Drawing.Point(4, 146);
+            this.pnRede.Location = new System.Drawing.Point(5, 180);
+            this.pnRede.Margin = new System.Windows.Forms.Padding(4);
             this.pnRede.Name = "pnRede";
-            this.pnRede.Size = new System.Drawing.Size(18, 21);
+            this.pnRede.Size = new System.Drawing.Size(23, 25);
             this.pnRede.TabIndex = 10;
             // 
             // lblSoftware
             // 
             this.lblSoftware.AutoSize = true;
-            this.lblSoftware.Location = new System.Drawing.Point(28, 73);
+            this.lblSoftware.Location = new System.Drawing.Point(37, 90);
+            this.lblSoftware.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoftware.Name = "lblSoftware";
-            this.lblSoftware.Size = new System.Drawing.Size(49, 13);
+            this.lblSoftware.Size = new System.Drawing.Size(59, 16);
             this.lblSoftware.TabIndex = 9;
             this.lblSoftware.Text = "Software";
             // 
             // pnSoftware
             // 
             this.pnSoftware.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnSoftware.Location = new System.Drawing.Point(4, 65);
+            this.pnSoftware.Location = new System.Drawing.Point(5, 80);
+            this.pnSoftware.Margin = new System.Windows.Forms.Padding(4);
             this.pnSoftware.Name = "pnSoftware";
-            this.pnSoftware.Size = new System.Drawing.Size(18, 21);
+            this.pnSoftware.Size = new System.Drawing.Size(23, 25);
             this.pnSoftware.TabIndex = 8;
             // 
             // lblInfra
             // 
             this.lblInfra.AutoSize = true;
-            this.lblInfra.Location = new System.Drawing.Point(28, 236);
+            this.lblInfra.Location = new System.Drawing.Point(37, 290);
+            this.lblInfra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInfra.Name = "lblInfra";
-            this.lblInfra.Size = new System.Drawing.Size(69, 13);
+            this.lblInfra.Size = new System.Drawing.Size(83, 16);
             this.lblInfra.TabIndex = 7;
             this.lblInfra.Text = "Infraestrutura";
             // 
             // pnInfra
             // 
             this.pnInfra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnInfra.Location = new System.Drawing.Point(4, 228);
+            this.pnInfra.Location = new System.Drawing.Point(5, 281);
+            this.pnInfra.Margin = new System.Windows.Forms.Padding(4);
             this.pnInfra.Name = "pnInfra";
-            this.pnInfra.Size = new System.Drawing.Size(18, 21);
+            this.pnInfra.Size = new System.Drawing.Size(23, 25);
             this.pnInfra.TabIndex = 6;
             // 
             // lblSeguranca
             // 
             this.lblSeguranca.AutoSize = true;
-            this.lblSeguranca.Location = new System.Drawing.Point(28, 115);
+            this.lblSeguranca.Location = new System.Drawing.Point(37, 142);
+            this.lblSeguranca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSeguranca.Name = "lblSeguranca";
-            this.lblSeguranca.Size = new System.Drawing.Size(59, 13);
+            this.lblSeguranca.Size = new System.Drawing.Size(73, 16);
             this.lblSeguranca.TabIndex = 4;
             this.lblSeguranca.Text = "Seguranca";
             // 
             // lblHardware
             // 
             this.lblHardware.AutoSize = true;
-            this.lblHardware.Location = new System.Drawing.Point(28, 34);
+            this.lblHardware.Location = new System.Drawing.Point(37, 42);
+            this.lblHardware.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHardware.Name = "lblHardware";
-            this.lblHardware.Size = new System.Drawing.Size(53, 13);
+            this.lblHardware.Size = new System.Drawing.Size(66, 16);
             this.lblHardware.TabIndex = 3;
             this.lblHardware.Text = "Hardware";
             // 
             // pnHardware
             // 
             this.pnHardware.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHardware.Location = new System.Drawing.Point(4, 26);
+            this.pnHardware.Location = new System.Drawing.Point(5, 32);
+            this.pnHardware.Margin = new System.Windows.Forms.Padding(4);
             this.pnHardware.Name = "pnHardware";
-            this.pnHardware.Size = new System.Drawing.Size(18, 21);
+            this.pnHardware.Size = new System.Drawing.Size(23, 25);
             this.pnHardware.TabIndex = 2;
             // 
             // pnSeguranca
             // 
             this.pnSeguranca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnSeguranca.Location = new System.Drawing.Point(4, 107);
+            this.pnSeguranca.Location = new System.Drawing.Point(5, 132);
+            this.pnSeguranca.Margin = new System.Windows.Forms.Padding(4);
             this.pnSeguranca.Name = "pnSeguranca";
-            this.pnSeguranca.Size = new System.Drawing.Size(18, 21);
+            this.pnSeguranca.Size = new System.Drawing.Size(23, 25);
             this.pnSeguranca.TabIndex = 0;
             // 
             // plotCategoria
             // 
             this.plotCategoria.DisplayScale = 0F;
-            this.plotCategoria.Location = new System.Drawing.Point(5, 15);
+            this.plotCategoria.Location = new System.Drawing.Point(7, 18);
+            this.plotCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.plotCategoria.Name = "plotCategoria";
-            this.plotCategoria.Size = new System.Drawing.Size(218, 358);
+            this.plotCategoria.Size = new System.Drawing.Size(291, 441);
             this.plotCategoria.TabIndex = 0;
             // 
             // lbl_NomeUser
@@ -421,9 +448,10 @@ namespace Gerenciamento_De_Chamados
             this.lbl_NomeUser.AutoSize = true;
             this.lbl_NomeUser.BackColor = System.Drawing.Color.Transparent;
             this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NomeUser.Location = new System.Drawing.Point(28, 15);
+            this.lbl_NomeUser.Location = new System.Drawing.Point(37, 18);
+            this.lbl_NomeUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(214, 31);
+            this.lbl_NomeUser.Size = new System.Drawing.Size(267, 39);
             this.lbl_NomeUser.TabIndex = 9;
             this.lbl_NomeUser.Text = "                         ";
             // 
@@ -434,10 +462,10 @@ namespace Gerenciamento_De_Chamados
             this.btnChamadosPendentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChamadosPendentes.Image = global::Gerenciamento_De_Chamados.Properties.Resources.folder_46dp_EAC452_FILL0_wght400_GRAD0_opsz48;
             this.btnChamadosPendentes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChamadosPendentes.Location = new System.Drawing.Point(17, 138);
-            this.btnChamadosPendentes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnChamadosPendentes.Location = new System.Drawing.Point(23, 170);
+            this.btnChamadosPendentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChamadosPendentes.Name = "btnChamadosPendentes";
-            this.btnChamadosPendentes.Size = new System.Drawing.Size(255, 98);
+            this.btnChamadosPendentes.Size = new System.Drawing.Size(340, 121);
             this.btnChamadosPendentes.TabIndex = 13;
             this.btnChamadosPendentes.Text = "     Chamados \r\n     pendentes";
             this.btnChamadosPendentes.UseVisualStyleBackColor = true;
@@ -450,10 +478,10 @@ namespace Gerenciamento_De_Chamados
             this.btnChamadosResolvidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChamadosResolvidos.Image = global::Gerenciamento_De_Chamados.Properties.Resources.check_circle_46dp_9DC384_FILL0_wght400_GRAD0_opsz48;
             this.btnChamadosResolvidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChamadosResolvidos.Location = new System.Drawing.Point(648, 138);
-            this.btnChamadosResolvidos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnChamadosResolvidos.Location = new System.Drawing.Point(864, 170);
+            this.btnChamadosResolvidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChamadosResolvidos.Name = "btnChamadosResolvidos";
-            this.btnChamadosResolvidos.Size = new System.Drawing.Size(255, 98);
+            this.btnChamadosResolvidos.Size = new System.Drawing.Size(340, 121);
             this.btnChamadosResolvidos.TabIndex = 14;
             this.btnChamadosResolvidos.Text = "      Chamados\r\n       solucionados";
             this.btnChamadosResolvidos.UseVisualStyleBackColor = true;
@@ -465,19 +493,20 @@ namespace Gerenciamento_De_Chamados
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.lbl_Inicio);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(231, 0);
+            this.panel2.Location = new System.Drawing.Point(308, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1001, 67);
+            this.panel2.Size = new System.Drawing.Size(1335, 82);
             this.panel2.TabIndex = 11;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(938, 13);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(1251, 16);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox4.Size = new System.Drawing.Size(68, 62);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
@@ -489,9 +518,10 @@ namespace Gerenciamento_De_Chamados
             this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_Inicio.Location = new System.Drawing.Point(24, 24);
+            this.lbl_Inicio.Location = new System.Drawing.Point(32, 30);
+            this.lbl_Inicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(105, 26);
+            this.lbl_Inicio.Size = new System.Drawing.Size(127, 31);
             this.lbl_Inicio.TabIndex = 5;
             this.lbl_Inicio.Text = "       Início";
             // 
@@ -503,10 +533,9 @@ namespace Gerenciamento_De_Chamados
             this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbSair.Location = new System.Drawing.Point(20, 358);
-            this.lbSair.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSair.Location = new System.Drawing.Point(27, 508);
             this.lbSair.Name = "lbSair";
-            this.lbSair.Size = new System.Drawing.Size(72, 24);
+            this.lbSair.Size = new System.Drawing.Size(92, 29);
             this.lbSair.TabIndex = 17;
             this.lbSair.Text = "      Sair";
             this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
@@ -514,16 +543,32 @@ namespace Gerenciamento_De_Chamados
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lblMconta);
             this.panel1.Controls.Add(this.lbSair);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnMeusChamados);
             this.panel1.Controls.Add(this.PctBox_Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(231, 794);
+            this.panel1.Size = new System.Drawing.Size(308, 977);
             this.panel1.TabIndex = 10;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblMconta
+            // 
+            this.lblMconta.AutoSize = true;
+            this.lblMconta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMconta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMconta.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.lblMconta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMconta.Location = new System.Drawing.Point(27, 340);
+            this.lblMconta.Name = "lblMconta";
+            this.lblMconta.Size = new System.Drawing.Size(183, 29);
+            this.lblMconta.TabIndex = 19;
+            this.lblMconta.Text = "      Minha Conta";
+            this.lblMconta.Click += new System.EventHandler(this.lblMconta_Click);
             // 
             // label3
             // 
@@ -532,9 +577,10 @@ namespace Gerenciamento_De_Chamados
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Suporte;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(20, 312);
+            this.label3.Location = new System.Drawing.Point(27, 457);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 24);
+            this.label3.Size = new System.Drawing.Size(98, 29);
             this.label3.TabIndex = 13;
             this.label3.Text = "      FAQ";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -547,9 +593,10 @@ namespace Gerenciamento_De_Chamados
             this.btnMeusChamados.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMeusChamados.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu;
             this.btnMeusChamados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMeusChamados.Location = new System.Drawing.Point(20, 261);
+            this.btnMeusChamados.Location = new System.Drawing.Point(27, 399);
+            this.btnMeusChamados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnMeusChamados.Name = "btnMeusChamados";
-            this.btnMeusChamados.Size = new System.Drawing.Size(183, 24);
+            this.btnMeusChamados.Size = new System.Drawing.Size(230, 29);
             this.btnMeusChamados.TabIndex = 14;
             this.btnMeusChamados.Text = "      Meus Chamados";
             this.btnMeusChamados.Click += new System.EventHandler(this.btnMeusChamados_Click);
@@ -557,9 +604,10 @@ namespace Gerenciamento_De_Chamados
             // PctBox_Logo
             // 
             this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.logo_empresa;
-            this.PctBox_Logo.Location = new System.Drawing.Point(-34, 0);
+            this.PctBox_Logo.Location = new System.Drawing.Point(-45, 0);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(4);
             this.PctBox_Logo.Name = "PctBox_Logo";
-            this.PctBox_Logo.Size = new System.Drawing.Size(295, 258);
+            this.PctBox_Logo.Size = new System.Drawing.Size(393, 318);
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Logo.TabIndex = 3;
             this.PctBox_Logo.TabStop = false;
@@ -572,15 +620,15 @@ namespace Gerenciamento_De_Chamados
             // 
             // HomeFuncionario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1232, 794);
+            this.ClientSize = new System.Drawing.Size(1643, 977);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.roundedPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HomeFuncionario";
             this.Text = "HomeUsuario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -648,5 +696,6 @@ namespace Gerenciamento_De_Chamados
         private System.Windows.Forms.Label lblSoftware;
         private System.Windows.Forms.Panel pnSoftware;
         private System.Windows.Forms.Timer timerSessao;
+        private System.Windows.Forms.Label lblMconta;
     }
 }

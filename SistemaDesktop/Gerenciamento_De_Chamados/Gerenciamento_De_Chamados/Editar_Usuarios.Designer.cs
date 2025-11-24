@@ -55,6 +55,7 @@
             this.btnCadastroCancel = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMconta = new System.Windows.Forms.Label();
             this.lbSair = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -285,12 +286,12 @@
             // 
             this.lbl_Inicio.AutoSize = true;
             this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_Inicio.Location = new System.Drawing.Point(49, 28);
             this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(120, 31);
+            this.lbl_Inicio.Size = new System.Drawing.Size(134, 36);
             this.lbl_Inicio.TabIndex = 2;
             this.lbl_Inicio.Text = "      Início";
             this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
@@ -376,6 +377,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lblMconta);
             this.panel1.Controls.Add(this.lbSair);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
@@ -388,6 +390,20 @@
             this.panel1.TabIndex = 34;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // lblMconta
+            // 
+            this.lblMconta.AutoSize = true;
+            this.lblMconta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMconta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMconta.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.lblMconta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMconta.Location = new System.Drawing.Point(12, 263);
+            this.lblMconta.Name = "lblMconta";
+            this.lblMconta.Size = new System.Drawing.Size(183, 29);
+            this.lblMconta.TabIndex = 19;
+            this.lblMconta.Text = "      Minha Conta";
+            this.lblMconta.Click += new System.EventHandler(this.lblMconta_Click);
+            // 
             // lbSair
             // 
             this.lbSair.AutoSize = true;
@@ -396,7 +412,7 @@
             this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbSair.Location = new System.Drawing.Point(12, 386);
+            this.lbSair.Location = new System.Drawing.Point(12, 416);
             this.lbSair.Name = "lbSair";
             this.lbSair.Size = new System.Drawing.Size(92, 29);
             this.lbSair.TabIndex = 17;
@@ -410,7 +426,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(12, 321);
+            this.label3.Location = new System.Drawing.Point(12, 363);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 29);
             this.label3.TabIndex = 10;
@@ -424,11 +440,12 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 252);
+            this.label1.Location = new System.Drawing.Point(12, 315);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(230, 29);
             this.label1.TabIndex = 10;
             this.label1.Text = "      Meus Chamados";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // PctBox_Logo
             // 
@@ -631,5 +648,6 @@
         private System.Windows.Forms.Button btnAlterarSenha;
         private System.Windows.Forms.Label lbSair;
         private RoundedPanel roundedPanel1;
+        private System.Windows.Forms.Label lblMconta;
     }
 }

@@ -25,21 +25,13 @@ namespace Gerenciamento_De_Chamados
            
             _chamadoRepository = new ChamadoRepository();
 
-            this.Load += ChamadoCriado_Load;
+           
             this._chamadoId = idDoChamado;
         }
 
         
-        private async void ChamadoCriado_Load(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = $" {SessaoUsuario.Nome}";
-            else
-                lbl_NomeUser.Text = "Usuário não identificado";
-
-           
-            await CarregarDetalhesChamadoAsync();
-        }
+        
+        
 
        
         private async Task CarregarDetalhesChamadoAsync()
@@ -203,6 +195,21 @@ namespace Gerenciamento_De_Chamados
         private void label3_Click(object sender, EventArgs e)
         {
             FormHelper.FAQ(this);
+        }
+
+        private void lblMconta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
+            visualizarUsuario.Show();
+            this.Hide();
+        }
+
+        private void lbl_MeusCha_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado();
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
         }
     }
 }

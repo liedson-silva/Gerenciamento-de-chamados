@@ -44,7 +44,7 @@ namespace Gerenciamento_De_Chamados
             );
 
             // Assinatura dos eventos para centralização do painel de carregamento
-            this.Load += ContinuaçaoAbertura_Load;
+            
             this.Resize += ContinuaçaoAbertura_Resize;
         }
 
@@ -149,7 +149,7 @@ namespace Gerenciamento_De_Chamados
             }
             finally
             {
-             
+
                 if (!this.IsDisposed)
                 {
                     pnlLoading.Visible = false;
@@ -164,13 +164,13 @@ namespace Gerenciamento_De_Chamados
         {
             try
             {
-               
+
                 TimeZoneInfo brasilTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
                 return TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasilTimeZone);
             }
             catch
             {
-               
+
                 return DateTime.Now;
             }
         }
@@ -178,27 +178,20 @@ namespace Gerenciamento_De_Chamados
 
         #region Métodos de Centralização do Painel
 
-        private void ContinuaçaoAbertura_Load(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($" {SessaoUsuario.Nome}");
-
-           
-            CentralizarPainelLoading();
-        }
+       
 
         private void ContinuaçaoAbertura_Resize(object sender, EventArgs e)
         {
-            
+
             CentralizarPainelLoading();
         }
 
         private void CentralizarPainelLoading()
         {
-           
+
             if (pnlLoading != null && this.ClientSize.Width > 0 && this.ClientSize.Height > 0)
             {
-               
+
                 pnlLoading.Left = (this.ClientSize.Width - pnlLoading.Width) / 2;
                 pnlLoading.Top = (this.ClientSize.Height - pnlLoading.Height) / 2;
             }
@@ -257,5 +250,31 @@ namespace Gerenciamento_De_Chamados
         }
 
         #endregion
+
+        private void lblMconta_Click(object sender, EventArgs e)
+        {
+            var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
+            visualizarUsuario.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado();
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            FormHelper.FAQ(this);
+        }
+
+
+        private void PctBox_Logo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

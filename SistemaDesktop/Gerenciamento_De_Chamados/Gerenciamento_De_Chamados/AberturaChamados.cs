@@ -20,7 +20,7 @@ namespace Gerenciamento_De_Chamados
         public AberturaChamados()
         {
             InitializeComponent();
-            this.Load += AberturaChamados_Load;
+            
 
            
             _imageHelper = new ImageHelper();
@@ -62,14 +62,7 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-        private void AberturaChamados_Load(object sender, EventArgs e)
-        {
-            
-            if (SessaoUsuario.SessaoEstaValida())
-                lbl_NomeUser.Text = ($"{SessaoUsuario.Nome}");
-            else
-                lbl_NomeUser.Text = "Usuário não identificado";
-        }
+        
 
       
         private void lbl_Inicio_Click(object sender, EventArgs e)
@@ -129,6 +122,14 @@ namespace Gerenciamento_De_Chamados
             {
                 g.FillRectangle(gradiente, this.ClientRectangle);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            var verChamado = new VisualizarChamado();
+            this.Hide();
+            verChamado.ShowDialog();
+            this.Show();
         }
     }
 }
