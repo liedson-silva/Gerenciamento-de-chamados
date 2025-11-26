@@ -5,7 +5,26 @@ import userRouter from "./routes/user.route.js"
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+const allowedOrigins = [
+    "https://fatal-system.vercel.app",
+    "https://gerenciamento-de-chamados.vercel.app",
+]
+
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (!origin) return callback(null, true)
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            return callback(null, true)
+        }
+        return callback(new Error("CORS policy: Origin not allowed"))
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+}
+
+app.use(cors(corsOptions))
+app.options("*", cors(corsOptions))
 
 app.get("/", (req, res) => res.json({ message: "Servidor comunicando" }))
 
