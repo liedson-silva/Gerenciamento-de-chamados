@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "SistemaMobile",
-    "slug": "SistemaMobile",
+    "name": "Fatal System",
+    "slug": "FatalSystem",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,14 +21,14 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.liedson.SistemaMobile"
+      "package": "com.liedson.fatalsystem"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "7739cbdd-ed44-493e-862d-a070dde90934"
+        "projectId": "19604dc0-893b-488e-a087-543f557464ce"
       }
     }
   }
