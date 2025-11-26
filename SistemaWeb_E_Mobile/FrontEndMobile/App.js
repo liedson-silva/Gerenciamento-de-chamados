@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { StatusBar } from 'expo-status-bar'
-import { Image, StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
+import { Image, StyleSheet, Text, View, TouchableOpacity, Alert, BackHandler, ToastAndroid, Platform } from 'react-native'
 import logo from "./src/assets/logo.png"
 import { FontAwesome6 } from '@expo/vector-icons'
 import Home from './src/pages/Home.js'
@@ -72,6 +72,49 @@ export default function App() {
   useEffect(() => {
     registerLogoutCallback(handleLogout);
   }, []);
+
+  const lastBackPress = useRef(0)
+  useEffect(() => {
+    const onBackPress = () => {
+      if (isMenuOpen) {
+        setIsMenuOpen(false)
+        return true
+      }
+
+      if (isLoggedIn && activeTab !== 'Home') {
+        handleNavigate('Home')
+        return true
+      }
+
+      if (!isLoggedIn && activeTab !== 'Home') {
+        handleNavigate('Home')
+        return true
+      }
+
+      // On Home: double press to exit
+      if (Platform.OS === 'android') {
+        const now = Date.now()
+        if (lastBackPress.current && now - lastBackPress.current <= 2000) {
+          BackHandler.exitApp()
+          return true
+        }
+        lastBackPress.current = now
+        ToastAndroid.show('Pressione novamente para sair', ToastAndroid.SHORT)
+        return true
+      }
+
+      return false
+    }
+
+    const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress)
+    return () => {
+      if (subscription && typeof subscription.remove === 'function') {
+        subscription.remove()
+      } else if (BackHandler.removeEventListener) {
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress)
+      }
+    }
+  }, [isMenuOpen, isLoggedIn, activeTab])
 
   const handleLogoutConfirmation = () => {
     Alert.alert(
@@ -160,7 +203,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    marginTop: 50,
+    marginTop: 30,
     paddingHorizontal: 20,
     justifyContent: 'space-between',
     alignItems: 'center',
