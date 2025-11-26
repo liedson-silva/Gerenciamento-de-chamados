@@ -1,0 +1,106 @@
+﻿--- Ignorar Arquivos de Configuração Sensíveis ---
+
+Ignora o App.config principal (onde estão as senhas)
+
+App.config
+*.config
+!packages.config
+!OpenTK.dll.config
+
+--- Visual Studio & Build (Padrão) ---
+
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+*.userprefs
+*.lock.json
+TestResults/
+
+Arquivos de Build/Compilação e Pastas Binárias
+
+Ignora pastas de saída da compilação
+
+[Bb]in/
+[Oo]bj/
+
+Ignora a pasta de pacotes (Packages)
+
+packages/
+
+Arquivos de Configuração de Usuário
+
+Arquivos de configuração específicos do Visual Studio
+
+*.suo
+*.user
+*.userprefs
+*.vs/
+*.[Cc]s.user
+*.[Cc]s.user.bak
+
+Arquivos de Configuração Secreta
+
+O arquivo de configuração gerado que contém a chave da API e a string de conexão
+
+SistemaDesktop/Gerenciamento_De_Chamados/TestProject1/bin/Debug/net9.0/Gerenciamento_De_Chamados.exe.config
+C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Gerenciamento_De_Chamados.teste\bin\Debug\net8.0\Gerenciamento_De_Chamados.exe.config
+
+Garante que qualquer outro arquivo .config na pasta bin também seja ignorado (melhor segurança)
+
+/bin//.config
+/obj//.config
+
+Arquivos de banco de dados
+
+*.mdf
+*.ldf
+
+Logs e outros
+
+*.log
+*.bak
+
+Arquivos de Configuração Secreta
+
+O arquivo de chave local que contém o segredo da Gemini API
+
+gemini_key.txt
+**/gemini_key.txt
+
+Arquivos de Build/Compilação e Pastas Binárias
+
+Ignora pastas de saída da compilação e arquivos de configuração gerados
+
+[Bb]in/
+[Oo]bj/
+packages/
+
+Ignora qualquer .config gerado nas pastas de binário (Debug, Release, etc.)
+
+Cobre o Gerenciamento_De_Chamados.exe.config e outros
+
+/bin//.config
+/obj//.config
+
+Arquivos de Configuração de Usuário
+
+Arquivos de configuração específicos do Visual Studio
+
+*.suo
+*.user
+*.userprefs
+*.vs/
+*.[Cc]s.user
+*.[Cc]s.user.bak
+
+Arquivos de banco de dados
+
+*.mdf
+*.ldf
+
+Logs e outros
+
+*.log
+*.bak
