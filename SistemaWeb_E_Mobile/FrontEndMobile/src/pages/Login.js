@@ -3,6 +3,7 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image } fro
 import { FontAwesome6 } from '@expo/vector-icons';
 import api from '../services/api.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import NetInfo from "@react-native-community/netinfo";
 
 const Login = ({ setActiveTab, setUser }) => {
     const [login, setLogin] = useState('');
@@ -17,6 +18,13 @@ const Login = ({ setActiveTab, setUser }) => {
             return;
         }
 
+        const netState = await NetInfo.fetch();
+        if (!netState.isConnected) {
+            setError("Sem conexão com a internet. Verifique sua conexão e tente novamente.");
+            setTimeout(() => setError(""), 3000);
+            return;
+        }
+
         try {
             const response = await api.post("/login", { login, password });
 
@@ -26,7 +34,6 @@ const Login = ({ setActiveTab, setUser }) => {
                 if (token) {
                     await AsyncStorage.setItem('token', token);
                 }
-
                 setUser(user);
                 setActiveTab('Home');
 
@@ -38,8 +45,28 @@ const Login = ({ setActiveTab, setUser }) => {
             }
 
         } catch (err) {
-            const errorMessage = err.response?.data?.message || "Usuário ou senha inválidos!";
-            console.error("Erro na requisição de login:", err.message);
+            let errorMessage = "Ocorreu um erro desconhecido. Tente novamente mais tarde.";
+            console.error("Erro na requisição de login:", err);
+
+            if (!err.response) {
+                if (err.code === 'ECONNABORTED' || (err.message && err.message.includes('timeout'))) {
+                    errorMessage = "Tempo limite da requisição atingido. Tente novamente.";
+                } else {
+                    errorMessage = "Não foi possível conectar ao servidor. Verifique sua internet ou tente mais tarde.";
+                }
+            }
+            else if (err.response) {
+                if (err.response.data && err.response.data.message) {
+                    errorMessage = err.response.data.message;
+                }
+                else if (err.response.status >= 500) {
+                    errorMessage = "Erro interno do sistema. Por favor, tente novamente mais tarde.";
+                } else if (err.response.status === 401 || err.response.status === 403) {
+                    errorMessage = "Credenciais inválidas. Verifique seu usuário e senha.";
+                } else {
+                    errorMessage = `Erro de comunicação com o servidor (${err.response.status}). Tente novamente.`;
+                }
+            }
             setError(errorMessage);
             setLogin("");
             setPassword("");
@@ -51,8 +78,6 @@ const Login = ({ setActiveTab, setUser }) => {
         setForgetPassword("Entre em contato com o administrador para recuperar a senha");
         setTimeout(() => setForgetPassword(""), 3000);
     };
-
-
 
     return (
         <View style={styles.container}>
