@@ -27,7 +27,6 @@ const Login = () => {
 
       if (response.data.success) {
         const user = response.data.user;
-
         const token = response.data.token;
         if (token) { localStorage.setItem('token', token) }
 
@@ -38,12 +37,35 @@ const Login = () => {
         } else {
           navigate("/home", { state: { user } });
         }
+      } else {
+        setError(response.data.message || "Falha na autenticação. Tente novamente.");
       }
     } catch (err) {
-      setError("Usuário ou senha inválidos!");
+      let errorMessage = "Erro inesperado. Tente novamente.";
+
+      if (err.response) {
+        const status = err.response.status;
+
+        if (status === 401 || status === 403) {
+          errorMessage = "Usuário ou senha inválidos!";
+        } else if (status === 404) {
+          errorMessage = "Erro de conexão: Rota da API não encontrada (404).";
+        } else if (status >= 500) {
+          errorMessage = "Erro interno do servidor. Tente novamente mais tarde.";
+        } else {
+          errorMessage = err.response.data.message || `Erro ${status} desconhecido.`;
+        }
+
+      } else if (err.request) {
+        errorMessage = "Falha de conexão: O servidor da API está inacessível.";
+      } else {
+        errorMessage = "Erro ao processar a requisição de login.";
+      }
+
+      setError(errorMessage);
       setLogin("");
       setPassword("");
-      setTimeout(() => setError(""), 2000);
+      setTimeout(() => setError(""), 4000);
     }
   }
 

@@ -22,15 +22,20 @@ api.interceptors.response.use(
     (response) => response,
     (error) => {
         const status = error.response?.status
-        if (status === 401 || status === 403) {
+        const failedUrl = error.config?.url;
+
+        if ((status === 401 || status === 403) && failedUrl !== '/login') {
             try {
                 localStorage.removeItem('token')
             } catch (e) { }
             try {
                 sessionStorage.setItem('authError', 'Token expirado, faça login novamente.')
-            } catch (e) { }
+            } catch (e) {}
+
             window.location.href = '/'
+            return Promise.reject(error);
         }
+
         return Promise.reject(error)
     }
 )

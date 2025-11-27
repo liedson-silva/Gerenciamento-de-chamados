@@ -45,8 +45,8 @@ const ShowTicket = ({ setActiveTab, state }) => {
         }
     }, [ticket])
  
-    const handleGoHome = () => {
-        setActiveTab('Home');
+    const handleGoBack = () => {
+        setActiveTab('Ticket');
     };
 
     return (
@@ -66,8 +66,8 @@ const ShowTicket = ({ setActiveTab, state }) => {
 
                 </View>
 
-                <TouchableOpacity style={styles.homeButton} onPress={handleGoHome}>
-                    <Text style={styles.homeButtonText}>Página inicial</Text>
+                <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
+                    <Text style={styles.backButtonText}>Voltar</Text>
                 </TouchableOpacity>
             </View>
         </ScrollView>
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexWrap: 'wrap',
     },
-    homeButton: {
+    backButton: {
         backgroundColor: '#333',
         opacity: 0.9,
         borderRadius: 8,
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
         elevation: 2,
     },
-    homeButtonText: {
+    backButtonText: {
         color: '#fff',
         fontSize: 16,
         fontWeight: 'bold',
