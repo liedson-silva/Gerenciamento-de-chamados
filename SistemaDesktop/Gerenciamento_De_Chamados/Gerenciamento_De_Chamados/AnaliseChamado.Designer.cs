@@ -100,6 +100,7 @@ namespace Gerenciamento_De_Chamados
             this.lbl_Inicio.Size = new System.Drawing.Size(112, 29);
             this.lbl_Inicio.TabIndex = 5;
             this.lbl_Inicio.Text = "       Início";
+            this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
             // 
             // lbl_NomeUser
             // 

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
-using Gerenciamento_De_Chamados; // Para acessar os Formulários HomeAdmin, HomeFuncionario, Login, etc.
+using Gerenciamento_De_Chamados; 
 
 namespace Gerenciamento_De_Chamados.Helpers
 {
@@ -45,33 +45,57 @@ namespace Gerenciamento_De_Chamados.Helpers
             }
         }
 
+        private static void NavegarParaHome<T>(Form formAtual) where T : Form, new()
+        {
+            // 1. Tenta encontrar uma instância existente da Home
+            T homeForm = Application.OpenForms.OfType<T>().FirstOrDefault();
+
+            if (homeForm == null)
+            {
+                // Se não existir, cria uma nova
+                homeForm = new T();
+                homeForm.Show();
+            }
+            else
+            {
+                // Se existir, apenas garante que está visível e traz para frente
+                homeForm.Show();
+                if (homeForm.WindowState == FormWindowState.Minimized)
+                {
+                    homeForm.WindowState = FormWindowState.Normal;
+                }
+                homeForm.BringToFront();
+            }
+
+            // 2. Fecha o formulário atual (de onde o botão foi clicado)
+            if (formAtual.GetType() != typeof(T))
+            {
+                formAtual.Close();
+            }
+        }
+
+
+
         public static void BotaoVoltar<TFormAnterior>(Form formAtual) where TFormAnterior : Form, new()
         {
             AbrirOuReativarForm<TFormAnterior>(formAtual);
         }
         public static void BotaoHomeAdmin(Form formAtual)
         {
-            var homeAdmin = new HomeAdmin();
-            homeAdmin.Show();
-            formAtual.Close(); 
+            NavegarParaHome<HomeAdmin>(formAtual);
         }
 
-        
         public static void BotaoHomeFuncionario(Form formAtual)
         {
-            var homeFuncionario = new HomeFuncionario();
-            homeFuncionario.Show();
-            formAtual.Close();
+            NavegarParaHome<HomeFuncionario>(formAtual);
         }
 
-        
         public static void BotaoHomeTecnico(Form formAtual)
         {
-            var homeTecnico = new HomeTecnico();
-            homeTecnico.Show();
-            formAtual.Close(); // Usa Close() para fechar a tela atual definitivamente
+            NavegarParaHome<HomeTecnico>(formAtual);
         }
 
+        // Função de roteamento principal para o botão "Início"
         public static void BotaoHome(Form formAtual)
         {
             string funcao = SessaoUsuario.FuncaoUsuario?.ToLower() ?? "";
@@ -89,10 +113,10 @@ namespace Gerenciamento_De_Chamados.Helpers
                     BotaoHomeTecnico(formAtual);
                     break;
                 default:
-                    // Se der erro de perfil ou função não definida, joga pro login
+                    // Se a sessão for inválida, volta para o Login
                     var loginForm = new Login();
                     loginForm.Show();
-                    formAtual.Close(); // Usa Close() para garantir que a pilha do Main seja limpa corretamente
+                    formAtual.Close(); // Fecha o form atual
                     break;
             }
         }

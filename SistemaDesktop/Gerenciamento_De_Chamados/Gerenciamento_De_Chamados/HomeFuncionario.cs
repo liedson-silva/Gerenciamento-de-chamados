@@ -310,9 +310,9 @@ namespace Gerenciamento_De_Chamados
         private void btnMeusChamados_Click(object sender, EventArgs e)
         {
             var verChamado = new VisualizarChamado(); 
+            verChamado.Show();
             this.Hide();
-            verChamado.ShowDialog();
-            this.Show();
+           
         }
 
         private void lbSair_Click(object sender, EventArgs e)
@@ -346,8 +346,8 @@ namespace Gerenciamento_De_Chamados
         private void lblMconta_Click(object sender, EventArgs e)
         {
             var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
-            visualizarUsuario.Show();
-            this.Hide();
+            visualizarUsuario.ShowDialog();
+            
         }
     }
 }

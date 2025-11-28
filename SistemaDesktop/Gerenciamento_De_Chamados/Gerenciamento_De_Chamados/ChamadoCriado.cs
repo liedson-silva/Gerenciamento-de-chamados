@@ -238,5 +238,10 @@ namespace Gerenciamento_De_Chamados
             this.Show();
         }
         #endregion
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
