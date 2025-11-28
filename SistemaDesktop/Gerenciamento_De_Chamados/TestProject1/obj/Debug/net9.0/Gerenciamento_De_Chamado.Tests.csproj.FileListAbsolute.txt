@@ -246,7 +246,6 @@ C:\Users\Gabriel\Desktop\Faculdade\AA\SistemaDesktop\Gerenciamento_De_Chamados\T
 C:\Users\Gabriel\Desktop\Faculdade\AA\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\obj\Debug\net9.0\Gerenciamento_De_Chamado.Tests.pdb
 C:\Users\Gabriel\Desktop\Faculdade\AA\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\obj\Debug\net9.0\Gerenciamento_De_Chamado.Tests.genruntimeconfig.cache
 C:\Users\Gabriel\Desktop\Faculdade\AA\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\obj\Debug\net9.0\ref\Gerenciamento_De_Chamado.Tests.dll
-C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\Microsoft.TestPlatform.AdapterUtilities.dll
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\grpc_csharp_ext.x86.dll
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\grpc_csharp_ext.x64.dll
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\libgrpc_csharp_ext.x64.so
@@ -274,6 +273,7 @@ C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\Te
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\pt-BR\MSTestAdapter.PlatformServices.resources.dll
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\MSTest.TestAdapter.dll
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\MSTestAdapter.PlatformServices.dll
+C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\Microsoft.TestPlatform.AdapterUtilities.dll
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\Gerenciamento_De_Chamado.Tests.deps.json
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\Gerenciamento_De_Chamado.Tests.runtimeconfig.json
 C:\Projeto\Gerenciamento-de-chamados\SistemaDesktop\Gerenciamento_De_Chamados\TestProject1\bin\Debug\net9.0\Gerenciamento_De_Chamado.Tests.dll

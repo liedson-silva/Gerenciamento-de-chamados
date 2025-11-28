@@ -166,7 +166,8 @@ namespace Gerenciamento_De_Chamados
 
                     // Abrir a tela de Análise 
                     var analisechamado = new AnaliseChamado(idChamadoSelecionado);
-                    analisechamado.ShowDialog();
+                    analisechamado.Show();
+                    this.Close();
 
                     // Recarrega os chamados após fechar a tela de análise
                     CarregarChamados();
@@ -274,7 +275,7 @@ namespace Gerenciamento_De_Chamados
                     // Abre a tela de Análise/Resposta
                     var analisechamado = new AnaliseChamado(idChamado.Value);
                     analisechamado.ShowDialog();
-                    this.Close();
+                    
 
                     // Recarrega a lista para refletir possíveis mudanças de Status/Prioridade
                     CarregarChamados();
@@ -297,7 +298,7 @@ namespace Gerenciamento_De_Chamados
                     // Reutiliza a tela de Análise/Resposta para edição
                     var analisechamado = new AnaliseChamado(idChamado.Value);
                     analisechamado.ShowDialog();
-                    this.Close();
+                    
 
                     // Recarrega a lista para refletir possíveis mudanças de Status/Prioridade
                     CarregarChamados();
@@ -319,13 +320,18 @@ namespace Gerenciamento_De_Chamados
                     // Abre a tela ChamadoCriado (somente leitura de detalhes)
                     var telaDetalhes = new ChamadoCriado(idChamado.Value);
                     telaDetalhes.ShowDialog();
-                    this.Close();
+                    
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao abrir a tela de Visualização: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FormHelper.BotaoHome(this);
         }
     }
 }

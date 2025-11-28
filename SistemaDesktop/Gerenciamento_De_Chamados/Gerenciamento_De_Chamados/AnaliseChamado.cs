@@ -343,7 +343,7 @@ namespace Gerenciamento_De_Chamados
         {
             var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
             visualizarUsuario.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -359,5 +359,9 @@ namespace Gerenciamento_De_Chamados
             FormHelper.FAQ(this);
         }
 
+        private void lbl_Inicio_Click(object sender, EventArgs e)
+        {
+            FormHelper.BotaoHome(this);
+        }
     }
 }

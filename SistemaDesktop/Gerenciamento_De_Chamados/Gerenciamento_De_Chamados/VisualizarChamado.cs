@@ -127,7 +127,7 @@ namespace Gerenciamento_De_Chamados
                     // Se for Tecnico/Admin, abre a tela de Analise/Resposta para TRABALHAR no chamado
                     if (SessaoUsuario.FuncaoUsuario == "Tecnico" || SessaoUsuario.FuncaoUsuario == "Admin" || SessaoUsuario.FuncaoUsuario == "Administrador")
                     {
-                        var telaAnalise = new AnaliseChamado(idChamadoSelecionado);
+                        var telaAnalise = new ChamadoCriado(idChamadoSelecionado);
                         telaAnalise.ShowDialog();
                     }
                     else
@@ -197,7 +197,7 @@ namespace Gerenciamento_De_Chamados
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            FormHelper.BotaoVoltar<HomeFuncionario>(this);
+            FormHelper.BotaoHome(this);
         }
     }
 }
