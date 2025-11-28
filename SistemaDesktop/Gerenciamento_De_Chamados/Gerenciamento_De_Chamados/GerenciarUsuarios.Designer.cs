@@ -88,7 +88,7 @@
             this.lblMconta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblMconta.Location = new System.Drawing.Point(12, 248);
             this.lblMconta.Name = "lblMconta";
-            this.lblMconta.Size = new System.Drawing.Size(183, 29);
+            this.lblMconta.Size = new System.Drawing.Size(146, 24);
             this.lblMconta.TabIndex = 19;
             this.lblMconta.Text = "      Minha Conta";
             this.lblMconta.Click += new System.EventHandler(this.lblMconta_Click);
@@ -103,7 +103,7 @@
             this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbSair.Location = new System.Drawing.Point(12, 394);
             this.lbSair.Name = "lbSair";
-            this.lbSair.Size = new System.Drawing.Size(92, 29);
+            this.lbSair.Size = new System.Drawing.Size(72, 24);
             this.lbSair.TabIndex = 17;
             this.lbSair.Text = "      Sair";
             this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
@@ -117,7 +117,7 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(12, 342);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 29);
+            this.label3.Size = new System.Drawing.Size(80, 24);
             this.label3.TabIndex = 13;
             this.label3.Text = "      FAQ";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -131,7 +131,7 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(12, 294);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 29);
+            this.label1.Size = new System.Drawing.Size(183, 24);
             this.label1.TabIndex = 14;
             this.label1.Text = "      Meus Chamados";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -166,7 +166,7 @@
             this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_NomeUser.Location = new System.Drawing.Point(174, 38);
             this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 25);
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
             this.lbl_NomeUser.TabIndex = 8;
             // 
             // lbl_Inicio
@@ -178,7 +178,7 @@
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_Inicio.Location = new System.Drawing.Point(58, 34);
             this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(134, 36);
+            this.lbl_Inicio.Size = new System.Drawing.Size(106, 29);
             this.lbl_Inicio.TabIndex = 5;
             this.lbl_Inicio.Text = "      Início";
             this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
@@ -202,7 +202,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(344, 46);
+            this.label2.Size = new System.Drawing.Size(277, 37);
             this.label2.TabIndex = 5;
             this.label2.Text = "Gerenciar Usuário";
             // 
@@ -213,7 +213,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(63, 111);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 25);
+            this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Pesquisar:";
             // 
@@ -221,7 +221,7 @@
             // 
             this.txtPesquisarUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtPesquisarUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisarUser.Location = new System.Drawing.Point(177, 108);
+            this.txtPesquisarUser.Location = new System.Drawing.Point(67, 134);
             this.txtPesquisarUser.Multiline = true;
             this.txtPesquisarUser.Name = "txtPesquisarUser";
             this.txtPesquisarUser.Size = new System.Drawing.Size(808, 35);
@@ -301,10 +301,12 @@
             this.dgvUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvUsuarios.Location = new System.Drawing.Point(68, 203);
             this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersVisible = false;
             this.dgvUsuarios.RowHeadersWidth = 51;
             this.dgvUsuarios.Size = new System.Drawing.Size(917, 309);
             this.dgvUsuarios.TabIndex = 8;
+            this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
             // 
             // nomeDataGridViewTextBoxColumn
             // 
@@ -312,6 +314,7 @@
             this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
             this.nomeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
             this.nomeDataGridViewTextBoxColumn.Width = 295;
             // 
             // emailDataGridViewTextBoxColumn
@@ -320,6 +323,7 @@
             this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             this.emailDataGridViewTextBoxColumn.Width = 294;
             // 
             // funcaoUsuarioDataGridViewTextBoxColumn
@@ -328,6 +332,7 @@
             this.funcaoUsuarioDataGridViewTextBoxColumn.HeaderText = "Cargo";
             this.funcaoUsuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.funcaoUsuarioDataGridViewTextBoxColumn.Name = "funcaoUsuarioDataGridViewTextBoxColumn";
+            this.funcaoUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
             this.funcaoUsuarioDataGridViewTextBoxColumn.Width = 295;
             // 
             // usuarioBindingSource
@@ -343,11 +348,11 @@
             this.roundedPanel1.BackColor = System.Drawing.Color.White;
             this.roundedPanel1.BorderColor = System.Drawing.Color.White;
             this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.Controls.Add(this.txtPesquisarUser);
             this.roundedPanel1.Controls.Add(this.btnEditarUsuario);
+            this.roundedPanel1.Controls.Add(this.btnCadastroUser);
             this.roundedPanel1.Controls.Add(this.dgvUsuarios);
             this.roundedPanel1.Controls.Add(this.label2);
-            this.roundedPanel1.Controls.Add(this.txtPesquisarUser);
-            this.roundedPanel1.Controls.Add(this.btnCadastroUser);
             this.roundedPanel1.Controls.Add(this.label4);
             this.roundedPanel1.CornerRadius = 15F;
             this.roundedPanel1.Location = new System.Drawing.Point(302, 103);

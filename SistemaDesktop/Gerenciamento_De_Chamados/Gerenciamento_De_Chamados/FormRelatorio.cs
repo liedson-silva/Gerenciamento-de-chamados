@@ -62,9 +62,7 @@ namespace Gerenciamento_De_Chamados
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            var relatorio = new Relatorio();
-            relatorio.Show();
-            this.Close();
+            FormHelper.BotaoVoltar<Relatorio>(this);
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

@@ -194,5 +194,10 @@ namespace Gerenciamento_De_Chamados
         {
             FormHelper.FAQ(this);
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FormHelper.BotaoVoltar<HomeFuncionario>(this);
+        }
     }
 }

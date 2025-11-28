@@ -271,5 +271,10 @@ namespace Gerenciamento_De_Chamados
             visualizarUsuario.Show();
             this.Hide();
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FormHelper.BotaoVoltar<HomeAdmin>(this);
+        }
     }
 }

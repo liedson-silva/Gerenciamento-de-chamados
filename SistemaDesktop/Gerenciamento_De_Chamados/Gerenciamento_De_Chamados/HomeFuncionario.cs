@@ -286,9 +286,8 @@ namespace Gerenciamento_De_Chamados
         private void btnChamadosPendentes_Click(object sender, EventArgs e)
         {
             var verChamado = new VisualizarChamado("Pendente");
-            this.Hide();
             verChamado.ShowDialog(); 
-            this.Show(); 
+
         }
 
         private void btnChamadosEmAndamento_Click(object sender, EventArgs e)

@@ -219,5 +219,10 @@ namespace Gerenciamento_De_Chamados
             verChamado.ShowDialog();
             this.Show();
         }
+
+        private void btnCadastroCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
