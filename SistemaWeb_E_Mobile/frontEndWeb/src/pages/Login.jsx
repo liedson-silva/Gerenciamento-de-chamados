@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../Style.css'
 import logo from '../assets/logo.png'
-import { FaRegUser } from "react-icons/fa";
+import { FaRegUser, FaSpinner } from "react-icons/fa";
 import { TbLockPassword } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api.js"
@@ -11,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [forgetPassword, setForgetPassword] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -22,6 +23,10 @@ const Login = () => {
   }, [])
 
   const handleLogin = async () => {
+    setIsLoading(true);
+    setError("");
+    setForgetPassword("");
+
     try {
       const response = await api.post("/login", { login, password })
 
@@ -57,7 +62,7 @@ const Login = () => {
         }
 
       } else if (err.request) {
-        errorMessage = "Falha de conexão: O servidor da API está inacessível.";
+        errorMessage = "Falha de conexão com o servidor, espere um momento e tente novamente.";
       } else {
         errorMessage = "Erro ao processar a requisição de login.";
       }
@@ -66,6 +71,8 @@ const Login = () => {
       setLogin("");
       setPassword("");
       setTimeout(() => setError(""), 4000);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -116,7 +123,14 @@ const Login = () => {
           </button>
 
           <div className='button-enter'>
-            <button className='enter' type='submit' onClick={handleLogin}>Entrar</button>
+            <button
+              className='enter'
+              type='submit'
+              onClick={handleLogin}
+              disabled={isLoading}>
+              {isLoading ? <FaSpinner className="spinner" /> : 'Entrar'}
+
+            </button>
           </div>
 
         </div>
