@@ -118,46 +118,6 @@ namespace Gerenciamento_De_Chamados
             CarregarUsuarios(); 
         }
 
-        private async void btnExcluirUsuario_Click(object sender, EventArgs e)
-        {
-            if (dgvUsuarios.CurrentRow == null || dgvUsuarios.CurrentRow.DataBoundItem == null)
-            {
-                MessageBox.Show("Por favor, selecione um usuário para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                object idValue = dgvUsuarios.CurrentRow.Cells["IdUsuario"].Value;
-                object nomeValue = dgvUsuarios.CurrentRow.Cells["Nome"].Value;
-
-                if (idValue != null && int.TryParse(idValue.ToString(), out int idUsuarioSelecionado))
-                {
-                    string nomeUsuario = nomeValue?.ToString() ?? "usuário selecionado";
-
-                    var confirmResult = MessageBox.Show(
-                        $"Deseja realmente excluir o usuário: {nomeUsuario}?",
-                        "Confirmar Exclusão",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning);
-
-                    if (confirmResult == DialogResult.Yes)
-                    {
-                       
-                        await _usuarioRepository.ExcluirAsync(idUsuarioSelecionado);
-                        MessageBox.Show("Usuário excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                      
-                        CarregarUsuarios(txtPesquisarUser.Text.Trim());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-               
-                MessageBox.Show("Erro ao excluir usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         #region Código de Estética e Navegação (Sem Alterações)
 
@@ -221,6 +181,37 @@ namespace Gerenciamento_De_Chamados
             this.Hide();
             verChamado.ShowDialog();
             this.Show();
+        }
+
+        private void dgvUsuarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            // Obtém a linha atual (ou a linha que foi duplamente clicada)
+            DataGridViewRow row = dgvUsuarios.Rows[e.RowIndex];
+
+            try
+            {
+                // Tenta obter o ID do usuário usando o nome da coluna
+                object idValue = row.Cells["IdUsuario"].Value;
+
+                if (idValue != null && int.TryParse(idValue.ToString(), out int idUsuarioSelecionado))
+                {
+                    // Abre a tela de Visualização em modo modal
+                    var telaDetalhes = new Visualizar_Usuario(idUsuarioSelecionado);
+                    telaDetalhes.ShowDialog();
+
+                    // Não precisa recarregar a lista, pois Visualizar_Usuario não altera dados
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível identificar o ID do usuário selecionado.", "Erro de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao tentar visualizar o usuário: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

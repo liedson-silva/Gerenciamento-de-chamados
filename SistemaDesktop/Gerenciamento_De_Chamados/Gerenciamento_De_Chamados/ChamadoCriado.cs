@@ -1,10 +1,10 @@
-﻿using Gerenciamento_De_Chamados.Models; 
-using Gerenciamento_De_Chamados.Repositories; 
+﻿using Gerenciamento_De_Chamados.Models;
+using Gerenciamento_De_Chamados.Repositories;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Text;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gerenciamento_De_Chamados.Helpers;
 
@@ -15,30 +15,39 @@ namespace Gerenciamento_De_Chamados
     {
         private readonly int _chamadoId;
 
-        
+
         private readonly IChamadoRepository _chamadoRepository;
 
         public ChamadoCriado(int idDoChamado)
         {
             InitializeComponent();
 
-           
+
             _chamadoRepository = new ChamadoRepository();
 
-           
             this._chamadoId = idDoChamado;
+            // Adiciona o manipulador de evento Load
+            this.Load += ChamadoCriado_Load;
         }
 
-        
-        
-        
 
-       
+        private async void ChamadoCriado_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
+                lbl_NomeUser.Text = $"Bem vindo {SessaoUsuario.Nome}";
+            else
+                lbl_NomeUser.Text = "Usuário não identificado";
+
+            // *** CORREÇÃO: CHAMA O MÉTODO DE CARREGAMENTO AQUI ***
+            await CarregarDetalhesChamadoAsync();
+        }
+
+
         private async Task CarregarDetalhesChamadoAsync()
         {
             try
             {
-                
+                // Busca o chamado no repositório
                 Chamado chamado = await _chamadoRepository.BuscarPorIdAsync(this._chamadoId);
 
                 if (chamado != null)
@@ -51,6 +60,12 @@ namespace Gerenciamento_De_Chamados
                     string pessoasAfetadas = chamado.PessoasAfetadas;
                     string impedeTrabalho = chamado.ImpedeTrabalho;
                     string ocorreuAntes = chamado.OcorreuAnteriormente;
+
+                    // Adicionar informações do usuário que abriu o chamado (será necessário buscar o usuário)
+                    // Por enquanto, usaremos apenas SessaoUsuario.Nome
+
+                    // Nota: Para exibir o nome do criador do chamado de forma correta (se não for o usuário logado),
+                    // seria necessário fazer uma busca no IUsuarioRepository pelo ID: chamado.FK_IdUsuario
 
                     StringBuilder resumo = new StringBuilder();
 
@@ -65,7 +80,7 @@ namespace Gerenciamento_De_Chamados
                     else
                     {
                         // 2. Simplifica a hora atual
-                        DateTime horaAtual = DateTime.Now;
+                        DateTime horaAtual = ObterHoraBrasilia(); // Usando o método que você definiu para garantir a hora correta
                         TimeSpan tempoPassado = horaAtual - dataCriacao;
 
                         if (tempoPassado.TotalMinutes < 2)
@@ -85,6 +100,8 @@ namespace Gerenciamento_De_Chamados
                             quandoFoiCriado = $"{tempoPassado.Days} dias atrás";
                         }
                     }
+                    // O nome do usuário abaixo é um placeholder, pois o objeto Chamado não contém o Nome do Criador.
+                    // O ideal seria buscar o nome do usuário pelo chamado.FK_IdUsuario
                     resumo.AppendLine($"Criado em: {quandoFoiCriado}    por    {SessaoUsuario.Nome.ToUpper()}");
                     resumo.AppendLine();
                     resumo.AppendLine($"{categoria} > {titulo}");
@@ -103,6 +120,10 @@ namespace Gerenciamento_De_Chamados
 
                     txtResumoChamado.Text = resumo.ToString();
                 }
+                else
+                {
+                    txtResumoChamado.Text = $"Chamado ID {_chamadoId} não encontrado.";
+                }
             }
             catch (Exception ex)
             {
@@ -110,15 +131,21 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-       
+
         private DateTime ObterHoraBrasilia()
         {
             try
             {
+                // Usando a TimeZone correta para o Brasil (a mesma do seu banco de dados, se for Azure/SQL Server)
+                // Se o seu SGBD for MSSQL Server, é provável que seja 'E. South America Standard Time'
                 TimeZoneInfo brasilTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
                 return TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasilTimeZone);
             }
-            catch { return DateTime.Now; }
+            catch
+            {
+                // Retorna a hora local se a timezone não for encontrada (o que pode acontecer em alguns ambientes)
+                return DateTime.Now;
+            }
         }
 
         #region Código de Estética e Navegação (Sem Alterações)
@@ -190,7 +217,6 @@ namespace Gerenciamento_De_Chamados
         {
             FormHelper.Sair(this);
         }
-        #endregion
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -211,5 +237,6 @@ namespace Gerenciamento_De_Chamados
             verChamado.ShowDialog();
             this.Show();
         }
+        #endregion
     }
 }

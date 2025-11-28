@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
+using Gerenciamento_De_Chamados; // Para acessar os Formulários HomeAdmin, HomeFuncionario, Login, etc.
 
 namespace Gerenciamento_De_Chamados.Helpers
 {
@@ -16,12 +17,12 @@ namespace Gerenciamento_De_Chamados.Helpers
 
         private static void AbrirOuReativarForm<T>(Form formAtual) where T : Form, new()
         {
-            // 1. Procura na lista de janelas abertas do Windows se já tem uma do tipo T
+            // 1. Tenta encontrar uma instância existente do formulário no Application.OpenForms
             T formExistente = Application.OpenForms.OfType<T>().FirstOrDefault();
 
             if (formExistente != null)
             {
-                // 2. Se achou, traz ela para frente e restaura se estiver minimizada
+                // 2. Se achou, mostra e traz para frente
                 formExistente.Show();
                 if (formExistente.WindowState == FormWindowState.Minimized)
                 {
@@ -31,32 +32,44 @@ namespace Gerenciamento_De_Chamados.Helpers
             }
             else
             {
-                // 3. Se não achou (foi fechada antes), cria uma nova
+                // 3. Se não achou, cria e mostra uma nova (situação menos comum para "Voltar")
                 var novoForm = new T();
                 novoForm.Show();
             }
 
-            // 4. FECHA a janela atual (Feature) em vez de esconder.
-            // A verificação (GetType != typeof(T)) impede de fechar a Home se clicar no botão nela mesma.
+
+            // 4. Fecha o formulário atual (FAQ)
             if (formAtual.GetType() != typeof(T))
             {
                 formAtual.Close();
             }
         }
 
+        public static void BotaoVoltar<TFormAnterior>(Form formAtual) where TFormAnterior : Form, new()
+        {
+            AbrirOuReativarForm<TFormAnterior>(formAtual);
+        }
         public static void BotaoHomeAdmin(Form formAtual)
         {
-            AbrirOuReativarForm<HomeAdmin>(formAtual);
+            var homeAdmin = new HomeAdmin();
+            homeAdmin.Show();
+            formAtual.Close(); 
         }
 
+        
         public static void BotaoHomeFuncionario(Form formAtual)
         {
-            AbrirOuReativarForm<HomeFuncionario>(formAtual);
+            var homeFuncionario = new HomeFuncionario();
+            homeFuncionario.Show();
+            formAtual.Close();
         }
 
+        
         public static void BotaoHomeTecnico(Form formAtual)
         {
-            AbrirOuReativarForm<HomeTecnico>(formAtual);
+            var homeTecnico = new HomeTecnico();
+            homeTecnico.Show();
+            formAtual.Close(); // Usa Close() para fechar a tela atual definitivamente
         }
 
         public static void BotaoHome(Form formAtual)
@@ -76,10 +89,10 @@ namespace Gerenciamento_De_Chamados.Helpers
                     BotaoHomeTecnico(formAtual);
                     break;
                 default:
-                    // Se der erro de perfil, joga pro login e fecha a atual
+                    // Se der erro de perfil ou função não definida, joga pro login
                     var loginForm = new Login();
                     loginForm.Show();
-                    formAtual.Close();
+                    formAtual.Close(); // Usa Close() para garantir que a pilha do Main seja limpa corretamente
                     break;
             }
         }
@@ -93,22 +106,22 @@ namespace Gerenciamento_De_Chamados.Helpers
                 timerSessao.Stop();
             }
 
-          
+            // CORREÇÃO: Usar um MessageBox sem usar o FormHelper (não é recomendável)
             if (MessageBox.Show("Você realmente deseja sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-               
+
                 SessaoUsuario.EncerrarSessao();
 
-       
+
                 var telaLogin = new Login();
                 telaLogin.Show();
 
-               
+
                 formAtual.Close();
             }
             else
             {
-            
+
                 if (timerSessao != null)
                 {
                     timerSessao.Start();

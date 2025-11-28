@@ -170,6 +170,7 @@ namespace Gerenciamento_De_Chamados
 
                     // Recarrega os chamados após fechar a tela de análise
                     CarregarChamados();
+                    
                 }
                 else
                 {
@@ -201,11 +202,7 @@ namespace Gerenciamento_De_Chamados
             FormHelper.Sair(this);
         }
 
-        private void btnVisualizarCh_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void label3_Click(object sender, EventArgs e)
         {
             FormHelper.FAQ(this);
@@ -231,6 +228,104 @@ namespace Gerenciamento_De_Chamados
             this.Hide();
             verChamado.ShowDialog();
             this.Show();
+        }
+        private int? ObterIdChamadoSelecionado()
+        {
+            if (dgvResponder.CurrentRow == null || dgvResponder.CurrentRow.DataBoundItem == null)
+            {
+                // Se o CurrentRow for nulo, significa que não há nenhuma linha válida selecionada/focada.
+                MessageBox.Show("Por favor, selecione um chamado na lista.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+            try
+            {
+                // Tenta obter o valor do ID usando o nome da coluna.
+                // O nome da coluna deve ser o DataPropertyName definido em ConfigurarGrade().
+                object idValue = dgvResponder.CurrentRow.Cells["IdChamado"].Value;
+
+                // Validação robusta e conversão
+                if (idValue != null && idValue != DBNull.Value && int.TryParse(idValue.ToString(), out int idChamadoSelecionado))
+                {
+                    return idChamadoSelecionado;
+                }
+                else
+                {
+                    // Caso a linha esteja selecionada mas o valor do ID seja inválido/nulo no dado
+                    MessageBox.Show("O ID do chamado selecionado é inválido ou não foi encontrado nos dados.", "Erro de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Captura erros de acesso à célula (ex: nome de coluna errado)
+                MessageBox.Show($"Erro interno ao ler o ID do chamado: {ex.Message}", "Erro de Leitura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+        private void btnResponderCH_Click(object sender, EventArgs e)
+        {
+            int? idChamado = ObterIdChamadoSelecionado();
+
+            if (idChamado.HasValue)
+            {
+                try
+                {
+                    // Abre a tela de Análise/Resposta
+                    var analisechamado = new AnaliseChamado(idChamado.Value);
+                    analisechamado.ShowDialog();
+                    this.Close();
+
+                    // Recarrega a lista para refletir possíveis mudanças de Status/Prioridade
+                    CarregarChamados();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao abrir a tela de Resposta: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnEditarCH_Click(object sender, EventArgs e)
+        {
+            int? idChamado = ObterIdChamadoSelecionado();
+
+            if (idChamado.HasValue)
+            {
+                try
+                {
+                    // Reutiliza a tela de Análise/Resposta para edição
+                    var analisechamado = new AnaliseChamado(idChamado.Value);
+                    analisechamado.ShowDialog();
+                    this.Close();
+
+                    // Recarrega a lista para refletir possíveis mudanças de Status/Prioridade
+                    CarregarChamados();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao abrir a tela de Edição/Análise: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void btnVisualizarCh_Click(object sender, EventArgs e)
+        {
+            int? idChamado = ObterIdChamadoSelecionado();
+
+            if (idChamado.HasValue)
+            {
+                try
+                {
+                    // Abre a tela ChamadoCriado (somente leitura de detalhes)
+                    var telaDetalhes = new ChamadoCriado(idChamado.Value);
+                    telaDetalhes.ShowDialog();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao abrir a tela de Visualização: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

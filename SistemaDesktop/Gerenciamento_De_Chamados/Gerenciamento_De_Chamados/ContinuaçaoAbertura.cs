@@ -244,7 +244,7 @@ namespace Gerenciamento_De_Chamados
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Botão Voltar: reabre a tela anterior
+            
             aberturaChamados.Show();
             this.Close();
         }

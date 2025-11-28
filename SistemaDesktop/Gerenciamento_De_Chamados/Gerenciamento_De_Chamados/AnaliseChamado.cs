@@ -38,11 +38,20 @@ namespace Gerenciamento_De_Chamados
             _usuarioRepository = new UsuarioRepository();
             _emailService = new EmailService();
 
-            
+            this.Load += AnaliseChamado_Load;
+
+            // Opcional: Adicionar o evento Click ao botão Enviar
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
 
         }
 
-        
+        private async void AnaliseChamado_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
+                lbl_NomeUser.Text = ($"Olá, {SessaoUsuario.Nome}");
+
+            await CarregarDadosChamadoAsync();
+        }
 
         private async Task CarregarDadosChamadoAsync()
         {
@@ -287,7 +296,7 @@ namespace Gerenciamento_De_Chamados
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormHelper.BotaoVoltar<Responder_Chamado>(this);
         }
 
         private DateTime ObterHoraBrasilia()
@@ -312,7 +321,7 @@ namespace Gerenciamento_De_Chamados
         }
 
         // Outros eventos de UI
-        private void panel1_Paint(object sender, PaintEventArgs e) 
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             Color corInicioPanel = Color.White;
@@ -324,7 +333,7 @@ namespace Gerenciamento_De_Chamados
                     LinearGradientMode.Vertical);
             g.FillRectangle(gradientePanel, panel1.ClientRectangle);
         }
-        private void lbl_Inicio_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
+        
         private void PctBox_Logo_Click(object sender, EventArgs e) { FormHelper.BotaoHome(this); }
         private void lbSair_Click(object sender, EventArgs e) { FormHelper.Sair(this); }
 
@@ -349,5 +358,6 @@ namespace Gerenciamento_De_Chamados
         {
             FormHelper.FAQ(this);
         }
+
     }
 }
