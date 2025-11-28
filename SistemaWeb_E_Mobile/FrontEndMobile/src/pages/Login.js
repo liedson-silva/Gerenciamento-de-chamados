@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image, ActivityIndicator } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import api from '../services/api.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -10,18 +10,25 @@ const Login = ({ setActiveTab, setUser }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [forgetPassword, setForgetPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleLogin = async () => {
+        setIsLoading(true);
+        setError("");
+        setForgetPassword("");
+
         if (!login || !password) {
             setError("Preencha todos os campos.");
-            setTimeout(() => setError(""), 2000);
+            setTimeout(() => setError(""), 4000);
+            setIsLoading(false);
             return;
         }
 
         const netState = await NetInfo.fetch();
         if (!netState.isConnected) {
             setError("Sem conexão com a internet. Verifique sua conexão e tente novamente.");
-            setTimeout(() => setError(""), 3000);
+            setTimeout(() => setError(""), 4000);
+            setIsLoading(false);
             return;
         }
 
@@ -41,7 +48,7 @@ const Login = ({ setActiveTab, setUser }) => {
                 setError(response.data.message || "Usuário ou senha inválidos!");
                 setLogin("");
                 setPassword("");
-                setTimeout(() => setError(""), 2000);
+                setTimeout(() => setError(""), 4000);
             }
 
         } catch (err) {
@@ -70,13 +77,15 @@ const Login = ({ setActiveTab, setUser }) => {
             setError(errorMessage);
             setLogin("");
             setPassword("");
-            setTimeout(() => setError(""), 3000);
+            setTimeout(() => setError(""), 4000);
+        } finally {
+            setIsLoading(false);
         }
     };
 
     const textForgetPassword = () => {
         setForgetPassword("Entre em contato com o administrador para recuperar a senha");
-        setTimeout(() => setForgetPassword(""), 3000);
+        setTimeout(() => setForgetPassword(""), 4000);
     };
 
     return (
@@ -127,8 +136,11 @@ const Login = ({ setActiveTab, setUser }) => {
                 <TouchableOpacity
                     style={styles.loginButton}
                     onPress={handleLogin}
+                    disabled={isLoading}
                 >
-                    <Text style={styles.loginButtonText}>Entrar</Text>
+                    <Text style={styles.loginButtonText} >
+                        {isLoading ? <ActivityIndicator color="#fff" /> : 'Entrar'}
+                    </Text>
                 </TouchableOpacity>
             </View>
         </View>
