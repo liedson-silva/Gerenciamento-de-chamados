@@ -135,6 +135,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.15,
         shadowRadius: 3,
         elevation: 2,
+        marginBottom: 30,
     },
     backButtonText: {
         color: '#fff',

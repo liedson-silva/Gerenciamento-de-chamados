@@ -61,7 +61,6 @@ export default function App() {
   const handleLogout = async () => {
     try {
       await AsyncStorage.removeItem('token');
-      Alert.alert("Sessão Encerrada", "Token expirado, faça login novamente.");
     } catch (e) {
       console.error("Erro ao remover token durante logout:", e);
     }
@@ -190,6 +189,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    
   },
   boxMainContent: {
     flex: 1,
@@ -200,6 +200,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     borderRadius: 8,
+    marginBottom: 35,
   },
   header: {
     flexDirection: 'row',
