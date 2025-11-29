@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Image, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import api from '../services/api.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -11,6 +11,7 @@ const Login = ({ setActiveTab, setUser }) => {
     const [error, setError] = useState('');
     const [forgetPassword, setForgetPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [inputPressed, setInputPressed] = useState(false);
 
     const handleLogin = async () => {
         setIsLoading(true);
@@ -88,8 +89,11 @@ const Login = ({ setActiveTab, setUser }) => {
         setTimeout(() => setForgetPassword(""), 4000);
     };
 
+    const container = inputPressed ? styles.containerSmall : styles.container;
+
     return (
-        <View style={styles.container}>
+        <View style={container}>
+
             <View style={styles.contentContainer}>
                 <Image
                     source={require('../assets/logo.png')}
@@ -104,6 +108,8 @@ const Login = ({ setActiveTab, setUser }) => {
                     <TextInput
                         style={styles.input}
                         placeholder="Usuário"
+                        onFocus={() => setInputPressed(true)}
+                        onBlur={() => setInputPressed(false)}
                         placeholderTextColor="#888"
                         value={login}
                         onChangeText={setLogin}
@@ -115,6 +121,8 @@ const Login = ({ setActiveTab, setUser }) => {
                     <FontAwesome6 name="lock" size={20} color="#777" style={styles.icon} />
                     <TextInput
                         style={styles.input}
+                        onFocus={() => setInputPressed(true)}
+                        onBlur={() => setInputPressed(false)}
                         placeholder="Senha"
                         placeholderTextColor="#888"
                         value={password}
@@ -153,6 +161,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingVertical: 20,
+    },
+    containerSmall: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        marginTop: 70,
+        alignItems: 'center',
     },
     contentContainer: {
         width: '85%',
