@@ -396,5 +396,17 @@ namespace Gerenciamento_De_Chamados.Repositories
             }
             return dt;
         }
+        public async Task AtualizarStatusSimplesAsync(int idChamado, string novoStatus)
+        {
+            string sql = "UPDATE Chamado SET StatusChamado = @NovoStatus, DataChamado = GETDATE() WHERE IdChamado = @IdChamado";
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@NovoStatus", novoStatus);
+                cmd.Parameters.AddWithValue("@IdChamado", idChamado);
+                await conn.OpenAsync();
+                await cmd.ExecuteNonQueryAsync();
+            }
+        }
     }
 }

@@ -156,7 +156,7 @@ namespace Gerenciamento_De_Chamados
 
         private async void btnEnviar_Click(object sender, EventArgs e)
         {
-            // Captura valores da UI
+            
             string solucaoFinal = txtSolucao.Text;
             string novaPrioridade = cboxPrioridade.Text;
             string novaCategoria = cboxCategoria.Text;

@@ -54,6 +54,7 @@
             this.funcaoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Logo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -348,6 +349,7 @@
             this.roundedPanel1.BackColor = System.Drawing.Color.White;
             this.roundedPanel1.BorderColor = System.Drawing.Color.White;
             this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.Controls.Add(this.btnVoltar);
             this.roundedPanel1.Controls.Add(this.txtPesquisarUser);
             this.roundedPanel1.Controls.Add(this.btnEditarUsuario);
             this.roundedPanel1.Controls.Add(this.btnCadastroUser);
@@ -359,6 +361,18 @@
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.Size = new System.Drawing.Size(1123, 639);
             this.roundedPanel1.TabIndex = 9;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(716, 555);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(159, 55);
+            this.btnVoltar.TabIndex = 9;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // GerenciarUsuarios
             // 
@@ -413,5 +427,6 @@
         private System.Windows.Forms.Label lbSair;
         private RoundedPanel roundedPanel1;
         private System.Windows.Forms.Label lblMconta;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

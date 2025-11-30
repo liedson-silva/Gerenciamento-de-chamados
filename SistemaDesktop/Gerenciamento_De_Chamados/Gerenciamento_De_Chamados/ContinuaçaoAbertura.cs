@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient; // Para possíveis exceções de DB
+using System.Data.SqlClient; 
 
 namespace Gerenciamento_De_Chamados
 {
@@ -28,7 +28,7 @@ namespace Gerenciamento_De_Chamados
             InitializeComponent();
             aberturaChamados = abertura;
 
-            // Inicialização das dependências (injetadas ou instanciadas)
+            // Inicialização das dependências 
             _imageHelper = imageHelper;
             _chamadoRepository = new ChamadoRepository();
             _arquivoRepository = new ArquivoRepository();
@@ -43,7 +43,7 @@ namespace Gerenciamento_De_Chamados
             _aiService
             );
 
-            // Assinatura dos eventos para centralização do painel de carregamento
+            
             
             this.Resize += ContinuaçaoAbertura_Resize;
         }
@@ -78,7 +78,7 @@ namespace Gerenciamento_De_Chamados
                 return;
             }
 
-            // --- INÍCIO DO CARREGAMENTO VISUAL ---
+            // --- Icone de carregamento do chamado ---
             pnlLoading.Visible = true;
             CentralizarPainelLoading();
             pnlLoading.BringToFront(); // Traz para frente de todos os controles
@@ -106,7 +106,7 @@ namespace Gerenciamento_De_Chamados
                     PessoasAfetadas = PessoasAfetadas,
                     ImpedeTrabalho = ImpedeTrabalho,
                     OcorreuAnteriormente = OcorreuAnteriormente,
-                    // Deixa as sugestões da IA vazias/nulas por enquanto
+                    
                     PrioridadeSugeridaIA = null,
                     ProblemaSugeridoIA = null,
                     SolucaoSugeridaIA = null
@@ -119,14 +119,15 @@ namespace Gerenciamento_De_Chamados
                     IdUsuario = SessaoUsuario.IdUsuario
                 };
 
-                // ETAPA 1: Cria o chamado base no DB (RÁPIDO)
+                // ETAPA 1: Cria o chamado base no DB 
                 int idChamado = await _chamadoService.CriarChamadoBaseAsync(novoChamado, arquivoBytes, nomeAnexo, tipoAnexo);
 
-                // ETAPA 2: Envia email de confirmação para o USUÁRIO (RÁPIDO/SÍNCRONO)
+                // ETAPA 2: Envia email de confirmação para o USUÁRIO 
                 await _chamadoService.EnviarConfirmacaoUsuarioAsync(novoChamado, usuarioLogado, idChamado);
 
-                // ETAPA 3: Processamento da IA e notificação da TI (LENTO/BACKGROUND)
-                // Usamos Task.Run para que a interface NÃO TRAVE enquanto a IA pensa.
+                // ETAPA 3: Processamento da IA e notificação da TI,
+                // feito depois para evitar que o Usuario fique muito tempo na tela esperando criar o chamado
+                
                 Task.Run(async () =>
                 {
                     await _chamadoService.ProcessarAnaliseEAtualizarAsync(idChamado, novoChamado, usuarioLogado, arquivoBytes, nomeAnexo, tipoAnexo);

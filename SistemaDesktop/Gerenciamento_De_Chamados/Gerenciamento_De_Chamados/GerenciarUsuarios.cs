@@ -213,5 +213,10 @@ namespace Gerenciamento_De_Chamados
                 MessageBox.Show($"Erro ao tentar visualizar o usuário: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FormHelper.BotaoHome(this);
+        }
     }
 }

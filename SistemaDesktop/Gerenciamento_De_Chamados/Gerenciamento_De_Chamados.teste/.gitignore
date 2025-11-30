@@ -1,0 +1,41 @@
+﻿--- COMPILAÇÃO E PASTAS BINÁRIAS ---
+
+[Bb]in/
+[Oo]bj/
+packages/
+*.pdb
+*.suo
+
+Ignora qualquer .config gerado nas pastas de binário (o principal problema)
+
+O asterisco duplo (**) garante que funcione em qualquer subdiretório.
+
+/bin//.config
+/obj//.config
+
+Ignora o App.config principal (se estiver na raiz de um projeto)
+
+App.config
+!packages.config
+
+--- VISUAL STUDIO / USUÁRIO ---
+
+.vs/
+*.user
+*.userprefs
+*.vssscc
+*.vspscc
+
+--- ARQUIVOS DE CHAVE/SEGREDO ---
+
+Ignora o arquivo de chave da API em qualquer pasta
+
+gemini_key.txt
+**/gemini_key.txt
+
+--- DADOS E LOGS ---
+
+*.mdf
+*.ldf
+*.log
+*.bak
