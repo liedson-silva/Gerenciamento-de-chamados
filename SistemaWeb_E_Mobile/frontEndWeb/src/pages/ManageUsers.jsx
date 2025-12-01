@@ -95,8 +95,22 @@ const ManageUsers = () => {
     e.preventDefault();
 
     try {
-      // Cria uma cópia para ajustar dados antes de enviar
       const dataToSend = { ...formData };
+
+      if (dataToSend.date) {
+        if (typeof dataToSend.date === "string" && dataToSend.date.includes("/")) {
+          const parts = dataToSend.date.split("/");
+          if (parts.length === 3) {
+            const [d, m, y] = parts;
+            dataToSend.date = `${y}-${m.padStart(2, "0")} - ${d.padStart(2, "0")}`.replace(/\s+/g, "");
+          }
+        } else {
+          const parsed = new Date(dataToSend.date);
+          if (!isNaN(parsed)) {
+            dataToSend.date = parsed.toISOString().slice(0, 10);
+          }
+        }
+      }
 
       // Se estiver editando e a senha estiver vazia, remove para não atualizar
       if (isEditing && !dataToSend.password) {
@@ -121,8 +135,9 @@ const ManageUsers = () => {
       setShowForm(false);
       fetchUsers();
     } catch (error) {
-      console.error("Erro:", error);
-      setErrorMessage("Erro ao processar a solicitação.");
+    console.error("Erro ao enviar requisição:", error);
+    console.error("Resposta do servidor:", error.response?.data);
+    setErrorMessage(error.response?.data?.message || "Erro ao processar a solicitação.");
     }
 
     setTimeout(() => {
@@ -235,6 +250,7 @@ const ManageUsers = () => {
                 onChange={handleInputChange}
                 required
               >
+                <option value="Selecione">Selecione</option>
                 <option value="Funcionario">Funcionário</option>
                 <option value="Admin">Admin</option>
                 <option value="Tecnico">Técnico</option>
@@ -263,6 +279,7 @@ const ManageUsers = () => {
               onChange={handleInputChange}
               required
             >
+              <option value="Selecione">Selecione</option>
               <option value="Masculino">Masculino</option>
               <option value="Feminino">Feminino</option>
               <option value="Outros">Outros</option>
@@ -291,6 +308,7 @@ const ManageUsers = () => {
                 onChange={handleInputChange}
                 required
               >
+                <option value="Selecione">Selecione</option>
                 <option value="RH">RH</option>
                 <option value="Financeiro">Financeiro</option>
               </select>

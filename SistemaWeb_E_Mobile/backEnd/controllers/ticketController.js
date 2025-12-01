@@ -112,7 +112,7 @@ export class TicketsController {
                 .query("SELECT * FROM Chamado WHERE FK_idUsuario = @userId")
 
             if (result.recordset.length === 0) {
-                return res.status(401).json({ success: false, message: "Nenhum chamado encontrado" })
+                return res.json({ success: true, Tickets: [] })
             }
 
             res.json({ success: true, Tickets: result.recordset })
@@ -128,7 +128,7 @@ export class TicketsController {
                 .query("SELECT * FROM Chamado")
 
             if (result.recordset.length === 0) {
-                return res.status(401).json({ success: false, message: "Nenhu, chamado encontrado" })
+                return res.json({ success: true, Tickets: [] })
             }
 
             res.json({ success: true, Tickets: result.recordset })
@@ -252,7 +252,7 @@ export class TicketsController {
                 .input("newStatus", this.sql.VarChar(50), status)
             await request.query(`
                 INSERT INTO Historico (DataSolucao, Solucao, FK_IdChamado, Acao) 
-                VALUES (@solutionDate, @solution, @idChamado, 'Solução Aplicada');
+                VALUES (@solutionDate, @solution, @IdChamado, 'Solução Aplicada');
                 UPDATE Chamado SET StatusChamado = @newStatus WHERE IdChamado = @IdChamado;
                 `)
 
@@ -262,4 +262,4 @@ export class TicketsController {
             res.status(500).json({ success: false, message: "Erro ao aplicar solução no BD" })
         }
     }
-} 
+}
