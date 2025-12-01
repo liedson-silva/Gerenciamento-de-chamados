@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const api = axios.create({
-    baseURL: "https://gerenciamento-de-chamados.vercel.app"
+    baseURL: "http://localhost:3000",
 })
 
 // Adiciona o token no header `authorization` em todas as requisições

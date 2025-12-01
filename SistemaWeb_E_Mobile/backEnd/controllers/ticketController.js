@@ -144,44 +144,24 @@ export class TicketsController {
             return res.status(400).json({ success: false, message: "ID de chamado inválido" });
         }
 
-        const {
-            Titulo, PrioridadeChamado, Descricao, DataChamado,
-            StatusChamado, Categoria, FK_IdUsuario, PessoasAfetadas,
-            ImpedeTrabalho, OcorreuAnteriormente
-        } = req.body;
+        const { PrioridadeChamado, Categoria } = req.body;
 
-        if (!Descricao || !DataChamado || !StatusChamado || !Categoria || !FK_IdUsuario) {
+        if (!PrioridadeChamado || !Categoria) {
             return res.status(400).json({ success: false, message: "Campos obrigatórios faltando" });
         }
 
         try {
             const request = this.pool.request()
-                .input("id", this.sql.Int, ticketId)
-                .input("Titulo", this.sql.VarChar(150), Titulo)
                 .input("PrioridadeChamado", this.sql.VarChar(20), PrioridadeChamado)
-                .input("Descricao", this.sql.VarChar(500), Descricao)
-                .input("DataChamado", this.sql.Date, DataChamado)
-                .input("StatusChamado", this.sql.VarChar(12), StatusChamado)
                 .input("Categoria", this.sql.VarChar(16), Categoria)
-                .input("FK_IdUsuario", this.sql.Int, FK_IdUsuario)
-                .input("PessoasAfetadas", this.sql.VarChar(50), PessoasAfetadas)
-                .input("ImpedeTrabalho", this.sql.VarChar(12), ImpedeTrabalho)
-                .input("OcorreuAnteriormente", this.sql.VarChar(7), OcorreuAnteriormente);
+                .input("id", this.sql.Int, ticketId);
 
             const query = `
-        UPDATE Chamado SET
-          Titulo = @Titulo,
-          PrioridadeChamado = @PrioridadeChamado,
-          Descricao = @Descricao,
-          DataChamado = @DataChamado,
-          StatusChamado = @StatusChamado,
-          Categoria = @Categoria,
-          FK_IdUsuario = @FK_IdUsuario,
-          PessoasAfetadas = @PessoasAfetadas,
-          ImpedeTrabalho = @ImpedeTrabalho,
-          OcorreuAnteriormente = @OcorreuAnteriormente
-        WHERE IdChamado = @id
-      `;
+            UPDATE Chamado SET
+            PrioridadeChamado = @PrioridadeChamado,
+            Categoria = @Categoria
+            WHERE IdChamado = @id
+            `;
 
             await request.query(query);
 
