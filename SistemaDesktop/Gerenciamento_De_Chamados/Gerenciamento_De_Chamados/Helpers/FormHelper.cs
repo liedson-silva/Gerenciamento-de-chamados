@@ -130,7 +130,7 @@ namespace Gerenciamento_De_Chamados.Helpers
                 timerSessao.Stop();
             }
 
-            // CORREÇÃO: Usar um MessageBox sem usar o FormHelper (não é recomendável)
+            
             if (MessageBox.Show("Você realmente deseja sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 

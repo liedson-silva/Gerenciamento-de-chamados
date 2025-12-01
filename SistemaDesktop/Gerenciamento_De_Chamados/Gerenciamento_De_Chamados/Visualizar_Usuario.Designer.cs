@@ -265,9 +265,9 @@
             this.label12.Location = new System.Drawing.Point(30, 20);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(357, 37);
+            this.label12.Size = new System.Drawing.Size(362, 37);
             this.label12.TabIndex = 88;
-            this.label12.Text = "Vizualização de usuario";
+            this.label12.Text = "Vizualização de Usuário";
             // 
             // label2
             // 

@@ -167,11 +167,11 @@ namespace Gerenciamento_De_Chamados
             plotCategoria.Plot.Axes.Bottom.TickGenerator = new ScottPlot.TickGenerators.NumericManual(posicoes, labels);
             plotCategoria.Plot.Axes.Bottom.TickLabelStyle.Rotation = 45;
             plotCategoria.Plot.Axes.Bottom.MajorTickStyle.Length = 0; // Esconde os "tracinhos"
-                                                                      // ---
+                                                                     
 
             try
             {
-                // ... (seu código de legenda 'setLegend' continua igual) ...
+               
                 Action<Panel, System.Windows.Forms.Label, string, List<ChartDataPoint>> setLegend =
                 (panel, label, categoriaNome, data) =>
                 {
@@ -195,15 +195,15 @@ namespace Gerenciamento_De_Chamados
                 MessageBox.Show("Erro: Os controles de legenda de Categoria (ex: 'pnHardware', 'lblHardware') não foram encontrados no formulário. Verifique os nomes no Designer.");
             }
 
-            plotCategoria.Plot.Title("Todos os Chamados por Categoria", size: 14);
+            plotCategoria.Plot.Title("Chamados por Categoria", size: 14);
 
-            // --- CORREÇÃO 3: Ajustar Limites X e Y ---
+         
             plotCategoria.Plot.Axes.SetLimitsY(0, valorMaximo * 1.2);
-            // Define o limite X (para dar 0.5 de espaço em cada lado da primeira e última barra)
+            
             plotCategoria.Plot.Axes.SetLimitsX(-0.5, labels.Length - 0.5);
-            // ---
+           
 
-            // Esconde os outros eixos e a grade
+            
             plotCategoria.Plot.Axes.Left.IsVisible = false;
             plotCategoria.Plot.Axes.Top.IsVisible = false;
             plotCategoria.Plot.Axes.Right.IsVisible = false;
