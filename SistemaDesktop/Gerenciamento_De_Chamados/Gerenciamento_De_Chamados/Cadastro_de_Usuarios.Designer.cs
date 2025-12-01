@@ -80,7 +80,7 @@
             this.panel1.Controls.Add(this.PctBox_Inicio);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(244, 794);
             this.panel1.TabIndex = 5;
@@ -152,7 +152,7 @@
             this.PctBox_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PctBox_Inicio.Image = ((System.Drawing.Image)(resources.GetObject("PctBox_Inicio.Image")));
             this.PctBox_Inicio.Location = new System.Drawing.Point(-26, 0);
-            this.PctBox_Inicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PctBox_Inicio.Margin = new System.Windows.Forms.Padding(2);
             this.PctBox_Inicio.Name = "PctBox_Inicio";
             this.PctBox_Inicio.Size = new System.Drawing.Size(290, 239);
             this.PctBox_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -246,7 +246,7 @@
             this.PctBox_Logo.Controls.Add(this.pictureBox4);
             this.PctBox_Logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PctBox_Logo.Location = new System.Drawing.Point(244, 0);
-            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(2);
             this.PctBox_Logo.Name = "PctBox_Logo";
             this.PctBox_Logo.Size = new System.Drawing.Size(822, 67);
             this.PctBox_Logo.TabIndex = 10;
@@ -279,7 +279,7 @@
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_51dp_000000_FILL0_wght400_GRAD0_opsz48__1_;
             this.pictureBox4.Location = new System.Drawing.Point(776, 10);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(38, 41);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -353,7 +353,7 @@
             this.dtpCadDN.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpCadDN.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpCadDN.Location = new System.Drawing.Point(11, 402);
-            this.dtpCadDN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpCadDN.Margin = new System.Windows.Forms.Padding(2);
             this.dtpCadDN.Name = "dtpCadDN";
             this.dtpCadDN.Size = new System.Drawing.Size(350, 35);
             this.dtpCadDN.TabIndex = 17;
@@ -370,7 +370,7 @@
             "Masculino",
             "Outros"});
             this.comboBoxCadastroSexo.Location = new System.Drawing.Point(11, 500);
-            this.comboBoxCadastroSexo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCadastroSexo.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCadastroSexo.Name = "comboBoxCadastroSexo";
             this.comboBoxCadastroSexo.Size = new System.Drawing.Size(350, 37);
             this.comboBoxCadastroSexo.TabIndex = 19;
@@ -432,7 +432,7 @@
             "Administrativo",
             "Operador"});
             this.cBoxCadSetor.Location = new System.Drawing.Point(422, 120);
-            this.cBoxCadSetor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cBoxCadSetor.Margin = new System.Windows.Forms.Padding(2);
             this.cBoxCadSetor.Name = "cBoxCadSetor";
             this.cBoxCadSetor.Size = new System.Drawing.Size(344, 37);
             this.cBoxCadSetor.TabIndex = 27;
@@ -445,14 +445,10 @@
             this.cbxCadastroFuncao.FormattingEnabled = true;
             this.cbxCadastroFuncao.Items.AddRange(new object[] {
             "Admin",
-            "Equipe De TI",
-            "Supervisor",
             "Tecnico",
-            "Operador",
-            "Terceirizado",
-            "Outros.."});
+            "Funcionario"});
             this.cbxCadastroFuncao.Location = new System.Drawing.Point(422, 204);
-            this.cbxCadastroFuncao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxCadastroFuncao.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCadastroFuncao.Name = "cbxCadastroFuncao";
             this.cbxCadastroFuncao.Size = new System.Drawing.Size(344, 37);
             this.cbxCadastroFuncao.TabIndex = 29;
