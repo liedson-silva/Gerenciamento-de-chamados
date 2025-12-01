@@ -70,7 +70,7 @@ namespace Gerenciamento_De_Chamados
         {
             var telaDetalhes = new ChamadoCriado(this.chamadoId);
             telaDetalhes.ShowDialog();
-            this.Close();
+            
         }
 
         private void btn_PaginaInicial_Click(object sender, EventArgs e)
