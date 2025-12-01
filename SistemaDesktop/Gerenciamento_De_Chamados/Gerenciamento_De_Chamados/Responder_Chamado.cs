@@ -10,8 +10,8 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Gerenciamento_De_Chamados.Models;      
-using Gerenciamento_De_Chamados.Repositories; 
+using Gerenciamento_De_Chamados.Models;
+using Gerenciamento_De_Chamados.Repositories;
 using Gerenciamento_De_Chamados.Services;
 using Gerenciamento_De_Chamados.Helpers;
 
@@ -19,18 +19,20 @@ namespace Gerenciamento_De_Chamados
 {
     public partial class Responder_Chamado : Form
     {
-        
 
-       
         private readonly IChamadoRepository _chamadoRepository;
+        // Necessário para executar a análise da IA, que estava na lógica original
+        private readonly IAIService _aiService;
         private DataTable chamadosTable = new DataTable();
 
         public Responder_Chamado()
         {
             InitializeComponent();
 
-            
+
             _chamadoRepository = new ChamadoRepository();
+            // Instancia o serviço de IA, que será usado se a triagem ainda não foi feita
+            _aiService = new AIService();
 
             ConfigurarGrade();
             this.Load += Responder_Chamado_Load;
@@ -48,19 +50,20 @@ namespace Gerenciamento_De_Chamados
             dgvResponder.ColumnHeadersHeight = 35;
             dgvResponder.AutoGenerateColumns = false;
             dgvResponder.Columns.Clear();
+            // Usando os DataPropertyName corretos baseados no ChamadoRepository.BuscarTodosFiltrados
             dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "IdChamado", DataPropertyName = "IdChamado", HeaderText = "ID", Width = 60 });
             dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "Titulo", DataPropertyName = "Titulo", HeaderText = "Titulo", Width = 250 });
             dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "Descricao", DataPropertyName = "Descricao", HeaderText = "Descricao", Width = 450 });
             dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "Prioridade", DataPropertyName = "Prioridade", HeaderText = "Prioridade", Width = 100 });
-            dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "data", DataPropertyName = "data", HeaderText = "data", Width = 100 });
+            dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "data", DataPropertyName = "data", HeaderText = "Data", Width = 100 });
             dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "Status", DataPropertyName = "Status", HeaderText = "Status", Width = 120 });
-            dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "IdUsuario", DataPropertyName = "IdUsuario", HeaderText = "Usuario", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+            dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "IdUsuario", DataPropertyName = "IdUsuario", HeaderText = "Usuario ID", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
         }
 
-       
+
         private void CarregarChamados(string filtro = "")
         {
-            
+
             try
             {
                 // Chama o repositório
@@ -73,110 +76,74 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-
-      
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        // --- MÉTODO CENTRALIZADO PARA DUPLO CLIQUE E BOTÃO RESPONDER ---
+        private async Task ResponderChamadoAsync(int idChamadoSelecionado)
         {
-            Graphics g = e.Graphics;
-            Color corInicioPanel = Color.White;
-            Color corFimPanel = ColorTranslator.FromHtml("#232325");
-            LinearGradientBrush gradientePanel = new LinearGradientBrush(
-                     panel1.ClientRectangle,
-                    corInicioPanel,
-                    corFimPanel,
-                    LinearGradientMode.Vertical);
-            g.FillRectangle(gradientePanel, panel1.ClientRectangle);
-        }
-
-        private void Responder_Chamado_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Color corInicio = Color.White;
-            Color corFim = ColorTranslator.FromHtml("#232325");
-
-            using (LinearGradientBrush gradiente = new LinearGradientBrush(
-                  this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
-            {
-                g.FillRectangle(gradiente, this.ClientRectangle);
-            }
-        }
-
-    
-        private async void dgvResponder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
             this.Cursor = Cursors.WaitCursor;
 
             try
             {
-                DataGridViewRow row = dgvResponder.Rows[e.RowIndex];
-                object idValue = row.Cells["IdChamado"].Value;
+                // 1. Busca os dados atuais do chamado
+                Chamado chamado = await _chamadoRepository.BuscarPorIdAsync(idChamadoSelecionado);
 
-                if (idValue != null && int.TryParse(idValue.ToString(), out int idChamadoSelecionado))
+                if (chamado == null)
                 {
-                    //Buscar dados do chamado usando o repositório
-                    Chamado chamado = await _chamadoRepository.BuscarPorIdAsync(idChamadoSelecionado);
+                    MessageBox.Show("Chamado não encontrado no banco de dados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    if (chamado == null)
+                bool statusAtualizado = false;
+
+                // 2. VERIFICA E EXECUTA A IA, SE NECESSÁRIO
+                if (string.IsNullOrEmpty(chamado.PrioridadeSugeridaIA) || chamado.PrioridadeSugeridaIA == "Pendente" || chamado.PrioridadeSugeridaIA == "Análise Pendente")
+                {
+                    MessageBox.Show("Este chamado ainda não foi triado. Iniciando análise da IA... Isso pode levar alguns segundos.", "Análise da IA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    try
                     {
-                        MessageBox.Show("Chamado não encontrado no banco de dados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                        // Buscar soluções anteriores
+                        List<string> solucoesAnteriores = await _chamadoRepository.BuscarSolucoesAnterioresAsync(chamado.Categoria);
 
-                    // Verificar se a IA precisa ser executada
-                    if (string.IsNullOrEmpty(chamado.PrioridadeSugeridaIA) || chamado.PrioridadeSugeridaIA == "Pendente" || chamado.PrioridadeSugeridaIA == "Análise Pendente")
+                        var (novoProblema, novaPrioridade, novaSolucao) = await _aiService.AnalisarChamado(
+                            chamado.Titulo, chamado.PessoasAfetadas, chamado.OcorreuAnteriormente,
+                            chamado.ImpedeTrabalho, chamado.Descricao, chamado.Categoria, solucoesAnteriores
+                        );
+
+                        if (novaPrioridade != "Não identificado" && !novaPrioridade.Contains("Erro"))
+                        {
+                            // Atualiza a triagem no BD
+                            await _chamadoRepository.AtualizarSugestoesIAAsync(idChamadoSelecionado, novaPrioridade, novoProblema, novaSolucao);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"A IA não conseguiu analisar o chamado. Detalhes: {novaSolucao}", "Erro na IA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        // Recarrega o chamado após a IA para pegar os novos dados
+                        chamado = await _chamadoRepository.BuscarPorIdAsync(idChamadoSelecionado);
+                    }
+                    catch (Exception aiEx)
                     {
-                        MessageBox.Show("Este chamado ainda não foi triado. Iniciando análise da IA... Isso pode levar alguns segundos.", "Análise da IA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        try
-                        {
-                            // Buscar soluções anteriores (agora pelo repositório)
-                            List<string> solucoesAnteriores = await _chamadoRepository.BuscarSolucoesAnterioresAsync(chamado.Categoria);
-
-                            AIService aiService = new AIService();
-                            var (novoProblema, novaPrioridade, novaSolucao) = await aiService.AnalisarChamado(
-                                chamado.Titulo,
-                                chamado.PessoasAfetadas,
-                                chamado.OcorreuAnteriormente,
-                                chamado.ImpedeTrabalho,
-                                chamado.Descricao,
-                                chamado.Categoria,
-                                solucoesAnteriores
-                            );
-
-                            if (novaPrioridade == "Não identificado" || novaPrioridade.Contains("Erro"))
-                            {
-                                MessageBox.Show($"A IA não conseguiu analisar o chamado. Detalhes: {novaSolucao}", "Erro na IA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                            else
-                            {
-                                // Atualizar o chamado no BD com os dados da IA, via repositório
-                                await _chamadoRepository.AtualizarSugestoesIAAsync(idChamadoSelecionado, novaPrioridade, novoProblema, novaSolucao);
-
-                                // (O código original não atualizava o DataGridView, então mantemos esse comportamento)
-                            }
-                        }
-                        catch (Exception aiEx)
-                        {
-                            MessageBox.Show($"Erro ao executar a análise da IA: {aiEx.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show($"Erro ao executar a análise da IA: {aiEx.Message}", "Erro de IA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
 
-                    // Abrir a tela de Análise 
-                    var analisechamado = new AnaliseChamado(idChamadoSelecionado);
-                    analisechamado.Show();
-                    this.Close();
+                // 3. MUDA O STATUS PARA "EM ANDAMENTO" SE AINDA ESTIVER PENDENTE
+                if (chamado.StatusChamado == "Pendente" || chamado.StatusChamado == "Análise Pendente")
+                {
+                    await _chamadoRepository.AtualizarStatusSimplesAsync(idChamadoSelecionado, "Em Andamento");
+                    statusAtualizado = true; // Marca para recarregar a grade
+                }
 
-                    // Recarrega os chamados após fechar a tela de análise
+                // 4. ABRE A TELA DE ANÁLISE/RESPOSTA
+                var analisechamado = new AnaliseChamado(idChamadoSelecionado);
+                analisechamado.ShowDialog();
+
+                // 5. RECARRREGAR O DATAGRID
+                if (statusAtualizado || analisechamado.DialogResult == DialogResult.OK)
+                {
                     CarregarChamados();
-                    
                 }
-                else
-                {
-                    MessageBox.Show("Não foi possível obter o ID do chamado selecionado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+
             }
             catch (Exception ex)
             {
@@ -187,7 +154,66 @@ namespace Gerenciamento_De_Chamados
                 this.Cursor = Cursors.Default;
             }
         }
+        // --- FIM DO MÉTODO AUXILIAR ---
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicioPanel = Color.White;
+            Color corFimPanel = ColorTranslator.FromHtml("#232325");
+            LinearGradientBrush gradientePanel = new LinearGradientBrush(
+                         panel1.ClientRectangle,
+                         corInicioPanel,
+                         corFimPanel,
+                         LinearGradientMode.Vertical);
+            g.FillRectangle(gradientePanel, panel1.ClientRectangle);
+        }
+
+        private void Responder_Chamado_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Color corInicio = Color.White;
+            Color corFim = ColorTranslator.FromHtml("#232325");
+
+            using (LinearGradientBrush gradiente = new LinearGradientBrush(
+                this.ClientRectangle, corInicio, corFim, LinearGradientMode.Horizontal))
+            {
+                g.FillRectangle(gradiente, this.ClientRectangle);
+            }
+        }
+
+
+        private async void dgvResponder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = dgvResponder.Rows[e.RowIndex];
+            object idValue = row.Cells["IdChamado"].Value;
+
+            if (idValue != null && int.TryParse(idValue.ToString(), out int idChamadoSelecionado))
+            {
+                // Chama o método centralizado
+                await ResponderChamadoAsync(idChamadoSelecionado);
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível obter o ID do chamado selecionado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        // --- BOTÃO RESPONDER: Chama o mesmo método centralizado ---
+        private async void btnResponderCH_Click(object sender, EventArgs e)
+        {
+            int? idChamado = ObterIdChamadoSelecionado();
+
+            if (idChamado.HasValue)
+            {
+                // Chama o método centralizado
+                await ResponderChamadoAsync(idChamado.Value);
+            }
+        }
+
+        // --- Métodos de Navegação e Auxiliares (Mantidos) ---
         private void lblInicio_Click(object sender, EventArgs e)
         {
             FormHelper.BotaoHome(this);
@@ -203,7 +229,7 @@ namespace Gerenciamento_De_Chamados
             FormHelper.Sair(this);
         }
 
-       
+
         private void label3_Click(object sender, EventArgs e)
         {
             FormHelper.FAQ(this);
@@ -234,15 +260,14 @@ namespace Gerenciamento_De_Chamados
         {
             if (dgvResponder.CurrentRow == null || dgvResponder.CurrentRow.DataBoundItem == null)
             {
-                // Se o CurrentRow for nulo, significa que não há nenhuma linha válida selecionada/focada.
+
                 MessageBox.Show("Por favor, selecione um chamado na lista.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return null;
             }
 
             try
             {
-                // Tenta obter o valor do ID usando o nome da coluna.
-                // O nome da coluna deve ser o DataPropertyName definido em ConfigurarGrade().
+
                 object idValue = dgvResponder.CurrentRow.Cells["IdChamado"].Value;
 
                 // Validação robusta e conversão
@@ -259,31 +284,9 @@ namespace Gerenciamento_De_Chamados
             }
             catch (Exception ex)
             {
-                // Captura erros de acesso à célula (ex: nome de coluna errado)
+
                 MessageBox.Show($"Erro interno ao ler o ID do chamado: {ex.Message}", "Erro de Leitura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
-            }
-        }
-        private void btnResponderCH_Click(object sender, EventArgs e)
-        {
-            int? idChamado = ObterIdChamadoSelecionado();
-
-            if (idChamado.HasValue)
-            {
-                try
-                {
-                    // Abre a tela de Análise/Resposta
-                    var analisechamado = new AnaliseChamado(idChamado.Value);
-                    analisechamado.ShowDialog();
-                    
-
-                    // Recarrega a lista para refletir possíveis mudanças de Status/Prioridade
-                    CarregarChamados();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao abrir a tela de Resposta: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
         }
 
@@ -298,7 +301,6 @@ namespace Gerenciamento_De_Chamados
                     // Reutiliza a tela de Análise/Resposta para edição
                     var analisechamado = new AnaliseChamado(idChamado.Value);
                     analisechamado.ShowDialog();
-                    
 
                     // Recarrega a lista para refletir possíveis mudanças de Status/Prioridade
                     CarregarChamados();
@@ -320,7 +322,7 @@ namespace Gerenciamento_De_Chamados
                     // Abre a tela ChamadoCriado (somente leitura de detalhes)
                     var telaDetalhes = new ChamadoCriado(idChamado.Value);
                     telaDetalhes.ShowDialog();
-                    
+
                 }
                 catch (Exception ex)
                 {

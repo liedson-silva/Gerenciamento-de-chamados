@@ -18,6 +18,7 @@ namespace Gerenciamento_De_Chamados.Repositories
         Task AtualizarSugestoesIAAsync(int id, string prioridade, string problema, string solucao);
         
         Task AtualizarAnaliseAsync(Chamado chamado, SqlConnection conn, SqlTransaction trans);
+        Task AtualizarStatusSimplesAsync(int idChamado, string novoStatus);
 
         Task AtualizarStatusAsync(int idChamado, string novoStatus, string novaPrioridade, string novaCategoria, SqlConnection conn, SqlTransaction trans);
         Task<List<ChartDataPoint>> ContarPorStatusAsync(int idUsuario);
@@ -26,5 +27,6 @@ namespace Gerenciamento_De_Chamados.Repositories
         Task<List<ChartDataPoint>> ContarPorStatusGeralAsync();
         Task<List<ChartDataPoint>> ContarPorCategoriaGeralAsync();
         Task<DataTable> BuscarPorPrioridadeEFiltrarAsync(string prioridade, string filtroPesquisa);
+
     }
 }
