@@ -38,7 +38,7 @@ namespace Gerenciamento_De_Chamados
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.roundedPanel1 = new RoundedPanel();
+            this.roundedPanel1 = new Gerenciamento_De_Chamados.RoundedPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -147,7 +147,7 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.Controls.Add(this.linkLabel1);
             this.roundedPanel1.Controls.Add(this.btnEntrar);
             this.roundedPanel1.Controls.Add(this.txtSenha);
-            this.roundedPanel1.CornerRadius = 15;
+            this.roundedPanel1.CornerRadius = 15F;
             this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.roundedPanel1.Location = new System.Drawing.Point(615, 4);
             this.roundedPanel1.Margin = new System.Windows.Forms.Padding(4);
@@ -190,7 +190,7 @@ namespace Gerenciamento_De_Chamados
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(27, 401);
+            this.linkLabel1.Location = new System.Drawing.Point(10, 352);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(149, 18);

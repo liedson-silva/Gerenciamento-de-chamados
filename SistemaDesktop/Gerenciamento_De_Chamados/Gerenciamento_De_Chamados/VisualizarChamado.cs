@@ -40,10 +40,7 @@ namespace Gerenciamento_De_Chamados
 
         private async void VisualizarChamado_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($" {SessaoUsuario.Nome}");
-            else
-                lbl_NomeUser.Text = "Usuário não identificado";
+            
 
             await CarregarChamados();
 

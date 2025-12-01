@@ -603,6 +603,7 @@ namespace Gerenciamento_De_Chamados
             // 
             // PctBox_Logo
             // 
+            this.PctBox_Logo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.logo_empresa;
             this.PctBox_Logo.Location = new System.Drawing.Point(-45, 0);
             this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(4);

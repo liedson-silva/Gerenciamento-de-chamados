@@ -93,10 +93,7 @@ namespace Gerenciamento_De_Chamados
 
         private void AberturaChamados_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($"Olá, {SessaoUsuario.Nome}");
-            else
-                lbl_NomeUser.Text = "Usuário não identificado";
+            
 
             // Garante que o PictureBox comece invisível
             if (this.Controls.Find("pctAnexoPreview", true).Length > 0 &&
