@@ -43,7 +43,6 @@
             this.lbl_Inicio = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.dgvRelatorio = new System.Windows.Forms.DataGridView();
-            this.lblMconta = new System.Windows.Forms.Label();
             this.panelSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox_Inicio)).BeginInit();
             this.panel2.SuspendLayout();
@@ -56,14 +55,13 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.Transparent;
-            this.panelSidebar.Controls.Add(this.lblMconta);
             this.panelSidebar.Controls.Add(this.lbSair);
             this.panelSidebar.Controls.Add(this.label3);
             this.panelSidebar.Controls.Add(this.label1);
             this.panelSidebar.Controls.Add(this.PctBox_Inicio);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
-            this.panelSidebar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSidebar.Margin = new System.Windows.Forms.Padding(4);
             this.panelSidebar.Name = "panelSidebar";
             this.panelSidebar.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
             this.panelSidebar.Size = new System.Drawing.Size(296, 910);
@@ -117,6 +115,7 @@
             // 
             // PctBox_Inicio
             // 
+            this.PctBox_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PctBox_Inicio.Dock = System.Windows.Forms.DockStyle.Top;
             this.PctBox_Inicio.Image = ((System.Drawing.Image)(resources.GetObject("PctBox_Inicio.Image")));
             this.PctBox_Inicio.Location = new System.Drawing.Point(0, 0);
@@ -135,7 +134,7 @@
             this.panel2.Controls.Add(this.btnImprimir);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(296, 830);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1225, 80);
             this.panel2.TabIndex = 1;
@@ -144,7 +143,7 @@
             // 
             this.btnExportarPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExportarPDF.Location = new System.Drawing.Point(845, 17);
-            this.btnExportarPDF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExportarPDF.Margin = new System.Windows.Forms.Padding(4);
             this.btnExportarPDF.Name = "btnExportarPDF";
             this.btnExportarPDF.Size = new System.Drawing.Size(165, 59);
             this.btnExportarPDF.TabIndex = 2;
@@ -156,7 +155,7 @@
             // 
             this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoltar.Location = new System.Drawing.Point(657, 17);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(165, 59);
             this.btnVoltar.TabIndex = 1;
@@ -168,7 +167,7 @@
             // 
             this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImprimir.Location = new System.Drawing.Point(1037, 17);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(165, 59);
             this.btnImprimir.TabIndex = 0;
@@ -183,7 +182,7 @@
             this.panelHeader.Controls.Add(this.lbl_Inicio);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(296, 0);
-            this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(4);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1225, 126);
             this.panelHeader.TabIndex = 1;
@@ -226,7 +225,7 @@
             this.panelPrincipal.Controls.Add(this.panelHeader);
             this.panelPrincipal.Controls.Add(this.panelSidebar);
             this.panelPrincipal.Location = new System.Drawing.Point(7, -26);
-            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(4);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(1521, 910);
             this.panelPrincipal.TabIndex = 1;
@@ -238,25 +237,11 @@
             this.dgvRelatorio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRelatorio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRelatorio.Location = new System.Drawing.Point(296, 126);
-            this.dgvRelatorio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvRelatorio.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRelatorio.Name = "dgvRelatorio";
             this.dgvRelatorio.RowHeadersWidth = 51;
             this.dgvRelatorio.Size = new System.Drawing.Size(1225, 704);
             this.dgvRelatorio.TabIndex = 0;
-            // 
-            // lblMconta
-            // 
-            this.lblMconta.AutoSize = true;
-            this.lblMconta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblMconta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMconta.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.lblMconta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMconta.Location = new System.Drawing.Point(6, 316);
-            this.lblMconta.Name = "lblMconta";
-            this.lblMconta.Size = new System.Drawing.Size(183, 29);
-            this.lblMconta.TabIndex = 19;
-            this.lblMconta.Text = "      Minha Conta";
-            this.lblMconta.Click += new System.EventHandler(this.lblMconta_Click);
             // 
             // FormRelatorioDetalhado
             // 
@@ -265,7 +250,7 @@
             this.ClientSize = new System.Drawing.Size(1563, 922);
             this.Controls.Add(this.panelPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormRelatorioDetalhado";
             this.Text = "FormRelatorio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -299,6 +284,5 @@
         private System.Windows.Forms.Label lbl_Inicio;
         private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.DataGridView dgvRelatorio;
-        private System.Windows.Forms.Label lblMconta;
     }
 }

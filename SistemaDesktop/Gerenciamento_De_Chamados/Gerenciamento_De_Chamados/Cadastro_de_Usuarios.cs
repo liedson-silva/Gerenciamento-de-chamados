@@ -149,10 +149,7 @@ namespace Gerenciamento_De_Chamados
         }
         private void Cadastro_de_Usuarios_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = ($" {SessaoUsuario.Nome}");
-            else
-                lbl_NomeUser.Text = "Usuário não identificado";
+            
         }
 
         private void lbl_Inicio_Click(object sender, EventArgs e)

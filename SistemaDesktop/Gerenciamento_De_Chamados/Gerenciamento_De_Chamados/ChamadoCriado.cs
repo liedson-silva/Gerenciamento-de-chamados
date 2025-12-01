@@ -33,10 +33,7 @@ namespace Gerenciamento_De_Chamados
 
         private async void ChamadoCriado_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(SessaoUsuario.Nome))
-                lbl_NomeUser.Text = $"Bem vindo {SessaoUsuario.Nome}";
-            else
-                lbl_NomeUser.Text = "Usuário não identificado";
+            
 
             // *** CORREÇÃO: CHAMA O MÉTODO DE CARREGAMENTO AQUI ***
             await CarregarDetalhesChamadoAsync();

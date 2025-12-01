@@ -104,7 +104,7 @@ namespace Gerenciamento_De_Chamados
             // lbl_Inicio
             // 
             this.lbl_Inicio.AutoSize = true;
-            this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Inicio.Cursor = System.Windows.Forms.Cursors.Default;
             this.lbl_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Inicio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.HOME_36p;
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

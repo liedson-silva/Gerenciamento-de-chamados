@@ -55,7 +55,6 @@
             this.btnCadastroCancel = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblMconta = new System.Windows.Forms.Label();
             this.lbSair = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -377,7 +376,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.lblMconta);
             this.panel1.Controls.Add(this.lbSair);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
@@ -389,20 +387,6 @@
             this.panel1.Size = new System.Drawing.Size(325, 977);
             this.panel1.TabIndex = 34;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // lblMconta
-            // 
-            this.lblMconta.AutoSize = true;
-            this.lblMconta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblMconta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMconta.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.lblMconta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMconta.Location = new System.Drawing.Point(12, 263);
-            this.lblMconta.Name = "lblMconta";
-            this.lblMconta.Size = new System.Drawing.Size(183, 29);
-            this.lblMconta.TabIndex = 19;
-            this.lblMconta.Text = "      Minha Conta";
-            this.lblMconta.Click += new System.EventHandler(this.lblMconta_Click);
             // 
             // lbSair
             // 
@@ -648,6 +632,5 @@
         private System.Windows.Forms.Button btnAlterarSenha;
         private System.Windows.Forms.Label lbSair;
         private RoundedPanel roundedPanel1;
-        private System.Windows.Forms.Label lblMconta;
     }
 }
