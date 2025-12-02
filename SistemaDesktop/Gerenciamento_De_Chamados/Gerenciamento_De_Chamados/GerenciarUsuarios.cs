@@ -184,7 +184,7 @@ namespace Gerenciamento_De_Chamados
         {
             if (e.RowIndex < 0) return;
 
-            // Obtém a linha atual (ou a linha que foi duplamente clicada)
+            // Obtém a linha atual que foi duplamente clicada
             DataGridViewRow row = dgvUsuarios.Rows[e.RowIndex];
 
             try
@@ -196,7 +196,7 @@ namespace Gerenciamento_De_Chamados
                 {
                     // Abre a tela de Visualização em modo modal
                     var telaDetalhes = new Visualizar_Usuario(idUsuarioSelecionado);
-                    telaDetalhes.ShowDialog();
+                    telaDetalhes.Show();
 
                     // Não precisa recarregar a lista, pois Visualizar_Usuario não altera dados
                 }
