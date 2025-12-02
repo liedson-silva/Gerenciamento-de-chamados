@@ -21,7 +21,7 @@ namespace Gerenciamento_De_Chamados
     {
 
         private readonly IChamadoRepository _chamadoRepository;
-        // Necessário para executar a análise da IA, que estava na lógica original
+     
         private readonly IAIService _aiService;
         private DataTable chamadosTable = new DataTable();
 
@@ -45,12 +45,12 @@ namespace Gerenciamento_De_Chamados
 
         private void ConfigurarGrade()
         {
-            // Seu código de ConfigurarGrade() permanece o mesmo
+            
             dgvResponder.RowTemplate.Height = 35;
             dgvResponder.ColumnHeadersHeight = 35;
             dgvResponder.AutoGenerateColumns = false;
             dgvResponder.Columns.Clear();
-            // Usando os DataPropertyName corretos baseados no ChamadoRepository.BuscarTodosFiltrados
+           
             dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "IdChamado", DataPropertyName = "IdChamado", HeaderText = "ID", Width = 60 });
             dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "Titulo", DataPropertyName = "Titulo", HeaderText = "Titulo", Width = 250 });
             dgvResponder.Columns.Add(new DataGridViewTextBoxColumn { Name = "Descricao", DataPropertyName = "Descricao", HeaderText = "Descricao", Width = 450 });
@@ -76,7 +76,7 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-        // --- MÉTODO CENTRALIZADO PARA DUPLO CLIQUE E BOTÃO RESPONDER ---
+       
         private async Task ResponderChamadoAsync(int idChamadoSelecionado)
         {
             this.Cursor = Cursors.WaitCursor;
@@ -101,7 +101,7 @@ namespace Gerenciamento_De_Chamados
 
                     try
                     {
-                        // Buscar soluções anteriores
+                       
                         List<string> solucoesAnteriores = await _chamadoRepository.BuscarSolucoesAnterioresAsync(chamado.Categoria);
 
                         var (novoProblema, novaPrioridade, novaSolucao) = await _aiService.AnalisarChamado(
@@ -131,12 +131,13 @@ namespace Gerenciamento_De_Chamados
                 if (chamado.StatusChamado == "Pendente" || chamado.StatusChamado == "Análise Pendente")
                 {
                     await _chamadoRepository.AtualizarStatusSimplesAsync(idChamadoSelecionado, "Em Andamento");
-                    statusAtualizado = true; // Marca para recarregar a grade
+                    statusAtualizado = true; 
                 }
 
                 // 4. ABRE A TELA DE ANÁLISE/RESPOSTA
                 var analisechamado = new AnaliseChamado(idChamadoSelecionado);
                 analisechamado.ShowDialog();
+                
 
                 // 5. RECARRREGAR O DATAGRID
                 if (statusAtualizado || analisechamado.DialogResult == DialogResult.OK)
@@ -154,7 +155,7 @@ namespace Gerenciamento_De_Chamados
                 this.Cursor = Cursors.Default;
             }
         }
-        // --- FIM DO MÉTODO AUXILIAR ---
+     
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -201,19 +202,19 @@ namespace Gerenciamento_De_Chamados
             }
         }
 
-        // --- BOTÃO RESPONDER: Chama o mesmo método centralizado ---
+       
         private async void btnResponderCH_Click(object sender, EventArgs e)
         {
             int? idChamado = ObterIdChamadoSelecionado();
 
             if (idChamado.HasValue)
             {
-                // Chama o método centralizado
+               
                 await ResponderChamadoAsync(idChamado.Value);
             }
         }
 
-        // --- Métodos de Navegação e Auxiliares (Mantidos) ---
+        
         private void lblInicio_Click(object sender, EventArgs e)
         {
             FormHelper.BotaoHome(this);
@@ -300,7 +301,7 @@ namespace Gerenciamento_De_Chamados
                 {
                     // Reutiliza a tela de Análise/Resposta para edição
                     var analisechamado = new AnaliseChamado(idChamado.Value);
-                    analisechamado.ShowDialog();
+                    analisechamado.Show();
 
                     // Recarrega a lista para refletir possíveis mudanças de Status/Prioridade
                     CarregarChamados();

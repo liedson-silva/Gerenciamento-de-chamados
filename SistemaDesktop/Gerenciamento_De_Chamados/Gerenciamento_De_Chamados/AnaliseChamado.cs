@@ -360,7 +360,10 @@ namespace Gerenciamento_De_Chamados
 
         private void lbl_Inicio_Click(object sender, EventArgs e)
         {
+            
             FormHelper.BotaoHome(this);
+            
+            
         }
     }
 }

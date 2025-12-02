@@ -292,6 +292,7 @@ namespace Gerenciamento_De_Chamados
             var telaChamado = new Responder_Chamado();
             telaChamado.Show();
             this.Close();
+            
         }
 
         private void lbSair_Click(object sender, EventArgs e)
@@ -340,7 +341,8 @@ namespace Gerenciamento_De_Chamados
 
         private void label3_Click(object sender, EventArgs e)
         {
-            FormHelper.FAQ(this);
+            var faq = new Faq();
+            faq.ShowDialog();
         }
     }
 }
