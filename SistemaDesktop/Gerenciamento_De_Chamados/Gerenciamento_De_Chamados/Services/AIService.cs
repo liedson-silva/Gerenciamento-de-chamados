@@ -1,41 +1,60 @@
 ﻿using System;
-using System.Configuration; 
+using System.Configuration;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json; 
-using System.Text.RegularExpressions; 
+using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Collections.Generic; 
-
+using System.Collections.Generic;
+using System.Linq; // Necessário para o ToList() em alguns cenários
 
 namespace Gerenciamento_De_Chamados.Services
 {
+    /// <summary>
+    /// Serviço responsável por interagir com a API do Gemini (IA)
+    /// para analisar chamados, sugerir prioridades e soluções.
+    /// </summary>
     public class AIService : IAIService
     {
         private readonly string _apiKey;
-        private readonly string _apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";  
-        private static readonly HttpClient _httpClient = new HttpClient(); 
+        // O modelo gemini-2.5-flash é ideal para tarefas de análise e classificação.
+        private readonly string _apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
+        private readonly HttpClient _httpClient;
 
+        /// <summary>
+        /// Construtor que inicializa a chave da API e configura o HttpClient.
+        /// </summary>
         public AIService()
         {
+
+            _httpClient = new HttpClient();
+
             _apiKey = ConfigurationManager.AppSettings["GEMINI_API_KEY"];
             if (string.IsNullOrEmpty(_apiKey))
             {
                 throw new InvalidOperationException("API Key do Gemini não encontrada no App.config.");
             }
+            // Define um timeout de 300 segundos (5 minutos) para evitar travamentos longos
             _httpClient.Timeout = TimeSpan.FromSeconds(300);
         }
 
-        
-        public virtual async Task<(string problema, string prioridade, string solucao)> AnalisarChamado(string titulo, 
+
+        /// <summary>
+        /// Envia os detalhes de um chamado para o Gemini analisar e sugerir Problema, Prioridade e Solução.
+        /// </summary>
+        /// <returns>Uma tupla contendo (problema, prioridade, solucao) sugeridos pela IA.</returns>
+        public virtual async Task<(string problema, string prioridade, string solucao)> AnalisarChamado(string titulo,
             string pessoaAfetadas, string ocorreuAnteriormente, string impedeTrabalho, string descricao, string categoria,
             List<string> solucoesAnteriores)
         {
-            
+
             string baseConhecimento = FormatarSolucoes(solucoesAnteriores);
 
+            // O Prompt instrui a IA sobre seu papel e o formato de saída exigido (CSV/Texto estruturado)
             string prompt = $@"
+                Você é um Analista de Suporte Técnico experiente. Sua tarefa é analisar o chamado
+                e seguir rigorosamente as Regras de Prioridade e Base de Conhecimento para fornecer uma triagem inicial.
+                
                 Analise o seguinte chamado de suporte técnico:
                 Título: {titulo}
                 Categoria: {categoria}
@@ -49,29 +68,29 @@ namespace Gerenciamento_De_Chamados.Services
                 * Média: (O problema afeta 'Meu setor' AND (Impede o Trabalho = 'Não' OU Impede o Trabalho = 'Parcialmente')). OU (Afeta 'Somente eu' AND Impede o Trabalho = 'Sim' AND Ocorrência Anterior = 'Não').
                 * Baixa: (O problema afeta 'Somente eu' AND (Impede o Trabalho = 'Não' OU Impede o Trabalho = 'Parcialmente')). OU (Descrição indica pedido de informação/melhoria e não um erro funcional).
                 
-
                 --- BASE DE CONHECIMENTO (TOP 5 Soluções Recentes para '{categoria}') ---
                 {baseConhecimento}
                 --- FIM DA BASE DE CONHECIMENTO ---
 
                 Com base nessas informações, forneça uma resposta CONCISA:
                 1. Identificação do Problema: (Descreva o problema principal em 1 frase)
-                2. Proposta de Solução: (Sugira uma solução em no máximo 3 frases. SE HOUVER SIMILARIDADE, baseie-se fortemente nas soluções da Base de Conhecimento.)
-                3. Prioridade Definida: [Baixa, Média ou Alta]             
+                2. Proposta de Solução: (Sugira uma solução em no máximo 3 frases. SE HOUVER SIMILARIDADE, baseie-se fortemente nas soluções da Base de Conhecimento, adaptando-a ao chamado atual. Se não houver similaridade ou for um problema complexo, sugira escalar para o técnico.)
+                3. Prioridade Definida: [Baixa, Média ou Alta]            
 
                 Responda APENAS com o texto solicitado para cada item, um em cada linha, começando EXATAMENTE com '1. Identificação do Problema:',
-                '2. Proposta de Solução:' e '3. Prioridade Definida:'.";
+                '2. Proposta de Solução:' e '3. Prioridade Definida:'."
+                .Trim(); // Remove espaços em branco antes/depois do prompt
 
             try
             {
-                
+                // Estrutura o payload JSON para a API do Gemini
                 var requestBody = new
                 {
                     contents = new[]
                     {
                         new { parts = new[] { new { text = prompt } } }
                     },
-                 
+                    // Configurações de geração para tornar a resposta mais focada (baixa temperatura)
                     generationConfig = new
                     {
                         temperature = 0.2,
@@ -81,7 +100,7 @@ namespace Gerenciamento_De_Chamados.Services
                     }
                 };
 
-               
+
                 string jsonBody = JsonSerializer.Serialize(requestBody);
                 var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 
@@ -89,7 +108,6 @@ namespace Gerenciamento_De_Chamados.Services
                 string urlWithKey = $"{_apiUrl}?key={_apiKey}";
 
                 // Faz a requisição POST
-                // Usando SendAsync para poder definir o método explicitamente 
                 using (var requestMessage = new HttpRequestMessage(HttpMethod.Post, urlWithKey))
                 {
                     requestMessage.Content = content;
@@ -98,13 +116,13 @@ namespace Gerenciamento_De_Chamados.Services
                     // Lê o corpo da resposta
                     string responseBody = await response.Content.ReadAsStringAsync();
 
-                    // Verifica se a requisição foi bem-sucedida (status code 2xx)
+                    // Verifica se a requisição HTTP foi bem-sucedida (status code 2xx)
                     if (!response.IsSuccessStatusCode)
                     {
-                        // Tenta extrair uma mensagem de erro do corpo da resposta
                         string errorDetails = responseBody;
                         try
                         {
+                            // Tenta extrair a mensagem de erro do corpo JSON de erro
                             using (JsonDocument errorDoc = JsonDocument.Parse(responseBody))
                             {
                                 if (errorDoc.RootElement.TryGetProperty("error", out JsonElement errorElement) &&
@@ -115,12 +133,12 @@ namespace Gerenciamento_De_Chamados.Services
                             }
                         }
                         catch { /* Ignora erro ao parsear o erro */ }
-                        Console.WriteLine($"Erro HTTP: {response.StatusCode} - {errorDetails}");
-                        
-                        return ("Erro na API", "Não identificado", $"Erro {response.StatusCode}: {errorDetails}"); 
+                        Console.WriteLine($"Erro HTTP na API Gemini: {response.StatusCode} - {errorDetails}");
+
+                        return ("Erro na API", "Não identificado", $"Erro {response.StatusCode}: {errorDetails}");
                     }
 
-                    // Analisa a resposta JSON para extrair o texto gerado
+                    // --- Processamento da Resposta da IA ---
                     string textoGerado = "Não foi possível extrair a resposta.";
                     try
                     {
@@ -128,7 +146,7 @@ namespace Gerenciamento_De_Chamados.Services
                         {
                             JsonElement root = doc.RootElement;
 
-                            // 1. Verifica se a resposta foi BLOQUEADA
+                            // 1. Verifica se a resposta foi BLOQUEADA 
                             if (root.TryGetProperty("promptFeedback", out var feedbackElement) &&
                                 feedbackElement.TryGetProperty("blockReason", out var reasonElement))
                             {
@@ -136,18 +154,18 @@ namespace Gerenciamento_De_Chamados.Services
                                 return ("Conteúdo Bloqueado", "Não identificado", $"A API bloqueou o prompt. Motivo: {blockReason}");
                             }
 
-                            // 2. Verifica se tem 'candidates'
+                            // 2. Tenta extrair o texto gerado
                             if (root.TryGetProperty("candidates", out var candidatesElement) && candidatesElement.GetArrayLength() > 0)
                             {
                                 var firstCandidate = candidatesElement[0];
 
-
+                                // 3. Verifica se o texto foi cortado
                                 if (firstCandidate.TryGetProperty("finishReason", out var finishReasonElement) && finishReasonElement.GetString() == "MAX_TOKENS")
                                 {
-                                    return ("Resposta Incompleta", "Não identificado", "A IA foi cortada. Aumente o 'maxOutputTokens' na AIService.");
+                                    return ("Resposta Incompleta", "Não identificado", "A resposta da IA foi cortada por limite de tokens.");
                                 }
 
-                                // 4. Se tudo deu certo, tenta pegar o texto
+                                // 4. Tenta obter o campo 'text'
                                 if (firstCandidate.TryGetProperty("content", out var contentElement) &&
                                     contentElement.TryGetProperty("parts", out var partsElement) && partsElement.GetArrayLength() > 0 &&
                                     partsElement[0].TryGetProperty("text", out var textElement))
@@ -160,46 +178,53 @@ namespace Gerenciamento_De_Chamados.Services
                     catch (Exception jsonEx)
                     {
                         Console.WriteLine($"Erro ao analisar JSON da resposta: {jsonEx.Message}");
-                        return ("Erro no JSON", "Não identificado", $"Resposta recebida, mas não pôde ser lida: {responseBody}"); 
+                        return ("Erro no JSON", "Não identificado", $"Resposta recebida, mas não pôde ser lida: {responseBody}");
                     }
 
-                    if (textoGerado == "Não foi possível extrair a resposta.")
+                    if (textoGerado == "Não foi possível extrair a resposta." || string.IsNullOrWhiteSpace(textoGerado))
                     {
-                        return ("Resposta Inesperada", "Não identificado", $"A API retornou um JSON válido, mas sem 'candidates' ou 'promptFeedback'. Resposta: {responseBody}");
+                        return ("Resposta Vazia", "Não identificado", $"A API retornou um JSON válido, mas sem o texto esperado. Resposta: {responseBody}");
                     }
 
 
-                    string problemaSugerido = ExtrairValor(textoGerado, @"Identificação do Problema:?\s*(.*?)(?=Proposta de Solução:|Prioridade Definida:|$)");
-                    string solucaoSugerida = ExtrairValor(textoGerado, @"Proposta de Solução:?\s*(.*?)(?=Identificação do Problema:|Prioridade Definida:|$)");
-                    string prioridadeSugerida = ExtrairValor(textoGerado, @"Prioridade Definida:?\s*(.*)");
+                    string problemaSugerido = ExtrairValor(textoGerado, @"1\. Identificação do Problema:?\s*(.*?)(?=2\. Proposta de Solução:|3\. Prioridade Definida:|$)");
+                    string solucaoSugerida = ExtrairValor(textoGerado, @"2\. Proposta de Solução:?\s*(.*?)(?=1\. Identificação do Problema:|3\. Prioridade Definida:|$)");
+                    string prioridadeSugerida = ExtrairValor(textoGerado, @"3\. Prioridade Definida:?\s*(.*)");
 
                     return (problemaSugerido, prioridadeSugerida, solucaoSugerida);
-                } 
+                }
             }
             catch (HttpRequestException httpEx)
             {
                 Console.WriteLine($"Erro de Rede ao chamar a API Gemini: {httpEx.Message}");
-                return ("Erro de Rede", "Não identificado", $"Não foi possível conectar à API: {httpEx.Message}"); 
+                // Retorna falha de rede para ser tratada na camada superior
+                return ("Erro de Rede", "Não identificado", $"Não foi possível conectar à API: {httpEx.Message}");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Console.WriteLine($"Erro inesperado na AIService: {ex.Message}");
-                return ("Erro Inesperado", "Não identificado", ex.Message); 
+                return ("Erro Inesperado", "Não identificado", ex.Message);
             }
         }
 
- 
+        /// <summary>
+        /// Usa Regex para extrair um valor de um bloco de texto.
+        /// </summary>
+        /// <param name="texto">Texto de entrada.</param>
+        /// <param name="padraoRegex">Padrão Regex para busca, com um grupo de captura.</param>
+        /// <returns>O valor extraído ou "Não identificado".</returns>
         private string ExtrairValor(string texto, string padraoRegex)
         {
+            // RegexOptions.Singleline faz com que '.' também combine com '\n', útil para blocos de texto
             Match match = Regex.Match(texto, padraoRegex, RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Singleline);
 
             if (match.Success && match.Groups.Count > 1)
             {
-               
-                string valor = match.Groups[1].Value.Trim();
-                valor = valor.Trim('*'); 
 
-               
+                string valor = match.Groups[1].Value.Trim();
+                valor = valor.Trim('*').Trim(); // Remove quaisquer asteriscos ou espaços extras
+
+
                 if (string.IsNullOrWhiteSpace(valor))
                 {
                     return "Não identificado";
@@ -209,9 +234,13 @@ namespace Gerenciamento_De_Chamados.Services
             }
             return "Não identificado";
         }
+
+        /// <summary>
+        /// Formata a lista de soluções anteriores em um bloco de texto numerado para o prompt.
+        /// </summary>
         private string FormatarSolucoes(List<string> solucoes)
         {
-            if (solucoes == null || solucoes.Count == 0)
+            if (solucoes == null || !solucoes.Any())
             {
                 return "Nenhuma solução anterior encontrada para esta categoria.";
             }
@@ -221,7 +250,9 @@ namespace Gerenciamento_De_Chamados.Services
             int i = 1;
             foreach (var solucao in solucoes)
             {
-                sb.AppendLine($"{i}. {solucao.Trim()}");
+                // Limita a 300 caracteres para não sobrecarregar o prompt da IA
+                string solucaoCurta = solucao.Length > 300 ? solucao.Substring(0, 300) + "..." : solucao;
+                sb.AppendLine($"{i}. {solucaoCurta.Trim()}");
                 i++;
             }
             return sb.ToString();

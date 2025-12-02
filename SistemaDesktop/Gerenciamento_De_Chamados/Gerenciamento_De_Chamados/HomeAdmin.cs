@@ -276,22 +276,24 @@ namespace Gerenciamento_De_Chamados
         {
             var telaRealatorio = new Relatorio();
             telaRealatorio.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btn_Usuario_Click(object sender, EventArgs e)
         {
             var telaUsuario = new GerenciarUsuarios();
             telaUsuario.Show();
-            this.Close();
+            this.Hide();
 
         }
 
         private void btn_Chamado_Click(object sender, EventArgs e)
         {
+            
             var telaChamado = new Responder_Chamado();
             telaChamado.Show();
-            this.Close();
+            this.Hide();
+            
             
         }
 

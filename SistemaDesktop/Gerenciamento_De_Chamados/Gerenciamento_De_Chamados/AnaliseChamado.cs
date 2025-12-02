@@ -40,8 +40,7 @@ namespace Gerenciamento_De_Chamados
 
             this.Load += AnaliseChamado_Load;
 
-            // Opcional: Adicionar o evento Click ao botão Enviar
-            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+
 
         }
 
@@ -251,7 +250,7 @@ namespace Gerenciamento_De_Chamados
                             mudouAlgo = true;
                         }
 
-                        // CONFIRMA NO BANCO
+                       
                         trans.Commit();
 
                         // --- ENVIO DE E-MAIL ---
@@ -279,6 +278,7 @@ namespace Gerenciamento_De_Chamados
                         else
                             MessageBox.Show("Nenhuma alteração detectada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        
                         this.Close();
                     }
                     catch (Exception ex)

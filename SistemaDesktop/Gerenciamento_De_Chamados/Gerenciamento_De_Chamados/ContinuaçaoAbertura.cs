@@ -21,6 +21,7 @@ namespace Gerenciamento_De_Chamados
         private readonly IArquivoRepository _arquivoRepository;
         private readonly ChamadoService _chamadoService;
         private readonly IAIService _aiService;
+        private readonly IHistoricoRepository _historicoRepository;
 
 
         public ContinuaçaoAbertura(AberturaChamados abertura, ImageHelper imageHelper)
@@ -34,13 +35,15 @@ namespace Gerenciamento_De_Chamados
             _arquivoRepository = new ArquivoRepository();
             _emailService = new EmailService();
             _aiService = new AIService();
+            _historicoRepository = new HistoricoRepository();
 
             // Instancia o serviço de chamado com todas as dependências
             _chamadoService = new ChamadoService(
             _chamadoRepository,
             _arquivoRepository,
             _emailService,
-            _aiService
+            _aiService,
+            _historicoRepository
             );
 
             
@@ -81,11 +84,11 @@ namespace Gerenciamento_De_Chamados
             // --- Icone de carregamento do chamado ---
             pnlLoading.Visible = true;
             CentralizarPainelLoading();
-            pnlLoading.BringToFront(); // Traz para frente de todos os controles
-            btnConcluirCH.Enabled = false; // Desabilita botões para evitar cliques duplicados
+            pnlLoading.BringToFront(); 
+            btnConcluirCH.Enabled = false; 
             button1.Enabled = false;
-            this.Cursor = Cursors.WaitCursor; // Muda o cursor
-            Application.DoEvents(); // Garante que a UI atualize imediatamente
+            this.Cursor = Cursors.WaitCursor; 
+            Application.DoEvents(); 
 
             try
             {
@@ -123,14 +126,25 @@ namespace Gerenciamento_De_Chamados
                 int idChamado = await _chamadoService.CriarChamadoBaseAsync(novoChamado, arquivoBytes, nomeAnexo, tipoAnexo);
 
                 // ETAPA 2: Envia email de confirmação para o USUÁRIO 
-                await _chamadoService.EnviarConfirmacaoUsuarioAsync(novoChamado, usuarioLogado, idChamado);
+                await _chamadoService.EnviarConfirmacaoUsuarioAsync(novoChamado);
+
+                // 2b. Salvar o registro inicial de "Criação" no Histórico (Registro do usuário)
+                Historico historicoCriacao = new Historico
+                {
+                    DataSolucao = novoChamado.DataChamado,
+                    Solucao = $"Chamado aberto pelo usuário: {SessaoUsuario.Nome}",
+                    FK_IdChamado = idChamado,
+                    Acao = "Criação"
+                };
+
+                await _historicoRepository.AdicionarSemTransacaoAsync(historicoCriacao);
 
                 // ETAPA 3: Processamento da IA e notificação da TI,
                 // feito depois para evitar que o Usuario fique muito tempo na tela esperando criar o chamado
-                
+
                 Task.Run(async () =>
                 {
-                    await _chamadoService.ProcessarAnaliseEAtualizarAsync(idChamado, novoChamado, usuarioLogado, arquivoBytes, nomeAnexo, tipoAnexo);
+                    await _chamadoService.ProcessarAnaliseEAtualizarAsync(idChamado, novoChamado, arquivoBytes, nomeAnexo);
                 });
 
                 // Mostra a tela de conclusão imediatamente

@@ -130,13 +130,14 @@ namespace Gerenciamento_De_Chamados
                 // 3. MUDA O STATUS PARA "EM ANDAMENTO" SE AINDA ESTIVER PENDENTE
                 if (chamado.StatusChamado == "Pendente" || chamado.StatusChamado == "Análise Pendente")
                 {
-                    await _chamadoRepository.AtualizarStatusSimplesAsync(idChamadoSelecionado, "Em Andamento");
+                    await _chamadoRepository.AtualizarStatusSimplesAsync(idChamadoSelecionado, "Em andamento");
                     statusAtualizado = true; 
                 }
 
                 // 4. ABRE A TELA DE ANÁLISE/RESPOSTA
                 var analisechamado = new AnaliseChamado(idChamadoSelecionado);
-                analisechamado.ShowDialog();
+                analisechamado.Show();
+               
                 
 
                 // 5. RECARRREGAR O DATAGRID

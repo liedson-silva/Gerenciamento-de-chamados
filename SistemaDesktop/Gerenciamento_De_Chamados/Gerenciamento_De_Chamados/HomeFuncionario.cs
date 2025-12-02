@@ -249,7 +249,7 @@ namespace Gerenciamento_De_Chamados
         {
             var aberturaChamadosForm = new AberturaChamados();
             aberturaChamadosForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -346,7 +346,7 @@ namespace Gerenciamento_De_Chamados
         private void lblMconta_Click(object sender, EventArgs e)
         {
             var visualizarUsuario = new Visualizar_Usuario(SessaoUsuario.IdUsuario);
-            visualizarUsuario.ShowDialog();
+            visualizarUsuario.Show();
             
         }
     }
