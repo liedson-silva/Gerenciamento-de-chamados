@@ -92,7 +92,8 @@ namespace Gerenciamento_De_Chamados.Repositories
                 Console.WriteLine("Erro ao buscar a última solução do histórico: " + ex.Message);
                 return null;
             }
-        }/// <summary>
+        }
+        /// <summary>
          /// Adiciona um registro de histórico FORA de uma transação.
          /// Este é ideal para "Notas Internas" ou eventos que não precisam de rollback
          /// em conjunto com outras operações, como o registro da triagem da IA.
@@ -121,6 +122,51 @@ namespace Gerenciamento_De_Chamados.Repositories
                 // É importante que a falha em salvar a nota interna não interrompa o processo principal.
                 // Apenas logamos o erro.
                 Console.WriteLine($"Erro ao adicionar histórico sem transação para o chamado {historico.FK_IdChamado}: {ex.Message}");
+            }
+        }
+
+        public async Task AdicionarAsync(int idChamado, int idUsuario, string acao, string detalhes, string solucao, SqlConnection conn, SqlTransaction trans)
+        {
+            string sql = @"INSERT INTO Historico (DataOcorrencia, FK_IdChamado, FK_IdUsuario, Acao, Solucao, Detalhes) 
+                           VALUES (GETDATE(), @IdChamado, @IdUsuario, @Acao, @Solucao, @Detalhes)";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn, trans))
+            {
+                cmd.Parameters.AddWithValue("@IdChamado", idChamado);
+                cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                cmd.Parameters.AddWithValue("@Acao", acao);
+                cmd.Parameters.AddWithValue("@Solucao", (object)solucao ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Detalhes", (object)detalhes ?? DBNull.Value);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+        }
+
+        /// <summary>
+        /// Busca a solução final aplicada a um chamado específico.
+        
+        public async Task<string> BuscarSolucaoFinalPorChamadoIdAsync(int idChamado)
+        {
+            string sql = @"SELECT TOP 1 Solucao 
+                           FROM Historico 
+                           WHERE FK_IdChamado = @IdChamado AND Acao = 'Resolução Final'
+                           ORDER BY DataOcorrencia DESC";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@IdChamado", idChamado);
+                    await conn.OpenAsync();
+                    var result = await cmd.ExecuteScalarAsync();
+                    return result?.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+               
+                return null;
             }
         }
     }

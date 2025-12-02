@@ -41,6 +41,27 @@ namespace Gerenciamento_De_Chamados
         private void Responder_Chamado_Load(object sender, EventArgs e)
         {
             CarregarChamados();
+            // LÓGICA DE VISIBILIDADE DOS BOTÕES
+            string funcao = SessaoUsuario.FuncaoUsuario?.Trim();
+            bool Admin = funcao?.Equals("Admin", StringComparison.OrdinalIgnoreCase) == true;
+            
+
+
+           
+            if (this.Controls.Find("btnEditarCH", true).FirstOrDefault() is Button btnEditar)
+            {
+                btnEditar.Visible = Admin;
+            }
+
+            
+            if (this.Controls.Find("bt_Criar", true).FirstOrDefault() is Button btnCriar)
+            {
+                btnCriar.Visible = Admin;
+            }
+
+           
+
+
         }
 
         private void ConfigurarGrade()

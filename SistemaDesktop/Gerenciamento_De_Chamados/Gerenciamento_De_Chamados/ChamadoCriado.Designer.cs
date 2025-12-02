@@ -159,10 +159,10 @@
             // 
             this.PctBox_Logo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PctBox_Logo.Image = global::Gerenciamento_De_Chamados.Properties.Resources.logo_empresa;
-            this.PctBox_Logo.Location = new System.Drawing.Point(-35, -50);
+            this.PctBox_Logo.Location = new System.Drawing.Point(-35, 0);
             this.PctBox_Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PctBox_Logo.Name = "PctBox_Logo";
-            this.PctBox_Logo.Size = new System.Drawing.Size(393, 298);
+            this.PctBox_Logo.Size = new System.Drawing.Size(393, 283);
             this.PctBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBox_Logo.TabIndex = 3;
             this.PctBox_Logo.TabStop = false;
@@ -174,10 +174,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResumoChamado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(255)))), ((int)(((byte)(229)))));
-            this.txtResumoChamado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResumoChamado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(174)))), ((int)(((byte)(112)))));
+            this.txtResumoChamado.Font = new System.Drawing.Font("Segoe UI", 14.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResumoChamado.ForeColor = System.Drawing.Color.Green;
             this.txtResumoChamado.Location = new System.Drawing.Point(24, 30);
-            this.txtResumoChamado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtResumoChamado.Margin = new System.Windows.Forms.Padding(4);
             this.txtResumoChamado.Multiline = true;
             this.txtResumoChamado.Name = "txtResumoChamado";
             this.txtResumoChamado.ReadOnly = true;
@@ -194,7 +194,7 @@
             this.panel3.Controls.Add(this.btnVoltar);
             this.panel3.Controls.Add(this.txtResumoChamado);
             this.panel3.Location = new System.Drawing.Point(341, 108);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1217, 761);
             this.panel3.TabIndex = 35;
@@ -204,7 +204,7 @@
             this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoltar.Location = new System.Drawing.Point(1045, 690);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(159, 59);
             this.btnVoltar.TabIndex = 35;
@@ -221,7 +221,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChamadoCriado";
             this.Text = "ChamadoCriado";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

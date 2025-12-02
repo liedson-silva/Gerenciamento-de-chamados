@@ -17,6 +17,7 @@ namespace Gerenciamento_De_Chamados
 
 
         private readonly IChamadoRepository _chamadoRepository;
+        private readonly IHistoricoRepository _historicoRepository;
 
         public ChamadoCriado(int idDoChamado)
         {
@@ -24,6 +25,7 @@ namespace Gerenciamento_De_Chamados
 
 
             _chamadoRepository = new ChamadoRepository();
+            _historicoRepository = new HistoricoRepository();
 
             this._chamadoId = idDoChamado;
             // Adiciona o manipulador de evento Load
@@ -46,6 +48,7 @@ namespace Gerenciamento_De_Chamados
             {
                 // Busca o chamado no repositório
                 Chamado chamado = await _chamadoRepository.BuscarPorIdAsync(this._chamadoId);
+                string solucaoAplicada = await _historicoRepository.BuscarUltimaSolucaoAsync(this._chamadoId);
 
                 if (chamado != null)
                 {
@@ -57,6 +60,10 @@ namespace Gerenciamento_De_Chamados
                     string pessoasAfetadas = chamado.PessoasAfetadas;
                     string impedeTrabalho = chamado.ImpedeTrabalho;
                     string ocorreuAntes = chamado.OcorreuAnteriormente;
+                    string status = chamado.StatusChamado;
+                    string prioridade = chamado.PrioridadeChamado;
+                    
+
 
                     // Adicionar informações do usuário que abriu o chamado (será necessário buscar o usuário)
                     // Por enquanto, usaremos apenas SessaoUsuario.Nome
@@ -98,21 +105,29 @@ namespace Gerenciamento_De_Chamados
                         }
                     }
                     // O nome do usuário abaixo é um placeholder, pois o objeto Chamado não contém o Nome do Criador.
-                    // O ideal seria buscar o nome do usuário pelo chamado.FK_IdUsuario
-                    resumo.AppendLine($"Criado em: {quandoFoiCriado}    por    {SessaoUsuario.Nome.ToUpper()}");
-                    resumo.AppendLine();
-                    resumo.AppendLine($"{categoria} > {titulo}");
-                    resumo.AppendLine("==================================================");
-                    resumo.AppendLine();
                     resumo.AppendLine("DADOS DO FORMULÁRIO");
-                    resumo.AppendLine("Informações do chamado");
-                    resumo.AppendLine("--------------------------------------------------");
-                    resumo.AppendLine($"1. Problema está impedindo o trabalho?  {impedeTrabalho}");
-                    resumo.AppendLine($"2. Quais as pessoas afetadas?  {pessoasAfetadas}");
-                    resumo.AppendLine($"3. Ocorreu anteriormente?  {ocorreuAntes}");
                     resumo.AppendLine();
-                    resumo.AppendLine($"4. Descrição da sua solicitação:");
-                    resumo.AppendLine(descricao);
+                    resumo.AppendLine($"Id do chamado: {chamado.IdChamado}");
+                    resumo.AppendLine();
+                    resumo.AppendLine($"Id do usuário: {chamado.FK_IdUsuario}");
+                    resumo.AppendLine();
+                    resumo.AppendLine($"Título: {titulo}");
+                    resumo.AppendLine();
+                    resumo.AppendLine($"Data: {dataCriacao}");
+                    resumo.AppendLine();
+                    resumo.AppendLine($"Status: {status}");
+                    resumo.AppendLine();
+                    resumo.AppendLine($"Prioridade: {prioridade}");
+                    resumo.AppendLine();
+                    resumo.AppendLine($"Descrição do problema: {descricao}");
+                    resumo.AppendLine();
+                    resumo.AppendLine($"Pessoas afetadas: {pessoasAfetadas}");
+                    resumo.AppendLine();
+                    resumo.AppendLine($"Problema está impedindo meu trabalho? {impedeTrabalho}");
+                    resumo.AppendLine();
+                    resumo.AppendLine($"Já ocorreu anteriormente? {ocorreuAntes}");
+                    resumo.AppendLine();
+                    resumo.AppendLine($"Solução Aplicada: {solucaoAplicada ?? "Chamado ainda não foi resolvido."}");
                     resumo.AppendLine();
 
                     txtResumoChamado.Text = resumo.ToString();

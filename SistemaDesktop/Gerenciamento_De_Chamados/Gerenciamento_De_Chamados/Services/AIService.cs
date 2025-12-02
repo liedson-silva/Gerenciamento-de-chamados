@@ -34,8 +34,8 @@ namespace Gerenciamento_De_Chamados.Services
             {
                 throw new InvalidOperationException("API Key do Gemini não encontrada no App.config.");
             }
-            // Define um timeout de 300 segundos (5 minutos) para evitar travamentos longos
-            _httpClient.Timeout = TimeSpan.FromSeconds(300);
+            // Define um timeout  para evitar travamentos longos
+            _httpClient.Timeout = TimeSpan.FromSeconds(1000);
         }
 
 

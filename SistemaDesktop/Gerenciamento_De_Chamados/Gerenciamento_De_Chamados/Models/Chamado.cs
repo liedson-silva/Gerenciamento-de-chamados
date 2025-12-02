@@ -99,5 +99,10 @@ namespace Gerenciamento_De_Chamados.Models
         /// A sugestão de solução que a IA oferece ao técnico, baseada no histórico.
         /// </summary>
         public string SolucaoSugeridaIA { get; set; }
+
+        /// <summary>
+        /// A solução final aplicada pelo técnico e registrada no fechamento do chamado.
+        /// </summary>
+        public string SolucaoAplicada { get; set; }
     }
 }

@@ -370,5 +370,12 @@ namespace Gerenciamento_De_Chamados
         {
             FormHelper.FAQ(this);
         }
+
+        private void lbl_Relatorio_Click(object sender, EventArgs e)
+        {
+            var telaRealatorio = new Relatorio();
+            telaRealatorio.Show();
+            this.Hide();
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace Gerenciamento_De_Chamados
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_Relatorio = new System.Windows.Forms.Label();
             this.lblMconta = new System.Windows.Forms.Label();
             this.lbSair = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -140,6 +141,7 @@ namespace Gerenciamento_De_Chamados
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lbl_Relatorio);
             this.panel1.Controls.Add(this.lblMconta);
             this.panel1.Controls.Add(this.lbSair);
             this.panel1.Controls.Add(this.label3);
@@ -153,6 +155,20 @@ namespace Gerenciamento_De_Chamados
             this.panel1.TabIndex = 20;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // lbl_Relatorio
+            // 
+            this.lbl_Relatorio.AutoSize = true;
+            this.lbl_Relatorio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Relatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Relatorio.Image = global::Gerenciamento_De_Chamados.Properties.Resources.content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24;
+            this.lbl_Relatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_Relatorio.Location = new System.Drawing.Point(27, 311);
+            this.lbl_Relatorio.Name = "lbl_Relatorio";
+            this.lbl_Relatorio.Size = new System.Drawing.Size(205, 29);
+            this.lbl_Relatorio.TabIndex = 20;
+            this.lbl_Relatorio.Text = "      Gerar relatório";
+            this.lbl_Relatorio.Click += new System.EventHandler(this.lbl_Relatorio_Click);
+            // 
             // lblMconta
             // 
             this.lblMconta.AutoSize = true;
@@ -160,7 +176,7 @@ namespace Gerenciamento_De_Chamados
             this.lblMconta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMconta.Image = global::Gerenciamento_De_Chamados.Properties.Resources.account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.lblMconta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMconta.Location = new System.Drawing.Point(27, 297);
+            this.lblMconta.Location = new System.Drawing.Point(27, 362);
             this.lblMconta.Name = "lblMconta";
             this.lblMconta.Size = new System.Drawing.Size(183, 29);
             this.lblMconta.TabIndex = 19;
@@ -175,7 +191,7 @@ namespace Gerenciamento_De_Chamados
             this.lbSair.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbSair.Image = global::Gerenciamento_De_Chamados.Properties.Resources.move_item_24dp_000000_FILL0_wght400_GRAD0_opsz24;
             this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbSair.Location = new System.Drawing.Point(27, 453);
+            this.lbSair.Location = new System.Drawing.Point(27, 507);
             this.lbSair.Name = "lbSair";
             this.lbSair.Size = new System.Drawing.Size(92, 29);
             this.lbSair.TabIndex = 17;
@@ -189,7 +205,7 @@ namespace Gerenciamento_De_Chamados
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Suporte;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(27, 399);
+            this.label3.Location = new System.Drawing.Point(27, 459);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 29);
@@ -205,7 +221,7 @@ namespace Gerenciamento_De_Chamados
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(27, 347);
+            this.label1.Location = new System.Drawing.Point(27, 411);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(230, 29);
@@ -723,5 +739,6 @@ namespace Gerenciamento_De_Chamados
         private System.Windows.Forms.Panel pnSeguranca;
         private ScottPlot.WinForms.FormsPlot plotCategoria;
         private System.Windows.Forms.Label lblMconta;
+        private System.Windows.Forms.Label lbl_Relatorio;
     }
 }
