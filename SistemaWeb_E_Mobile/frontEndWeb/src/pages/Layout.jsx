@@ -63,7 +63,7 @@ const Home = () => {
           <li className="nav-item" onClick={handleAllTicket}>
             <BsList className="nav-item-icon" /> Chamados
           </li>
-          {user.FuncaoUsuario === "Admin" && <li className="nav-item" onClick={handleReport}>
+          {(user.FuncaoUsuario === "Admin" || user.FuncaoUsuario === "Tecnico") && <li className="nav-item" onClick={handleReport}>
             <TbReportSearch className="nav-item-icon" /> Relatório
           </li>}
           <li className="nav-item" onClick={handleFAQ}>
@@ -104,7 +104,7 @@ const Home = () => {
             <ul className="dropdown-menu">
               <li onClick={handleUserConfig} className="menu">Minha Conta</li>
               <li onClick={handleAllTicket} className="menu">Chamados</li>
-              {user.FuncaoUsuario === "Admin" && <li onClick={handleReport}
+              {(user.FuncaoUsuario === "Admin" || user.FuncaoUsuario === "Tecnico") && <li onClick={handleReport}
                 className="menu" > Relatório </li>}
               <li onClick={handleFAQ} className="menu">FAQ</li>
               <li onClick={handleLogin} className="menu">Sair</li>
