@@ -17,12 +17,12 @@ namespace Gerenciamento_De_Chamados.Helpers
 
         private static void AbrirOuReativarForm<T>(Form formAtual) where T : Form, new()
         {
-            // 1. Tenta encontrar uma instância existente do formulário no Application.OpenForms
+            
             T formExistente = Application.OpenForms.OfType<T>().FirstOrDefault();
 
             if (formExistente != null)
             {
-                // 2. Se achou, mostra e traz para frente
+               
                 formExistente.Show();
                 if (formExistente.WindowState == FormWindowState.Minimized)
                 {
@@ -32,13 +32,12 @@ namespace Gerenciamento_De_Chamados.Helpers
             }
             else
             {
-                // 3. Se não achou, cria e mostra uma nova (situação menos comum para "Voltar")
+                
                 var novoForm = new T();
                 novoForm.Show();
             }
 
 
-            // 4. Fecha o formulário atual (FAQ)
             if (formAtual.GetType() != typeof(T))
             {
                 formAtual.Close();
@@ -47,18 +46,18 @@ namespace Gerenciamento_De_Chamados.Helpers
 
         private static void NavegarParaHome<T>(Form formAtual) where T : Form, new()
         {
-            // 1. Tenta encontrar uma instância existente da Home
+
             T homeForm = Application.OpenForms.OfType<T>().FirstOrDefault();
 
             if (homeForm == null)
             {
-                // Se não existir, cria uma nova
+
                 homeForm = new T();
                 homeForm.Show();
             }
             else
             {
-                // Se existir, apenas garante que está visível e traz para frente
+
                 homeForm.Show();
                 if (homeForm.WindowState == FormWindowState.Minimized)
                 {
@@ -67,12 +66,16 @@ namespace Gerenciamento_De_Chamados.Helpers
                 homeForm.BringToFront();
             }
 
-            // 2. Fecha o formulário atual (de onde o botão foi clicado)
+
             if (formAtual.GetType() != typeof(T))
             {
-                formAtual.Close();
+                formAtual.Close(); 
             }
+
         }
+
+
+
 
 
 
