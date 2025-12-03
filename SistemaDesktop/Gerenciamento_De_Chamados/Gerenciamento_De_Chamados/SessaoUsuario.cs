@@ -9,10 +9,10 @@ namespace Gerenciamento_De_Chamados
 {
     public static class SessaoUsuario
     {
-        // Tempo da sessão em minutos
+
         private const int TEMPO_SESSAO_MINUTOS = 30;
 
-        
+
         public static int IdUsuario { get; private set; }
         public static string Login { get; private set; }
         public static string Nome { get; private set; }
@@ -22,7 +22,7 @@ namespace Gerenciamento_De_Chamados
 
         private static DateTime _horaExpiracao;
 
-      
+
         public static void IniciarSessao(Usuario usuario)
         {
             IdUsuario = usuario.IdUsuario;
@@ -37,13 +37,13 @@ namespace Gerenciamento_De_Chamados
 
 
         /// Verifica se a sessão atual ainda é válida ("Valida o Token").
-      
+
         public static bool SessaoEstaValida()
         {
 
             if (IdUsuario == 0 || DateTime.Now > _horaExpiracao)
             {
-                EncerrarSessao(); 
+                EncerrarSessao();
                 return false;
             }
 
@@ -59,7 +59,10 @@ namespace Gerenciamento_De_Chamados
             Nome = null;
             Email = null;
             FuncaoUsuario = null;
-            _horaExpiracao = DateTime.MinValue; 
+            _horaExpiracao = DateTime.MinValue;
         }
+        /// <summary>
+        /// Limpa todos os dados da sessão do usuário ao fazer logoff.
+        /// </summary>
     }
 }

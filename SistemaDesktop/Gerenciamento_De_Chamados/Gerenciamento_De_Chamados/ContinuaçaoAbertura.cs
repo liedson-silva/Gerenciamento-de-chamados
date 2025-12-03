@@ -125,6 +125,8 @@ namespace Gerenciamento_De_Chamados
                 // ETAPA 1: Cria o chamado base no DB 
                 int idChamado = await _chamadoService.CriarChamadoBaseAsync(novoChamado, arquivoBytes, nomeAnexo, tipoAnexo);
 
+                novoChamado.IdChamado = idChamado;
+
                 // ETAPA 2: Envia email de confirmação para o USUÁRIO 
                 await _chamadoService.EnviarConfirmacaoUsuarioAsync(novoChamado);
 

@@ -37,8 +37,6 @@ namespace Gerenciamento_De_Chamados
             this.lbl_NomeUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbSair = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -114,8 +112,6 @@ namespace Gerenciamento_De_Chamados
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.lbSair);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.PctBox_Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -139,35 +135,6 @@ namespace Gerenciamento_De_Chamados
             this.lbSair.TabIndex = 17;
             this.lbSair.Text = "      Sair";
             this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.Suporte;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(17, 336);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 24);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "      FAQ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(17, 292);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 24);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "      Meus Chamados";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // PctBox_Logo
             // 
@@ -251,7 +218,7 @@ namespace Gerenciamento_De_Chamados
             this.roundedPanel1.Controls.Add(this.txtSolucao);
             this.roundedPanel1.CornerRadius = 15F;
             this.roundedPanel1.Location = new System.Drawing.Point(250, 102);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.Size = new System.Drawing.Size(962, 657);
             this.roundedPanel1.TabIndex = 32;
@@ -413,8 +380,6 @@ namespace Gerenciamento_De_Chamados
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lbl_Inicio;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox PctBox_Logo;
         private System.Windows.Forms.Label lbl_NomeUser;
         private System.Windows.Forms.Label label10;

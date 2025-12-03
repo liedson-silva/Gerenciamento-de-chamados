@@ -34,8 +34,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerenciarUsuarios));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbSair = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.PctBox_Logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_NomeUser = new System.Windows.Forms.Label();
@@ -68,8 +66,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.lbSair);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.PctBox_Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -88,38 +84,10 @@
             this.lbSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbSair.Location = new System.Drawing.Point(12, 380);
             this.lbSair.Name = "lbSair";
-            this.lbSair.Size = new System.Drawing.Size(92, 29);
+            this.lbSair.Size = new System.Drawing.Size(72, 24);
             this.lbSair.TabIndex = 17;
             this.lbSair.Text = "      Sair";
             this.lbSair.Click += new System.EventHandler(this.lbSair_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Image = global::Gerenciamento_De_Chamados.Properties.Resources.contact_support_24dp_000000_FILL0_wght400_GRAD0_opsz24;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(12, 339);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 29);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "      FAQ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::Gerenciamento_De_Chamados.Properties.Resources.menu_24dp_000000_FILL0_wght400_GRAD0_opsz24__1_;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 294);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 29);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "      Meus Chamados";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // PctBox_Logo
             // 
@@ -151,7 +119,7 @@
             this.lbl_NomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_NomeUser.Location = new System.Drawing.Point(174, 38);
             this.lbl_NomeUser.Name = "lbl_NomeUser";
-            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 25);
+            this.lbl_NomeUser.Size = new System.Drawing.Size(0, 20);
             this.lbl_NomeUser.TabIndex = 8;
             // 
             // lbl_Inicio
@@ -163,7 +131,7 @@
             this.lbl_Inicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_Inicio.Location = new System.Drawing.Point(58, 34);
             this.lbl_Inicio.Name = "lbl_Inicio";
-            this.lbl_Inicio.Size = new System.Drawing.Size(134, 36);
+            this.lbl_Inicio.Size = new System.Drawing.Size(106, 29);
             this.lbl_Inicio.TabIndex = 5;
             this.lbl_Inicio.Text = "      Início";
             this.lbl_Inicio.Click += new System.EventHandler(this.lbl_Inicio_Click);
@@ -213,10 +181,10 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(941, 564);
+            this.btnVoltar.Location = new System.Drawing.Point(826, 564);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(159, 55);
             this.btnVoltar.TabIndex = 9;
@@ -236,12 +204,12 @@
             // 
             // btnEditarUsuario
             // 
-            this.btnEditarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnEditarUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnEditarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarUsuario.Image = global::Gerenciamento_De_Chamados.Properties.Resources.edit_44dp_000000_FILL0_wght400_GRAD0_opsz48;
             this.btnEditarUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarUsuario.Location = new System.Drawing.Point(297, 564);
+            this.btnEditarUsuario.Location = new System.Drawing.Point(364, 564);
             this.btnEditarUsuario.Name = "btnEditarUsuario";
             this.btnEditarUsuario.Size = new System.Drawing.Size(159, 55);
             this.btnEditarUsuario.TabIndex = 4;
@@ -251,7 +219,7 @@
             // 
             // btnCadastroUser
             // 
-            this.btnCadastroUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCadastroUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCadastroUser.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnCadastroUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastroUser.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
@@ -260,7 +228,7 @@
             this.btnCadastroUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCadastroUser.Image = global::Gerenciamento_De_Chamados.Properties.Resources.add_44dp_F3F3F3_FILL0_wght400_GRAD0_opsz48;
             this.btnCadastroUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastroUser.Location = new System.Drawing.Point(34, 564);
+            this.btnCadastroUser.Location = new System.Drawing.Point(68, 564);
             this.btnCadastroUser.Name = "btnCadastroUser";
             this.btnCadastroUser.Size = new System.Drawing.Size(204, 55);
             this.btnCadastroUser.TabIndex = 0;
@@ -345,7 +313,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(344, 46);
+            this.label2.Size = new System.Drawing.Size(277, 37);
             this.label2.TabIndex = 5;
             this.label2.Text = "Gerenciar Usuário";
             // 
@@ -356,7 +324,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(63, 111);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 25);
+            this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Pesquisar:";
             // 
@@ -396,8 +364,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox PctBox_Logo;
         private System.Windows.Forms.Button btnEditarUsuario;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_Inicio;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label2;
