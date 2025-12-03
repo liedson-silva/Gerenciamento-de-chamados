@@ -6,28 +6,48 @@ using System.Threading.Tasks;
 
 namespace Gerenciamento_De_Chamados.Services
 {
-    // Adicione "public" aqui
+    /// <summary>
+    /// 
+    /// Responsável por todas as regras e validações do cadastro de Usuário
+    /// antes que os dados sejam enviados ao Repositório para persistência.
+    /// </summary>
     public class UsuarioService : IUsuarioService
     {
         // Dependência do repositório (abstração)
         private readonly IUsuarioRepository _usuarioRepository;
 
-        // Injeção de Dependência via construtor
+        /// <summary>
+        /// 
+        /// O serviço recebe uma instância do IUsuarioRepository, garantindo 
+        /// que ele use a camada de dados correta e que possa ser facilmente testado.
+        /// </summary>
         public UsuarioService(IUsuarioRepository usuarioRepository)
         {
             _usuarioRepository = usuarioRepository;
         }
 
-        // Método principal da lógica de negócio
+        /// <summary>
+        /// Adiciona um novo usuário ao sistema, aplicando 
+        /// todas as regras de negócio e validações antes de salvar no banco.
+        /// </summary>
+        /// <param name="novoUsuario">O objeto Usuario a ser salvo.</param>
         public async Task AdicionarUsuarioAsync(Usuario novoUsuario)
         {
+           
+            // Limpa caracteres especiais do CPF e RG antes de validar
             string cpfLimpo = (novoUsuario.CPF ?? "")
             .Replace(".", "").Replace("-", "").Trim();
 
             string rgLimpo = (novoUsuario.RG ?? "")
             .Replace(".", "").Replace("-", "").Trim();
 
-            // 1. Validar os dados de entrada usando nosso validador
+            // Atualiza o objeto com os valores limpos (importante para o Repositório salvar)
+            novoUsuario.CPF = cpfLimpo;
+            novoUsuario.RG = rgLimpo;
+
+            // 1. Validar os dados de entrada usando a nossa classe ValidadorUsuario
+            // Se qualquer validação falhar, uma exceção é lançada,
+            // e o fluxo é interrompido antes de acessar o banco de dados.
             if (!ValidadorUsuario.IsNomeValido(novoUsuario.Nome))
                 throw new Exception("O campo 'Nome' é obrigatório.");
 
@@ -44,6 +64,7 @@ namespace Gerenciamento_De_Chamados.Services
                 throw new Exception("A 'Senha' é inválida. Requisitos: 8+ chars, 1 maiúscula, 1 número.");
 
             // 2. Chamar o Repositório para salvar
+            // Se tudo estiver OK, delegamos a responsabilidade de criptografar a senha (no Repositório) e salvar no BD.
             await _usuarioRepository.AdicionarAsync(novoUsuario);
         }
     }

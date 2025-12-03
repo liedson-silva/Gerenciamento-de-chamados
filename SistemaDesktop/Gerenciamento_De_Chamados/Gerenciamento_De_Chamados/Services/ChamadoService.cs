@@ -73,14 +73,13 @@ namespace Gerenciamento_De_Chamados.Services
         public async Task EnviarConfirmacaoUsuarioAsync(Chamado chamado)
         {
             // Assumindo que a informação básica do usuário está na SessaoUsuario
-            Usuario usuario = new Usuario
-            {
-                Nome = SessaoUsuario.Nome,
-                Email = SessaoUsuario.Email
-            };
+            await _emailService.EnviarEmailConfirmacaoUsuarioAsync(
+               chamado,
+               chamado.IdChamado,
+               SessaoUsuario.Email,
+               SessaoUsuario.Nome);
 
-            // Usando o método de e-mail de confirmação do usuário conforme a interface fornecida
-            await _emailService.EnviarEmailConfirmacaoUsuarioAsync(chamado, usuario, chamado.IdChamado);
+
         }
 
         /// <summary>

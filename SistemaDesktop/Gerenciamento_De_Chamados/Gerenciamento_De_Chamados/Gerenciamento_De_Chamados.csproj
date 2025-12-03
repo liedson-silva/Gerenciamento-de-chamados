@@ -53,6 +53,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo_empresa.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
@@ -518,6 +521,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="logo_empresa.ico" />
     <None Include="Resources\content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
     <None Include="Resources\HOME 36p.png" />
     <None Include="Resources\home_40dp_000000_FILL1_wght400_GRAD0_opsz40.png" />

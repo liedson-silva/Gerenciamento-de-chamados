@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq; // Necessário para o ToList() em alguns cenários
+using System.Linq; 
 
 namespace Gerenciamento_De_Chamados.Services
 {
@@ -50,7 +50,7 @@ namespace Gerenciamento_De_Chamados.Services
 
             string baseConhecimento = FormatarSolucoes(solucoesAnteriores);
 
-            // O Prompt instrui a IA sobre seu papel e o formato de saída exigido (CSV/Texto estruturado)
+            
             string prompt = $@"
                 Você é um Analista de Suporte Técnico experiente. Sua tarefa é analisar o chamado
                 e seguir rigorosamente as Regras de Prioridade e Base de Conhecimento para fornecer uma triagem inicial.
@@ -116,7 +116,7 @@ namespace Gerenciamento_De_Chamados.Services
                     // Lê o corpo da resposta
                     string responseBody = await response.Content.ReadAsStringAsync();
 
-                    // Verifica se a requisição HTTP foi bem-sucedida (status code 2xx)
+                    // Verifica se a requisição HTTP foi bem-sucedida 
                     if (!response.IsSuccessStatusCode)
                     {
                         string errorDetails = responseBody;

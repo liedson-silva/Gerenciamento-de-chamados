@@ -88,8 +88,12 @@ namespace Gerenciamento_De_Chamados.Tests
             // 3.3. Verifica se NENHUMA outra dependência foi chamada (IA, Email, Histórico)
             _mockAiService.Verify(ai => ai.AnalisarChamado(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<List<string>>()), Times.Never());
             _mockEmailService.Verify(email => email.EnviarEmailNovoChamadoTIAsync(It.IsAny<Chamado>(), It.IsAny<Usuario>(), It.IsAny<int>(), It.IsAny<byte[]>(), It.IsAny<string>()), Times.Never());
-            _mockEmailService.Verify(email => email.EnviarEmailConfirmacaoUsuarioAsync(It.IsAny<Chamado>(), It.IsAny<Usuario>(), It.IsAny<int>()), Times.Never());
-            _mockHistoricoRepo.Verify(h => h.AdicionarSemTransacaoAsync(It.IsAny<Historico>()), Times.Never());
+            _mockEmailService.Verify(email => email.EnviarEmailConfirmacaoUsuarioAsync(
+                 It.IsAny<Chamado>(),
+                 It.IsAny<int>(),
+                 It.IsAny<string>(),
+                 It.IsAny<string>()), Times.Never());
+        _mockHistoricoRepo.Verify(h => h.AdicionarSemTransacaoAsync(It.IsAny<Historico>()), Times.Never());
         }
 
         // --- TESTE 2: Foco na Etapa 2/3 (Lenta / Background) ---
