@@ -6,6 +6,12 @@
      <h2 align="center"> Fatal System</h2>
 </p>
 
+### 🔗 Acesse o Sistema
+* **[Web](https://fatal-system.vercel.app/#/)**
+* **[Mobile](https://github.com/liedson-silva/Gerenciamento-de-chamados/tree/main/Instale%20os%20sistemas)**
+* **[Desktop](https://github.com/liedson-silva/Gerenciamento-de-chamados/tree/main/Instale%20os%20sistemas)**
+
+
 ### 🧭 Navegação Rápida
 
 * [Desafio](#desafio)
